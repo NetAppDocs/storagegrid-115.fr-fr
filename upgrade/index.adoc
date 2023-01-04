@@ -1,0 +1,20 @@
+---
+permalink: upgrade/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Mise à niveau du logiciel
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez comment mettre à niveau un système StorageGRID vers une nouvelle version.
+
+* link:about-this-release.html["À propos de StorageGRID 11.5"]
+* link:upgrade-planning-and-preparation.html["Planification et préparation de la mise à niveau"]
+* link:performing-upgrade.html["Exécution de la mise à niveau"]
+* link:troubleshooting-upgrade-issues.html["Résolution des problèmes de mise à niveau"]
+

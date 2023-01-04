@@ -1,0 +1,125 @@
+---
+permalink: ubuntu/downloading-and-extracting-storagegrid-installation-files.html 
+sidebar: sidebar 
+keywords: storagegrid, ubuntu, debian, download installation files, downloading installation files 
+summary: 'Vous devez télécharger l"archive d"installation de StorageGRID et extraire les fichiers requis.' 
+---
+= Téléchargement et extraction des fichiers d'installation de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez télécharger l'archive d'installation de StorageGRID et extraire les fichiers requis.
+
+.Étapes
+. Accédez à la page de téléchargements NetApp pour StorageGRID.
++
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Téléchargement NetApp : StorageGRID"^]
+
+. Sélectionnez le bouton pour télécharger la dernière version ou sélectionnez une autre version dans le menu déroulant et sélectionnez *Go*.
+. Connectez-vous avec le nom d'utilisateur et le mot de passe de votre compte NetApp.
+. Si une instruction attention/MustRead s'affiche, lisez-la et cochez la case.
++
+Après l'installation de la version StorageGRID, vous devez appliquer les correctifs requis. Pour plus d'informations, reportez-vous à la procédure de correctif dans les instructions de récupération et de maintenance.
+
+. Lisez le contrat de licence de l'utilisateur final, cochez la case, puis sélectionnez *accepter et continuer*.
++
+La page des téléchargements de la version sélectionnée s'affiche. La page contient trois colonnes :
+
+. Dans la colonne *installer StorageGRID*, sélectionnez le logiciel approprié.
++
+Sélectionner `.tgz` ou `.zip` fichier d'archivage pour votre plate-forme.
+
++
+** `StorageGRID-Webscale-version-DEB-uniqueID.zip`
+** `StorageGRID-Webscale-version-DEB-uniqueID.tgz`
++
+Les fichiers compressés contiennent les fichiers DEB et les scripts pour Ubuntu ou Debian.
+
+
+
++
+
+NOTE: Utilisez le `.zip` Fichier si vous exécutez Windows sur l'ordinateur portable de service.
+
+. Enregistrez et extrayez le fichier d'archive.
+. Choisissez les fichiers dont vous avez besoin dans la liste suivante.
++
+L'ensemble de fichiers dont vous avez besoin dépend de votre topologie de grille planifiée et de la manière dont vous allez déployer votre grille StorageGRID.
+
++
+
+NOTE: Les chemins répertoriés dans la table sont relatifs au répertoire de niveau supérieur installé par l'archive d'installation extraite.
+
+
+
+[cols="1a,2a"]
+|===
+| Chemin d'accès et nom de fichier | Description 
+
+
+| ./bps/README  a| 
+Fichier texte qui décrit tous les fichiers contenus dans le fichier de téléchargement StorageGRID.
+
+
+
+| ./Debian/NLF000000.txt  a| 
+Un fichier de licence NetApp hors production que vous pouvez utiliser pour tester et réaliser des démonstrations de faisabilité.
+
+
+
+| ./Debian/storagegrid-webscale-images-version-SHA.deb  a| 
+DEB paquet pour installer les images de noeud StorageGRID sur des hôtes Ubuntu ou Debian.
+
+
+
+| ./Debian/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+Somme de contrôle MD5 pour le fichier `/debs/storagegrid-webscale-images-version-SHA.deb`.
+
+
+
+| ./Debian/storagegrid-webscale-service-version-SHA.deb  a| 
+Paquet DEB pour l'installation du service hôte StorageGRID sur des hôtes Ubuntu ou Debian.
+
+
+
+ a| 
+*Outil de script de déploiement*
+ a| 
+*Description*
+
+
+
+| ./debian/configure-storagegrid.py  a| 
+Script Python utilisé pour automatiser la configuration d'un système StorageGRID.
+
+
+
+| ./debian/configure-sga.py  a| 
+Script Python utilisé pour automatiser la configuration des appliances StorageGRID.
+
+
+
+| ./debian/storagegrid-ssoauth.py  a| 
+Exemple de script Python que vous pouvez utiliser pour vous connecter à l'API Grid Management lorsque l'authentification unique est activée.
+
+
+
+| ./deps/configure-storagegrid.sample.json  a| 
+Exemple de fichier de configuration à utiliser avec le `configure-storagegrid.py` script.
+
+
+
+| ./deps/configure-storagegrid.blank.json  a| 
+Un fichier de configuration vierge à utiliser avec le `configure-storagegrid.py` script.
+
+
+
+| ./deps/extras/ansible  a| 
+Exemple de rôle et de manuel de vente Ansible pour la configuration des hôtes Ubuntu ou Debian pour le déploiement de conteneurs StorageGRID. Vous pouvez personnaliser le rôle ou le PlayBook selon vos besoins.
+
+|===
+.Informations associées
+link:../maintain/index.html["Maintenance et récupération"]

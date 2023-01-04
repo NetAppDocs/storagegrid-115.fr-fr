@@ -1,0 +1,28 @@
+---
+permalink: upgrade/changes-to-tenant-management-api.html 
+sidebar: sidebar 
+keywords: tenant management api, api, api version, swagger, rest api 
+summary: 'StorageGRID 11.5 utilise la version 3 de l"API de gestion des locataires. La version 3 dégénère la version 2 ; cependant, les versions 1 et 2 sont toujours prises en charge.' 
+---
+= Modifications apportées à l'API de gestion des locataires
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 11.5 utilise la version 3 de l'API de gestion des locataires. La version 3 dégénère la version 2 ; cependant, les versions 1 et 2 sont toujours prises en charge.
+
+
+IMPORTANT: Vous pouvez continuer à utiliser les versions 1 et 2 de l'API de gestion avec StorageGRID 11.5. Toutefois, la prise en charge de ces versions de l'API sera supprimée dans une prochaine version de StorageGRID. Après la mise à niveau vers StorageGRID 11.5, les API v1 et v2 peuvent être désactivées à l'aide du système `PUT /grid/config/management` API.
+
+
+
+== Nouveau paramètre de l'API d'utilisation du stockage par les locataires
+
+Le `GET /org/usage` L'API a désormais un `strictConsistency` paramètre. Pour appliquer une cohérence globale forte lors de la récupération des informations d'utilisation du stockage sur les nœuds de stockage, définissez ce paramètre sur `true`. Lorsque ce paramètre est défini sur `false` (Par défaut), StorageGRID tente de récupérer les informations relatives à l'utilisation dans le cadre d'une cohérence globale forte, mais redevient cohérente avec le site si une cohérence forte ne peut pas être atteinte.
+
+.Informations associées
+link:../s3/index.html["Utilisation de S3"]
+
+link:../tenant/index.html["Utilisez un compte de locataire"]

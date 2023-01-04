@@ -1,0 +1,34 @@
+---
+section: troubleshoot
+title: Dépanner un système StorageGRID
+url: "/troubleshoot/troubleshooting-storagegrid-system.html"
+entries:
+- title: Résolution des problèmes d'objet et de stockage
+  url: "/troubleshoot/troubleshooting-object-and-storage-issues.html"
+  entries:
+  - title: Vérification de l'intégrité des objets
+    url: "/troubleshoot/verifying-object-integrity.html"
+  - title: Dépannage des données d'objet perdues ou manquantes
+    url: "/troubleshoot/troubleshooting-lost-and-missing-object-data.html"
+    entries:
+    - title: Analyse des objets perdus
+      url: "/troubleshoot/investigating-lost-objects.html"
+    - title: Recherche et restauration d'objets potentiellement perdus
+      url: "/troubleshoot/searching-for-and-restoring-potentially-lost-objects.html"
+    - title: Réinitialisation du nombre d'objets perdus et manquants
+      url: "/troubleshoot/resetting-lost-and-missing-object-counts.html"
+  - title: Dépannage de l'alerte de stockage de données d'objet faible
+    url: "/troubleshoot/troubleshooting-low-object-data-storage-alert.html"
+  - title: Dépannage de l'alarme Storage Status (SSTS)
+    url: "/troubleshoot/troubleshooting-storage-status-alarm.html"
+  - title: Résolution des problèmes de transmission des messages des services de plate-forme
+      (alarme SMTT)
+    url: "/troubleshoot/troubleshooting-delivery-platform-services-messages.html"
+- title: Résolution des problèmes de métadonnées
+  url: "/troubleshoot/troubleshooting-metadata-issues.html"
+- title: Dépannage des erreurs de certificat
+  url: "/troubleshoot/troubleshooting-certificate-errors.html"
+- title: Résolution des problèmes liés au nœud d'administration et à l'interface utilisateur
+  url: "/troubleshoot/troubleshooting-admin-node-and-user-interface-issues.html"
+- title: Résolution des problèmes de réseau, de matériel et de plate-forme
+  url: "/troubleshoot/troubleshooting-network-hardware-and-platform-issues.html"

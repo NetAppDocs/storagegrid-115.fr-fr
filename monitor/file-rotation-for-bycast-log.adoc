@@ -1,0 +1,26 @@
+---
+permalink: monitor/file-rotation-for-bycast-log.html 
+sidebar: sidebar 
+keywords: file rotation, bycast, log, file rotation, bycast.log 
+summary: 'Lorsque le `bycast.log` Le fichier atteint 1 Go, le fichier existant est enregistré et un nouveau fichier journal est démarré.' 
+---
+= Rotation des fichiers pour bycast.log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque le `bycast.log` Le fichier atteint 1 Go, le fichier existant est enregistré et un nouveau fichier journal est démarré.
+
+Le fichier enregistré est renommé `bycast.log.1`, et le nouveau fichier est nommé `bycast.log`. Lorsque le nouveau `bycast.log` Atteint 1 Go, `bycast.log.1` est renommé et compressé pour devenir `bycast.log.2.gz`, et `bycast.log` est renommé `bycast.log.1`.
+
+La limite de rotation pour `bycast.log` est de 21 fichiers. Lorsque la 22e version du `bycast.log` le fichier est créé, le fichier le plus ancien est supprimé.
+
+La limite de rotation pour `bycast-err.log` est sept fichiers.
+
+
+NOTE: Si un fichier journal a été compressé, vous ne devez pas le décompresser au même emplacement que celui dans lequel il a été écrit. La décompression du fichier au même emplacement peut interférer avec les scripts de rotation du journal.
+
+.Informations associées
+link:collecting-log-files-and-system-data.html["Collecte des fichiers journaux et des données système"]

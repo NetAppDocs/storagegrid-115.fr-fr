@@ -1,0 +1,22 @@
+---
+permalink: admin/controlling-administrator-access-to-storagegrid.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez contrôler l"accès des administrateurs au système StorageGRID en ouvrant ou en fermant des ports de pare-feu, en gérant les groupes et les utilisateurs d"administration, en configurant l"authentification unique \(SSO\) et en fournissant des certificats client afin de permettre un accès externe sécurisé aux mesures StorageGRID.' 
+---
+= Contrôle de l'accès administrateur à StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez contrôler l'accès des administrateurs au système StorageGRID en ouvrant ou en fermant des ports de pare-feu, en gérant les groupes et les utilisateurs d'administration, en configurant l'authentification unique (SSO) et en fournissant des certificats client pour autoriser un accès externe sécurisé aux mesures StorageGRID.
+
+* link:controlling-access-through-firewalls.html["Contrôle de l'accès par pare-feu"]
+* link:using-identity-federation.html["Utilisation de la fédération des identités"]
+* link:managing-admin-groups.html["Gestion des groupes d'administration"]
+* link:managing-local-users.html["Gestion des utilisateurs locaux"]
+* link:using-single-sign-on.html["Utilisation de l'authentification unique (SSO) pour StorageGRID"]
+* link:configuring-administrator-client-certificates.html["Configuration des certificats client administrateur"]
+

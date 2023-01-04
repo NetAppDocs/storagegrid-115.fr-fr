@@ -1,0 +1,25 @@
+---
+permalink: ilm/using-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez utiliser les pools de stockage cloud pour déplacer des objets StorageGRID vers un emplacement de stockage externe, tel que le stockage S3 Glacier ou Microsoft Azure Blob. Le déplacement d"objets hors de la grille vous permet de bénéficier d"un Tier de stockage à faible coût pour un archivage à long terme.' 
+---
+= Utilisation de pools de stockage cloud
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser les pools de stockage cloud pour déplacer des objets StorageGRID vers un emplacement de stockage externe, tel que le stockage S3 Glacier ou Microsoft Azure Blob. Le déplacement d'objets hors de la grille vous permet de bénéficier d'un Tier de stockage à faible coût pour un archivage à long terme.
+
+* link:what-cloud-storage-pool-is.html["Définition d'un pool de stockage cloud"]
+* link:lifecycle-of-cloud-storage-pool-object.html["Cycle de vie d'un objet de pool de stockage cloud"]
+* link:when-to-use-cloud-storage-pools.html["Quand utiliser les pools de stockage cloud"]
+* link:considerations-for-cloud-storage-pools.html["Considérations relatives aux pools de stockage cloud"]
+* link:comparing-cloud-storage-pools-to-cloudmirror-replication.html["Comparaison des pools de stockage cloud et de la réplication CloudMirror"]
+* link:creating-cloud-storage-pool.html["Création d'un pool de stockage cloud"]
+* link:editing-cloud-storage-pool.html["Modification d'un pool de stockage cloud"]
+* link:removing-cloud-storage-pool.html["Suppression d'un pool de stockage cloud"]
+* link:troubleshooting-cloud-storage-pools.html["Résolution des problèmes avec les pools de stockage cloud"]
+

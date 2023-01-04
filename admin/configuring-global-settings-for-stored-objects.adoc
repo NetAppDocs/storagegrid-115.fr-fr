@@ -1,0 +1,19 @@
+---
+permalink: admin/configuring-global-settings-for-stored-objects.html 
+sidebar: sidebar 
+keywords:  
+summary: Vous pouvez utiliser les options de grille pour configurer les paramètres de tous les objets stockés dans votre système StorageGRID, y compris la compression des objets stockés et le chiffrement des objets stockés. et objet stocké hachage. 
+---
+= Configuration des paramètres globaux des objets stockés
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser les options de grille pour configurer les paramètres de tous les objets stockés dans votre système StorageGRID, y compris la compression des objets stockés et le chiffrement des objets stockés. et objet stocké hachage.
+
+* link:configuring-stored-object-compression.html["Configuration de la compression des objets stockés"]
+* link:configuring-stored-object-encryption.html["Configuration du chiffrement des objets stockés"]
+* link:configuring-stored-object-hashing.html["Configuration du hachage de l'objet stocké"]
+

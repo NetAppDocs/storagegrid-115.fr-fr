@@ -1,0 +1,26 @@
+---
+permalink: network/linux-deployments.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Garantissant efficacité, fiabilité et sécurité, le système StorageGRID s"exécute sous Linux comme un ensemble de conteneurs Docker. Il n"est pas nécessaire de configurer un réseau basé sur Docker sur un système StorageGRID.' 
+---
+= Déploiements Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Garantissant efficacité, fiabilité et sécurité, le système StorageGRID s'exécute sous Linux comme un ensemble de conteneurs Docker. Il n'est pas nécessaire de configurer un réseau basé sur Docker sur un système StorageGRID.
+
+Utilisez un périphérique sans lien, tel qu'une paire VLAN ou Ethernet virtuel (veth), pour l'interface réseau du conteneur. Spécifiez ce périphérique comme interface réseau dans le fichier de configuration de nœud.
+
+
+IMPORTANT: N'utilisez pas de périphériques de liaison ou de pont directement comme interface réseau de conteneur. Cela pourrait empêcher le démarrage du nœud en raison d'un problème de noyau lié à l'utilisation de macvlan avec des périphériques de liaison et de pont dans l'espace de noms de conteneur.
+
+Consultez les instructions d'installation pour les déploiements Red Hat Enterprise Linux/CentOS ou Ubuntu/Debian.
+
+.Informations associées
+link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Installez Ubuntu ou Debian"]

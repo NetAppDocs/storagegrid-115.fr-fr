@@ -1,0 +1,83 @@
+---
+permalink: network/host-network-configuration-for-docker-deployments.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Avant de démarrer votre déploiement StorageGRID sur une plateforme de conteneurisation Docker, déterminez les réseaux \(Grid, Admin, client\) utilisés par chaque nœud. Vous devez vous assurer que l’interface réseau de chaque nœud est configurée sur l’interface hôte physique ou virtuelle appropriée et que chaque réseau dispose d’une bande passante suffisante.' 
+---
+= Configuration du réseau de l'hôte pour les déploiements Docker
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de démarrer votre déploiement StorageGRID sur une plateforme de conteneurisation Docker, déterminez les réseaux (Grid, Admin, client) utilisés par chaque nœud. Vous devez vous assurer que l'interface réseau de chaque nœud est configurée sur l'interface hôte physique ou virtuelle appropriée, et que chaque réseau dispose de suffisamment de bande passante.
+
+
+
+== Hôtes physiques
+
+Si vous utilisez des hôtes physiques pour prendre en charge les nœuds grid :
+
+* Vérifiez que tous les hôtes utilisent la même interface hôte pour chaque interface de nœud. Cette stratégie simplifie la configuration de l'hôte et permet la migration de nœuds à venir.
+* Obtenir une adresse IP pour l'hôte physique lui-même.
++
+
+NOTE: Une interface physique sur l'hôte peut être utilisée par l'hôte lui-même et un ou plusieurs nœuds exécutés sur l'hôte. Toutes les adresses IP attribuées à l'hôte ou aux nœuds utilisant cette interface doivent être uniques. L'hôte et le nœud ne peuvent pas partager d'adresses IP.
+
+* Ouvrez les ports requis vers l'hôte.
+
+
+
+
+== Recommandations minimales sur la bande passante
+
+Le tableau suivant fournit les recommandations en matière de bande passante minimale pour chaque type de nœud StorageGRID et pour chaque type de réseau. Vous devez provisionner chaque hôte physique ou virtuel avec une bande passante réseau suffisante pour répondre aux besoins de bande passante minimale de l'agrégat pour le nombre et le type de nœuds StorageGRID que vous prévoyez d'exécuter sur cet hôte.
+
+|===
+| Type de nœud 3+| Type de réseau 
+
+
+ a| 
+| Grille | Admin | Client 
+
+
+ a| 
+Admin
+| 10 Gbits/s. | 1 Gbit/s. | 1 Gbit/s. 
+
+
+ a| 
+Passerelle
+| 10 Gbits/s. | 1 Gbit/s. | 10 Gbits/s. 
+
+
+ a| 
+Stockage
+| 10 Gbits/s. | 1 Gbit/s. | 10 Gbits/s. 
+
+
+ a| 
+Archivage
+| 10 Gbits/s. | 1 Gbit/s. | 10 Gbits/s. 
+|===
+
+NOTE: Ce tableau n'inclut pas la bande passante SAN, requise pour l'accès au stockage partagé. Si vous utilisez un stockage partagé accessible via Ethernet (iSCSI ou FCoE), vous devez provisionner des interfaces physiques distinctes sur chaque hôte pour fournir suffisamment de bande passante SAN. Pour éviter tout goulet d'étranglement, la bande passante SAN d'un hôte donné doit correspondre à peu près à la bande passante réseau du nœud de stockage de l'agrégat pour tous les nœuds de stockage exécutant cet hôte.
+
+Utilisez le tableau pour déterminer le nombre minimal d'interfaces réseau à provisionner sur chaque hôte, en fonction du nombre et du type de nœuds StorageGRID que vous prévoyez d'exécuter sur cet hôte.
+
+Par exemple, pour exécuter un nœud d'administration, un nœud de passerelle et un nœud de stockage sur un même hôte :
+
+* Connecter les réseaux Grid et Admin sur le nœud d'administration (10 + 1 = 11 Gbit/s requis)
+* Connecter les réseaux Grid et client sur le nœud passerelle (10 + 10 = 20 Gbit/s requis)
+* Connexion du réseau Grid sur le nœud de stockage (10 Gbit/s requis)
+
+
+Dans ce scénario, vous devez fournir un minimum de 11 + 20 + 10 = 41 Gbit/s de bande passante réseau, Qui peut être remplie par deux interfaces 40 Gbits/s ou cinq interfaces 10 Gbits/s, potentiellement agrégées dans les lignes réseau, puis partagées par les trois VLAN ou plus transportant les sous-réseaux Grid, Admin et client locaux au centre de données physique contenant l'hôte.
+
+Pour connaître les méthodes recommandées de configuration des ressources physiques et réseau sur les hôtes de votre cluster StorageGRID pour préparer le déploiement StorageGRID, reportez-vous aux informations sur la configuration du réseau hôte dans les instructions d'installation de votre plate-forme Linux.
+
+.Informations associées
+link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Installez Ubuntu ou Debian"]

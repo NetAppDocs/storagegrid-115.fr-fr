@@ -1,0 +1,25 @@
+---
+permalink: upgrade/upgrade-planning-and-preparation.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous devez planifier la mise à niveau de votre système StorageGRID pour vérifier que celui-ci est prêt pour la mise à niveau, et qu"elle peut être effectuée avec une interruption minimale.' 
+---
+= Planification et préparation de la mise à niveau
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez planifier la mise à niveau de votre système StorageGRID pour vérifier que celui-ci est prêt pour la mise à niveau, et qu'elle peut être effectuée avec une interruption minimale.
+
+.Étapes
+. link:estimating-time-to-complete-upgrade.html["Estimation du temps nécessaire pour effectuer une mise à niveau"]
+. link:how-your-system-is-affected-during-upgrade.html["Quel est l'impact de votre système pendant la mise à niveau"]
+. link:impact-of-upgrade-on-groups-and-user-accounts.html["Impact d'une mise à niveau sur les groupes et les comptes d'utilisateurs"]
+. link:verifying-installed-version-of-storagegrid.html["Vérification de la version installée de StorageGRID"]
+. link:obtaining-required-materials-for-software-upgrade.html["Obtention des ressources nécessaires pour une mise à niveau logicielle"]
+. link:downloading-storagegrid-upgrade-files.html["Téléchargement des fichiers de mise à niveau StorageGRID"]
+. link:downloading-recovery-package.html["Téléchargement du progiciel de restauration"]
+. link:checking-systems-condition-before-upgrading-software.html["Vérification de l'état du système avant la mise à niveau du logiciel"]
+

@@ -1,0 +1,25 @@
+---
+permalink: s3/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Utilisation de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez comment les applications client peuvent utiliser l'API S3 pour entrer en interface avec le système StorageGRID.
+
+* link:support-for-s3-rest-api.html["Prise en charge de l'API REST S3"]
+* link:configuring-tenant-accounts-and-connections.html["Configuration des comptes et des connexions des locataires"]
+* link:how-storagegrid-implements-s3-rest-api.html["Comment StorageGRID implémente l'API REST S3"]
+* link:s3-rest-api-supported-operations-and-limitations.html["Opérations et limites prises en charge par l'API REST S3"]
+* link:storagegrid-s3-rest-api-operations.html["Opérations des API REST StorageGRID S3"]
+* link:bucket-and-group-access-policies.html["Règles d'accès au compartiment et au groupe"]
+* link:configuring-security-for-rest-api.html["Configuration de la sécurité pour l'API REST"]
+* link:monitoring-and-auditing-operations.html["Surveillance et audit des opérations"]
+* link:benefits-of-active-idle-and-concurrent-http-connections.html["Avantages des connexions HTTP actives, inactives et simultanées"]
+

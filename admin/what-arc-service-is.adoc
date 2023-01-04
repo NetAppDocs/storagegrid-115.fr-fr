@@ -1,0 +1,18 @@
+---
+permalink: admin/what-arc-service-is.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le service Archive \(ARC\) du nœud d’archivage fournit l’interface de gestion que vous pouvez utiliser pour configurer les connexions au stockage d’archives externes, comme la bande via le middleware TSM.' 
+---
+= Qu'est-ce que le service ARC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le service ARC (Archive Node) fournit l'interface de gestion que vous pouvez utiliser pour configurer les connexions au stockage d'archivage externe, comme les bandes via le middleware TSM.
+
+Il s'agit du service ARC qui interagit avec un système de stockage d'archives externe, en envoyant des données d'objet pour le stockage secondaire et en effectuant des récupérations lorsqu'une application client demande un objet archivé. Lorsqu'une application client demande un objet archivé, un nœud de stockage demande les données de l'objet au service ARC. Le service ARC envoie une demande au système de stockage d'archives externe, qui récupère les données de l'objet demandé et les envoie au service ARC. Le service ARC vérifie les données de l'objet et les transfère au nœud de stockage, qui renvoie alors l'objet à l'application client requérant.
+
+Les demandes de données d'objet archivées sur bande via un middleware TSM sont gérées pour optimiser les récupérations. Les demandes peuvent être commandées de façon à ce que les objets stockés dans l'ordre séquentiel sur bande soient demandés dans le même ordre séquentiel. Les demandes sont alors mises en file d'attente pour soumission à l'unité de stockage. En fonction du périphérique d'archivage, plusieurs demandes d'objets sur différents volumes peuvent être traitées simultanément.

@@ -1,0 +1,22 @@
+---
+permalink: rhel/example-1-1-to-1-mapping-to-physical-or-virtual-nics.html 
+sidebar: sidebar 
+keywords:  
+summary: 'L"exemple 1 décrit un mappage d"interface physique simple qui nécessite peu ou pas de configuration côté hôte.' 
+---
+= Exemple 1 : mappage 1-à-1 sur des cartes réseau physiques ou virtuelles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'exemple 1 décrit un mappage d'interface physique simple qui nécessite peu ou pas de configuration côté hôte.
+
+image::../media/rhel_install_vlan_diag_1.gif[Cette image est expliquée par le texte qui l'entoure.]
+
+Le système d'exploitation Linux crée le `ensXYZ` interfaces automatiquement lors de l'installation ou du démarrage, ou lorsque les interfaces sont ajoutées à chaud. Aucune configuration n'est nécessaire autre que de s'assurer que les interfaces sont configurées pour s'activer automatiquement après le démarrage. Vous devez déterminer lequel `ensXYZ` Correspond au réseau StorageGRID (Grid, Admin ou client) afin que vous puissiez fournir les mappages corrects plus tard dans le processus de configuration.
+
+Notez que la figure présente plusieurs nœuds StorageGRID. Toutefois, vous utilisez généralement cette configuration pour les machines virtuelles à un seul nœud.
+
+Si le commutateur 1 est un commutateur physique, vous devez configurer les ports connectés aux interfaces 10G1 à 10G3 pour le mode d'accès et les placer sur les VLAN appropriés.

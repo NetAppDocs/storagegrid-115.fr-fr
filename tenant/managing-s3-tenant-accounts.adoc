@@ -1,0 +1,18 @@
+---
+permalink: tenant/managing-s3-tenant-accounts.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez utiliser le Gestionnaire des locataires pour gérer les clés d"accès S3 et créer et gérer des compartiments S3.' 
+---
+= Gestion des comptes de locataires S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser le Gestionnaire des locataires pour gérer les clés d'accès S3 et créer et gérer des compartiments S3.
+
+* link:managing-s3-access-keys.html["Gestion des clés d'accès S3"]
+* link:managing-s3-buckets.html["Gestion des compartiments S3"]
+

@@ -1,0 +1,21 @@
+---
+permalink: ilm/creating-storage-grades-storage-pools-ec-profiles-regions.html 
+sidebar: sidebar 
+keywords:  
+summary: Avant de créer les règles ILM de votre système StorageGRID, vous devez définir des emplacements de stockage objet, déterminer les types de copies nécessaires et configurer éventuellement les régions S3. 
+---
+= Création de classes de stockage, de pools de stockage, de profils EC et de régions
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de créer les règles ILM de votre système StorageGRID, vous devez définir des emplacements de stockage objet, déterminer les types de copies nécessaires et configurer éventuellement les régions S3.
+
+* link:creating-and-assigning-storage-grades.html["Création et attribution de notes de stockage"]
+* link:configuring-storage-pools.html["Configuration des pools de stockage"]
+* link:using-cloud-storage-pools.html["Utilisation de pools de stockage cloud"]
+* link:configuring-erasure-coding-profiles.html["Configuration des profils de code d'effacement"]
+* link:configuring-regions-optional-and-s3-only.html["Configuration des régions (facultatif et S3 uniquement)"]
+

@@ -1,0 +1,75 @@
+---
+permalink: monitor/monitoring-storage-capacity-for-each-storage-node.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous devez contrôler l"espace total utilisable pour chaque nœud de stockage pour vous assurer que le nœud dispose d"un espace suffisant pour les nouvelles données d"objet.' 
+---
+= Contrôle de la capacité de stockage pour chaque nœud de stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez contrôler l'espace total utilisable pour chaque nœud de stockage pour vous assurer que le nœud dispose d'un espace suffisant pour les nouvelles données d'objet.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+
+
+.Description de la tâche
+L'espace utilisable correspond à la quantité d'espace de stockage disponible pour stocker des objets. L'espace total utilisable d'un nœud de stockage est calculé en ajoutant ensemble l'espace disponible sur tous les magasins d'objets du nœud.
+
+image::../media/calculating_watermarks.gif[Dessin conceptuel de l'espace utilisable total]
+
+.Étapes
+. Sélectionnez *Nodes* > *_Storage Node_* > *Storage*.
++
+Les graphiques et les tableaux du nœud apparaissent.
+
+. Placez le curseur de la souris sur le graphique stockage utilisé - données d'objet.
++
+Les valeurs suivantes sont affichées :
+
++
+** *Utilisé (%)* : pourcentage de l'espace utilisable total qui a été utilisé pour les données d'objet.
+** *Used* : quantité de l'espace utilisable total qui a été utilisé pour les données d'objet.
+** *Données répliquées* : estimation de la quantité de données d'objet répliqué sur ce nœud, site ou grille.
+** *Données avec code d'effacement* : estimation de la quantité de données d'objet avec code d'effacement sur ce nœud, ce site ou ce grid.
+** *Total* : la quantité totale d'espace utilisable sur ce nœud, site ou grille. La valeur utilisée est la `storagegrid_storage_utilization_data_bytes` métrique.
+
+
++
+image::../media/nodes_page_storage_used_object_data.png[Nœuds stockage de page données d'objet utilisées]
+
+. Passez en revue les valeurs disponibles dans les tableaux volumes et magasins d'objets, sous les graphiques.
++
+
+NOTE: Pour afficher les graphiques de ces valeurs, cliquez sur les icônes du graphique image:../media/icon_chart_new.gif["Icône de graphique"] Dans les colonnes disponibles.
+
++
+image::../media/nodes_page_storage_tables.png[Magasins d'objets tables]
+
+. Surveillez les valeurs dans le temps pour estimer le taux de consommation de l'espace de stockage utilisable.
+. Pour préserver le fonctionnement normal du système, ajoutez des nœuds de stockage, ajoutez des volumes de stockage ou archivez les données d'objet avant de consommer l'espace utilisable.
++
+Lors de la planification d'une extension, réfléchissez au temps nécessaire pour approvisionner et installer du stockage supplémentaire.
+
++
+
+NOTE: Si votre règle ILM utilise le code d'effacement, vous pouvez préférer une extension lorsque les nœuds de stockage existants sont remplis à environ 70 % pour réduire le nombre de nœuds à ajouter.
+
++
+Pour plus d'informations sur la planification d'une extension du stockage, consultez les instructions d'extension d'StorageGRID.
+
++
+L'alerte *stockage de données d'objet bas* et l'alarme État de stockage hérité (SSTS) sont déclenchées lorsque l'espace restant insuffisant pour stocker des données d'objet sur un noeud de stockage.
+
+
+
+.Informations associées
+link:../admin/index.html["Administrer StorageGRID"]
+
+link:../troubleshoot/troubleshooting-storagegrid-system.html["Dépannage de l'alerte de stockage de données d'objet faible"]
+
+link:../expand/index.html["Développez votre grille"]

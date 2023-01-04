@@ -1,0 +1,27 @@
+---
+permalink: admin/managing-storagegrid-networks-and-connections.html 
+sidebar: sidebar 
+keywords:  
+summary: Vous pouvez utiliser le Gestionnaire de grille pour configurer et gérer les réseaux et les connexions StorageGRID. 
+---
+= Gestion des réseaux et des connexions StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser le Gestionnaire de grille pour configurer et gérer les réseaux et les connexions StorageGRID.
+
+Voir link:configuring-client-connections.html["Configuration des connexions des clients S3 et Swift"] Pour apprendre à connecter des clients S3 ou Swift.
+
+* link:guidelines-for-storagegrid-networks.html["Instructions pour les réseaux StorageGRID"]
+* link:viewing-ip-addresses.html["Affichage des adresses IP"]
+* link:supported-ciphers-for-outgoing-tls-connections.html["Chiffrement pris en charge pour les connexions TLS sortantes"]
+* link:changing-network-transfer-encryption.html["Modification du chiffrement du transfert réseau"]
+* link:configuring-server-certificates.html["Configuration des certificats de serveur"]
+* link:configuring-storage-proxy-settings.html["Configuration des paramètres du proxy de stockage"]
+* link:configuring-admin-proxy-settings.html["Configuration des paramètres du proxy d'administration"]
+* link:managing-traffic-classification-policies.html["Gestion des stratégies de classification du trafic"]
+* link:what-link-costs-are.html["Quels sont les coûts de liaison"]
+

@@ -1,0 +1,165 @@
+---
+permalink: maintain/accessing-decommission-nodes-page.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission nodes, decommissioning nodes, maintenance task 
+summary: 'Lorsque vous accédez à la page Decommission Nodes dans Grid Manager, vous pouvez voir en un coup d"œil quels nœuds peuvent être désaffectés.' 
+---
+= Accès à la page nœuds de mise hors service
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous accédez à la page Decommission Nodes dans Grid Manager, vous pouvez voir en un coup d'œil quels nœuds peuvent être désaffectés.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer de l'autorisation Maintenance ou accès racine.
+
+
+.Étapes
+. Sélectionnez *Maintenance* > *tâches de maintenance* > *désaffection*.
++
+La page mise hors service s'affiche.
+
++
+image::../media/decommission_page.png[Page mise hors service]
+
+. Cliquez sur le bouton *Nodes*.
++
+La page nœuds de mise hors service s'affiche. À partir de cette page, vous pouvez :
+
++
+** Déterminez les nœuds de la grille qui peuvent être désaffectés.
+** Voir l'état de santé de tous les nœuds de la grille
+** Triez la liste par ordre croissant ou décroissant en fonction de *Nom*, *site*, *Type* ou *a ADC*.
+** Entrez des termes de recherche pour trouver rapidement des nœuds spécifiques. Par exemple, cette page affiche tous les nœuds grid dans un seul data Center. La colonne Decommission possible indique que vous pouvez désaffecter le nœud d'administration non primaire, le nœud de passerelle et deux des cinq nœuds de stockage.
+
+
++
+image::../media/decommission_nodes_page_all_connected.png[Page Désaffectez les nœuds]
+
+. Consultez la colonne *Decommission possible* pour chaque nœud que vous souhaitez désaffecter.
++
+Si un nœud de grille peut être déclassé, cette colonne inclut une coche verte et la colonne la plus à gauche inclut une case à cocher. Si un nœud ne peut pas être désactivé, cette colonne décrit le problème. Si un nœud ne peut pas être désactivé pour plusieurs raisons, la raison la plus critique est affichée.
+
++
+[cols="1a,2a,3a"]
+|===
+| Motif de mise hors service possible | Description | Étapes à résoudre 
+
+
+ a| 
+Non, la mise hors service du type de nœud n'est pas prise en charge.
+ a| 
+Vous ne pouvez pas désaffecter le nœud d'administration principal ou un nœud d'archivage.
+ a| 
+Aucune.
+
+
+
+ a| 
+Non, au moins un nœud de la grille est déconnecté.
+
+*Remarque :* ce message s'affiche uniquement pour les nœuds de grille connectés.
+ a| 
+Vous ne pouvez pas désactiver un nœud de la grille connecté si un nœud de la grille est déconnecté.
+
+La colonne *Santé* comprend l'une des icônes suivantes pour les nœuds de grille déconnectés :
+
+** image:../media/icon_alarm_gray_administratively_down.png["icône questionmark grise"] (Gris) : arrêt administratif
+** image:../media/icon_alarm_blue_unknown.png["icône bleue du point d'interrogation"] (Bleu) : inconnu
+
+ a| 
+Accédez au <<decommission_procedure_choices,étape qui répertorie les choix de procédure de mise hors service>>.
+
+
+
+ a| 
+Non, un ou plusieurs nœuds requis sont actuellement déconnectés et doivent être restaurés.
+
+*Remarque :* ce message s'affiche uniquement pour les nœuds de grille déconnectés.
+ a| 
+Vous ne pouvez pas désactiver un nœud de grille déconnecté si un ou plusieurs nœuds requis sont également déconnectés (par exemple, un nœud de stockage requis pour le quorum ADC).
+ a| 
+.. Consultez les messages de mise hors service possibles pour tous les nœuds déconnectés.
+.. Déterminez les nœuds qui ne peuvent pas être désaffectés car ils sont requis.
++
+*** Si l'état de santé d'un nœud requis est désactivé d'un point de vue administratif, remettre le nœud en ligne.
+*** Si l'état de santé d'un nœud requis n'est pas connu, effectuez une procédure de restauration de nœud pour restaurer le nœud requis.
+
+
+
+
+
+
+ a| 
+Non, membre du(des) groupe(s) HA: _X_. Avant de pouvoir désaffecter ce nœud, vous devez le supprimer de tous les groupes haute disponibilité.
+ a| 
+Vous ne pouvez pas désaffecter un nœud d'administration ou un nœud de passerelle si une interface de nœud appartient à un groupe haute disponibilité.
+ a| 
+Modifiez le groupe haute disponibilité pour supprimer l'interface du nœud ou supprimer l'ensemble du groupe haute disponibilité. Voir les instructions d'administration de StorageGRID.
+
+
+
+ a| 
+Non, site _x_ nécessite au moins _n_ nœuds de stockage avec services ADC.
+ a| 
+*Nœuds de stockage uniquement.* vous ne pouvez pas désaffecter un nœud de stockage si des nœuds insuffisants restent sur le site pour prendre en charge les exigences de quorum ADC.
+ a| 
+Procédez à une extension. Ajoutez un nouveau nœud de stockage au site et spécifiez qu'il doit disposer d'un service ADC. Voir les informations sur le quorum ADC.
+
+
+
+ a| 
+Non, un ou plusieurs profils de codage d'effacement ont besoin d'au moins _n_ nœuds de stockage. Si le profil n'est pas utilisé dans une règle ILM, vous pouvez le désactiver.
+ a| 
+*Nœuds de stockage uniquement.* vous ne pouvez pas désaffecter un nœud de stockage à moins que suffisamment de nœuds ne restent pour les profils de codage d'effacement existants.
+
+Par exemple, si un profil de code d'effacement est associé à un code d'effacement 4+2, il faut au moins 6 nœuds de stockage.
+ a| 
+Pour chaque profil de code d'effacement affecté, effectuez l'une des opérations suivantes en fonction de l'utilisation du profil :
+
+** *Utilisé dans la politique ILM active* : réaliser une expansion. Ajoutez suffisamment de nœuds de stockage pour que le code d'effacement puisse continuer. Voir les instructions d'extension de StorageGRID.
+** *Utilisé dans une règle ILM mais pas dans la règle ILM active* : modifiez ou supprimez la règle, puis désactivez le profil de codage d'effacement.
+** *Non utilisé dans une règle ILM* : désactivez le profil de codage d'effacement.
+
+
+*Remarque :* un message d'erreur s'affiche si vous essayez de désactiver un profil de code d'effacement et si les données d'objet sont toujours associées au profil. Vous devrez peut-être attendre plusieurs semaines avant d'essayer à nouveau le processus de désactivation.
+
+Découvrez comment désactiver un profil de code d'effacement dans les instructions de gestion des objets avec la gestion du cycle de vie des informations.
+
+|===
+. [[désaffecter_Procedure_Choices]]si le déclassement est possible pour le nœud, déterminez quelle procédure vous devez effectuer :
++
+[cols="1a,1a"]
+|===
+| Si votre grille inclut... | Aller à... 
+
+
+ a| 
+Tous les nœuds de la grille déconnectés
+ a| 
+link:decommissioning-disconnected-grid-nodes.html["Désaffectation des nœuds de la grille déconnectés"]
+
+
+
+ a| 
+Nœuds grid connectés uniquement
+ a| 
+link:decommissioning-connected-grid-nodes.html["Désaffectation des nœuds grid connectés"]
+
+|===
+
+
+.Informations associées
+link:checking-data-repair-jobs.html["Vérification des travaux de réparation de données"]
+
+link:understanding-adc-service-quorum.html["Comprendre le quorum ADC"]
+
+link:../ilm/index.html["Gestion des objets avec ILM"]
+
+link:../expand/index.html["Développez votre grille"]
+
+link:../admin/index.html["Administrer StorageGRID"]

@@ -1,0 +1,407 @@
+---
+permalink: vmware/configuration-file-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: Le fichier de configuration deploy-vsphere-ovftool.ini contient les paramètres requis pour déployer des nœuds de grille virtuelle. 
+---
+= Paramètres du fichier de configuration
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le `deploy-vsphere-ovftool.ini` le fichier de configuration contient les paramètres requis pour déployer des nœuds de grille virtuelle.
+
+Le fichier de configuration répertorie d'abord les paramètres globaux, puis répertorie les paramètres spécifiques au nœud dans les sections définies par nom de nœud. Lorsque le fichier est utilisé :
+
+* _Paramètres globaux_ sont appliqués à tous les nœuds de la grille.
+* _Node-Specific parameters_ remplace les paramètres globaux.
+
+
+
+
+== Paramètres globaux
+
+Les paramètres globaux sont appliqués à tous les nœuds de la grille, sauf s'ils sont remplacés par des paramètres dans des sections individuelles. Placez les paramètres qui s'appliquent à plusieurs nœuds dans la section des paramètres globaux, puis remplacez ces paramètres si nécessaire dans les sections de nœuds individuels.
+
+* *OVFTOOL_ARGUMENTS* : vous pouvez spécifier OVFTOOL_ARGUMENTS comme paramètres globaux, ou vous pouvez appliquer des arguments individuellement à des nœuds spécifiques. Par exemple :
++
+[source, subs="specialcharacters,quotes"]
+----
+OVFTOOL_ARGUMENTS = --powerOn --noSSLVerify --diskMode=thin --datastore='_datastore_name_'
+----
++
+Vous pouvez utiliser le `--powerOffTarget` et `--overwrite` options permettant d'arrêter et de remplacer des machines virtuelles existantes.
+
++
+
+IMPORTANT: Vous devez déployer des nœuds dans différents datastores et spécifier OVFTOOL_ARGUMENTS pour chaque nœud, au lieu de global.
+
+* *SOURCE* : chemin d'accès au modèle de machine virtuelle StorageGRID (`.vmdk`) et le `.ovf` et `.mf` fichiers pour des nœuds grid individuels. Par défaut, le répertoire courant est sélectionné.
++
+[source, subs="specialcharacters,quotes"]
+----
+SOURCE = /downloads/StorageGRID-Webscale-_version_/vsphere
+----
+* *TARGET* : URL de l'infrastructure virtuelle VMware vSphere (vi) pour l'emplacement où StorageGRID sera déployé. Par exemple :
++
+[listing]
+----
+TARGET = vi://vcenter.example.com/vm/sgws
+----
+* *GRID_NETWORK_CONFIG* : méthode utilisée pour acquérir des adresses IP, STATIQUES ou DHCP. La valeur par défaut est STATIQUE. Si tous les noeuds ou la plupart utilisent la même méthode pour acquérir des adresses IP, vous pouvez spécifier cette méthode ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+GRID_NETWORK_CONFIG = DHCP
+----
+* *GRID_NETWORK_TARGET* : nom d'un réseau VMware existant à utiliser pour le réseau Grid. Si tous les nœuds ou la plupart utilisent le même nom de réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+GRID_NETWORK_TARGET = SG-Admin-Network
+----
+* *GRID_NETWORK_MASK* : masque de réseau pour le réseau de grille. Si tous les nœuds ou la plupart utilisent le même masque de réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+GRID_NETWORK_MASK = 255.255.255.0
+----
+* *GRID_NETWORK_GATEWAY* : passerelle réseau pour le réseau Grid. Si tous les nœuds ou la plupart utilisent la même passerelle réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+* *GRID_NETWORK_MTU* : FACULTATIF. L'unité de transmission maximale (MTU) sur le réseau Grid. Si elle est spécifiée, la valeur doit être comprise entre 1280 et 9216. Par exemple :
++
+[listing]
+----
+GRID_NETWORK_MTU = 8192
+----
++
+Si omis, 1400 est utilisé.
+
++
+Si vous souhaitez utiliser des trames jumbo, définissez la valeur MTU sur une valeur adaptée aux trames jumbo, comme 9000. Sinon, conservez la valeur par défaut.
+
++
+
+IMPORTANT: La valeur MTU du réseau doit correspondre à la valeur configurée sur le port du commutateur auquel le nœud est connecté. Dans le cas contraire, des problèmes de performances réseau ou une perte de paquets peuvent se produire.
+
++
+
+IMPORTANT: Pour des performances réseau optimales, tous les nœuds doivent être configurés avec des valeurs MTU similaires sur leurs interfaces réseau Grid. L'alerte *Grid Network MTU mismatch* est déclenchée en cas de différence importante dans les paramètres MTU pour le réseau Grid sur les nœuds individuels. Les valeurs MTU ne doivent pas être identiques pour tous les types de réseau.
+
+* *ADMIN_NETWORK_CONFIG* : méthode utilisée pour acquérir des adresses IP, DÉSACTIVÉES, STATIQUE ou DHCP. La valeur par défaut EST DÉSACTIVÉE. Si tous les noeuds ou la plupart utilisent la même méthode pour acquérir des adresses IP, vous pouvez spécifier cette méthode ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+ADMIN_NETWORK_CONFIG = STATIC
+----
+* *ADMIN_NETWORK_TARGET* : nom d'un réseau VMware existant à utiliser pour le réseau Admin. Ce paramètre est requis, sauf si le réseau d'administration est désactivé. Si tous les nœuds ou la plupart utilisent le même nom de réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+ADMIN_NETWORK_TARGET = SG-Admin-Network
+----
+* *ADMIN_NETWORK_MASK* : le masque réseau du réseau Admin. Ce paramètre est requis si vous utilisez l'adressage IP statique. Si tous les nœuds ou la plupart utilisent le même masque de réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+ADMIN_NETWORK_MASK = 255.255.255.0
+----
+* *ADMIN_NETWORK_GATEWAY* : passerelle réseau pour le réseau Admin. Ce paramètre est requis si vous utilisez l'adressage IP statique et que vous spécifiez des sous-réseaux externes dans LE paramètre ADMIN_NETWORK_ESL. (C'est-à-dire que ce n'est pas nécessaire si ADMIN_NETWORK_ESL est vide.) Si tous les nœuds ou la plupart utilisent la même passerelle réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+ADMIN_NETWORK_GATEWAY = 10.3.0.1
+----
+* *ADMIN_NETWORK_ESL* : liste de sous-réseaux externes (routes) pour le réseau Admin, spécifiée comme liste de destinations de routage CIDR séparées par des virgules. Si tous les nœuds ou la plupart utilisent la même liste de sous-réseaux externes, vous pouvez la spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+ADMIN_NETWORK_ESL = 172.16.0.0/21,172.17.0.0/21
+----
+* *ADMIN_NETWORK_MTU* : FACULTATIF. Unité de transmission maximale (MTU) sur le réseau Admin. Ne spécifiez pas si ADMIN_NETWORK_CONFIG = DHCP. Si elle est spécifiée, la valeur doit être comprise entre 1280 et 9216. Si omis, 1400 est utilisé. Si vous souhaitez utiliser des trames jumbo, définissez la valeur MTU sur une valeur adaptée aux trames jumbo, comme 9000. Sinon, conservez la valeur par défaut. Si tous les nœuds ou la plupart utilisent le même MTU pour le réseau d'administration, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+ADMIN_NETWORK_MTU = 8192
+----
+* *CLIENT_NETWORK_CONFIG* : méthode utilisée pour acquérir des adresses IP, DÉSACTIVÉES, STATIQUE ou DHCP. La valeur par défaut EST DÉSACTIVÉE. Si tous les noeuds ou la plupart utilisent la même méthode pour acquérir des adresses IP, vous pouvez spécifier cette méthode ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+CLIENT_NETWORK_CONFIG = STATIC
+----
+* *CLIENT_NETWORK_TARGET* : nom d'un réseau VMware existant à utiliser pour le réseau client. Ce paramètre est requis, sauf si le réseau client est désactivé. Si tous les nœuds ou la plupart utilisent le même nom de réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+CLIENT_NETWORK_TARGET = SG-Client-Network
+----
+* *CLIENT_NETWORK_MASK* : le masque réseau du réseau client. Ce paramètre est requis si vous utilisez l'adressage IP statique. Si tous les nœuds ou la plupart utilisent le même masque de réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+CLIENT_NETWORK_MASK = 255.255.255.0
+----
+* *CLIENT_NETWORK_GATEWAY* : passerelle réseau pour le réseau client. Ce paramètre est requis si vous utilisez l'adressage IP statique. Si tous les nœuds ou la plupart utilisent la même passerelle réseau, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+CLIENT_NETWORK_GATEWAY = 10.4.0.1
+----
+* *CLIENT_NETWORK_MTU* : FACULTATIF. Unité de transmission maximale (MTU) sur le réseau client. Ne spécifiez pas si CLIENT_NETWORK_CONFIG = DHCP. Si elle est spécifiée, la valeur doit être comprise entre 1280 et 9216. Si omis, 1400 est utilisé. Si vous souhaitez utiliser des trames jumbo, définissez la valeur MTU sur une valeur adaptée aux trames jumbo, comme 9000. Sinon, conservez la valeur par défaut. Si tous les nœuds ou la plupart utilisent le même MTU pour le réseau client, vous pouvez le spécifier ici. Vous pouvez alors remplacer le paramètre global en spécifiant différents paramètres pour un ou plusieurs nœuds individuels. Par exemple :
++
+[listing]
+----
+CLIENT_NETWORK_MTU = 8192
+----
+* *PORT_REMAPPAGE* : remappe tout port utilisé par un nœud pour les communications internes de nœud de grille ou les communications externes. Le remappage des ports est nécessaire si les stratégies de mise en réseau d'entreprise limitent un ou plusieurs ports utilisés par StorageGRID. Pour obtenir la liste des ports utilisés par StorageGRID, reportez-vous à la section communications internes des nœuds de la grille et communications externes dans link:../network/index.html["Instructions de mise en réseau"].
++
+
+IMPORTANT: Ne remappage pas les ports que vous prévoyez d'utiliser pour configurer les terminaux d'équilibrage de charge.
+
++
+
+NOTE: Si le PARAMÈTRE PORT_REMAPPAGE est défini uniquement, le mappage que vous spécifiez est utilisé pour les communications entrantes et sortantes. Si PORT_REMAPPAGE_INBOUND est également spécifié, PORT_REMAPPAGE s'applique uniquement aux communications sortantes.
+
+
+
+Le format utilisé est : `_network type_/_protocol/_default port used by grid node_/_new port_`, où le type de réseau est grid, admin, ou client, et le protocole est tcp ou udp.
+
+Par exemple :
+
+[listing]
+----
+PORT_REMAP = client/tcp/18082/443
+----
+Utilisé seul, cet exemple de paramètre mappe de façon symétrique les communications entrantes et sortantes du nœud de grille entre le port 18082 et le port 443. Si utilisé conjointement avec PORT_REMAPPAGE_INBOUND, cet exemple de paramètre mappe les communications sortantes du port 18082 au port 443.
+
+* *PORT_REMAPPAGE_INBOUND* : remappe les communications entrantes pour le port spécifié. Si vous spécifiez PORT_REMAPPAGE_INBOUND mais ne spécifiez pas de valeur pour PORT_REMAPPAGE, les communications sortantes du port ne sont pas modifiées.
++
+
+IMPORTANT: Ne remappage pas les ports que vous prévoyez d'utiliser pour configurer les terminaux d'équilibrage de charge.
+
+
+
+Le format utilisé est : `_network type_/_protocol/_default port used by grid node_/_new port_`, où le type de réseau est grid, admin, ou client, et le protocole est tcp ou udp.
+
+Par exemple :
+
+[listing]
+----
+PORT_REMAP_INBOUND = client/tcp/443/18082
+----
+Dans cet exemple, le trafic envoyé au port 443 passe par un pare-feu interne et le dirige vers le port 18082, où le nœud de la grille écoute les requêtes S3.
+
+
+
+== Paramètres spécifiques aux nœuds
+
+Chaque nœud se trouve dans sa propre section du fichier de configuration. Chaque nœud nécessite les paramètres suivants :
+
+* L'en-tête de section définit le nom du nœud qui sera affiché dans le Grid Manager. Vous pouvez remplacer cette valeur en spécifiant le paramètre optionnel NOM_NOEUD pour le noeud.
+* *NODE_TYPE* : VM_Admin_Node, VM_Storage_Node, VM_Archive_Node ou VM_API_Gateway_Node
+* *GRID_NETWORK_IP* : adresse IP du nœud sur le réseau Grid.
+* *ADMIN_NETWORK_IP* : adresse IP du noeud sur le réseau Admin. Obligatoire uniquement si le nœud est connecté au réseau Admin et QUE ADMIN_NETWORK_CONFIG est défini SUR STATIQUE.
+* *CLIENT_NETWORK_IP* : adresse IP du noeud sur le réseau client. Requis uniquement si le nœud est connecté au réseau client et QUE CLIENT_NETWORK_CONFIG pour ce nœud est défini sur STATIQUE.
+* *ADMIN_IP* : adresse IP du nœud d'administration principal sur le réseau Grid. Utilisez la valeur que vous spécifiez comme GRID_NETWORK_IP pour le noeud d'administration principal. Si vous omettez ce paramètre, le nœud tente de détecter l'IP du nœud d'administration principal à l'aide de mDNS. Pour plus d'informations, voir link:how-grid-nodes-discover-primary-admin-node.html["Mode de détection des nœuds du grid sur le nœud d'administration principal"].
++
+
+NOTE: Le paramètre ADMIN_IP est ignoré pour le nœud d'administration principal.
+
+* Tous les paramètres qui n'ont pas été définis globalement. Par exemple, si un nœud est associé au réseau Admin et que vous n'avez pas spécifié les paramètres ADMIN_NETWORK globalement, vous devez les spécifier pour le nœud.
+
+
+
+
+== Nœud d'administration principal
+
+Les paramètres supplémentaires suivants sont requis pour le nœud d'administration principal :
+
+* *NODE_TYPE* : VM_Admin_Node
+* *ADMIN_ROLE* : principal
+
+
+Cet exemple d'entrée concerne un noeud d'administration principal sur les trois réseaux :
+
+[listing]
+----
+[DC1-ADM1]
+  ADMIN_ROLE = Primary
+  NODE_TYPE = VM_Admin_Node
+
+  GRID_NETWORK_IP = 10.1.0.2
+  ADMIN_NETWORK_IP = 10.3.0.2
+  CLIENT_NETWORK_IP = 10.4.0.2
+----
+Le paramètre supplémentaire suivant est facultatif pour le nœud d'administration principal :
+
+* *DISQUE* : par défaut, les nœuds d'administration sont affectés à deux disques durs supplémentaires de 200 Go pour l'audit et l'utilisation de la base de données. Vous pouvez augmenter ces paramètres à l'aide du paramètre DISQUE. Par exemple :
++
+[listing]
+----
+DISK = INSTANCES=2, CAPACITY=300
+----
+
+
+
+NOTE: Pour les nœuds Admin, LES INSTANCES doivent toujours être égales à 2.
+
+
+
+== Nœud de stockage
+
+Le paramètre supplémentaire suivant est requis pour les nœuds de stockage :
+
+* *NODE_TYPE* : VM_Storage_Node
++
+Cet exemple d'entrée concerne un noeud de stockage qui se trouve sur la grille et les réseaux d'administration, mais pas sur le réseau client. Ce nœud utilise le paramètre ADMIN_IP pour spécifier l'adresse IP du nœud d'administration principal sur le réseau Grid.
+
++
+[listing]
+----
+[DC1-S1]
+  NODE_TYPE = VM_Storage_Node
+
+  GRID_NETWORK_IP = 10.1.0.3
+  ADMIN_NETWORK_IP = 10.3.0.3
+
+  ADMIN_IP = 10.1.0.2
+----
++
+Ce deuxième exemple d'entrée concerne un nœud de stockage sur un réseau client dans lequel la stratégie de réseau d'entreprise du client indique qu'une application client S3 n'est autorisée qu'à accéder au nœud de stockage via le port 80 ou 443. Cet exemple de fichier de configuration utilise PORT_REMAP pour permettre au nœud de stockage d'envoyer et de recevoir des messages S3 sur le port 443.
+
++
+[listing]
+----
+[DC2-S1]
+  NODE_TYPE = VM_Storage_Node
+
+  GRID_NETWORK_IP = 10.1.1.3
+  CLIENT_NETWORK_IP = 10.4.1.3
+  PORT_REMAP = client/tcp/18082/443
+
+  ADMIN_IP = 10.1.0.2
+----
++
+Le dernier exemple crée un remappage symétrique pour le trafic ssh du port 22 au port 3022, mais définit explicitement les valeurs pour le trafic entrant et sortant.
+
++
+[listing]
+----
+[DC1-S3]
+  NODE_TYPE = VM_Storage_Node
+
+  GRID_NETWORK_IP = 10.1.1.3
+
+  PORT_REMAP = grid/tcp/22/3022
+  PORT_REMAP_INBOUND = grid/tcp/3022/22
+
+  ADMIN_IP = 10.1.0.2
+----
+
+
+Le paramètre supplémentaire suivant est facultatif pour les nœuds de stockage :
+
+* *DISQUE* : par défaut, les nœuds de stockage sont affectés à trois disques de 4 To pour une utilisation RangeDB. Vous pouvez augmenter ces paramètres à l'aide du paramètre DISQUE. Par exemple :
++
+[listing]
+----
+DISK = INSTANCES=16, CAPACITY=4096
+----
+
+
+
+
+== Nœud d'archivage
+
+Le paramètre supplémentaire suivant est requis pour les nœuds d'archivage :
+
+* *NODE_TYPE* : VM_Archive_Node
+
+
+Cet exemple d'entrée concerne un noeud d'archivage qui se trouve sur la grille et les réseaux d'administration, mais pas sur le réseau client.
+
+[listing]
+----
+[DC1-ARC1]
+  NODE_TYPE = VM_Archive_Node
+
+  GRID_NETWORK_IP = 10.1.0.4
+  ADMIN_NETWORK_IP = 10.3.0.4
+
+  ADMIN_IP = 10.1.0.2
+----
+
+
+== Nœud de passerelle
+
+Le paramètre supplémentaire suivant est requis pour les nœuds de passerelle :
+
+* *NODE_TYPE* : VM_API_GATEWAY
+
+
+Cet exemple d'entrée concerne un exemple de nœud de passerelle sur les trois réseaux. Dans cet exemple, aucun paramètre du réseau client n'a été spécifié dans la section globale du fichier de configuration. Il faut donc les spécifier pour le nœud :
+
+[listing]
+----
+[DC1-G1]
+  NODE_TYPE = VM_API_Gateway
+
+  GRID_NETWORK_IP = 10.1.0.5
+  ADMIN_NETWORK_IP = 10.3.0.5
+
+  CLIENT_NETWORK_CONFIG = STATIC
+  CLIENT_NETWORK_TARGET = SG-Client-Network
+  CLIENT_NETWORK_MASK = 255.255.255.0
+  CLIENT_NETWORK_GATEWAY = 10.4.0.1
+  CLIENT_NETWORK_IP = 10.4.0.5
+
+  ADMIN_IP = 10.1.0.2
+----
+
+
+== Nœud d'administration non primaire
+
+Les paramètres supplémentaires suivants sont requis pour les nœuds d'administration non primaires :
+
+* *NODE_TYPE* : VM_Admin_Node
+* *ADMIN_ROLE* : non-Primary
+
+
+Cet exemple d'entrée concerne un noeud d'administration non primaire qui n'est pas sur le réseau client :
+
+[listing]
+----
+[DC2-ADM1]
+  ADMIN_ROLE = Non-Primary
+  NODE_TYPE = VM_Admin_Node
+
+  GRID_NETWORK_TARGET = SG-Grid-Network
+  GRID_NETWORK_IP = 10.1.0.6
+  ADMIN_NETWORK_IP = 10.3.0.6
+
+  ADMIN_IP = 10.1.0.2
+----
+Le paramètre supplémentaire suivant est facultatif pour les nœuds d'administration non primaires :
+
+* *DISQUE* : par défaut, les nœuds d'administration sont affectés à deux disques durs supplémentaires de 200 Go pour l'audit et l'utilisation de la base de données. Vous pouvez augmenter ces paramètres à l'aide du paramètre DISQUE. Par exemple :
++
+[listing]
+----
+DISK = INSTANCES=2, CAPACITY=300
+----
+
+
+
+NOTE: Pour les nœuds Admin, LES INSTANCES doivent toujours être égales à 2.
+
+.Informations associées
+link:how-grid-nodes-discover-primary-admin-node.html["Mode de détection des nœuds du grid sur le nœud d'administration principal"]
+
+link:../network/index.html["Instructions de mise en réseau"]

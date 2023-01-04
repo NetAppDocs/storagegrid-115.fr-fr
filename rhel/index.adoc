@@ -1,0 +1,25 @@
+---
+permalink: rhel/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Découvrez comment installer le logiciel StorageGRID dans les déploiements Red Hat Enterprise Linux ou CentOS. 
+---
+= Installez Red Hat Enterprise Linux ou CentOS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez comment installer le logiciel StorageGRID dans les déploiements Red Hat Enterprise Linux ou CentOS.
+
+* link:installation-overview.html["Présentation de l'installation"]
+* link:planning-and-preparation.html["Planification et préparation"]
+* link:deploying-virtual-grid-nodes.html["Déploiement de nœuds grid virtuels"]
+* link:configuring-grid-and-completing-installation.html["Configuration de la grille et fin de l'installation"]
+* link:automating-installation.html["Automatisation de l'installation"]
+* link:overview-of-installation-rest-api.html["Présentation de l'API REST d'installation"]
+* link:where-to-go-next.html["Par où aller plus loin"]
+* link:troubleshooting-installation-issues.html["Résolution des problèmes d'installation"]
+* link:example-etc-sysconfig-network-scripts.html["Exemple /etc/sysconfig/network-scripts"]
+

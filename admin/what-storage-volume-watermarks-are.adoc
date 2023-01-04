@@ -1,0 +1,59 @@
+---
+permalink: admin/what-storage-volume-watermarks-are.html 
+sidebar: sidebar 
+keywords:  
+summary: 'StorageGRID utilise des filigranes du volume de stockage qui permettent de surveiller la quantité d"espace utilisable disponible sur les nœuds de stockage. Si la quantité d"espace disponible sur un nœud est inférieure à un paramètre de filigrane configuré, l"alarme Storage Status (SSTS) est déclenchée pour vous permettre de déterminer si vous devez ajouter des nœuds de stockage.' 
+---
+= Quels sont les filigranes du volume de stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID utilise des filigranes du volume de stockage qui permettent de surveiller la quantité d'espace utilisable disponible sur les nœuds de stockage. Si la quantité d'espace disponible sur un nœud est inférieure à un paramètre de filigrane configuré, l'alarme Storage Status (SSTS) est déclenchée pour vous permettre de déterminer si vous devez ajouter des nœuds de stockage.
+
+Pour afficher les paramètres actuels des filigranes du volume de stockage, sélectionnez *Configuration* > *Options de stockage* > *Présentation*.
+
+image::../media/storage_watermarks.png[Filigranes]
+
+La figure suivante représente un nœud de stockage avec trois volumes et indique la position relative des trois filigranes du volume de stockage. Dans chaque nœud de stockage, StorageGRID se réserve l'espace sur le volume 0 pour les métadonnées d'objet. Tout espace restant sur ce volume est utilisé pour les données d'objet. Tous les autres volumes sont utilisés exclusivement pour les données d'objet, notamment les copies répliquées et les fragments avec code d'effacement.
+
+image::../media/storage_volume_watermarks.png[Schéma des filigranes]
+
+Les filigranes du volume de stockage sont des valeurs par défaut qui indiquent la quantité minimale d'espace libre requise sur chaque volume du nœud de stockage afin d'empêcher les StorageGRID de modifier le comportement de lecture/écriture du nœud ou de déclencher une alarme. Notez que tous les volumes doivent atteindre le filigrane avant que StorageGRID ne prenne l'action. Si certains volumes ont plus que la quantité minimale d'espace disponible requise, l'alarme n'est pas déclenchée et le comportement de lecture/écriture du nœud ne change pas.
+
+
+
+== Filigrane volume de stockage en lecture seule (VHWM)
+
+Le filigrane en lecture seule programmable du volume de stockage est le premier filigrane indiquant que l'espace utilisable d'un nœud pour les données d'objet est en train de devenir plein. Ce filigrane représente la quantité d'espace disponible sur chaque volume d'un nœud de stockage pour empêcher le nœud de passer en « mode de lecture seule par logiciel libre ». Le mode de lecture seule souple signifie que le nœud de stockage annonce des services en lecture seule au reste du système StorageGRID, mais remplit toutes les demandes d'écriture en attente.
+
+Si la quantité d'espace disponible sur chaque volume est inférieure à la valeur définie pour ce filigrane, l'alarme Storage Status (SSTS) est déclenchée au niveau Notice et et le nœud de stockage passe en mode lecture seule souple.
+
+Par exemple, supposons que le filigrane de volume de stockage en lecture seule soit défini sur 10 Go, ce qui est sa valeur par défaut. Si moins de 10 Go d'espace libre reste sur chaque volume du nœud de stockage, l'alarme SSTS est déclenchée au niveau Avertissement et le nœud de stockage passe en mode lecture seule souple.
+
+
+
+== Filigrane en lecture seule (VROM) du volume de stockage
+
+Le filigrane en lecture seule matérielle du volume de stockage est le filigrane suivant pour indiquer que l'espace utilisable d'un nœud pour les données d'objet est en train de devenir plein. Ce filigrane représente la quantité d'espace disponible sur chaque volume d'un nœud de stockage pour empêcher le nœud de passer en mode « lecture seule matérielle ». Le mode lecture seule matériel signifie que le nœud de stockage est en lecture seule et n'accepte plus les demandes d'écriture.
+
+Si la quantité d'espace disponible sur chaque volume d'un nœud de stockage est inférieure au paramètre de ce filigrane, l'alarme Storage Status (SSTS) est déclenchée au niveau majeur et le nœud de stockage passe en mode lecture seule.
+
+Par exemple, supposons que le filigrane du volume de stockage en lecture seule est défini sur 5 Go, ce qui est sa valeur par défaut. Si moins de 5 Go d'espace libre reste sur chaque volume de stockage du nœud de stockage, l'alarme SSTS est déclenchée au niveau principal et le nœud de stockage passe en mode lecture seule matériel.
+
+La valeur du filigrane du volume de stockage en lecture seule matérielle doit être inférieure à la valeur du filigrane du volume de stockage en lecture seule.
+
+
+
+== Filigrane de lecture/écriture du volume de stockage (VLWM)
+
+Le filigrane en lecture-écriture du volume de stockage ne s'applique qu'aux nœuds de stockage ayant migré en mode lecture seule. Ce filigrane détermine quand le noeud de stockage est autorisé à revenir en lecture/écriture.
+
+Supposons par exemple qu'un nœud de stockage est passé en mode lecture seule rigide. Si le filigrane en lecture/écriture du volume de stockage est défini sur 30 Go (valeur par défaut), l'espace libre de chaque volume de stockage du nœud de stockage doit passer de 5 Go à 30 Go avant que le nœud ne puisse à nouveau lire/écrire.
+
+La valeur du filigrane de lecture-écriture du volume de stockage doit être supérieure à la valeur du filigrane de lecture seule programmable du volume de stockage.
+
+.Informations associées
+link:managing-full-storage-nodes.html["Gestion des nœuds de stockage complets"]

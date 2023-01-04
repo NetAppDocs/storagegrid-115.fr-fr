@@ -1,0 +1,19 @@
+---
+permalink: admin/integrating-tivoli-storage-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Cette section comprend les meilleures pratiques et des informations de configuration pour l"intégration d"un nœud d"archivage à un serveur Tivoli Storage Manager \(TSM\), notamment les détails opérationnels du nœud d"archivage qui ont un impact sur la configuration du serveur TSM.' 
+---
+= Intégration de Tivoli Storage Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cette section comprend les meilleures pratiques et les informations de configuration pour l'intégration d'un nœud d'archivage à un serveur Tivoli Storage Manager (TSM), notamment les détails opérationnels du nœud d'archivage qui affectent la configuration du serveur TSM.
+
+* link:archive-node-configuration-and-operation.html["Configuration et fonctionnement du nœud d'archivage"]
+* link:configuration-best-practices.html["Bonnes pratiques pour la configuration"]
+* link:completing-archive-node-setup.html["Fin de la configuration du nœud d'archivage"]
+

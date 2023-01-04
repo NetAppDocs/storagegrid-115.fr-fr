@@ -1,0 +1,34 @@
+---
+permalink: monitor/viewing-events-tab.html 
+sidebar: sidebar 
+keywords:  
+summary: 'L"onglet Evénements affiche le nombre d"erreurs système ou d"événements de panne pour un nœud, y compris les erreurs telles que les erreurs réseau.' 
+---
+= Affichage de l'onglet événements
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'onglet Evénements affiche le nombre d'erreurs système ou d'événements de panne pour un nœud, y compris les erreurs telles que les erreurs réseau.
+
+L'onglet événements s'affiche pour tous les nœuds.
+
+Si vous rencontrez des problèmes avec un nœud spécifique, vous pouvez utiliser l'onglet Events pour en savoir plus sur le problème. Le support technique peut également utiliser les informations de l'onglet événements pour vous aider dans le dépannage.
+
+image::../media/nodes_page_events_tab.png[Onglet événements de la page nœuds]
+
+Vous pouvez effectuer ces tâches à partir de l'onglet événements :
+
+* Utilisez les informations affichées pour le champ *dernier événement* en haut du tableau pour déterminer quel événement s'est produit le plus récemment.
+* Cliquez sur l'icône du graphique image:../media/icon_chart_new.gif["Icône de graphique"] pour qu'un événement spécifique puisse voir à quel moment cet événement s'est produit au fil du temps.
+* Réinitialiser le nombre d'événements à zéro après la résolution de tout problème.
+
+
+.Informations associées
+link:monitoring-events.html["Contrôle des événements"]
+
+link:displaying-charts-and-graphs.html["Affichage des graphiques et des graphiques"]
+
+link:resetting-event-counts.html["Réinitialisation du nombre d'événements"]

@@ -1,0 +1,64 @@
+---
+permalink: monitor/monitoring-object-verification-operations.html 
+sidebar: sidebar 
+keywords: object, verification 
+summary: 'Le système StorageGRID peut vérifier l"intégrité des données d"objet sur les nœuds de stockage en vérifiant la présence d"objets corrompus et manquants.' 
+---
+= Surveillance des opérations de vérification d'objets
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le système StorageGRID peut vérifier l'intégrité des données d'objet sur les nœuds de stockage en vérifiant la présence d'objets corrompus et manquants.
+
+.Ce dont vous avez besoin
+Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+
+.Description de la tâche
+Deux processus de vérification fonctionnent ensemble pour assurer l'intégrité des données :
+
+* *Vérification de l'arrière-plan* s'exécute automatiquement, en vérifiant continuellement l'exactitude des données de l'objet.
++
+La vérification en arrière-plan vérifie automatiquement et en continu tous les nœuds de stockage pour déterminer s'il existe des copies corrompues des données d'objet répliquées et codées par effacement. Si un problème est détecté, le système StorageGRID tente automatiquement de remplacer les données d'objet corrompues à partir des copies stockées ailleurs dans le système. La vérification en arrière-plan ne s'exécute pas sur les nœuds d'archivage ou sur les objets d'un pool de stockage cloud.
+
++
+
+NOTE: L'alerte *objet corrompu non identifié détecté* est déclenchée si le système détecte un objet corrompu qui ne peut pas être corrigé automatiquement.
+
+* *La vérification de premier plan* peut être déclenchée par un utilisateur pour vérifier plus rapidement l'existence (mais pas l'exactitude) des données d'objet.
++
+La vérification à l'avant-plan vous permet de vérifier l'existence de données d'objet répliquées et codées par effacement sur un nœud de stockage spécifique, en vérifiant que chaque objet devrait être présent. Vous pouvez exécuter une vérification en premier plan sur tout ou partie des magasins d'objets d'un nœud de stockage afin de déterminer s'il y a des problèmes d'intégrité avec un périphérique de stockage. Un grand nombre d'objets manquants peut indiquer un problème de stockage.
+
+
+
+Pour consulter les résultats des vérifications d'arrière-plan et de premier plan, telles que des objets corrompus ou manquants, consultez la page nœuds d'un nœud de stockage. Vous devez rechercher immédiatement toute instance de données d'objet corrompues ou manquantes afin de déterminer la cause première.
+
+.Étapes
+. Sélectionnez *noeuds*.
+. Sélectionnez *_Storage Node_* > *objets*.
+. Pour vérifier les résultats de vérification :
++
+** Pour vérifier la vérification des données d'objet répliqué, consultez les attributs de la section Vérification.
++
+image::../media/nodes_storage_node_object_verification.png[Nœuds > nœud de stockage > objet > Vérification]
+
++
+
+NOTE: Cliquez sur le nom d'un attribut dans le tableau pour afficher le texte d'aide.
+
+** Pour vérifier la vérification des fragments avec code d'effacement, sélectionnez *_Storage Node_* > *ILM* et examinez les attributs dans la table Vérification du code d'effacement.
++
+image::../media/nodes_storage_node_ilm_ec_verification.gif[Nœuds > nœud de stockage > ILM > Vérification EC]
+
++
+
+NOTE: Cliquez sur le nom d'un attribut dans le tableau pour afficher le texte d'aide.
+
+
+
+
+
+.Informations associées
+link:../troubleshoot/troubleshooting-storagegrid-system.html["Vérification de l'intégrité des objets"]

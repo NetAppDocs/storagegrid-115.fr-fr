@@ -1,0 +1,33 @@
+---
+permalink: primer/storagegrid-attributes.html 
+sidebar: sidebar 
+keywords: attributes 
+summary: 'Attributs valeurs et États du rapport pour la plupart des fonctions du système StorageGRID. Des valeurs d"attribut sont disponibles pour chaque nœud de grille, chaque site et la grille entière.' 
+---
+= Attributs des StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Attributs valeurs et États du rapport pour la plupart des fonctions du système StorageGRID. Des valeurs d'attribut sont disponibles pour chaque nœud de grille, chaque site et la grille entière.
+
+Les attributs StorageGRID sont utilisés à plusieurs endroits du Gestionnaire de grille :
+
+* *Page noeuds* : la plupart des valeurs affichées sur la page noeuds sont des attributs StorageGRID. (Les metrics de Prometheus sont également affichés sur les pages nœuds.)
+* *Alarmes* : lorsque les attributs atteignent des valeurs de seuil définies, les alarmes StorageGRID (système hérité) sont déclenchées à des niveaux de gravité spécifiques.
+* *Grid Topology Tree* : les valeurs des attributs sont affichées dans l'arborescence de la grille topologie (*support* *Outils* *Grid Topology*).
+* *Evénements* : les événements système se produisent lorsque certains attributs enregistrent une condition d'erreur ou de panne pour un nœud, y compris des erreurs telles que des erreurs réseau.
+
+
+
+
+== Valeurs d'attribut
+
+Les attributs sont rapportés sur la base du meilleur effort et sont approximativement corrects. Les mises à jour d'attributs peuvent être perdues dans certains cas, comme la panne d'un service ou la panne et la reconstruction d'un nœud de la grille.
+
+En outre, les retards de propagation peuvent ralentir le reporting des attributs. Les valeurs mises à jour pour la plupart des attributs sont envoyées au système StorageGRID à intervalles fixes. Plusieurs minutes peuvent être nécessaires avant qu'une mise à jour soit visible dans le système et deux attributs qui changent plus ou moins simultanément peuvent être signalés à des moments légèrement différents.
+
+.Informations associées
+link:../monitor/index.html["Moniteur et amp ; dépannage"]

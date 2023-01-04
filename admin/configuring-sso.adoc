@@ -1,0 +1,23 @@
+---
+permalink: admin/configuring-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Lorsque l"authentification unique \(SSO\) est activée, les utilisateurs peuvent uniquement accéder au Grid Manager, au tenant Manager, à l"API de gestion de grille ou à l"API de gestion des locataires si leurs identifiants sont autorisés à l"aide du processus de connexion SSO mis en œuvre par votre entreprise.' 
+---
+= Configuration de l'authentification unique
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque l'authentification unique (SSO) est activée, les utilisateurs n'ont accès qu'au Grid Manager, au tenant Manager, à l'API Grid Management ou à l'API de gestion des locataires si leurs identifiants sont autorisés à l'aide du processus de connexion SSO mis en œuvre par votre entreprise.
+
+* link:confirming-federated-users-can-sign-in.html["Confirmer que les utilisateurs fédérés peuvent se connecter"]
+* link:using-sandbox-mode.html["Utilisation du mode sandbox"]
+* link:creating-relying-party-trusts-in-ad-fs.html["Création de fiducies de tiers de confiance dans AD FS"]
+* link:testing-relying-party-trusts.html["Confiance de la partie qui fait confiance aux essais"]
+* link:enabling-single-sign-on.html["Activation de l'authentification unique"]
+* link:disabling-single-sign-on.html["Désactivation de la connexion unique"]
+* link:temporarily-disabling-and-reenabling-sso-for-admin-node.html["Désactivation et réactivation temporaire de l'authentification unique pour un nœud d'administration"]
+

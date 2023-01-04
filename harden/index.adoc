@@ -1,0 +1,22 @@
+---
+permalink: harden/index.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Durcissement du système
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez les paramètres du système, les meilleures pratiques et les recommandations pour protéger un système StorageGRID contre les menaces de sécurité.
+
+* link:hardening-storagegrid-system.html["Renforcement d'un système StorageGRID"]
+* link:hardening-guidelines-for-software-upgrades.html["Directives de renforcement des mises à niveau logicielles"]
+* link:hardening-guidelines-for-storagegrid-networks.html["Instructions de renforcement des réseaux StorageGRID"]
+* link:hardening-guidelines-for-storagegrid-nodes.html["Instructions de renforcement pour les nœuds StorageGRID"]
+* link:hardening-guideline-for-server-certificates.html["Consignes de renforcement des certificats de serveur"]
+* link:other-hardening-guidelines.html["Autres directives de durcissement"]]
+

@@ -1,0 +1,20 @@
+---
+permalink: primer/monitoring-storagegrid-operations.html 
+sidebar: sidebar 
+keywords:  
+summary: Le gestionnaire de grille fournit des informations permettant de surveiller les activités quotidiennes de votre système StorageGRID, y compris son état de santé. 
+---
+= Surveillance des opérations StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le gestionnaire de grille fournit des informations permettant de surveiller les activités quotidiennes de votre système StorageGRID, y compris son état de santé.
+
+* link:viewing-nodes-page.html["Affichage de la page nœuds"]
+* link:monitoring-and-managing-alerts.html["Surveillance et gestion des alertes"]
+* link:using-snmp-monitoring.html["Utilisation de la surveillance SNMP"]
+* link:reviewing-audit-messages.html["Vérification des messages d'audit"]
+

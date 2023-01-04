@@ -1,0 +1,28 @@
+---
+permalink: sg100-1000/maintaining-services-appliance-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, maintain, maintaining, hardware, procedures, tasks 
+summary: 'Vous devrez peut-être effectuer des procédures de maintenance sur l"appareil. Les procédures de cette section supposent que l"appliance a déjà été déployée en tant que nœud de passerelle ou nœud d"administration dans un système StorageGRID.' 
+---
+= Entretien de l'appareil
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devrez peut-être effectuer des procédures de maintenance sur l'appareil. Les procédures de cette section supposent que l'appliance a déjà été déployée en tant que nœud de passerelle ou nœud d'administration dans un système StorageGRID.
+
+.Étapes
+* link:placing-appliance-into-maintenance-mode.html["Mise en mode maintenance de l'appareil"]
+* link:turning-controller-identify-led-on-and-off.html["Activation et désactivation de la LED d'identification du contrôleur"]
+* link:locating-controller-in-data-center.html["Localisation du contrôleur dans un data Center"]
+* link:replacing-services-appliance.html["Remplacement de l'appareil de services"]
+* link:replacing-power-supply-in-services-appliance.html["Remplacement d'un bloc d'alimentation dans l'appareil de services"]
+* link:replacing-fan-in-services-appliance.html["Remplacement d'un ventilateur dans l'appliance de services"]
+* link:replacing-drive-in-services-appliance.html["Remplacement d'un lecteur dans l'appliance de services"]
+* link:changing-link-configuration-of-services-appliance.html["Modification de la configuration de liaison de l'appliance de services"]
+* link:changing-mtu-setting.html["Modification du paramètre MTU"]
+* link:checking-dns-server-configuration.html["Vérification de la configuration du serveur DNS"]
+* link:monitoring-node-encryption-in-maintenance-mode.html["Contrôle du cryptage du nœud en mode maintenance"]
+

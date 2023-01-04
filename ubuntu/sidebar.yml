@@ -1,0 +1,101 @@
+---
+section: ubuntu
+title: Installez Ubuntu ou Debian
+url: "/ubuntu/index.html"
+entries:
+- title: Présentation de l'installation
+  url: "/ubuntu/installation-overview.html"
+- title: Planification et préparation
+  url: "/ubuntu/planning-and-preparation.html"
+  entries:
+  - title: Matériel requis
+    url: "/ubuntu/required-materials.html"
+  - title: Téléchargement et extraction des fichiers d'installation de StorageGRID
+    url: "/ubuntu/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Configuration requise pour le processeur et la RAM
+    url: "/ubuntu/cpu-and-ram-requirements.html"
+  - title: Les besoins en matière de stockage et de performances
+    url: "/ubuntu/storage-and-performance-requirements.html"
+  - title: Exigences de migration des conteneurs de nœuds
+    url: "/ubuntu/node-container-migration-requirements.html"
+  - title: Navigateurs Web pris en charge
+    url: "/ubuntu/web-browser-requirements.html"
+  - title: Outils de déploiement
+    url: "/ubuntu/deployment-tools.html"
+  - title: Préparation des hôtes
+    url: "/ubuntu/preparing-hosts.html"
+    entries:
+    - title: Installation de Linux
+      url: "/ubuntu/installing-linux.html"
+    - title: Présentation de l'installation du profil AppArmor
+      url: "/ubuntu/understanding-apparmor-profile-installation.html"
+    - title: Configuration du réseau hôte
+      url: "/ubuntu/configuring-host-network.html"
+      entries:
+      - title: Considérations et recommandations relatives au clonage d'adresses MAC
+        url: "/ubuntu/considerations-and-recommendations-for-mac-address-cloning.html"
+      - title: 'Exemple 1 : mappage 1-à-1 sur des cartes réseau physiques ou virtuelles'
+        url: "/ubuntu/example-1-1-to-1-mapping-to-physical-or-virtual-nics.html"
+      - title: 'Exemple 2 : liaison LACP avec les VLAN'
+        url: "/ubuntu/example-2-lacp-bond-carrying-vlans.html"
+    - title: Configuration du stockage de l'hôte
+      url: "/ubuntu/configuring-host-storage.html"
+    - title: Configuration du volume de stockage Docker
+      url: "/ubuntu/configuring-docker-storage-volume.html"
+    - title: Installation de Docker
+      url: "/ubuntu/installing-docker.html"
+    - title: Installation des services hôtes StorageGRID
+      url: "/ubuntu/installing-storagegrid-webscale-host-services.html"
+- title: Déploiement de nœuds grid virtuels
+  url: "/ubuntu/deploying-virtual-grid-nodes.html"
+  entries:
+  - title: Création de fichiers de configuration de nœud
+    url: "/ubuntu/creating-node-configuration-files.html"
+    entries:
+    - title: Mode de détection des nœuds du grid sur le nœud d'administration principal
+      url: "/ubuntu/how-grid-nodes-discover-primary-admin-node.html"
+    - title: Exemple de fichiers de configuration de nœud
+      url: "/ubuntu/example-node-configuration-files.html"
+  - title: Validation de la configuration StorageGRID
+    url: "/ubuntu/validating-storagegrid-configuration.html"
+  - title: Démarrage du service hôte StorageGRID
+    url: "/ubuntu/starting-storagegrid-host-service.html"
+- title: Configuration de la grille et fin de l'installation
+  url: "/ubuntu/configuring-grid-and-completing-installation.html"
+  entries:
+  - title: Navigation dans le gestionnaire de grille
+    url: "/ubuntu/navigating-to-grid-manager.html"
+  - title: Spécification des informations de licence StorageGRID
+    url: "/ubuntu/specifying-storagegrid-license-information.html"
+  - title: Ajout de sites
+    url: "/ubuntu/adding-sites.html"
+  - title: Spécification des sous-réseaux du réseau de grille
+    url: "/ubuntu/specifying-grid-network-subnets.html"
+  - title: Approbation des nœuds de la grille en attente
+    url: "/ubuntu/approving-pending-grid-nodes.html"
+  - title: Spécification des informations du serveur de protocole de temps du réseau
+    url: "/ubuntu/specifying-network-time-protocol-server-information.html"
+  - title: Spécification des informations sur le serveur système du nom de domaine
+    url: "/ubuntu/specifying-domain-name-system-server-information.html"
+  - title: Spécification des mots de passe système StorageGRID
+    url: "/ubuntu/specifying-storagegrid-system-passwords.html"
+  - title: Vérification de votre configuration et fin de l'installation
+    url: "/ubuntu/reviewing-your-configuration-and-completing-installation.html"
+  - title: Instructions de post-installation
+    url: "/ubuntu/post-installation-guidelines.html"
+- title: Automatisation de l'installation
+  url: "/ubuntu/automating-installation.html"
+  entries:
+  - title: Automatisation de l'installation et de la configuration du service hôte
+      StorageGRID
+    url: "/ubuntu/automating-installation-and-configuration-of-storagegrid-host-service.html"
+  - title: Automatisation de la configuration de StorageGRID
+    url: "/ubuntu/automating-configuration-of-storagegrid.html"
+- title: Présentation de l'API REST d'installation
+  url: "/ubuntu/overview-of-installation-rest-api.html"
+- title: Par où aller plus loin
+  url: "/ubuntu/where-to-go-next.html"
+- title: Résolution des problèmes d'installation
+  url: "/ubuntu/troubleshooting-installation-issues.html"
+- title: Exemple /etc/network/interfaces
+  url: "/ubuntu/example-etc-network-interfaces.html"

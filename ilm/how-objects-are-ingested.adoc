@@ -1,0 +1,42 @@
+---
+permalink: ilm/how-objects-are-ingested.html 
+sidebar: sidebar 
+keywords:  
+summary: StorageGRID protège les objets lors de leur entrée, soit en effectuant un placement synchrone, soit en effectuant une double allocation, comme spécifié dans la règle ILM qui correspond aux objets. 
+---
+= Mode d'ingestion des objets
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID protège les objets lors de leur entrée, soit en effectuant un placement synchrone, soit en effectuant une double allocation, comme spécifié dans la règle ILM qui correspond aux objets.
+
+Lorsqu'un client S3 ou Swift stocke un objet dans le grid, StorageGRID analyse l'objet à l'aide de l'une des deux méthodes suivantes :
+
+* *Placement synchrone* : StorageGRID crée immédiatement toutes les copies d'objet nécessaires pour répondre aux exigences ILM. Lors de la création de toutes les copies, StorageGRID envoie au client un message de « récupération réussie ».
++
+Si StorageGRID ne peut pas créer immédiatement toutes les copies d'objet (par exemple, en raison d'un emplacement requis temporairement non disponible), il envoie au client un message « échec de l'acquisition ». Vous pouvez également créer des copies d'objet intermédiaires et évaluer ILM plus tard, en fonction de votre choix lors de la création de la règle ILM.
+
+* *Dual commit*: StorageGRID crée immédiatement deux copies provisoires de l'objet, chacune sur un nœud de stockage différent, et envoie au client un message « ingérer correctement ». StorageGRID met ensuite l'objet en file d'attente pour l'évaluation ILM.
++
+Lorsqu'StorageGRID effectue l'évaluation ILM, il vérifie d'abord si les copies intermédiaires satisfont les instructions de placement de la règle ILM. Par exemple, les deux copies intermédiaires peuvent satisfaire les instructions d'une règle ILM à deux copies, mais ne satisfont pas les instructions d'une règle de codage d'effacement. Si les copies intermédiaires ne répondent pas aux instructions ILM, StorageGRID crée de nouvelles copies d'objet et supprime toute copie intermédiaire inutile.
+
++
+Si StorageGRID ne peut pas créer deux copies intermédiaires (par exemple, si un problème réseau empêche la deuxième copie), StorageGRID ne réessayez pas. Échec de l'ingestion.
+
++
+
+NOTE: Les clients S3 ou Swift peuvent spécifier que StorageGRID crée une copie intermédiaire unique à l'entrée des données en spécifiant `REDUCED_REDUNDANCY` pour la classe de stockage. Pour plus d'informations, consultez les instructions d'implémentation d'un client S3 ou Swift.
+
+
+
+Par défaut, StorageGRID utilise le placement synchrone pour protéger les objets lors de leur ingestion.
+
+.Informations associées
+link:data-protection-options-for-ingest.html["Options de protection des données pour l'ingestion"]
+
+link:../s3/index.html["Utilisation de S3"]
+
+link:../swift/index.html["Utiliser Swift"]

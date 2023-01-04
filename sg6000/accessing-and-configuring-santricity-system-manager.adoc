@@ -1,0 +1,20 @@
+---
+permalink: sg6000/accessing-and-configuring-santricity-system-manager.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, SANtricity System Manager, SANtricity, System Manager, configure, configuring, setup, set up, setting up, access, accessing, E-Series AutoSupport, autosupport 
+summary: 'Vous pouvez utiliser SANtricity System Manager pour surveiller l"état des contrôleurs de stockage, des disques de stockage et d"autres composants matériels du tiroir du contrôleur de stockage. Vous pouvez également configurer un proxy pour E-Series AutoSupport qui vous permet d"envoyer des messages AutoSupport depuis le dispositif sans utiliser le port de gestion.' 
+---
+= Accès et configuration de SANtricity System Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser SANtricity System Manager pour surveiller l'état des contrôleurs de stockage, des disques de stockage et d'autres composants matériels du tiroir du contrôleur de stockage. Vous pouvez également configurer un proxy pour E-Series AutoSupport qui vous permet d'envoyer des messages AutoSupport depuis le dispositif sans utiliser le port de gestion.
+
+.Étapes
+* link:setting-up-and-accessing-santricity-system-manager.html["Configuration et accès à SANtricity System Manager"]
+* link:reviewing-hardware-status-in-santricity-system-manager.html["Vérification de l'état du matériel dans SANtricity System Manager"]
+* link:setting-ip-addresses-for-storage-controllers-using-storagegrid-appliance-installer.html["Définition des adresses IP des contrôleurs de stockage à l'aide du programme d'installation de l'appliance StorageGRID"]
+

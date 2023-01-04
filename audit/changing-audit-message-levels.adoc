@@ -1,0 +1,105 @@
+---
+permalink: audit/changing-audit-message-levels.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, log, message level, message levels, increase messages, decrease messages, message category 
+summary: 'Vous pouvez ajuster les niveaux d"audit pour augmenter ou diminuer le nombre de messages d"audit enregistrés dans le journal d"audit pour chaque catégorie de messages d"audit.' 
+---
+= Modification des niveaux de messages d'audit
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez ajuster les niveaux d'audit pour augmenter ou diminuer le nombre de messages d'audit enregistrés dans le journal d'audit pour chaque catégorie de messages d'audit.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+.Description de la tâche
+Les messages d'audit enregistrés dans le journal d'audit sont filtrés en fonction des paramètres de la page *Configuration* > *surveillance* > *Audit*.
+
+Vous pouvez définir un niveau d'audit différent pour chacune des catégories de messages suivantes :
+
+* *Système* : par défaut, ce niveau est défini sur Normal.
+* *Stockage* : par défaut, ce niveau est défini sur erreur.
+* *Gestion* : par défaut, ce niveau est défini sur Normal.
+* *Lecture client* : par défaut, ce niveau est défini sur Normal.
+* *Écrit client* : par défaut, ce niveau est défini sur Normal.
+
+
+
+NOTE: Ces valeurs par défaut s'appliquent si vous avez installé StorageGRID à l'origine à l'aide de la version 10.3 ou ultérieure. Si vous avez mis à niveau à partir d'une version antérieure de StorageGRID, la valeur par défaut pour toutes les catégories est Normal.
+
+
+NOTE: Durant les mises à niveau, les configurations des niveaux d'audit ne seront pas effectives immédiatement.
+
+.Étapes
+. Sélectionnez *Configuration* > *surveillance* > *Audit*.
++
+image::../media/default_audit_settings.gif[Capture d'écran de Configuration > Audit]
+
+. Pour chaque catégorie de message d'audit, sélectionnez un niveau d'audit dans la liste déroulante :
++
+[cols="20,80"]
+|===
+| Niveau d'audit | Description 
+
+
+ a| 
+Éteint
+ a| 
+Aucun message d'audit de la catégorie n'est enregistré.
+
+
+
+ a| 
+Erreur
+ a| 
+Seuls les messages d'erreur sont consignés--les messages d'audit pour lesquels le code de résultat n'a pas été « réussi » (CMC).
+
+
+
+ a| 
+Normale
+ a| 
+Les messages transactionnels standard sont consignés--les messages répertoriés dans ces instructions pour la catégorie.
+
+
+
+ a| 
+Débogage
+ a| 
+Obsolète. Ce niveau se comporte de la même manière que le niveau d'audit normal.
+
+|===
++
+Les messages inclus pour tout niveau particulier incluent ceux qui seraient consignés aux niveaux supérieurs. Par exemple, le niveau Normal inclut tous les messages d'erreur.
+
+. Sous *en-têtes de protocole d'audit*, entrez le nom des en-têtes de requête HTTP à inclure dans les messages d'audit lecture client et écriture client. Utilisez un astérisque (\*) comme caractère générique ou utilisez la séquence d'échappement (\*) comme astérisque littéral. Cliquez sur le signe plus pour créer une liste de champs de nom d'en-tête.
++
+
+NOTE: Les en-têtes de protocole d'audit ne s'appliquent qu'aux demandes S3 et Swift.
+
++
+Lorsque de tels en-têtes HTTP sont trouvés dans une requête, ils sont inclus dans le message d'audit sous le champ HTRH.
+
++
+
+NOTE: Les en-têtes de requête de protocole d'audit ne sont consignés que si le niveau d'audit pour *lecture client* ou *écriture client* n'est pas *off*.
+
+. Cliquez sur *Enregistrer*.
+
+
+.Informations associées
+link:system-audit-messages.html["Messages d'audit système"]
+
+link:object-storage-audit-messages.html["Messages d'audit du stockage objet"]
+
+link:management-audit-message.html["Message d'audit de gestion"]
+
+link:client-read-audit-messages.html["Messages d'audit de lecture du client"]
+
+link:../admin/index.html["Administrer StorageGRID"]

@@ -1,0 +1,28 @@
+---
+permalink: monitor/resetting-event-counts.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Une fois les événements système résolus, vous pouvez réinitialiser le nombre d"événements à zéro.' 
+---
+= Réinitialisation du nombre d'événements
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois les événements système résolus, vous pouvez réinitialiser le nombre d'événements à zéro.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer de l'autorisation Configuration de la page de topologie de la grille.
+
+
+.Étapes
+. Sélectionnez *Nodes* > *_Grid Node_* > *Events*.
+. Assurez-vous que tout événement avec un compte supérieur à 0 a été résolu.
+. Cliquez sur *Réinitialiser le nombre d'événements*.
++
+image::../media/reset_event_counts.png[Réinitialiser le décompte des événements]
+
+

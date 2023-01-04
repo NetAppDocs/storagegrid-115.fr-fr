@@ -1,0 +1,64 @@
+---
+permalink: maintain/shutting-down-grid-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, node shutdown, shut down node, node shut down 
+summary: Vous pouvez arrêter un nœud de grille à partir du shell de commande du nœud. 
+---
+= Arrêt d'un nœud grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez arrêter un nœud de grille à partir du shell de commande du nœud.
+
+.Ce dont vous avez besoin
+* Vous devez avoir le `Passwords.txt` fichier.
+
+
+.Description de la tâche
+Avant d'effectuer cette procédure, consultez les considérations suivantes :
+
+* En général, vous ne devez pas arrêter plusieurs nœuds à la fois pour éviter les perturbations.
+* N'arrêtez pas un nœud lors d'une procédure de maintenance, sauf instruction contraire explicite de la documentation ou du support technique.
+* Le processus d'arrêt dépend de l'endroit où le nœud est installé, comme suit :
++
+** L'arrêt d'un nœud VMware arrête la machine virtuelle.
+** L'arrêt d'un nœud Linux arrête le conteneur.
+** L'arrêt d'un nœud d'appliance StorageGRID arrête le contrôleur de calcul.
+
+
+* Si vous prévoyez d'arrêter les nœuds de stockage, notez les éléments suivants :
++
+** Si une règle ILM spécifie un comportement d'entrée de la double allocation ou si la règle indique un équilibrage et qu'il n'est pas possible de créer immédiatement toutes les copies nécessaires, StorageGRID valide immédiatement les objets récemment ingérées sur deux nœuds de stockage du même site, et évalue la ILM plus tard. Si vous souhaitez arrêter deux nœuds de stockage ou plus sur un site donné, il est possible que vous ne puissiez pas accéder à ces objets pendant la durée de l'arrêt.
+** Pour vous assurer que vous pouvez accéder à tous les objets lorsqu'un nœud de stockage est arrêté, arrêtez d'ingérer les objets sur un site pendant environ une heure avant d'arrêter le nœud.
+
+
+
+
+.Étapes
+. Connectez-vous au nœud grid :
++
+.. Saisissez la commande suivante : `ssh admin@_grid_node_IP_`
+.. Entrez le mot de passe indiqué dans le `Passwords.txt` fichier.
+.. Entrez la commande suivante pour passer à la racine : `su -`
+.. Entrez le mot de passe indiqué dans le `Passwords.txt` fichier.
+
+
++
+Lorsque vous êtes connecté en tant que root, l'invite passe de `$` à `#`.
+
+. Arrêter tous les services : `service servermanager stop`
++
+L'arrêt des services peut prendre jusqu'à 15 minutes et il est possible que vous souhaitiez vous connecter au système à distance afin de surveiller le processus d'arrêt.
+
+. Déconnectez-vous du shell de commande : `exit`
+
+
+Après l'arrêt, vous pouvez mettre le nœud grid hors tension.
+
+link:powering-down-host.html["Mise hors tension d'un hôte"]
+
+.Informations associées
+link:../admin/index.html["Administrer StorageGRID"]

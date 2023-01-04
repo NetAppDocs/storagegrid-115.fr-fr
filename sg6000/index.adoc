@@ -1,0 +1,27 @@
+---
+permalink: sg6000/index.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance 
+summary: Découvrez comment installer et entretenir les appliances StorageGRID SG6060 et SGF6024. 
+---
+= Dispositifs de stockage SG6000
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez comment installer et entretenir les appliances StorageGRID SG6060 et SGF6024.
+
+* link:sg6000-appliances-overview.html["Aperçu des appareils SG6000"]
+* link:installation-and-deployment-overview.html["Présentation de l'installation et du déploiement"]
+* link:preparing-for-installation.html["Préparation de l'installation"]
+* link:installing-hardware.html["Installation du matériel"]
+* link:configuring-hardware.html["Configuration matérielle"]
+* link:deploying-appliance-storage-node.html["Déploiement d'un nœud de stockage d'appliance"]
+* link:monitoring-storage-appliance-installation.html["Surveillance de l'installation de l'appliance de stockage"]
+* link:automating-appliance-installation-and-configuration.html["Automatisation de l'installation et de la configuration de l'appliance"]
+* link:overview-of-installation-rest-apis.html["Présentation de l'installation des API REST"]
+* link:troubleshooting-hardware-installation.html["Dépannage de l'installation du matériel"]
+* link:maintaining-sg6000-appliance.html["Entretien de l'appareil SG6000"]
+

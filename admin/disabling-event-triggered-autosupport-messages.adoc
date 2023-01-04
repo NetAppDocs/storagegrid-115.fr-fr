@@ -1,0 +1,37 @@
+---
+permalink: admin/disabling-event-triggered-autosupport-messages.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Par défaut, le système StorageGRID est configuré de manière à envoyer un message AutoSupport au support NetApp lorsqu"une alerte importante ou un autre événement système important se produit.' 
+---
+= Désactivation des messages AutoSupport déclenchés par les événements
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Par défaut, le système StorageGRID est configuré de manière à envoyer un message AutoSupport au support NetApp lorsqu'une alerte importante ou un autre événement système important se produit.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer de l'autorisation accès racine ou autre configuration grille.
+
+
+.Description de la tâche
+Vous pouvez désactiver à tout moment les messages AutoSupport déclenchés par les événements.
+
+
+NOTE: Les messages AutoSupport déclenchés par des événements sont également supprimés lorsque vous supprimez des notifications par e-mail dans tout le système. (Sélectionnez *Configuration* > *Paramètres système* > *Options d'affichage*. Sélectionnez ensuite *Supprimer toutes les notifications*.)
+
+.Étapes
+. Sélectionnez *support* > *Outils* > *AutoSupport*.
++
+La page AutoSupport s'affiche avec l'onglet *Paramètres* sélectionné.
+
+. Décochez la case *Activer AutoSupport déclenchée par événement*.
++
+image::../media/autosupport_event_triggered_disabled.png[AutoSupport déclenchée par événement]
+
+. Sélectionnez *Enregistrer*.
+

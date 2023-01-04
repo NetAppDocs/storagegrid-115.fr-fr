@@ -1,0 +1,23 @@
+---
+permalink: network/network-topology-examples.html 
+sidebar: sidebar 
+keywords: storagegrid, network topology 
+summary: En plus du réseau Grid requis, vous pouvez choisir de configurer les interfaces réseau Admin et réseau client lors de la conception de la topologie réseau pour un déploiement sur un ou plusieurs sites. 
+---
+= Exemples de topologie réseau
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En plus du réseau Grid requis, vous pouvez choisir de configurer les interfaces réseau Admin et réseau client lors de la conception de la topologie réseau pour un déploiement sur un ou plusieurs sites.
+
+Les ports internes ne sont accessibles que sur le réseau Grid. Les ports externes sont accessibles à partir de tous les types de réseaux. Cette flexibilité offre de nombreuses options pour la conception d'un déploiement StorageGRID et la configuration du filtrage externe des adresses IP et des ports dans les commutateurs et les pare-feu. Pour plus d'informations sur les ports internes et externes, reportez-vous à la référence du port réseau.
+
+Si vous spécifiez que l'interface client Network d'un nœud n'est pas fiable, configurez un noeud final d'équilibreur de charge pour accepter le trafic entrant. Pour plus d'informations sur la configuration de réseaux clients non fiables et de points de terminaison d'équilibreur de charge, reportez-vous aux instructions d'administration de StorageGRID.
+
+.Informations associées
+link:../admin/index.html["Administrer StorageGRID"]
+
+link:network-port-reference.html["Référence du port réseau"]

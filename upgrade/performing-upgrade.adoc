@@ -1,0 +1,39 @@
+---
+permalink: upgrade/performing-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, software upgrade 
+summary: La page mise à niveau du logiciel vous guide tout au long du processus de téléchargement du fichier requis et de mise à niveau de tous les nœuds de la grille de votre système StorageGRID. 
+---
+= Exécution de la mise à niveau
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La page mise à niveau du logiciel vous guide tout au long du processus de téléchargement du fichier requis et de mise à niveau de tous les nœuds de la grille de votre système StorageGRID.
+
+.Ce dont vous avez besoin
+Vous connaissez les éléments suivants :
+
+* Vous devez mettre à niveau tous les nœuds de la grille de tous les sites de centre de données à partir du nœud d'administration principal, à l'aide de Grid Manager.
+* Pour détecter et résoudre les problèmes, vous pouvez exécuter manuellement les contrôles préalables à la mise à niveau avant de démarrer la mise à niveau réelle. Les mêmes contrôles préalables sont effectués lorsque vous démarrez la mise à niveau. Les défaillances de précontrôle arrêtent le processus de mise à niveau et peuvent nécessiter une intervention du support technique.
+* Lorsque vous démarrez la mise à niveau, le nœud d'administration principal est mis à niveau automatiquement.
+* Une fois le nœud d'administration principal mis à niveau, vous pouvez sélectionner les nœuds de la grille à mettre à niveau.
+* Vous devez mettre à niveau tous les nœuds grid dans votre système StorageGRID pour effectuer la mise à niveau, mais vous pouvez effectuer la mise à niveau de chaque nœud grid dans n'importe quel ordre. Vous pouvez sélectionner des nœuds grid individuels, des groupes de nœuds grid ou tous les nœuds grid. Vous pouvez répéter le processus de sélection des nœuds de la grille autant de fois que nécessaire, jusqu'à ce que tous les nœuds de la grille de tous les sites soient mis à niveau.
+* Lorsque la mise à niveau démarre sur un nœud de la grille, les services de ce nœud sont arrêtés. Plus tard, le nœud de la grille est redémarré. N'approuvez pas la mise à niveau d'un nœud de la grille sauf si vous êtes sûr que ce nœud est prêt à être arrêté et redémarré.
+* Lorsque tous les nœuds de la grille ont été mis à niveau, les nouvelles fonctionnalités sont activées et vous pouvez reprendre les opérations. Cependant, vous devez attendre que la tâche d'arrière-plan *Upgrade Database* et la tâche *final Upgrade Steps* soient terminées.
+* La mise à niveau doit être effectuée sur la même plateforme d'hyperviseur que celle que vous avez démarrée.
+
+
+.Étapes
+. link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Linux : installation du package RPM ou DEB sur tous les hôtes"]
+. link:starting-upgrade.html["Démarrage de la mise à niveau"]
+. link:upgrading-grid-nodes-and-completing-upgrade.html["Mise à niveau des nœuds du grid et fin de la mise à niveau"]
+. link:increasing-metadata-reserved-space-setting.html["Augmentation du paramètre Metadata Reserved Space"]
+
+
+.Informations associées
+link:../admin/index.html["Administrer StorageGRID"]
+
+link:estimating-time-to-complete-upgrade.html["Estimation du temps nécessaire pour effectuer une mise à niveau"]

@@ -1,0 +1,22 @@
+---
+permalink: expand/adding-storage-capacity.html 
+sidebar: sidebar 
+keywords: storage, capacity, add, adding, expand, expansion, full storage node 
+summary: Lorsque les nœuds de stockage actuels sont pleins, vous devez augmenter la capacité de stockage de votre système StorageGRID. 
+---
+= L'ajout de capacité de stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque les nœuds de stockage actuels sont pleins, vous devez augmenter la capacité de stockage de votre système StorageGRID.
+
+Pour augmenter la capacité de stockage, vous devez d'abord savoir où les données sont stockées, puis ajouter de la capacité à tous les emplacements requis. Par exemple, si vous stockez actuellement des copies de données d'objet sur plusieurs sites, vous devrez peut-être augmenter la capacité de stockage de chaque site.
+
+* link:guidelines-for-adding-object-capacity.html["Instructions d'ajout de capacité d'objet"]
+* link:adding-storage-capacity-for-replicated-objects.html["Ajout de capacité de stockage pour les objets répliqués"]
+* link:adding-storage-capacity-for-erasure-coded-objects.html["Ajout de capacité de stockage pour les objets avec code d'effacement"]
+* link:considerations-for-rebalancing-erasure-coded-data.html["Considérations relatives au rééquilibrage des données avec code d'effacement"]
+

@@ -1,0 +1,21 @@
+---
+permalink: ilm/how-objects-are-stored-replication-erasure-coding.html 
+sidebar: sidebar 
+keywords:  
+summary: 'StorageGRID protège les objets contre les pertes grâce au stockage des copies répliquées ou au stockage des copies avec code d"effacement. Vous spécifiez le type de copie à créer dans les instructions de placement des règles ILM.' 
+---
+= Le mode de stockage des objets (réplication ou code d'effacement)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID protège les objets contre les pertes grâce au stockage des copies répliquées ou au stockage des copies avec code d'effacement. Vous spécifiez le type de copie à créer dans les instructions de placement des règles ILM.
+
+* link:what-replication-is.html["Qu'est-ce que la réplication"]
+* link:why-you-should-not-use-single-copy-replication.html["Pourquoi ne pas utiliser la réplication à copie unique"]
+* link:what-erasure-coding-is.html["Qu'est-ce que le code d'effacement"]
+* link:what-erasure-coding-schemes-are.html["En quoi consiste les schémas de code d'effacement"]
+* link:advantages-disadvantages-and-requirements-for-ec.html["Avantages, inconvénients et exigences du code d'effacement"]
+

@@ -1,0 +1,237 @@
+---
+permalink: troubleshoot/verifying-object-integrity.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le système StorageGRID vérifie l"intégrité des données d"objet sur les nœuds de stockage, en vérifiant la présence d"objets corrompus et manquants.' 
+---
+= Vérification de l'intégrité des objets
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le système StorageGRID vérifie l'intégrité des données d'objet sur les nœuds de stockage, en vérifiant la présence d'objets corrompus et manquants.
+
+Il existe deux processus de vérification : la vérification des antécédents et la vérification de premier plan. Elles travaillent ensemble pour assurer l'intégrité des données. La vérification en arrière-plan s'exécute automatiquement et vérifie en continu l'exactitude des données d'objet. La vérification de premier plan peut être déclenchée par un utilisateur, afin de vérifier plus rapidement l'existence (mais pas l'exactitude) des objets.
+
+
+
+== Qu'est-ce que la vérification des antécédents
+
+Le processus de vérification en arrière-plan vérifie automatiquement et en continu les nœuds de stockage pour détecter des copies corrompues de données d'objet et tente automatiquement de résoudre les problèmes qu'il trouve.
+
+La vérification en arrière-plan vérifie l'intégrité des objets répliqués et des objets avec code d'effacement, comme suit :
+
+* *Objets répliqués* : si le processus de vérification en arrière-plan trouve un objet répliqué corrompu, la copie corrompue est supprimée de son emplacement et mise en quarantaine ailleurs sur le noeud de stockage. Une nouvelle copie non corrompue est ensuite générée et placée pour satisfaire la politique ILM active. Il se peut que la nouvelle copie ne soit pas placée sur le nœud de stockage utilisé pour la copie d'origine.
+
+
+
+NOTE: Les données d'objet corrompues sont mises en quarantaine au lieu d'être supprimées du système, de sorte qu'elles soient toujours accessibles. Pour plus d'informations sur l'accès aux données d'objet en quarantaine, contactez le support technique.
+
+* *Objets avec code d'effacement* : si le processus de vérification en arrière-plan détecte qu'un fragment d'un objet avec code d'effacement est corrompu, StorageGRID tente automatiquement de reconstruire le fragment manquant en place sur le même nœud de stockage, en utilisant les données restantes et les fragments de parité. Si le fragment corrompu ne peut pas être reconstruit, l'attribut copies corrompues détectées (ECOR) est incrémenté d'un seul et une tentative est effectuée pour récupérer une autre copie de l'objet. Lorsque la récupération réussit, une évaluation du ILM est effectuée pour créer une copie de remplacement de l'objet avec code d'effacement.
++
+Le processus de vérification en arrière-plan vérifie uniquement les objets sur les nœuds de stockage. Elle ne vérifie pas les objets sur les nœuds d'archivage ou dans un pool de stockage cloud. Les objets doivent être âgés de plus de quatre jours pour être admissibles à la vérification des antécédents.
+
+
+
+La vérification des antécédents s'exécute à un taux continu conçu pour ne pas interférer avec les activités ordinaires du système. Impossible d'arrêter la vérification de l'arrière-plan. Toutefois, vous pouvez augmenter le taux de vérification en arrière-plan pour vérifier plus rapidement le contenu d'un nœud de stockage si vous soupçonnez un problème.
+
+
+
+=== Alertes et alarmes (anciennes) liées à la vérification des antécédents
+
+Si le système détecte un objet corrompu qu'il ne peut pas corriger automatiquement (car la corruption empêche l'identification de l'objet), l'alerte *objet corrompu non identifié détecté* est déclenchée.
+
+Si la vérification en arrière-plan ne peut pas remplacer un objet corrompu car elle ne peut pas localiser une autre copie, l'alerte *objets perdus* et l'alarme héritée PERDUE (objets perdus) sont déclenchées.
+
+
+
+== Modification du taux de vérification du bruit de fond
+
+Vous pouvez modifier la vitesse à laquelle la vérification en arrière-plan vérifie les données d'objet répliquées sur un nœud de stockage si vous avez des problèmes d'intégrité des données.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+.Description de la tâche
+Vous pouvez modifier le taux de vérification pour la vérification en arrière-plan sur un nœud de stockage :
+
+* Adaptatif : paramètre par défaut. La tâche est conçue pour vérifier à un maximum de 4 Mo/s ou 10 objets/s (selon la première limite dépassée).
+* Élevé : la vérification du stockage s'effectue rapidement, à une vitesse qui peut ralentir les activités ordinaires des systèmes.
+
+
+Utilisez le taux de vérification élevé uniquement si vous soupçonnez qu'une erreur matérielle ou logicielle pourrait avoir des données d'objet corrompues. Une fois la vérification de l'arrière-plan de priorité élevée terminée, le taux de vérification se réinitialise automatiquement sur Adaptive.
+
+.Étapes
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_Storage Node_ > LDR > Verification*.
+. Sélectionnez *Configuration* > *main*.
+. Accédez à *LDR* > *Verification* > *Configuration* > *main*.
+. Sous Vérification de l'arrière-plan, sélectionnez *taux de vérification* > *taux élevé* ou *taux de vérification* > *adaptatif*.
++
+image::../media/background_verification_rate.png[Réglage du taux de vérification]
+
+
+
+
+NOTE: Le réglage du taux de vérification sur élevé déclenche l'alarme VPRI (taux de vérification) héritée au niveau des notifications.
+
+. Cliquez sur *appliquer les modifications*.
+. Surveiller les résultats de la vérification en arrière-plan des objets répliqués.
++
+.. Accédez à *noeuds* > *_Storage Node_* > *objets*.
+.. Dans la section Vérification, surveillez les valeurs de *objets corrompus* et *objets corrompus non identifiés*.
++
+Si la vérification en arrière-plan trouve des données d'objet répliqué corrompues, la mesure *objets corrompus* est incrémentée et StorageGRID tente d'extraire l'identificateur d'objet des données, comme suit :
+
++
+*** Si l'identifiant d'objet peut être extrait, StorageGRID crée automatiquement une nouvelle copie des données de l'objet. La nouvelle copie peut être effectuée à tout emplacement du système StorageGRID conformément à la politique ILM active.
+*** Si l'identificateur d'objet ne peut pas être extrait (car il a été corrompu), la mesure *objets corrompus non identifiés* est incrémentée et l'alerte *objet corrompu non identifié détecté* est déclenchée.
+
+
+.. Si des données d'objet répliqué corrompues sont trouvées, contactez le support technique pour déterminer la cause première de la corruption.
+
+
+. Surveillez les résultats de la vérification en arrière-plan des objets avec code d'effacement.
++
+Si la vérification en arrière-plan détecte des fragments corrompus de données d'objet codées par effacement, l'attribut fragments corrompus détectés est incrémenté. StorageGRID restaure en reconstruisant le fragment corrompu sur le même nœud de stockage.
+
++
+.. Sélectionnez *support* > *Outils* > *topologie de grille*.
+.. Sélectionnez *_Storage Node_ > LDR > codage d'effacement*.
+.. Dans le tableau Résultats de la vérification, surveillez l'attribut fragments corrompus détectés (ECCD).
+
+
+. Une fois les objets corrompus automatiquement restaurés par le système StorageGRID, réinitialisez le nombre d'objets corrompus.
++
+.. Sélectionnez *support* > *Outils* > *topologie de grille*.
+.. Sélectionnez *_Storage Node_ > LDR > Vérification > Configuration*.
+.. Sélectionnez *Réinitialiser le nombre d'objets corrompus*.
+.. Cliquez sur *appliquer les modifications*.
+
+
+. Si vous êtes sûr que les objets mis en quarantaine ne sont pas nécessaires, vous pouvez les supprimer.
+
+
+
+NOTE: Si l'alerte *objets perdus* ou L'alarme héritée PERDUS (objets perdus) a été déclenchée, le support technique peut vouloir accéder aux objets mis en quarantaine pour aider à déboguer le problème sous-jacent ou à tenter la récupération des données.
+
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_Storage Node_* > *LDR* > *Verification* > *Configuration*.
+. Sélectionnez *Supprimer les objets en quarantaine*.
+. Cliquez sur *appliquer les modifications*.
+
+
+
+
+== La vérification de premier plan
+
+La vérification avant-plan est un processus initié par l'utilisateur qui vérifie si toutes les données d'objet attendues existent sur un nœud de stockage. La vérification de premier plan est utilisée pour vérifier l'intégrité d'un périphérique de stockage.
+
+Il s'agit d'une alternative plus rapide à la vérification en arrière-plan qui vérifie l'existence, mais pas l'intégrité, des données d'objet sur un nœud de stockage. Si la vérification au premier plan détecte que de nombreux éléments sont manquants, il peut y avoir un problème avec tout ou partie d'un périphérique de stockage associé au nœud de stockage.
+
+La vérification premier plan vérifie les données d'objet répliquées et les données d'objet avec code d'effacement, comme suit :
+
+* *Objets répliqués* : si une copie de données d'objet répliqué est manquante, StorageGRID tente automatiquement de remplacer la copie à partir de copies stockées ailleurs dans le système. Le nœud de stockage exécute une copie existante via une évaluation ILM. Cette dernière détermine que la politique ILM actuelle n'est plus respectée pour cet objet, car la copie manquante n'existe plus à l'emplacement prévu. Une nouvelle copie est générée et placée pour satisfaire la politique ILM active du système. Cette nouvelle copie peut ne pas être placée au même emplacement que la copie manquante.
+* *Objets avec code d'effacement* : si un fragment d'un objet avec code d'effacement est manquant, StorageGRID tente automatiquement de reconstruire le fragment manquant sur le même noeud de stockage en utilisant les fragments restants. Si le fragment manquant ne peut pas être reconstruit (parce que trop de fragments ont été perdus), l'attribut de copies corrompues détectées (ECOR) est incrémenté d'un. ILM tente ensuite de trouver une autre copie de l'objet qui peut ensuite servir à générer une nouvelle copie codée d'effacement.
++
+Si la vérification au premier plan identifie un problème de codage d'effacement sur un volume de stockage, la tâche de vérification au premier plan s'interrompt et un message d'erreur identifie le volume affecté. Vous devez effectuer une procédure de restauration pour tous les volumes de stockage concernés.
+
+
+
+Si aucune autre copie d'un objet répliqué manquant ou d'un objet à code d'effacement corrompu n'est trouvée dans la grille, l'alerte *objets perdus* et l'alarme héritée PERDUE (objets perdus) sont déclenchées.
+
+
+
+== Exécution de la vérification de premier plan
+
+La vérification de premier plan vous permet de vérifier l'existence de données sur un nœud de stockage. Des données d'objet manquantes peuvent indiquer qu'un problème existe avec le périphérique de stockage sous-jacent.
+
+.Ce dont vous avez besoin
+* Vous avez vérifié que les tâches de grille suivantes ne sont pas en cours d'exécution :
++
+** Extension de grille : ajoutez un serveur (GEXP) lors de l'ajout d'un noeud de stockage
+** Le service de désaffectation des nœuds de stockage (LDCM) sur le même nœud de stockage si ces tâches de la grille sont en cours d'exécution, attendez qu'elles soient terminées ou relâchés.
+
+
+* Vous avez vérifié que le stockage est en ligne. (Sélectionnez *support* > *Outils* > *topologie de grille*. Sélectionnez ensuite *_Storage Node_* > *LDR* > *Storage* > *Overview* > *main*. Assurez-vous que *État de stockage - actuel* est en ligne.)
+* Vous avez vérifié que les procédures de restauration suivantes ne sont pas exécutées sur le même nœud de stockage :
++
+** Restauration d'un volume de stockage défaillant
+** La récupération d'un nœud de stockage avec une vérification de premier plan de lecteur système ayant échoué ne fournit pas d'informations utiles tant que les procédures de récupération sont en cours.
+
+
+
+
+.Description de la tâche
+Vérifications de premier plan des données d'objet répliqué manquantes et des données d'objet à code d'effacement manquantes :
+
+* Si la vérification avant-plan détecte de grandes quantités de données d'objet manquantes, il est probable que le stockage du nœud de stockage soit soumis à une étude et à une résolution.
+* Si la vérification au premier plan détecte une erreur de stockage grave associée aux données avec code d'effacement, elle vous en informe. Vous devez effectuer la récupération du volume de stockage pour corriger l'erreur.
+
+
+Vous pouvez configurer la vérification en premier plan pour vérifier tous les magasins d'objets d'un nœud de stockage ou uniquement des magasins d'objets spécifiques.
+
+Si la vérification au premier plan trouve des données d'objet manquantes, le système StorageGRID tente de les remplacer. Si une copie de remplacement ne peut pas être effectuée, l'alarme OBJETS PERDUS peut être déclenchée.
+
+La vérification par premier plan génère une tâche de grille de vérification par premier plan LDR qui, selon le nombre d'objets stockés sur un nœud de stockage, peut prendre plusieurs jours ou plusieurs semaines. Il est possible de sélectionner plusieurs nœuds de stockage en même temps, mais ces tâches de grille ne sont pas exécutées simultanément. Au lieu de cela, elles sont mises en file d'attente et s'exécutent l'une après l'autre jusqu'à la fin. Lorsque la vérification de premier plan est en cours sur un nœud de stockage, vous ne pouvez pas démarrer une autre tâche de vérification de premier plan sur ce même nœud de stockage, même si l'option de vérification de volumes supplémentaires peut sembler disponible pour le nœud de stockage.
+
+Si un nœud de stockage autre que celui où la vérification de premier plan est exécutée passe hors ligne, la tâche de grille continue à s'exécuter jusqu'à ce que l'attribut *% Complete* atteigne 99.99 pour cent. L'attribut *% Complete* revient ensuite à 50 % et attend que le nœud de stockage revienne à l'état en ligne. Lorsque l'état du nœud de stockage revient en ligne, la tâche de grille de vérification hors-plan LDR se poursuit jusqu'à sa fin.
+
+.Étapes
+. Sélectionnez *_Storage Node_* > *LDR* > *Verification*.
+. Sélectionnez *Configuration* > *main*.
+. Sous *Vérification de premier plan*, cochez la case pour chaque ID de volume de stockage que vous voulez vérifier.
++
+image::../media/foreground_verification_volume_id_selection.gif[Page Configuration de la vérification d'avant-plan]
+
+. Cliquez sur *appliquer les modifications*.
++
+Attendez que la page se réactualise et se recharge automatiquement avant de quitter la page. Une fois les magasins d'objets actualisés, ils ne peuvent plus être sélectionnés sur ce nœud de stockage.
+
++
+Une tâche de grille de vérification de premier plan LDR est générée et exécutée jusqu'à ce qu'elle soit terminée, interrompue ou abandonnée.
+
+. Surveiller les objets manquants ou les fragments manquants :
++
+.. Sélectionnez *_Storage Node_* > *LDR* > *Verification*.
+.. Dans l'onglet vue d'ensemble sous *Résultats de vérification*, notez la valeur de *objets manquants détectés*.
++
+*Remarque* : la même valeur est signalée comme *objets perdus* sur la page noeuds. Accédez à *noeuds* > *_Storage Node_*, puis sélectionnez l'onglet *objets*.
+
++
+Si le nombre de *objets manquants détectés* est important (s'il y a des centaines d'objets manquants), il y a probablement un problème avec le stockage du nœud de stockage. Contactez l'assistance technique.
+
+.. Sélectionnez *_Storage Node_* > *LDR* > *codage d'effacement*.
+.. Dans l'onglet vue d'ensemble sous *Résultats de vérification*, notez la valeur de *fragments manquants détectés*.
++
+Si le nombre de *fragments manquants détectés* est important (s'il y a des centaines de fragments manquants), il y a probablement un problème avec le stockage du nœud de stockage. Contactez l'assistance technique.
+
+
+
++
+Si la vérification au premier plan ne détecte pas un nombre important de copies d'objet répliquées manquantes ou un nombre significatif de fragments manquants, alors le stockage fonctionne normalement.
+
+. Surveiller l'achèvement de la tâche de grille de vérification de premier plan :
++
+.. Sélectionnez *support* > *Outils* > *topologie de grille*. Sélectionnez ensuite *site* > *_Admin Node_* > *CMN* > *Grid Task* > *Overview* > *main*.
+.. Vérifiez que la tâche de la grille de vérification de premier plan progresse sans erreur.
++
+*Remarque* : une alarme de niveau de notification est déclenchée sur l'état de la tâche de grille (SCAS) si la tâche de grille de vérification de premier plan est interrompue.
+
+.. Si la tâche de grille s'interrompt avec un `critical storage error`, récupérez le volume affecté, puis exécutez la vérification de premier plan sur les volumes restants pour rechercher d'autres erreurs.
++
+*Attention* : si la tâche de la grille de vérification de premier plan s'interrompt avec le message `Encountered a critical storage error in volume _volID_`, vous devez effectuer la procédure de récupération d'un volume de stockage défaillant. Reportez-vous aux instructions de récupération et d'entretien.
+
+
+
+
+
+.Une fois que vous avez terminé
+Si vous avez toujours des préoccupations concernant l'intégrité des données, allez à *LDR* > *Verification* > *Configuration* > *main* et augmentez le taux de vérification en arrière-plan. La vérification en arrière-plan vérifie l'exactitude de toutes les données d'objet stockées et répare tout problème détecté. Trouver et réparer les problèmes le plus rapidement possible réduit le risque de perte de données.
+
+.Informations associées
+link:../maintain/index.html["Maintenance et récupération"]

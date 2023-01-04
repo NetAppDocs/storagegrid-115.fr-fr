@@ -1,0 +1,20 @@
+---
+permalink: audit/index.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, logs, messages, log, message 
+summary: 'Apprenez les journaux d"audit du système StorageGRID et affichez la liste de tous les messages d"audit.' 
+---
+= Examiner les journaux d'audit
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Apprenez les journaux d'audit du système StorageGRID et affichez la liste de tous les messages d'audit.
+
+* link:audit-message-overview.html["Présentation du message d'audit"]
+* link:audit-file-and-message-formats.html["Formats du fichier journal d'audit et des messages"]
+* link:audit-messages-and-object-lifecycle.html["Messages d'audit et cycle de vie de l'objet"]
+* link:audit-messages-main.html["Messages d'audit"]
+

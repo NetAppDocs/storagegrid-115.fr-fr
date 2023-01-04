@@ -1,0 +1,20 @@
+---
+permalink: admin/managing-platform-services-for-s3-tenant-accounts.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Si vous activez des services de plateforme pour les comptes de locataires S3, vous devez configurer votre grid de manière à ce que les locataires puissent accéder aux ressources externes nécessaires à l"utilisation de ces services.' 
+---
+= Gestion des services de plateforme pour les comptes de locataires S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous activez des services de plateforme pour les comptes de locataires S3, vous devez configurer votre grid de manière à ce que les locataires puissent accéder aux ressources externes nécessaires à l'utilisation de ces services.
+
+* link:what-platform-services-are.html["Sont les services de plateforme"]
+* link:networking-and-ports-for-platform-services.html["Réseaux et ports pour les services de plate-forme"]
+* link:per-site-delivery-of-platform-services-messages.html["Livraison par site de messages de services de plate-forme"]
+* link:troubleshooting-platform-services.html["Dépannage des services de plate-forme"]
+

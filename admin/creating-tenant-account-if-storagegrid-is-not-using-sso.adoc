@@ -1,0 +1,173 @@
+---
+permalink: admin/creating-tenant-account-if-storagegrid-is-not-using-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Lorsque vous créez un compte de locataire, vous spécifiez un nom, un protocole client et, éventuellement, un quota de stockage. Si StorageGRID n"utilise pas la connexion unique \(SSO\), vous devez également indiquer si le compte de tenant utilisera son propre référentiel d"identité et configurer le mot de passe initial pour l"utilisateur racine local du locataire.' 
+---
+= Création d'un compte de locataire si StorageGRID n'utilise pas SSO
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous créez un compte de locataire, vous spécifiez un nom, un protocole client et, éventuellement, un quota de stockage. Si StorageGRID n'utilise pas la connexion unique (SSO), vous devez également indiquer si le compte de tenant utilisera son propre référentiel d'identité et configurer le mot de passe initial pour l'utilisateur racine local du locataire.
+
+.Description de la tâche
+Si le compte de tenant utilise le référentiel d'identité qui a été configuré pour Grid Manager et que vous souhaitez accorder l'autorisation d'accès racine au compte de tenant à un groupe fédéré, vous devez avoir importé ce groupe fédéré dans Grid Manager. Vous n'avez pas besoin d'attribuer des autorisations Grid Manager à ce groupe d'administration. Reportez-vous aux instructions pour link:managing-admin-groups.html["gestion des groupes d'administration"].
+
+.Étapes
+. Dans la zone de texte *Nom d'affichage*, entrez un nom d'affichage pour ce compte locataire.
++
+Les noms d'affichage n'ont pas besoin d'être uniques. Lorsque le compte de tenant est créé, il reçoit un ID de compte numérique unique.
+
+. Sélectionnez le protocole client qui sera utilisé par ce compte locataire, soit *S3*, soit *Swift*.
+. Pour les comptes locataires S3, cochez la case *Autoriser les services de plateforme*, sauf si vous ne souhaitez pas que ce locataire utilise les services de plateforme pour les compartiments S3.
++
+Si les services de plateforme sont activés, un locataire peut utiliser des fonctionnalités, telles que la réplication CloudMirror, qui accèdent aux services externes. Il serait intéressant de désactiver l'utilisation de ces fonctionnalités pour limiter la quantité de bande passante du réseau ou d'autres ressources consommées par un locataire. Voir "Manage des services de plate-forme".
+
+. Dans la zone de texte *Storage quota*, vous pouvez éventuellement entrer le nombre maximal de gigaoctets, de téraoctets ou de pétaoctets que vous souhaitez mettre à disposition des objets de ce locataire. Sélectionnez ensuite les unités dans la liste déroulante.
++
+Laissez ce champ vide si vous souhaitez que ce locataire dispose d'un quota illimité.
+
++
+
+NOTE: Le quota de stockage d'un locataire représente une quantité logique (taille d'objet), et non une quantité physique (taille sur disque). Les copies ILM et le code d'effacement ne contribuent pas au volume de quotas utilisés. Si le quota est dépassé, le compte du locataire ne peut pas créer de nouveaux objets.
+
++
+
+NOTE: Pour surveiller l'utilisation du stockage de chaque compte locataire, sélectionnez *utilisation*. Les comptes des locataires peuvent également surveiller leur propre utilisation du stockage depuis le tableau de bord dans le Gestionnaire de locataires ou via l'API de gestion des locataires. Les valeurs d'utilisation du stockage d'un locataire peuvent devenir obsolètes si les nœuds sont isolés des autres nœuds de la grille. Les totaux seront mis à jour lorsque la connectivité réseau sera restaurée.
+
+. Si le locataire gère ses propres groupes et utilisateurs, procédez comme suit.
++
+.. Cochez la case *Uses own Identity Source* (par défaut).
++
+
+NOTE: Si cette case est cochée et que vous souhaitez utiliser la fédération des identités pour les groupes de locataires et les utilisateurs, le locataire doit configurer son propre référentiel d'identité. Reportez-vous aux instructions d'utilisation des comptes de tenant.
+
+.. Spécifiez un mot de passe pour l'utilisateur racine local du locataire.
+
+
+. Si le locataire utilise les groupes et les utilisateurs configurés pour le Grid Manager, procédez comme suit.
++
+.. Décochez la case *utilise son propre référentiel d'identité*.
+.. Effectuez l'une des opérations suivantes ou les deux :
++
+*** Dans le champ Groupe d'accès racine, sélectionnez un groupe fédéré existant dans le gestionnaire de grille disposant de l'autorisation d'accès racine initiale pour le locataire.
++
+
+NOTE: Si vous disposez d'autorisations adéquates, les groupes fédérés existants dans Grid Manager sont répertoriés lorsque vous cliquez sur le champ. Sinon, entrez le nom unique du groupe.
+
+*** Spécifiez un mot de passe pour l'utilisateur racine local du locataire.
+
+
+
+
+. Cliquez sur *Enregistrer*.
++
+Le compte de locataire est créé.
+
+. Vous pouvez également accéder au nouveau locataire. Sinon, passer à l'étape pour <<STEP_SIGN_IN_LATER,accès au locataire ultérieurement>>.
++
+[cols="1a,2a"]
+|===
+| Si vous êtes... | Procédez comme ça... 
+
+
+ a| 
+Accès au Grid Manager sur un port restreint
+ a| 
+Cliquez sur *restreint* pour en savoir plus sur l'accès à ce compte de locataire.
+
+L'URL du Gestionnaire de locataires a le format suivant :
+
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_/`
+
+** `_FQDN_or_Admin_Node_IP_` Est un nom de domaine complet ou l'adresse IP d'un nœud d'administration
+** `_port_` est le port locataire uniquement
+** `_20-digit-account-id_` Est l'ID de compte unique du locataire
+
+
+
+
+ a| 
+Accès au gestionnaire de grille sur le port 443 mais vous n'avez pas défini de mot de passe pour l'utilisateur racine local
+ a| 
+Cliquez sur *connexion* et entrez les informations d'identification d'un utilisateur dans le groupe fédéré d'accès racine.
+
+
+
+ a| 
+Accès au gestionnaire de grille sur le port 443 et définition d'un mot de passe pour l'utilisateur racine local
+ a| 
+Passez à l'étape suivante sur <<STEP_SIGN_IN_AS_ROOT,connectez-vous en tant que root>>.
+
+|===
+. [[STEP_SIGN_IN_AS_ROOT]]se connecter au locataire en tant que root :
++
+.. Dans la boîte de dialogue configurer le compte de tenant, cliquez sur le bouton *se connecter en tant que root*.
++
+image::../media/configure_tenant_account.gif[Capture d'écran de l'étape 2 - configurer le compte de tenant]
+
++
+Une coche verte s'affiche sur le bouton, indiquant que vous êtes maintenant connecté au compte de tenant en tant qu'utilisateur racine.
+
++
+image::../media/step_2_sign_in_as_root.gif[Connectez-vous en tant que root]
+
+.. Cliquez sur les liens pour configurer le compte de tenant.
++
+Chaque lien ouvre la page correspondante dans le Gestionnaire de locataires. Pour compléter la page, reportez-vous aux instructions d'utilisation des comptes de tenant.
+
+.. Cliquez sur *Terminer*.
+
+
+. [[STEP_SIGN_IN_LATER]]pour accéder ultérieurement au locataire :
++
+[cols="1a,2a"]
+|===
+| Si vous utilisez... | Effectuez l'une d'entre elles... 
+
+
+ a| 
+Orifice 443
+ a| 
+** Dans Grid Manager, sélectionnez *tenants*, puis cliquez sur *connexion* à droite du nom du locataire.
+** Entrez l'URL du locataire dans un navigateur Web :
++
+`https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
+
++
+*** `_FQDN_or_Admin_Node_IP_` Est un nom de domaine complet ou l'adresse IP d'un nœud d'administration
+*** `_20-digit-account-id_` Est l'ID de compte unique du locataire
+
+
+
+
+
+
+ a| 
+Un port restreint
+ a| 
+** Dans Grid Manager, sélectionnez *tenants* et cliquez sur *restreint*.
+** Entrez l'URL du locataire dans un navigateur Web :
++
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`
+
++
+*** `_FQDN_or_Admin_Node_IP_` Est un nom de domaine complet ou l'adresse IP d'un nœud d'administration
+*** `_port_` est le port réservé aux locataires
+*** `_20-digit-account-id_` Est l'ID de compte unique du locataire
+
+
+
+
+|===
+
+
+.Informations associées
+link:controlling-access-through-firewalls.html["Contrôle de l'accès par pare-feu"]
+
+link:managing-platform-services-for-s3-tenant-accounts.html["Gestion des services de plateforme pour les comptes de locataires S3"]
+
+link:../tenant/index.html["Utilisez un compte de locataire"]

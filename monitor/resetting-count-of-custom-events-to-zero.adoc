@@ -1,0 +1,26 @@
+---
+permalink: monitor/resetting-count-of-custom-events-to-zero.html 
+sidebar: sidebar 
+keywords:  
+summary: Si vous souhaitez réinitialiser le compteur uniquement pour les événements personnalisés, vous devez utiliser la page topologie de la grille dans le menu support. 
+---
+= Réinitialisation du nombre d'événements personnalisés à zéro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous souhaitez réinitialiser le compteur uniquement pour les événements personnalisés, vous devez utiliser la page topologie de la grille dans le menu support.
+
+.Description de la tâche
+La réinitialisation d'un compteur entraîne le déclenchement de l'alarme par l'événement suivant. En revanche, lorsque vous reconnaissez une alarme, celle-ci n'est déclenchée que si le niveau de seuil suivant est atteint.
+
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_GRID node_* > *SSM* > *Events* > *Configuration* > *main*.
+. Cochez la case *Réinitialiser* pour les événements personnalisés.
++
+image::../media/custom_events_reset.gif[Capture d'écran à SSM > événements > Configuration > main]
+
+. Cliquez sur *appliquer les modifications*.
+

@@ -1,0 +1,38 @@
+---
+permalink: admin/what-ha-group-is.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Les groupes haute disponibilité utilisent des adresses IP virtuelles \(VIP\) pour fournir un accès de sauvegarde active aux services de nœud de passerelle ou de nœud d"administration.' 
+---
+= Qu'est-ce qu'un groupe haute disponibilité
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les groupes haute disponibilité utilisent des adresses IP virtuelles (VIP) pour fournir un accès de sauvegarde active aux services de nœud de passerelle ou de nœud d'administration.
+
+Un groupe haute disponibilité comprend une ou plusieurs interfaces réseau sur les nœuds d'administration et les nœuds de passerelle. Lors de la création d'un groupe HA, vous sélectionnez des interfaces réseau appartenant à la grille Network (eth0) ou au réseau client (eth2). Toutes les interfaces d'un groupe haute disponibilité doivent se trouver dans le même sous-réseau réseau réseau.
+
+Un groupe haute disponibilité conserve une ou plusieurs adresses IP virtuelles ajoutées à l'interface active du groupe. Si l'interface active n'est plus disponible, les adresses IP virtuelles sont déplacées vers une autre interface. Ce processus de basculement ne prend généralement que quelques secondes et est suffisamment rapide pour que les applications clientes aient peu d'impact et peuvent compter sur des comportements de tentatives normales pour poursuivre le fonctionnement.
+
+L'interface active d'un groupe HA est désignée comme maître. Toutes les autres interfaces sont désignées comme étant Backup. Pour afficher ces désignations, sélectionnez *nœuds* > *_node_* > *Présentation*.
+
+image::../media/ha_group_master_interface.png[Interface maître de groupe HAUTE DISPONIBILITÉ]
+
+Lors de la création d'un groupe haute disponibilité, vous spécifiez une interface à utiliser comme maître préféré. Le maître préféré est l'interface active, sauf en cas de défaillance qui entraîne la réaffectation des adresses VIP à une interface de sauvegarde. Lorsque l'échec est résolu, les adresses VIP sont automatiquement retransférées vers le maître préféré.
+
+Le basculement peut être déclenché pour l'une des raisons suivantes :
+
+* Le nœud sur lequel l'interface est configurée s'éteint.
+* Le nœud sur lequel l'interface est configurée perd la connectivité sur tous les autres nœuds pendant au moins 2 minutes
+* L'interface active tombe en panne.
+* Le service Load Balancer s'arrête.
+* Le service haute disponibilité s'arrête.
+
+
+
+NOTE: Le basculement peut ne pas être déclenché par des pannes réseau externes au nœud qui héberge l'interface active. De même, le basculement n'est pas déclenché par la défaillance du service CLB (obsolète) ou des services pour le Grid Manager ou le tenant Manager.
+
+Si le groupe haute disponibilité inclut des interfaces de plus de deux nœuds, l'interface active peut être déplacé vers l'interface d'un autre nœud pendant le basculement.

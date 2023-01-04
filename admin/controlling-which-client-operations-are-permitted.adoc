@@ -1,0 +1,49 @@
+---
+permalink: admin/controlling-which-client-operations-are-permitted.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez sélectionner l"option empêcher la grille de modification du client pour refuser des opérations client HTTP spécifiques.' 
+---
+= Contrôle des opérations client autorisées
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez sélectionner l'option empêcher la grille de modification du client pour refuser des opérations client HTTP spécifiques.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+.Description de la tâche
+Empêcher la modification du client est un paramètre à l'échelle du système. Lorsque l'option empêcher la modification du client est sélectionnée, les demandes suivantes sont refusées :
+
+* *API REST S3*
++
+** Supprimer les demandes de compartiment
+** Toute demande de modification des données d'un objet existant, des métadonnées définies par l'utilisateur ou du balisage d'objets S3
++
+
+NOTE: Ce paramètre ne s'applique pas aux compartiments avec la gestion des versions activée. Le contrôle de version empêche déjà les modifications des données d'objet, des métadonnées définies par l'utilisateur et du balisage d'objets.
+
+
+
+* *API REST Swift*
++
+** Supprimer les demandes de conteneur
+** Demande de modifier tout objet existant. Par exemple, les opérations suivantes sont refusées : remplacement, suppression, mise à jour des métadonnées, etc.
+
+
+
+
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres système* > *Options de grille*.
+. Dans la section Options réseau, cochez la case *empêcher la modification du client*.
++
+image::../media/prevent_client_modification.png[Empêcher la modification du client]
+
+. Cliquez sur *Enregistrer*.
+

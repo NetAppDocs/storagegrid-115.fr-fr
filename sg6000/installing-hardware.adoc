@@ -1,0 +1,27 @@
+---
+permalink: sg6000/installing-hardware.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, hardware, install, installing 
+summary: 'L"installation matérielle implique l"installation du contrôleur SG6000-CN et du contrôleur de stockage dans une armoire ou un rack, la connexion des câbles et l"alimentation.' 
+---
+= Installation du matériel
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'installation matérielle implique l'installation du contrôleur SG6000-CN et du contrôleur de stockage dans une armoire ou un rack, la connexion des câbles et l'alimentation.
+
+.Étapes
+* link:registering-hardware.html["Enregistrement du matériel"]
+* link:sg6060-installing-60-drive-shelves-into-cabinet-or-rack.html["SG6060 : installation des tiroirs de 60 disques dans une armoire ou un rack"]
+* link:sg6060-installing-drives.html["SG6060 : installation des disques"]
+* link:sgf6024-installing-24-drive-shelves-into-cabinet-or-rack.html["SGF6024 : installation d'étagères de 24 disques dans une armoire ou un rack"]
+* link:sg6000-cn-installing-into-cabinet-or-rack.html["SG6000-CN : installation dans une armoire ou un rack"]
+* link:cabling-appliance-sg6000.html["Câblage de l'appareil (SG6000)"]
+* link:sg6060-cabling-optional-expansion-shelves.html["SG6060 : câblage des tiroirs d'extension en option"]
+* link:connecting-power-cords-and-applying-power-sg6000.html["Branchement des cordons d'alimentation et de l'alimentation (SG6000)"]
+* link:viewing-status-indicators-and-buttons-on-sg6000-cn-controller.html["Affichage des indicateurs d'état et des boutons sur le contrôleur SG6000-CN"]
+* link:viewing-boot-up-status-codes-for-sg6000-storage-controllers.html["Affichage des codes d'état de démarrage des contrôleurs de stockage SG6000"]
+

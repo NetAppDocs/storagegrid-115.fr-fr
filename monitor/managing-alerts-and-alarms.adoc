@@ -1,0 +1,49 @@
+---
+permalink: monitor/managing-alerts-and-alarms.html 
+sidebar: sidebar 
+keywords: managing, alarms, alerts 
+summary: 'Le système d"alerte StorageGRID est conçu pour vous informer des problèmes opérationnels qui requièrent votre attention. Si nécessaire, vous pouvez également utiliser l"ancien système d"alarme pour surveiller votre système.' 
+---
+= Gestion des alertes et des alarmes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le système d'alerte StorageGRID est conçu pour vous informer des problèmes opérationnels qui requièrent votre attention. Si nécessaire, vous pouvez également utiliser l'ancien système d'alarme pour surveiller votre système. Cette section contient les sous-sections suivantes :
+
+* link:comparing-alerts-and-alarms.html["Comparaison des alertes et des alarmes"]
+* link:managing-alerts.html["Gestion des alertes"]
+* link:managing-alarms.html["Gestion des alarmes (système hérité)"]
+
+
+StorageGRID intègre deux systèmes pour vous informer des problèmes.
+
+
+
+== Système d'alerte
+
+Le système d'alerte est conçu pour être votre outil principal de surveillance des problèmes susceptibles de survenir dans votre système StorageGRID. Le système d'alerte offre une interface facile à utiliser pour détecter, évaluer et résoudre les problèmes.
+
+Les alertes sont déclenchées à des niveaux de gravité spécifiques lorsque les conditions des règles d'alerte sont définies comme vrai. Lorsqu'une alerte est déclenchée, les actions suivantes se produisent :
+
+* Une icône de gravité d'alerte s'affiche dans le tableau de bord dans Grid Manager et le nombre d'alertes en cours est incrémenté.
+* L'alerte s'affiche dans l'onglet *Nodes* > *_node_* > *Overview*.
+* Une notification par e-mail est envoyée, en supposant que vous avez configuré un serveur SMTP et fourni des adresses e-mail aux destinataires.
+* Une notification SNMP (simple Network Management Protocol) est envoyée, en supposant que vous avez configuré l'agent SNMP StorageGRID.
+
+
+
+
+== Système d'alarme existant
+
+Le système d'alarme est pris en charge, mais est considéré comme un système hérité. Comme les alertes, les alarmes sont déclenchées à des niveaux de gravité spécifiques lorsque les attributs atteignent des valeurs de seuil définies. Toutefois, contrairement aux alertes, de nombreuses alarmes sont déclenchées pour les événements que vous pouvez ignorer en toute sécurité, ce qui peut entraîner un nombre excessif de notifications par e-mail ou SNMP.
+
+Lorsqu'une alarme est déclenchée, les actions suivantes se produisent :
+
+* Le nombre d'alarmes héritées sur le tableau de bord est incrémenté.
+* L'alarme apparaît sur la page *support* > *alarmes (hérité)* > *alarmes actuelles*.
+* Une notification par e-mail est envoyée, en supposant que vous avez configuré un serveur SMTP et configuré une ou plusieurs listes de diffusion.
+* Une notification SNMP peut être envoyée, en supposant que vous avez configuré l'agent SNMP StorageGRID. (Les notifications SNMP ne sont pas envoyées pour toutes les alarmes ou tous les niveaux d'alarme.)
+

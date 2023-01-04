@@ -1,0 +1,109 @@
+---
+permalink: admin/managing-local-users.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Gestion des utilisateurs locaux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez créer des utilisateurs locaux et les affecter à des groupes d'administration locaux pour déterminer les fonctions de Grid Manager auxquelles ces utilisateurs peuvent accéder.
+
+Le gestionnaire de grille inclut un utilisateur local prédéfini, nommé « root ». Bien que vous puissiez ajouter et supprimer des utilisateurs locaux, vous ne pouvez pas supprimer l'utilisateur racine.
+
+
+NOTE: Si l'authentification unique (SSO) a été activée, les utilisateurs locaux ne peuvent pas se connecter à StorageGRID.
+
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+
+
+== Création d'un utilisateur local
+
+Si vous avez créé des groupes d'administration locaux, vous pouvez créer un ou plusieurs utilisateurs locaux et attribuer chaque utilisateur à un ou plusieurs groupes. Les autorisations du groupe contrôlent les fonctions de Grid Manager auxquelles l'utilisateur peut accéder.
+
+.Description de la tâche
+Vous ne pouvez créer que des utilisateurs locaux, et vous pouvez uniquement attribuer ces utilisateurs à des groupes d'administration locaux. Les utilisateurs fédérés et les groupes fédérés sont gérés à l'aide du référentiel d'identité externe.
+
+.Étapes
+. Sélectionnez *Configuration* > *contrôle d'accès* > *utilisateurs Admin*.
+. Cliquez sur *Créer*.
+. Entrez le nom d'affichage, le nom unique et le mot de passe de l'utilisateur.
+. Attribuez l'utilisateur à un ou plusieurs groupes qui régissent les autorisations d'accès.
++
+La liste des noms de groupes est générée à partir de la table Groups.
+
+. Cliquez sur *Enregistrer*.
+
+
+.Informations associées
+link:managing-admin-groups.html["Gestion des groupes d'administration"]
+
+
+
+== Modification du compte d'un utilisateur local
+
+Vous pouvez modifier le compte d'un administrateur local pour mettre à jour le nom d'affichage de l'utilisateur ou l'appartenance à un groupe. Vous pouvez également empêcher temporairement un utilisateur d'accéder au système.
+
+.Description de la tâche
+Vous ne pouvez modifier que les utilisateurs locaux. Les détails de l'utilisateur fédéré sont automatiquement synchronisés avec le référentiel d'identité externe.
+
+.Étapes
+. Sélectionnez *Configuration* > *contrôle d'accès* > *utilisateurs Admin*.
+. Sélectionnez l'utilisateur que vous souhaitez modifier.
++
+Si votre système comprend plus de 20 éléments, vous pouvez spécifier le nombre de lignes affichées simultanément sur chaque page. Vous pouvez ensuite utiliser la fonction Rechercher de votre navigateur pour rechercher un élément spécifique dans les lignes affichées.
+
+. Cliquez sur *Modifier*.
+. Vous pouvez éventuellement modifier le nom ou l'appartenance à un groupe.
+. Si vous le souhaitez, pour empêcher l'utilisateur d'accéder temporairement au système, cochez la case *refuser l'accès*.
+. Cliquez sur *Enregistrer*.
++
+Les nouveaux paramètres sont appliqués à la prochaine ouverture de session de l'utilisateur, puis se reconnecte au Gestionnaire de grille.
+
+
+
+
+
+== Suppression du compte d'un utilisateur local
+
+Vous pouvez supprimer des comptes pour les utilisateurs locaux qui n'ont plus besoin d'accéder à Grid Manager.
+
+.Étapes
+. Sélectionnez *Configuration* > *contrôle d'accès* > *utilisateurs Admin*.
+. Sélectionnez l'utilisateur local que vous souhaitez supprimer.
++
+
+NOTE: Vous ne pouvez pas supprimer l'utilisateur local racine prédéfini.
+
++
+Si votre système comprend plus de 20 éléments, vous pouvez spécifier le nombre de lignes affichées simultanément sur chaque page. Vous pouvez ensuite utiliser la fonction Rechercher de votre navigateur pour rechercher un élément spécifique dans les lignes affichées.
+
+. Cliquez sur *Supprimer*.
+. Cliquez sur *OK*.
+
+
+
+
+== Modification du mot de passe d'un utilisateur local
+
+Les utilisateurs locaux peuvent modifier leurs propres mots de passe à l'aide de l'option *changer mot de passe* de la bannière du gestionnaire de grille. En outre, les utilisateurs qui ont accès à la page Admin Users peuvent modifier les mots de passe d'autres utilisateurs locaux.
+
+.Description de la tâche
+Vous ne pouvez modifier les mots de passe que pour les utilisateurs locaux. Les utilisateurs fédérés doivent modifier leurs propres mots de passe dans le référentiel d'identité externe.
+
+.Étapes
+. Sélectionnez *Configuration* > *contrôle d'accès* > *utilisateurs Admin*.
+. Sur la page utilisateurs, sélectionnez l'utilisateur.
++
+Si votre système comprend plus de 20 éléments, vous pouvez spécifier le nombre de lignes affichées simultanément sur chaque page. Vous pouvez ensuite utiliser la fonction Rechercher de votre navigateur pour rechercher un élément spécifique dans les lignes affichées.
+
+. Cliquez sur *Modifier le mot de passe*.
+. Saisissez et confirmez le mot de passe, puis cliquez sur *Enregistrer*.
+

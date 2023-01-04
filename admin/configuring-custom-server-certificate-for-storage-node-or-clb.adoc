@@ -1,0 +1,64 @@
+---
+permalink: admin/configuring-custom-server-certificate-for-storage-node-or-clb.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez remplacer le certificat de serveur utilisé pour les connexions des clients S3 ou Swift vers le nœud de stockage ou vers le service CLB \(obsolète\) sur le nœud de passerelle. Le certificat de serveur personnalisé de remplacement est spécifique à votre organisation.' 
+---
+= Configuration d'un certificat de serveur personnalisé pour les connexions au nœud de stockage ou au service CLB
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer le certificat de serveur utilisé pour les connexions des clients S3 ou Swift vers le nœud de stockage ou vers le service CLB (obsolète) sur le nœud de passerelle. Le certificat de serveur personnalisé de remplacement est spécifique à votre organisation.
+
+.Description de la tâche
+Par défaut, chaque nœud de stockage est doté d'un certificat de serveur X.509 signé par l'autorité de certification de la grille. Ces certificats signés par l'autorité de certification peuvent être remplacés par un seul certificat de serveur personnalisé commun et une clé privée correspondante.
+
+Un seul certificat de serveur personnalisé est utilisé pour tous les nœuds de stockage. Vous devez donc spécifier le certificat comme un certificat générique ou multidomaine si les clients doivent vérifier le nom d'hôte lors de la connexion au noeud final de stockage. Définissez le certificat personnalisé de sorte qu'il corresponde à tous les nœuds de stockage de la grille.
+
+Une fois la configuration terminée sur le serveur, les utilisateurs peuvent également avoir besoin d'installer le certificat d'autorité de certification racine dans le client API S3 ou Swift qu'ils utiliseront pour accéder au système, selon l'autorité de certification racine que vous utilisez.
+
+
+NOTE: Pour garantir que les opérations ne sont pas interrompues par un échec du certificat de serveur, l'alerte *expiration du certificat de serveur pour les noeuds finaux de l'API de stockage* et l'alarme expiration du certificat de noeuds finaux du service de l'API de stockage héritée sont toutes deux déclenchées lorsque le certificat de serveur racine est sur le point d'expirer. Si nécessaire, vous pouvez afficher le nombre de jours jusqu'à l'expiration du certificat de service en cours en sélectionnant *support* > *Outils* > *topologie de grille*. Sélectionnez ensuite *_primary Admin Node_* > *CMN* > *Resources*.
+
+Les certificats personnalisés sont utilisés uniquement si les clients se connectent à StorageGRID à l'aide du service CLB obsolète sur les nœuds de passerelle ou s'ils se connectent directement aux nœuds de stockage. Les clients S3 ou Swift qui se connectent à StorageGRID via le service Load Balancer sur les nœuds d'administration ou les nœuds de passerelle utilisent le certificat configuré pour le terminal de l'équilibreur de charge.
+
+
+NOTE: L'alerte *expiration du certificat de point final de l'équilibreur de charge* est déclenchée pour les noeuds finaux de l'équilibreur de charge qui expirent bientôt.
+
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres réseau* > *certificats serveur*.
+. Dans la section certificat de serveur de noeuds finaux du service API de stockage d'objets, cliquez sur *installer le certificat personnalisé*.
+. Téléchargez les fichiers de certificat de serveur requis :
++
+** *Certificat de serveur* : fichier de certificat de serveur personnalisé (`.crt`).
+** *Clé privée de certificat de serveur* : fichier de clé privée de certificat de serveur personnalisé (`.key`).
++
+
+NOTE: Les clés privées EC doivent être de 224 bits ou plus. Les clés privées RSA doivent être de 2048 bits ou plus.
+
+** *Paquet CA* : un fichier unique contenant les certificats de chaque autorité de certification intermédiaire (AC). Le fichier doit contenir chacun des fichiers de certificat d'autorité de certification codés au PEM, concaténés dans l'ordre de la chaîne de certificats.
+
+
+. Cliquez sur *Enregistrer*.
++
+Le certificat de serveur personnalisé est utilisé pour toutes les nouvelles connexions client API suivantes.
+
++
+Sélectionnez un onglet pour afficher des informations détaillées sur le certificat de serveur StorageGRID par défaut ou sur un certificat signé par l'autorité de certification qui a été téléchargé.
+
++
+
+NOTE: Après avoir téléchargé un nouveau certificat, autorisez jusqu'à un jour l'effacement des alertes d'expiration de certificat (ou des alarmes héritées) associées.
+
+. Actualisez la page pour vous assurer que le navigateur Web est mis à jour.
+
+
+.Informations associées
+link:../s3/index.html["Utilisation de S3"]
+
+link:../swift/index.html["Utiliser Swift"]
+
+link:configuring-s3-api-endpoint-domain-names.html["Configuration des noms de domaine de terminaux API S3"]

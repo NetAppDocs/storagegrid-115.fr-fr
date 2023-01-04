@@ -1,0 +1,51 @@
+---
+permalink: rhel/configuring-host-network.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Une fois l"installation de Linux terminée sur vos hôtes, vous devrez peut-être procéder à une configuration supplémentaire pour préparer un ensemble d"interfaces réseau sur chaque hôte, adapté au mappage vers les nœuds StorageGRID que vous pourrez déployer ultérieurement.' 
+---
+= Configuration du réseau hôte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois l'installation de Linux terminée sur vos hôtes, vous devrez peut-être procéder à une configuration supplémentaire pour préparer un ensemble d'interfaces réseau sur chaque hôte, adapté au mappage vers les nœuds StorageGRID que vous pourrez déployer ultérieurement.
+
+.Ce dont vous avez besoin
+* Vous avez lu les instructions de mise en réseau de StorageGRID.
++
+link:../network/index.html["Instructions réseau"]
+
+* Vous avez examiné les informations relatives aux exigences de migration du conteneur de nœud.
++
+link:node-container-migration-requirements.html["Exigences de migration des conteneurs de nœuds"]
+
+* Si vous utilisez des hôtes virtuels, vous devez lire les considérations et recommandations relatives au clonage d'adresses MAC avant de configurer le réseau hôte.
++
+link:considerations-and-recommendations-for-mac-address-cloning.html["Considérations et recommandations relatives au clonage d'adresses MAC"]
+
+
+
+
+NOTE: Si vous utilisez des machines virtuelles en tant qu'hôtes, vous devez sélectionner VMXNET 3 comme carte réseau virtuelle. La carte réseau VMware E1000 a provoqué des problèmes de connectivité avec les conteneurs StorageGRID déployés sur certaines distributions de Linux.
+
+.Description de la tâche
+Les nœuds du grid doivent être capables d'accéder au réseau Grid et, éventuellement, aux réseaux client et Admin. Vous fournissez cet accès en créant des mappages qui associent l'interface physique de l'hôte aux interfaces virtuelles de chaque nœud de la grille. Lors de la création d'interfaces hôtes, utilisez des noms conviviaux pour faciliter le déploiement sur tous les hôtes et pour activer la migration.
+
+Une même interface peut être partagée entre l'hôte et un ou plusieurs nœuds. Par exemple, vous pouvez utiliser la même interface pour l'accès aux hôtes et l'accès au réseau d'administration de nœud afin de faciliter la maintenance des hôtes et des nœuds. Même si une même interface peut être partagée entre l'hôte et les nœuds individuels, toutes doivent avoir des adresses IP différentes. Les adresses IP ne peuvent pas être partagées entre les nœuds ou entre l'hôte et un nœud.
+
+Vous pouvez utiliser la même interface réseau hôte pour fournir l'interface réseau Grid de tous les nœuds StorageGRID de l'hôte ; vous pouvez utiliser une interface réseau hôte différente pour chaque nœud ; ou effectuer un travail entre les deux. Cependant, vous ne fournissez généralement pas la même interface réseau hôte que les interfaces réseau Grid et Admin pour un seul nœud, ou l'interface réseau Grid pour un nœud et l'interface réseau client pour un autre.
+
+Vous pouvez effectuer cette tâche de plusieurs manières. Par exemple, si vos hôtes sont des machines virtuelles et que vous déployez un ou deux nœuds StorageGRID pour chaque hôte, il vous suffit de créer le nombre correct d'interfaces réseau dans l'hyperviseur et d'utiliser un mappage 1-à-1. Si vous déployez plusieurs nœuds sur des hôtes bare Metal pour la production, vous pouvez bénéficier de la prise en charge du VLAN et du LACP de la pile réseau Linux pour la tolérance aux pannes et le partage de bande passante. Les sections suivantes présentent des approches détaillées pour ces deux exemples. Vous n'avez pas besoin d'utiliser l'un ou l'autre de ces exemples ; vous pouvez utiliser n'importe quelle approche qui répond à vos besoins.
+
+
+NOTE: N'utilisez pas de périphériques de liaison ou de pont directement comme interface réseau de conteneur. Cela pourrait empêcher le démarrage de nœud causé par un problème de noyau avec l'utilisation de MACVLAN avec des périphériques de liaison et de pont dans l'espace de noms de conteneur. Utilisez plutôt un périphérique sans lien, tel qu'un VLAN ou une paire Ethernet virtuelle (Veth). Spécifiez ce périphérique comme interface réseau dans le fichier de configuration de nœud.
+
+.Informations associées
+link:../network/index.html["Instructions réseau"]
+
+link:node-container-migration-requirements.html["Exigences de migration des conteneurs de nœuds"]
+
+link:creating-node-configuration-files.html["Création de fichiers de configuration de nœud"]

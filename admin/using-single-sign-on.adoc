@@ -1,0 +1,19 @@
+---
+permalink: admin/using-single-sign-on.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le système StorageGRID prend en charge l"authentification unique \(SSO\) en utilisant la norme Security assertion Markup Language 2.0 \(SAML 2.0\). Lorsque l"authentification SSO est activée, tous les utilisateurs doivent être authentifiés par un fournisseur d"identités externe avant d"accéder au Grid Manager, au tenant Manager, à l"API Grid Management ou à l"API de gestion des locataires. Les utilisateurs locaux ne peuvent pas se connecter à StorageGRID.' 
+---
+= Utilisation de l'authentification unique (SSO) pour StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le système StorageGRID prend en charge la fonctionnalité SSO (Single Sign-on) en utilisant la 2.0 norme SAML 2.0 (Security assertion Markup Language). Lorsque l'authentification SSO est activée, tous les utilisateurs doivent être authentifiés par un fournisseur d'identités externe avant d'accéder au Grid Manager, au tenant Manager, à l'API Grid Management ou à l'API de gestion des locataires. Les utilisateurs locaux ne peuvent pas se connecter à StorageGRID.
+
+* link:how-sso-works.html["Fonctionnement de l'authentification unique"]
+* link:requirements-for-sso.html["Conditions requises pour l'utilisation de l'authentification unique"]
+* link:configuring-sso.html["Configuration de l'authentification unique"]
+

@@ -1,0 +1,35 @@
+---
+permalink: admin/what-object-segmentation-is.html 
+sidebar: sidebar 
+keywords:  
+summary: 'La segmentation d"objet consiste à diviser un objet en un ensemble d"objets de plus petite taille afin d"optimiser l"utilisation des ressources et du stockage pour les objets volumineux. Le téléchargement multi-pièces S3 crée également des objets segmentés, avec un objet représentant chaque pièce.' 
+---
+= La segmentation des objets
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La segmentation d'objet consiste à diviser un objet en un ensemble d'objets de plus petite taille afin d'optimiser l'utilisation des ressources et du stockage pour les objets volumineux. Le téléchargement multi-pièces S3 crée également des objets segmentés, avec un objet représentant chaque pièce.
+
+Lorsqu'un objet est ingéré dans le système StorageGRID, le service LDR divise l'objet en segments et crée un conteneur de segments qui répertorie les informations d'en-tête de tous les segments en tant que contenu.
+
+image::../media/object_segmentation_diagram.gif[Workflow de segmentation d'objets]
+
+Si votre système StorageGRID inclut un nœud d'archivage dont le type cible est NetApp Cloud Tiering -- simple Storage Service et le système de stockage d'archives ciblé est Amazon Web Services (AWS), la taille de segment maximale doit être inférieure ou égale à 4.5 Gio (4,831,838,208 octets). Cette limite supérieure garantit que la limite DE cinq Go D'AWS PUT n'est pas dépassée. Les demandes vers AWS qui dépassent cette valeur ont échoué.
+
+Lors de la récupération d'un conteneur de segments, le service LDR assemble l'objet original à partir de ses segments et renvoie l'objet au client.
+
+Le conteneur et les segments ne sont pas nécessairement stockés sur le même noeud de stockage. Le conteneur et les segments peuvent être stockés sur n'importe quel nœud de stockage.
+
+Chaque segment est traité indépendamment par le système StorageGRID et contribue au nombre d'attributs tels que les objets gérés et les objets stockés. Par exemple, si un objet stocké dans le système StorageGRID est divisé en deux segments, la valeur des objets gérés augmente de trois après la fin de l'acquisition, comme suit :
+
+conteneur de segments + segment 1 + segment 2 = trois objets stockés
+
+Vous pouvez améliorer les performances lors de la manipulation d'objets volumineux en vous assurant que :
+
+* Chaque passerelle et nœud de stockage dispose d'une bande passante réseau suffisante pour le débit requis. Par exemple, configurez des réseaux Grid et client distincts sur des interfaces Ethernet 10 Gbits/s.
+* Suffisamment de nœuds de passerelle et de stockage sont déployés pour le débit requis.
+* Chaque nœud de stockage dispose de performances d'E/S de disque suffisantes pour le débit requis.
+

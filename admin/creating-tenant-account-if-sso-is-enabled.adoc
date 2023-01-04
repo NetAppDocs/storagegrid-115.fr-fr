@@ -1,0 +1,63 @@
+---
+permalink: admin/creating-tenant-account-if-sso-is-enabled.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Lorsque vous créez un compte de locataire, vous spécifiez un nom, un protocole client et, éventuellement, un quota de stockage. Si l"authentification unique \(SSO\) est activée pour StorageGRID, vous spécifiez également quel groupe fédéré a l"autorisation d"accès racine pour configurer le compte de tenant.' 
+---
+= Création d'un compte de locataire si SSO est activé
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous créez un compte de locataire, vous spécifiez un nom, un protocole client et, éventuellement, un quota de stockage. Si l'authentification unique (SSO) est activée pour StorageGRID, vous spécifiez également quel groupe fédéré a l'autorisation d'accès racine pour configurer le compte de tenant.
+
+.Étapes
+. Dans la zone de texte *Nom d'affichage*, entrez un nom d'affichage pour ce compte locataire.
++
+Les noms d'affichage n'ont pas besoin d'être uniques. Lorsque le compte de tenant est créé, il reçoit un ID de compte numérique unique.
+
+. Sélectionnez le protocole client qui sera utilisé par ce compte locataire, soit *S3*, soit *Swift*.
+. Pour les comptes locataires S3, cochez la case *Autoriser les services de plateforme*, sauf si vous ne souhaitez pas que ce locataire utilise les services de plateforme pour les compartiments S3.
++
+Si les services de plateforme sont activés, un locataire peut utiliser des fonctionnalités, telles que la réplication CloudMirror, qui accèdent aux services externes. Il serait intéressant de désactiver l'utilisation de ces fonctionnalités pour limiter la quantité de bande passante du réseau ou d'autres ressources consommées par un locataire. Voir "Manage des services de plate-forme".
+
+. Dans la zone de texte *Storage quota*, vous pouvez éventuellement entrer le nombre maximal de gigaoctets, de téraoctets ou de pétaoctets que vous souhaitez mettre à disposition des objets de ce locataire. Sélectionnez ensuite les unités dans la liste déroulante.
++
+Laissez ce champ vide si vous souhaitez que ce locataire dispose d'un quota illimité.
+
++
+
+NOTE: Le quota de stockage d'un locataire représente une quantité logique (taille d'objet), et non une quantité physique (taille sur disque). Les copies ILM et le code d'effacement ne contribuent pas au volume de quotas utilisés. Si le quota est dépassé, le compte du locataire ne peut pas créer de nouveaux objets.
+
++
+
+NOTE: Pour surveiller l'utilisation du stockage de chaque compte locataire, sélectionnez *utilisation*. Les comptes des locataires peuvent également surveiller leur propre utilisation du stockage depuis le tableau de bord dans le Gestionnaire de locataires ou via l'API de gestion des locataires. Les valeurs d'utilisation du stockage d'un locataire peuvent devenir obsolètes si les nœuds sont isolés des autres nœuds de la grille. Les totaux seront mis à jour lorsque la connectivité réseau sera restaurée.
+
+. Notez que la case à cocher *Uses own Identity Source* est décochée et désactivée.
++
+Comme SSO est activé, le locataire doit utiliser le référentiel d'identité configuré pour Grid Manager. Aucun utilisateur local ne peut se connecter.
+
+. Dans le champ *Root Access Group*, sélectionnez un groupe fédéré existant dans le gestionnaire de grille pour obtenir l'autorisation d'accès racine initiale pour le locataire.
++
+
+NOTE: Si vous disposez d'autorisations adéquates, les groupes fédérés existants dans Grid Manager sont répertoriés lorsque vous cliquez sur le champ. Sinon, entrez le nom unique du groupe.
+
+. Cliquez sur *Enregistrer*.
++
+Le compte de locataire est créé. La page comptes de tenant s'affiche et comprend une ligne pour le nouveau tenant.
+
+. Si vous êtes un utilisateur du groupe accès racine, vous pouvez également cliquer sur le lien *connexion* pour que le nouveau locataire puisse accéder immédiatement au Gestionnaire de tenant, où vous pouvez configurer le locataire. Sinon, indiquez l'URL du lien *connexion* à l'administrateur du compte de locataire. (L'URL d'un locataire correspond au nom de domaine complet ou à l'adresse IP d'un nœud d'administration, suivi de `/?accountId=_20-digit-account-id_`.)
++
+
+NOTE: Un message d'accès refusé s'affiche si vous cliquez sur *connexion*, mais que vous n'appartenez pas au groupe accès racine du compte de tenant.
+
+
+
+.Informations associées
+link:configuring-sso.html["Configuration de l'authentification unique"]
+
+link:managing-platform-services-for-s3-tenant-accounts.html["Gestion des services de plateforme pour les comptes de locataires S3"]
+
+link:../tenant/index.html["Utilisez un compte de locataire"]

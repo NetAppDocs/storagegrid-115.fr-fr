@@ -1,0 +1,59 @@
+---
+permalink: admin/configuring-admin-proxy-settings.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Si vous envoyez des messages AutoSupport via HTTP ou HTTPS, vous pouvez configurer un serveur proxy non transparent entre les nœuds d"administration et le support technique \(AutoSupport\).' 
+---
+= Configuration des paramètres du proxy d'administration
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous envoyez des messages AutoSupport via HTTP ou HTTPS, vous pouvez configurer un serveur proxy non transparent entre les nœuds d'administration et le support technique (AutoSupport).
+
+.Ce dont vous avez besoin
+* Vous devez disposer d'autorisations d'accès spécifiques.
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+
+
+.Description de la tâche
+Vous pouvez configurer les paramètres d'un proxy d'administration unique.
+
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres réseau* > *Paramètres proxy*.
++
+La page Paramètres du proxy administrateur s'affiche. Par défaut, *Storage* est sélectionné dans le menu de la barre latérale.
+
+. Dans le menu barre latérale, sélectionnez *Admin*.
++
+image::../media/proxy_settings_menu_admin.png[Menu Paramètres du proxy - Admin]
+
+. Cochez la case *Activer le proxy d'administration*.
++
+image::../media/proxy_settings_admin.png[Capture d'écran de la boîte de dialogue Paramètres du proxy d'administration]
+
+. Entrez le nom d'hôte ou l'adresse IP du serveur proxy.
+. Entrez le port utilisé pour se connecter au serveur proxy.
+. Vous pouvez également saisir le nom d'utilisateur du proxy.
++
+Laissez ce champ vide si votre serveur proxy ne nécessite pas de nom d'utilisateur.
+
+. Vous pouvez également saisir le mot de passe du proxy.
++
+Laissez ce champ vide si votre serveur proxy ne nécessite pas de mot de passe.
+
+. Cliquez sur *Enregistrer*.
++
+Une fois le proxy d'administration enregistré, le serveur proxy entre les nœuds d'administration et le support technique est configuré.
+
++
+
+NOTE: Les modifications de proxy peuvent prendre jusqu'à 10 minutes.
+
+. Si vous devez désactiver le proxy, décochez la case *Activer le proxy d'administration*, puis cliquez sur *Enregistrer*.
+
+
+.Informations associées
+link:specifying-protocol-for-autosupport-messages.html["Spécification du protocole des messages AutoSupport"]

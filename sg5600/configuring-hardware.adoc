@@ -1,0 +1,22 @@
+---
+permalink: sg5600/configuring-hardware.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5600, storage node, storage appliance, hardware, configure, configuration, set up, setup, network, networking 
+summary: 'Après avoir mis l"appliance sous tension, vous devez configurer le gestionnaire de stockage SANtricity, qui est le logiciel que vous utiliserez pour surveiller le matériel. Vous devez également configurer les connexions réseau qui seront utilisées par StorageGRID.' 
+---
+= Configuration matérielle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir mis l'appliance sous tension, vous devez configurer le gestionnaire de stockage SANtricity, qui est le logiciel que vous utiliserez pour surveiller le matériel. Vous devez également configurer les connexions réseau qui seront utilisées par StorageGRID.
+
+.Étapes
+* link:configuring-storagegrid-connections.html["Configuration des connexions StorageGRID"]
+* link:configuring-santricity-storage-manager.html["Configuration de SANtricity Storage Manager"]
+* link:optional-enabling-node-encryption.html["Facultatif : activation du chiffrement de nœud"]
+* link:optional-changing-to-raid6-mode-sg5660-only.html["Facultatif : passage en mode RAID6 (SG5660 uniquement)"]
+* link:optional-remapping-network-ports-for-appliance-sg5600-and-sg5700.html["Facultatif : remappage des ports réseau de l'appliance"]
+

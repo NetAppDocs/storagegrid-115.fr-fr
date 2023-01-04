@@ -1,0 +1,24 @@
+---
+permalink: vmware/defining-configuration-file-for-your-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous spécifiez les informations nécessaires au déploiement de noeuds de grille virtuels pour StorageGRID dans un fichier de configuration utilisé par le script deploy-vsphere-ovftool.sh Bash. Vous pouvez modifier un exemple de fichier de configuration, de sorte que vous n"ayez pas à créer le fichier à partir de zéro.' 
+---
+= Définition du fichier de configuration pour votre déploiement
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous spécifiez les informations nécessaires au déploiement de noeuds de grille virtuels pour StorageGRID dans un fichier de configuration utilisé par `deploy-vsphere-ovftool.sh` Script bash. Vous pouvez modifier un exemple de fichier de configuration, de sorte que vous n'ayez pas à créer le fichier à partir de zéro.
+
+.Étapes
+. Faites une copie du fichier de configuration exemple (`deploy-vsphere-ovftool.sample.ini`). Enregistrez le nouveau fichier sous `deploy-vsphere-ovftool.ini` dans le même répertoire que `deploy-vsphere-ovftool.sh`.
+. La transparence `deploy-vsphere-ovftool.ini`.
+. Entrez toutes les informations requises pour déployer des nœuds VMware Virtual Grid.
++
+Voir link:configuration-file-settings.html["Paramètres du fichier de configuration"] pour plus d'informations.
+
+. Une fois que vous avez saisi et vérifié toutes les informations nécessaires, enregistrez et fermez le fichier.
+

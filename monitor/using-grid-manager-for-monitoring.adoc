@@ -1,0 +1,19 @@
+---
+permalink: monitor/using-grid-manager-for-monitoring.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le gestionnaire de grille est l"outil le plus important pour la surveillance de votre système StorageGRID. Cette section présente le tableau de bord de Grid Manager et fournit des informations détaillées sur les pages nœuds.' 
+---
+= Utilisation de Grid Manager pour la surveillance
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le gestionnaire de grille est l'outil le plus important pour la surveillance de votre système StorageGRID. Cette section présente le tableau de bord de Grid Manager et fournit des informations détaillées sur les pages nœuds.
+
+* link:web-browser-requirements.html["Navigateurs Web pris en charge"]
+* link:viewing-dashboard.html["Affichage du tableau de bord"]
+* link:viewing-nodes-page.html["Affichage de la page nœuds"]
+

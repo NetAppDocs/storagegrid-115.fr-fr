@@ -1,0 +1,19 @@
+---
+permalink: tenant/managing-system-access-for-tenant-users.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous accordez aux utilisateurs l"accès à un compte de tenant en important des groupes à partir d"un référentiel d"identité fédéré et en attribuant des autorisations de gestion. Vous pouvez également créer des groupes et des utilisateurs de locataires locaux, sauf si l"authentification unique \(SSO\) est en vigueur pour l"ensemble du système StorageGRID.' 
+---
+= Gestion de l'accès au système pour les utilisateurs locataires
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous accordez aux utilisateurs l'accès à un compte de tenant en important des groupes à partir d'un référentiel d'identité fédéré et en attribuant des autorisations de gestion. Vous pouvez également créer des groupes et des utilisateurs de locataires locaux, sauf si l'authentification unique (SSO) est en vigueur pour l'ensemble du système StorageGRID.
+
+* link:using-identity-federation.html["Utilisation de la fédération des identités"]
+* link:managing-groups.html["Gestion des groupes"]
+* link:managing-local-users.html["Gestion des utilisateurs locaux"]
+

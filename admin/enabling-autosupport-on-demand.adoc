@@ -1,0 +1,43 @@
+---
+permalink: admin/enabling-autosupport-on-demand.html 
+sidebar: sidebar 
+keywords:  
+summary: 'AutoSupport On Demand peut vous aider à résoudre les problèmes sur lesquels le support technique travaille activement. Lorsque vous activez AutoSupport On Demand, le support technique peut demander l"envoi des messages AutoSupport sans intervention de votre part.' 
+---
+= Activation d'AutoSupport à la demande
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport On Demand peut vous aider à résoudre les problèmes sur lesquels le support technique travaille activement. Lorsque vous activez AutoSupport On Demand, le support technique peut demander l'envoi des messages AutoSupport sans intervention de votre part.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer de l'autorisation accès racine ou autre configuration grille.
+* Vous devez avoir activé les messages AutoSupport hebdomadaires.
+* Vous devez avoir défini le protocole de transport sur HTTPS.
+
+
+.Description de la tâche
+Lorsque vous activez cette fonctionnalité, le support technique peut demander à votre système StorageGRID d'envoyer automatiquement des messages AutoSupport. Le support technique peut également définir l'intervalle d'interrogation pour les requêtes AutoSupport On Demand.
+
+Le support technique ne peut ni activer ni désactiver AutoSupport On Demand.
+
+.Étapes
+. Sélectionnez *support* > *Outils* > *AutoSupport*.
++
+La page AutoSupport s'affiche avec l'onglet *Paramètres* sélectionné.
+
+. Sélectionnez le bouton d'option HTTPS dans la section *Protocol Details* de la page.
++
+image::../media/autosupport_on_demand.png[ASUP, à la demande]
+
+. Cochez la case *Activer AutoSupport hebdomadaire*.
+. Cochez la case *Activer AutoSupport On Demand*.
+. Sélectionnez *Enregistrer*.
++
+AutoSupport On Demand est activé et le support technique peut envoyer des demandes AutoSupport On Demand à StorageGRID.
+
+

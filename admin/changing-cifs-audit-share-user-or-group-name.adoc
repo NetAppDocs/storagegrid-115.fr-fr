@@ -1,0 +1,29 @@
+---
+permalink: admin/changing-cifs-audit-share-user-or-group-name.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez modifier le nom d"un utilisateur ou d"un groupe pour un partage d"audit CIFS en ajoutant un nouvel utilisateur ou un nouveau groupe, puis en supprimant l"ancien.' 
+---
+= Modification du nom d'utilisateur ou de groupe d'un audit CIFS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez modifier le nom d'un utilisateur ou d'un groupe pour un partage d'audit CIFS en ajoutant un nouvel utilisateur ou un nouveau groupe, puis en supprimant l'ancien.
+
+.Description de la tâche
+L'exportation d'audit via CIFS/Samba a été obsolète et sera supprimée dans une future version de StorageGRID.
+
+.Étapes
+. Ajoutez un nouvel utilisateur ou un nouveau groupe portant le nom mis à jour au partage d'audit.
+. Supprimez l'ancien nom d'utilisateur ou de groupe.
+
+
+.Informations associées
+link:../upgrade/index.html["Mise à niveau du logiciel"]
+
+link:adding-user-or-group-to-cifs-audit-share.html["Ajout d'un utilisateur ou d'un groupe à un partage d'audit CIFS"]
+
+link:removing-user-or-group-from-cifs-audit-share.html["Suppression d'un utilisateur ou d'un groupe d'un partage d'audit CIFS"]

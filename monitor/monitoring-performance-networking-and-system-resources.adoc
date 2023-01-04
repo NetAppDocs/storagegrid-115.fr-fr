@@ -1,0 +1,14 @@
+---
+permalink: monitor/monitoring-performance-networking-and-system-resources.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous devez surveiller les performances, la mise en réseau et les ressources système pour déterminer si StorageGRID peut gérer sa charge actuelle et s"assurer que les performances des clients ne se dégradent pas au fil du temps.' 
+---
+= Surveillance des performances, de la mise en réseau et des ressources système
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez surveiller les performances, la mise en réseau et les ressources système pour déterminer si StorageGRID peut gérer sa charge actuelle et s'assurer que les performances des clients ne se dégradent pas au fil du temps.

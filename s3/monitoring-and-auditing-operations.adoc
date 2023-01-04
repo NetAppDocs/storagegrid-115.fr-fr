@@ -1,0 +1,18 @@
+---
+permalink: s3/monitoring-and-auditing-operations.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez surveiller les charges de travail et l"efficacité des opérations client en visualisant les tendances de transaction pour l"ensemble du grid ou pour des nœuds spécifiques. Vous pouvez utiliser des messages d"audit pour surveiller les opérations et les transactions des clients.' 
+---
+= Surveillance et audit des opérations
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez surveiller les charges de travail et l'efficacité des opérations client en visualisant les tendances de transaction pour l'ensemble du grid ou pour des nœuds spécifiques. Vous pouvez utiliser des messages d'audit pour surveiller les opérations et les transactions des clients.
+
+* link:monitoring-object-ingest-and-retrieval-rates.html["Contrôle des taux d'entrée et de récupération des objets"]
+* link:accessing-and-reviewing-audit-logs.html["Accès aux journaux d'audit et vérification"]
+

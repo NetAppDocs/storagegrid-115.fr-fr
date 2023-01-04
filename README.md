@@ -1,1 +1,1 @@
-# storagegrid-115.fr-fr
+# storagegrid

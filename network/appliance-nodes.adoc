@@ -1,0 +1,29 @@
+---
+permalink: network/appliance-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: Vous pouvez configurer les ports réseau sur les appliances StorageGRID de sorte à utiliser les modes de liaison de ports qui répondent à vos exigences en matière de débit, de redondance et de basculement. 
+---
+= Nœuds d'appliance
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez configurer les ports réseau sur les appliances StorageGRID de sorte à utiliser les modes de liaison de ports qui répondent à vos exigences en matière de débit, de redondance et de basculement.
+
+Les ports 10/25 GbE des appliances StorageGRID peuvent être configurés en mode de liaison fixe ou agrégée pour les connexions au réseau Grid et au réseau client.
+
+Les ports réseau d'administration 1 GbE peuvent être configurés en mode indépendant ou en mode sauvegarde active pour les connexions au réseau d'administration.
+
+Consultez les informations sur les modes de liaison des ports dans les instructions d'installation et de maintenance de votre appareil.
+
+.Informations associées
+link:../sg100-1000/index.html["SG100 etamp ; appareils de services SG1000"]
+
+link:../sg6000/index.html["Dispositifs de stockage SG6000"]
+
+link:../sg5700/index.html["Appliances de stockage SG5700"]
+
+link:../sg5600/index.html["Appliances de stockage SG5600"]

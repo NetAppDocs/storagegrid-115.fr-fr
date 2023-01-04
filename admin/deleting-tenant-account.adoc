@@ -1,0 +1,33 @@
+---
+permalink: admin/deleting-tenant-account.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez supprimer un compte de tenant si vous souhaitez supprimer définitivement l"accès du locataire au système.' 
+---
+= Suppression d'un compte locataire
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez supprimer un compte de tenant si vous souhaitez supprimer définitivement l'accès du tenant au système.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+* Vous devez avoir supprimé tous les compartiments (S3), les conteneurs (Swift) et les objets associés au compte du locataire.
+
+
+.Étapes
+. Sélectionnez *locataires*.
+. Sélectionnez le compte de tenant que vous souhaitez supprimer.
++
+Si votre système comprend plus de 20 éléments, vous pouvez spécifier le nombre de lignes affichées simultanément sur chaque page. Utilisez la zone de recherche pour rechercher un compte de tenant par nom d'affichage ou ID de tenant.
+
+. Dans la liste déroulante *actions*, sélectionnez *Supprimer*.
+. Sélectionnez *OK*.
+
+
+.Informations associées
+link:controlling-administrator-access-to-storagegrid.html["Contrôle de l'accès administrateur à StorageGRID"]

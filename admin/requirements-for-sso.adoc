@@ -1,0 +1,55 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Avant d"activer l"authentification unique \(SSO\) pour un système StorageGRID, consultez les conditions requises dans cette section.' 
+---
+= Conditions requises pour l'utilisation de l'authentification unique
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'activer la signature unique (SSO) pour un système StorageGRID, consultez les conditions requises dans cette section.
+
+
+IMPORTANT: L'authentification unique (SSO) n'est pas disponible sur les ports du gestionnaire de grille restreinte ou du gestionnaire de locataires. Vous devez utiliser le port HTTPS par défaut (443) si vous souhaitez que les utilisateurs s'authentifient avec une connexion unique.
+
+
+
+== Exigences du fournisseur d'identités
+
+Le fournisseur d'identités (IDP) pour SSO doit satisfaire aux exigences suivantes :
+
+* L'une des versions suivantes d'Active Directory Federation Service (AD FS) :
++
+** AD FS 4.0, inclus dans Windows Server 2016
++
+
+NOTE: Windows Server 2016 doit utiliser le https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["Mise à jour KB3201845"^], ou supérieur.
+
+** AD FS 3.0, inclus avec la mise à jour Windows Server 2012 R2, ou une version ultérieure.
+
+
+* TLS (transport Layer Security) 1.2 ou 1.3
+* Microsoft .NET Framework, version 3.5.1 ou supérieure
+
+
+
+
+== Configuration requise pour le certificat de serveur
+
+StorageGRID utilise un certificat de serveur d'interface de gestion sur chaque nœud d'administration pour sécuriser l'accès à Grid Manager, au gestionnaire de locataires, à l'API de gestion du grid et à l'API de gestion des locataires. Lorsque vous configurez les approbations de tiers basés SSO pour StorageGRID dans AD FS, vous utilisez le certificat de serveur comme certificat de signature pour les requêtes StorageGRID à AD FS.
+
+Si vous n'avez pas encore installé de certificat de serveur personnalisé pour l'interface de gestion, vous devriez le faire maintenant. Lorsque vous installez un certificat de serveur personnalisé, il est utilisé pour tous les nœuds d'administration et vous pouvez l'utiliser dans toutes les approbations de tiers StorageGRID.
+
+
+NOTE: Il n'est pas recommandé d'utiliser le certificat de serveur par défaut d'un nœud d'administration dans la confiance de l'intervenant de confiance AD FS. Si le nœud échoue et que vous le récupérez, un nouveau certificat de serveur par défaut est généré. Avant de pouvoir vous connecter au nœud restauré, vous devez mettre à jour la confiance de la partie utilisatrice dans AD FS avec le nouveau certificat.
+
+Vous pouvez accéder au certificat de serveur d'un nœud d'administration en vous connectant au shell de commande du nœud et en allant à `/var/local/mgmt-api` répertoire. Un certificat de serveur personnalisé est nommé `custom-server.crt`. Le certificat de serveur par défaut du nœud est nommé `server.crt`.
+
+.Informations associées
+link:controlling-access-through-firewalls.html["Contrôle de l'accès par pare-feu"]
+
+link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["Configuration d'un certificat de serveur personnalisé pour le Grid Manager et le tenant Manager"]

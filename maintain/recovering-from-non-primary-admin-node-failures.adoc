@@ -1,0 +1,27 @@
+---
+permalink: maintain/recovering-from-non-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, non-primary admin node failure 
+summary: 'Vous devez effectuer les tâches suivantes pour effectuer une restauration à partir d"une panne de nœud d"administration non primaire. Un nœud d"administration héberge le service Configuration Management Node \(CMN\) et est appelé noeud d"administration principal. Bien que vous puissiez avoir plusieurs nœuds d"administration, chaque système StorageGRID n"inclut qu"un seul nœud d"administration principal. Tous les autres nœuds d"administration sont des nœuds d"administration non primaires.' 
+---
+= Récupération en cas de défaillance d'un nœud d'administration non primaire
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez effectuer les tâches suivantes pour effectuer une restauration à partir d'une panne de nœud d'administration non primaire. Un nœud d'administration héberge le service de nœud de gestion de la configuration (CMN) et est appelé nœud d'administration principal. Bien que vous puissiez avoir plusieurs nœuds d'administration, chaque système StorageGRID n'inclut qu'un seul nœud d'administration principal. Tous les autres nœuds d'administration sont des nœuds d'administration non primaires.
+
+.Informations associées
+link:../sg100-1000/index.html["SG100 etamp ; appareils de services SG1000"]
+
+.Étapes
+* link:copying-audit-logs-from-failed-non-primary-admin-node.html["Copie des journaux d'audit à partir du nœud d'administration non primaire défaillant"]
+* link:replacing-non-primary-admin-node.html["Remplacement d'un nœud d'administration non primaire"]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Sélectionnez Démarrer la restauration pour configurer un noeud d'administration non primaire"]
+* link:restoring-audit-log-on-recovered-non-primary-admin-node.html["Restauration du journal d'audit sur le nœud d'administration non primaire restauré"]
+* link:resetting-preferred-sender-on-recovered-non-primary-admin-node.html["Réinitialisation de l'expéditeur préféré sur le nœud d'administration non principal restauré"]
+* link:restoring-admin-node-database-non-primary-admin-node.html["Restauration de la base de données du noeud d'administration lors de la restauration d'un noeud d'administration non primaire"]
+* link:restoring-prometheus-metrics-non-primary-admin-node.html["Restauration des metrics Prometheus lors de la restauration d'un nœud d'administration non primaire"]
+

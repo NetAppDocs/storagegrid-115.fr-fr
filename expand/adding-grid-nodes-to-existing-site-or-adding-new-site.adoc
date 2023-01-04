@@ -1,0 +1,30 @@
+---
+permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
+sidebar: sidebar 
+keywords: grid node, node, site, add, adding, expand, expansion 
+summary: 'Vous pouvez suivre cette procédure pour ajouter des nœuds de grille à des sites existants ou pour ajouter un nouveau site, mais vous ne pouvez pas effectuer les deux types d"extension en même temps.' 
+---
+= Ajout de nœuds grid à un site existant ou ajout d'un nouveau site
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez suivre cette procédure pour ajouter des nœuds de grille à des sites existants ou pour ajouter un nouveau site, mais vous ne pouvez pas effectuer les deux types d'extension en même temps.
+
+.Ce dont vous avez besoin
+* Vous devez disposer d'autorisations root ou de maintenance. Pour plus d'informations, reportez-vous à la section informations sur le contrôle de l'accès au système avec les comptes utilisateur et les groupes d'administration.
+* Tous les nœuds existants de la grille doivent être opérationnels sur tous les sites.
+* Toute procédure antérieure d'extension, de mise à niveau, de déclassement ou de restauration doit être effectuée.
++
+
+NOTE: Vous ne pouvez pas démarrer une extension pendant qu'une autre procédure d'extension, de mise à niveau, de récupération ou de mise hors service active est en cours. Toutefois, si nécessaire, vous pouvez interrompre une procédure de mise hors service pour démarrer une extension.
+
+
+
+.Étapes
+. link:updating-subnets-for-grid-network.html["Mise à jour des sous-réseaux pour le réseau Grid"]
+. link:deploying-new-grid-nodes.html["Déploiement de nouveaux nœuds grid"]
+. link:performing-expansion.html["Réalisation de l'extension"]
+

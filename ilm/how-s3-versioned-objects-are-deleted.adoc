@@ -1,0 +1,30 @@
+---
+permalink: ilm/how-s3-versioned-objects-are-deleted.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Lorsque le contrôle de version est activé pour un compartiment S3, StorageGRID suit un comportement Amazon S3 pour répondre aux demandes de suppression, qu"elles proviennent d"un client S3, de l"expiration d"un cycle de vie d"un compartiment S3 ou des exigences de la règle ILM.' 
+---
+= Suppression d'objets avec version S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque le contrôle de version est activé pour un compartiment S3, StorageGRID suit un comportement Amazon S3 pour répondre aux demandes de suppression, qu'elles proviennent d'un client S3, de l'expiration d'un cycle de vie d'un compartiment S3 ou des exigences de la règle ILM.
+
+Lorsque des objets sont versionnés, les demandes de suppression d'objet ne suppriment pas la version actuelle de l'objet et ne libère pas d'espace. Au lieu de cela, une requête de suppression d'objet crée simplement un marqueur de suppression comme version actuelle de l'objet, ce qui fait de la version précédente de l'objet « non courant ».
+
+Bien que l'objet n'ait pas été supprimé, StorageGRID se comporte comme si la version actuelle de l'objet n'est plus disponible. Les requêtes à cet objet renvoient 404 NotFound. Cependant, les données d'objet non actuelles n'ayant pas été supprimées, les demandes qui spécifient une version non actuelle de l'objet peuvent réussir.
+
+Pour libérer de l'espace lors de la suppression d'objets multiversion, vous devez effectuer l'une des opérations suivantes :
+
+* *Demande client S3* : spécifiez le numéro de version de l'objet dans la demande de SUPPRESSION d'objet S3 (`DELETE /object?versionId=ID`). Notez que cette demande ne supprime que les copies d'objet pour la version spécifiée (les autres versions occupent toujours de l'espace).
+* *Cycle de vie du godet* : utilisez le `NoncurrentVersionExpiration` l'action en termes de configuration du cycle de vie des compartiments. Lorsque le nombre de NonactuelDays spécifié est atteint, StorageGRID supprime définitivement toutes les copies des versions d'objets non courants. Ces versions d'objet ne peuvent pas être restaurées.
+* *ILM* : ajoutez deux règles ILM à votre politique ILM. Utilisez *Noncurrent Time* comme temps de référence dans la première règle pour correspondre aux versions non courantes de l'objet. Utilisez *temps d'ingestion* dans la deuxième règle pour correspondre à la version actuelle. La règle *Noncurrent Time* doit figurer dans la stratégie au-dessus de la règle *Ingest Time*.
+
+
+.Informations associées
+link:../s3/index.html["Utilisation de S3"]
+
+link:example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Exemple 4 : règles et règles ILM pour les objets avec version S3"]

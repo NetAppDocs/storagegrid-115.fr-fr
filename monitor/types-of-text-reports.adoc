@@ -1,0 +1,43 @@
+---
+permalink: monitor/types-of-text-reports.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Les rapports texte affichent une représentation textuelle des valeurs de données d"attribut traitées par le service NMS. Il existe deux types de rapports générés selon la période de temps sur laquelle vous vous signalez : des rapports de texte brut pour des périodes inférieures à une semaine et des rapports de texte agrégés pour des périodes supérieures à une semaine.' 
+---
+= Types de rapports texte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les rapports texte affichent une représentation textuelle des valeurs de données d'attribut traitées par le service NMS. Il existe deux types de rapports générés selon la période de temps sur laquelle vous vous signalez : des rapports de texte brut pour des périodes inférieures à une semaine et des rapports de texte agrégés pour des périodes supérieures à une semaine.
+
+
+
+== Rapports de texte brut
+
+Un rapport en texte brut affiche des détails sur l'attribut sélectionné :
+
+* Heure de réception : date et heure locales auxquelles une valeur d'échantillon des données d'un attribut a été traitée par le service NMS.
+* Heure de l'échantillon : date et heure locales auxquelles une valeur d'attribut a été échantillonnée ou modifiée à la source.
+* Valeur : valeur d'attribut au moment de l'échantillon.
+
+
+image::../media/raw_text_report.gif[capture d'écran affichant le rapport de texte brut]
+
+
+
+== Agréger les rapports de texte
+
+Un rapport texte agrégé affiche des données sur une période plus longue (généralement une semaine) qu'un rapport texte brut. Chaque entrée est le résultat d'un résumé de plusieurs valeurs d'attribut (un ensemble de valeurs d'attribut) par le service NMS dans le temps en une seule entrée avec des valeurs moyennes, maximales et minimales dérivées de l'agrégation.
+
+Chaque entrée affiche les informations suivantes :
+
+* Heure d'agrégation : dernière date et heure locales que le service NMS a agrégées (recueillies) un ensemble de valeurs d'attribut modifiées.
+* Valeur moyenne : moyenne de la valeur de l'attribut sur la période de temps agrégée.
+* Valeur minimale : valeur minimale sur la période de temps agrégée.
+* Valeur maximale : valeur maximale sur la période de temps agrégée.
+
+
+image::../media/aggregate_text_report.gif[capture d'écran affichant le rapport texte global]

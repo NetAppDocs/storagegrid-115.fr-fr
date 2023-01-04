@@ -1,0 +1,22 @@
+---
+permalink: sg100-1000/installing-hardware-sg100-and-sg1000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg100, sg1000, service appliance, services appliance, gateway Node, admin node, hardware, install, installing 
+summary: 'L"installation matérielle implique l"installation de l"appliance dans une armoire ou un rack, la connexion des câbles et l"alimentation.' 
+---
+= Installation du matériel
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'installation matérielle implique l'installation de l'appliance dans une armoire ou un rack, la connexion des câbles et l'alimentation.
+
+.Étapes
+* link:registering-hardware-sg100-and-sg1000.html["Enregistrement du matériel"]
+* link:installing-appliance-in-cabinet-or-rack-sg100-and-sg1000.html["Installation de l'appareil dans une armoire ou un rack (SG100 et SG1000)"]
+* link:cabling-appliance-sg100-and-sg1000.html["Câblage de l'appareil SG100 et SG1000)"]
+* link:connecting-power-cords-and-applying-power-sg100-and-sg1000.html["Branchement des cordons d'alimentation et application de l'alimentation (SG100 et SG1000)"]
+* link:viewing-status-indicators-on-sg100-and-sg1000-appliances.html["Affichage des indicateurs d'état sur les appareils SG100 et SG1000"]
+

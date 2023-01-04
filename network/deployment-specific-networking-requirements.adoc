@@ -1,0 +1,26 @@
+---
+permalink: network/deployment-specific-networking-requirements.html 
+sidebar: sidebar 
+keywords:  
+summary: 'En fonction des plates-formes de déploiement que vous utilisez, vous pouvez prendre en compte d"autres critères pour la conception de votre réseau StorageGRID.' 
+---
+= Considérations relatives au réseau propres au déploiement
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En fonction des plates-formes de déploiement que vous utilisez, vous pouvez prendre en compte d'autres critères pour la conception de votre réseau StorageGRID.
+
+Les nœuds grid peuvent être déployés comme suit :
+
+* Nœuds grid logiciels déployés en tant que machines virtuelles dans le client Web VMware vSphere
+* Nœuds grid logiciel déployés dans des conteneurs Docker sur des hôtes Linux
+* Nœuds basés sur l'appliance
+
+
+Pour plus d'informations sur les nœuds de grille, reportez-vous à la _Grid primaire_.
+
+.Informations associées
+link:../primer/index.html["Primaire de grille"]

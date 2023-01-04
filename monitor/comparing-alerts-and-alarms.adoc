@@ -1,0 +1,254 @@
+---
+permalink: monitor/comparing-alerts-and-alarms.html 
+sidebar: sidebar 
+keywords: alerts, alarms, comparing alerts and alarms 
+summary: 'Il existe un certain nombre de similitudes entre le système d"alerte et le système d"alarme existant, mais le système d"alerte offre des avantages significatifs et est plus facile à utiliser.' 
+---
+= Comparaison des alertes et des alarmes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il existe un certain nombre de similitudes entre le système d'alerte et le système d'alarme existant, mais le système d'alerte offre des avantages significatifs et est plus facile à utiliser.
+
+Reportez-vous au tableau suivant pour savoir comment effectuer des opérations similaires.
+
+|===
+|  | Alertes | Alarmes (système hérité) 
+
+
+ a| 
+Comment puis-je voir quelles alertes ou alarmes sont actives ?
+ a| 
+* Cliquez sur le lien *alertes actuelles* dans le tableau de bord.
+* Cliquez sur l'alerte sur la page *noeuds* > *Présentation*.
+* Sélectionnez *alertes* > *actuel*.
+
+
+link:viewing-current-alerts.html["Affichage des alertes en cours"]
+ a| 
+* Cliquez sur le lien *alarmes héritées* dans le tableau de bord.
+* Sélectionnez *support* > *alarmes (hérité)* > *alarmes actuelles*.
+
+
+link:viewing-legacy-alarms.html["Affichage des anciennes alarmes"]
+
+
+
+ a| 
+Quelle est la cause du déclenchement d'une alerte ou d'une alerte ?
+ a| 
+Les alertes sont déclenchées lorsqu'une expression Prometheus dans une règle d'alerte est évaluée comme TRUE pour une condition de déclenchement et une durée spécifiques.
+
+link:managing-alerts.html["Affichage des règles d'alerte"]
+ a| 
+Les alarmes sont déclenchées lorsqu'un attribut StorageGRID atteint une valeur de seuil.
+
+link:managing-alarms.html["Logique de déclenchement d'alarme (système hérité)"]
+
+
+
+ a| 
+Si une alerte ou une alarme est déclenchée, comment résoudre le problème sous-jacent ?
+ a| 
+Les actions recommandées pour une alerte sont incluses dans les notifications par e-mail et sont disponibles dans les pages alertes du Gestionnaire de grille.
+
+Si nécessaire, des informations supplémentaires sont fournies dans la documentation StorageGRID.
+
+link:alerts-reference.html["Référence des alertes"]
+ a| 
+Pour en savoir plus sur une alarme, cliquez sur le nom de l'attribut ou recherchez un code d'alarme dans la documentation StorageGRID.
+
+link:alarms-reference.html["Référence des alarmes (système hérité)"]
+
+
+
+ a| 
+Où puis-je voir une liste d'alertes ou d'alarmes qui ont été résolues ?
+ a| 
+* Cliquez sur le lien *alertes récemment résolues* dans le tableau de bord.
+* Sélectionnez *alertes* > *résolu*.
+
+
+link:viewing-resolved-alerts.html["Affichage des alertes résolues"]
+ a| 
+Sélectionnez *support* > *alarmes (hérité)* > *alarmes historiques*.
+
+link:managing-alarms.html["Vérification des alarmes historiques et de la fréquence des alarmes (système hérité)"]
+
+
+
+ a| 
+Où puis-je gérer les paramètres ?
+ a| 
+Sélectionnez *alertes*. Utilisez ensuite les options du menu alertes.
+
+link:managing-alerts.html["Gestion des alertes"]
+ a| 
+Sélectionnez *support*. Utilisez ensuite les options de la section *alarmes (hérité)* du menu.
+
+link:managing-alarms.html["Gestion des alarmes (système hérité)"]
+
+
+
+ a| 
+Quelles autorisations de groupe d'utilisateurs ai-je besoin ?
+ a| 
+* Toute personne qui peut se connecter au Grid Manager peut afficher les alertes actuelles et résolues.
+* Vous devez disposer de l'autorisation gérer les alertes pour gérer les silences, les notifications d'alerte et les règles d'alerte.
+
+
+link:../admin/index.html["Administrer StorageGRID"]
+ a| 
+* Toute personne qui peut se connecter à Grid Manager peut afficher les alarmes héritées.
+* Vous devez disposer de l'autorisation accuser réception d'alarmes pour accuser réception d'alarmes.
+* Vous devez disposer d'autorisations Grid Topology page Configuration et d'autres autorisations Grid Configuration pour gérer les alarmes globales et les notifications par e-mail.
+
+
+link:../admin/index.html["Administrer StorageGRID"]
+
+
+
+ a| 
+Comment puis-je gérer les notifications par e-mail ?
+ a| 
+Sélectionnez *alertes* > *Configuration email*.
+
+*Remarque :* puisque les alarmes et les alertes sont des systèmes indépendants, la configuration des e-mails utilisée pour les notifications d'alarme et de AutoSupport n'est pas utilisée pour les notifications d'alerte. Cependant, vous pouvez utiliser le même serveur de messagerie pour toutes les notifications.
+
+link:managing-alerts.html["Gestion des notifications d'alertes"]
+ a| 
+Sélectionnez *support* > *alarmes (hérité)* > *Configuration des e-mails existants*. link:managing-alarms.html["Configuration des notifications pour les alarmes (système hérité)"]
+
+
+
+ a| 
+Comment gérer les notifications SNMP ?
+ a| 
+Sélectionnez *Configuration* > *surveillance* > *agent SNMP*. link:using-snmp-monitoring.html["Utilisation de la surveillance SNMP"]
+ a| 
+Sélectionnez *Configuration* > *surveillance* > *agent SNMP*. link:using-snmp-monitoring.html["Utilisation de la surveillance SNMP"]
+
+*Remarque* : les notifications SNMP ne sont pas envoyées pour chaque gravité d'alarme ou d'alarme.
+
+link:alarms-that-generate-snmp-notifications.html["Alarmes générant des notifications SNMP (système hérité)"]
+
+
+
+ a| 
+Comment puis-je contrôler qui reçoit les notifications ?
+ a| 
+. Sélectionnez *alertes* > *Configuration email*.
+. Dans la section *destinataires*, entrez une adresse e-mail pour chaque liste d'e-mails ou personne qui doit recevoir un e-mail lorsqu'une alerte se produit.
+
+
+link:managing-alerts.html["Configuration des notifications par e-mail pour les alertes"]
+ a| 
+. Sélectionnez *support* > *alarmes (hérité)* > *Configuration des e-mails existants*.
+. Création d'une liste de diffusion.
+. Sélectionnez *Notifications*.
+. Sélectionnez la liste de diffusion.
+
+
+link:managing-alarms.html["Création de listes de diffusion pour les notifications d'alarme (système hérité)"]
+
+link:managing-alarms.html["Configuration des notifications par e-mail pour les alarmes (système hérité)"]
+
+
+
+ a| 
+Quels nœuds d'administration envoient des notifications ?
+ a| 
+Un seul nœud d'administration (l'« expéditeur préféré »).
+
+link:../admin/index.html["Administrer StorageGRID"]
+ a| 
+Un seul nœud d'administration (l'« expéditeur préféré »).
+
+link:../admin/index.html["Administrer StorageGRID"]
+
+
+
+ a| 
+Comment supprimer certaines notifications ?
+ a| 
+. Sélectionnez *alertes* > *silences*.
+. Sélectionnez la règle d'alerte que vous souhaitez désactiver.
+. Spécifiez une durée pour le silence.
+. Sélectionnez la gravité de l'alerte que vous souhaitez désactiver.
+. Sélectionnez cette option pour appliquer le silence à la grille entière, à un seul site ou à un seul nœud.
+
+
+*Remarque* : si vous avez activé l'agent SNMP, les silences suppriment également les interruptions SNMP et informe.
+
+link:managing-alerts.html["Neutralisation des notifications d'alerte"]
+ a| 
+. Sélectionnez *support* > *alarmes (hérité)* > *Configuration des e-mails existants*.
+. Sélectionnez *Notifications*.
+. Sélectionnez une liste de diffusion et sélectionnez *Supprimer*.
+
+
+link:managing-alarms.html["Suppression des notifications d'alarme pour une liste de diffusion (système existant)"]
+
+
+
+ a| 
+Comment supprimer toutes les notifications ?
+ a| 
+Sélectionnez *alertes* > *silences*.sélectionnez alors *toutes les règles*.
+
+*Remarque* : si vous avez activé l'agent SNMP, les silences suppriment également les interruptions SNMP et informe.
+
+link:managing-alerts.html["Neutralisation des notifications d'alerte"]
+ a| 
+. Sélectionnez *Configuration* > *Paramètres système* > *Options d'affichage*.
+. Cochez la case *notification Supprimer tout*.
+
+
+*Remarque* : la suppression des notifications par e-mail dans tout le système supprime également les e-mails AutoSupport déclenchés par des événements.
+
+link:managing-alarms.html["Suppression des notifications par e-mail à l'échelle du système"]
+
+
+
+ a| 
+Comment personnaliser les conditions et les déclencheurs ?
+ a| 
+. Sélectionnez *alertes* > *règles d'alerte*.
+. Sélectionnez une règle par défaut à modifier ou sélectionnez *Créer une règle personnalisée*.
+
+
+link:managing-alerts.html["Modification d'une règle d'alerte"]
+
+link:managing-alerts.html["Création de règles d'alerte personnalisées"]
+ a| 
+. Sélectionnez *support* > *alarmes (hérité)* > *alarmes globales*.
+. Créez une alarme personnalisée globale pour remplacer une alarme par défaut ou pour surveiller un attribut qui n'a pas d'alarme par défaut.
+
+
+link:managing-alarms.html["Création d'alarmes personnalisées globales (système hérité)"]
+
+
+
+ a| 
+Comment désactiver une alerte ou une alarme individuelle ?
+ a| 
+. Sélectionnez *alertes* > *règles d'alerte*.
+. Sélectionnez la règle et cliquez sur *Modifier la règle*.
+. Décochez la case *Enabled*.
+
+
+link:managing-alerts.html["Désactivation d'une règle d'alerte"]
+ a| 
+. Sélectionnez *support* > *alarmes (hérité)* > *alarmes globales*.
+. Sélectionnez la règle et cliquez sur l'icône Modifier.
+. Décochez la case *Enabled*.
+
+
+link:managing-alarms.html["Désactivation d'une alarme par défaut (système hérité)"]
+
+link:managing-alarms.html["Désactivation des alarmes personnalisées globales (système hérité)"]
+
+|===

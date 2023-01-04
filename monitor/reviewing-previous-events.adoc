@@ -1,0 +1,31 @@
+---
+permalink: monitor/reviewing-previous-events.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez générer une liste de messages d"événement précédents pour vous aider à isoler les problèmes qui se sont produits auparavant.' 
+---
+= Vérification des événements précédents
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez générer une liste de messages d'événement précédents pour vous aider à isoler les problèmes qui se sont produits auparavant.
+
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_site_* > *_grid node_* > *SSM* > *Events* > *Reports*.
+. Sélectionnez *texte*.
++
+L'attribut *dernier événement* n'apparaît pas dans la vue graphiques.
+
+. Remplacez *attribut* par *dernier événement*.
+. Vous pouvez également sélectionner une période pour *requête rapide*.
+. Cliquez sur *mettre à jour*.
++
+image::../media/events_report.gif[Page Events]
+
+
+
+.Informations associées
+link:using-charts-and-reports.html["Utilisation de graphiques et de rapports"]

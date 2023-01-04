@@ -1,0 +1,58 @@
+---
+permalink: network/storagegrid-networking-overview.html 
+sidebar: sidebar 
+keywords: storagegrid, network, networking, ethernet, subnet, routing 
+summary: 'La configuration de la mise en réseau d"un système StorageGRID nécessite un haut niveau d"expérience en matière de commutation Ethernet, de mise en réseau TCP/IP, de sous-réseaux, de routage réseau et de pare-feu.' 
+---
+= Présentation de la mise en réseau StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configuration de la mise en réseau d'un système StorageGRID nécessite un haut niveau d'expérience en matière de commutation Ethernet, de mise en réseau TCP/IP, de sous-réseaux, de routage réseau et de pare-feu.
+
+Avant de configurer le réseau, familiarisez-vous avec l'architecture StorageGRID décrite dans la _Grid amorceur_.
+
+Avant de déployer et de configurer StorageGRID, vous devez configurer l'infrastructure réseau. La communication doit se produire entre tous les nœuds du réseau et entre le réseau et les clients et services externes.
+
+Les clients externes et les services externes doivent se connecter aux réseaux StorageGRID pour exécuter les fonctions suivantes :
+
+* Le stockage et la récupération des données d'objet
+* Recevoir des notifications par e-mail
+* Accès à l'interface de gestion StorageGRID (Grid Manager et tenant Manager)
+* Accéder au partage d'audit (facultatif)
+* Fournir des services tels que :
++
+** NTP (Network Time Protocol)
+** Système de noms de domaine (DNS)
+** Serveur de gestion des clés (KMS)
+
+
+
+
+Le réseau StorageGRID doit être configuré de manière appropriée pour gérer le trafic pour ces fonctions, et bien plus encore.
+
+Après avoir déterminé les trois réseaux StorageGRID que vous souhaitez utiliser et la configuration de ces réseaux, vous pouvez installer et configurer les nœuds StorageGRID en suivant les instructions appropriées.
+
+.Informations associées
+link:../primer/index.html["Primaire de grille"]
+
+link:../admin/index.html["Administrer StorageGRID"]
+
+link:../release-notes/index.html["Notes de mise à jour"]
+
+link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Installez Ubuntu ou Debian"]
+
+link:../vmware/index.html["Installez VMware"]
+
+link:../sg100-1000/index.html["SG100 etamp ; appareils de services SG1000"]
+
+link:../sg6000/index.html["Dispositifs de stockage SG6000"]
+
+link:../sg5700/index.html["Appliances de stockage SG5700"]
+
+link:../sg5600/index.html["Appliances de stockage SG5600"]

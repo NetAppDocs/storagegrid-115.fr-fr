@@ -1,0 +1,22 @@
+---
+permalink: admin/managing-archive-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: 'En option, chacun des sites de centre de données de votre système StorageGRID peut être déployé à l"aide d"un nœud d"archivage, ce qui vous permet de vous connecter à un système de stockage d"archivage externe ciblé, tel que Tivoli Storage Manager \(TSM\).' 
+---
+= Gestion des nœuds d'archivage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En option, vous pouvez déployer chacun des sites de data Center de votre système StorageGRID à l'aide d'un nœud d'archivage, ce qui vous permet de vous connecter à un système de stockage d'archivage externe ciblé, tel que Tivoli Storage Manager (TSM).
+
+Après avoir configuré les connexions à la cible externe, vous pouvez configurer le nœud d'archivage pour optimiser les performances TSM, mettre un nœud d'archivage hors ligne lorsqu'un serveur TSM atteint sa capacité ou est indisponible, et configurer les paramètres de réplication et de récupération. Vous pouvez également définir des alarmes personnalisées pour le nœud d'archivage.
+
+* link:what-archive-node-is.html["Qu'est-ce qu'un nœud d'archivage"]
+* link:configuring-archive-node-connections-to-archival-storage.html["Configuration des connexions du nœud d'archivage au stockage d'archivage"]
+* link:setting-custom-alarms-for-archive-node.html["Définition d'alarmes personnalisées pour le nœud d'archivage"]
+* link:integrating-tivoli-storage-manager.html["Intégration de Tivoli Storage Manager"]
+

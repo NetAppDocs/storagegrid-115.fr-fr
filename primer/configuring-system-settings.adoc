@@ -1,0 +1,51 @@
+---
+permalink: primer/configuring-system-settings.html 
+sidebar: sidebar 
+keywords: system settings, grid manager, configure, configuration, display options, grid options, key management server, S3 object lock, storage options 
+summary: Vous pouvez configurer différents paramètres système à partir du Gestionnaire de grille pour affiner le fonctionnement de votre système StorageGRID. 
+---
+= Configuration des paramètres système
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez configurer différents paramètres système à partir du Gestionnaire de grille pour affiner le fonctionnement de votre système StorageGRID.
+
+
+
+== Options d'affichage
+
+Les options d'affichage vous permettent de définir le délai d'expiration des sessions utilisateur et de supprimer les notifications par e-mail pour les alarmes existantes et les messages AutoSupport déclenchés par des événements.
+
+
+
+== Options de grid
+
+Vous pouvez utiliser les options de grille pour configurer les paramètres de tous les objets stockés dans votre système StorageGRID, y compris la compression des objets stockés et le chiffrement des objets stockés. et objet stocké hachage.
+
+Vous pouvez également utiliser ces options pour spécifier des paramètres globaux pour les opérations client S3 et Swift.
+
+
+
+== Serveurs de gestion des clés
+
+Vous pouvez configurer un ou plusieurs serveurs de gestion externe des clés (KMS) afin de fournir les clés de chiffrement aux services et appliances de stockage StorageGRID. Chaque cluster KMS ou KMS utilise le protocole KMIP (Key Management Interoperability Protocol) pour fournir une clé de chiffrement aux nœuds d'appliance du site StorageGRID associé. L'utilisation de serveurs de gestion des clés permet de protéger les données StorageGRID même si une appliance est retirée du data Center. Une fois les volumes de l'appliance chiffrés, vous ne pouvez accéder à aucune donnée sur l'appliance à moins que le nœud ne puisse communiquer avec le KMS.
+
+
+NOTE: Pour utiliser la gestion des clés de chiffrement, vous devez activer le paramètre *Node Encryption* pour chaque appliance au cours de l'installation, avant d'ajouter l'appliance à la grille.
+
+
+
+== Verrouillage d'objet S3
+
+La fonctionnalité de verrouillage objet StorageGRID S3 est une solution de protection des objets équivalente au verrouillage objet S3 dans Amazon simple Storage Service (Amazon S3). Vous pouvez activer le paramètre global de verrouillage d'objet S3 pour un système StorageGRID afin d'autoriser les comptes de locataires S3 à créer des compartiments avec le verrouillage d'objet S3 activé. Le locataire peut ensuite utiliser une application client S3 pour spécifier éventuellement des paramètres de conservation (conservation jusqu'à la date, conservation légale ou les deux) pour les objets dans ces compartiments.
+
+image::../media/s3_object_lock_architecture.png[Architecture de verrouillage d'objet S3]
+
+
+
+== Options de stockage
+
+Les options de stockage vous permettent de contrôler la segmentation des objets et de définir des filigranes de stockage afin de gérer l'espace de stockage utilisable d'un nœud de stockage.

@@ -1,0 +1,240 @@
+---
+permalink: sg6000/replacing-storage-controller-sg6000.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, Replacing, replace, storage controller, e2800, ef570, controller, remove, removing, removal, install, installing, installation 
+summary: Vous devrez peut-être remplacer un contrôleur E2800 ou EF570 si ce dernier ne fonctionne pas de manière optimale ou en cas de défaillance. 
+---
+= Remplacement d'un contrôleur de stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devrez peut-être remplacer un contrôleur E2800 ou EF570 si ce dernier ne fonctionne pas de manière optimale ou en cas de défaillance.
+
+.Ce dont vous avez besoin
+* Vous disposez d'un contrôleur de remplacement avec la même référence que le contrôleur que vous remplacez.
+* Vous avez des étiquettes pour identifier chaque câble connecté au contrôleur.
+* Vous avez un bracelet ESD, ou vous avez pris d'autres précautions antistatiques.
+* Vous avez un tournevis cruciforme n° 1.
+* Vous disposez des instructions relatives au remplacement d'un contrôleur en configuration duplex.
++
+
+IMPORTANT: Reportez-vous aux instructions relatives aux baies E-Series uniquement lorsque vous y êtes invité ou si vous avez besoin de plus de détails pour effectuer une étape spécifique. N'utilisez pas les instructions E-Series pour remplacer un contrôleur de l'appliance StorageGRID, car les procédures ne sont pas les mêmes.
+
+* Vous avez trouvé physiquement l'appliance de stockage où vous remplacez le contrôleur dans le data Center.
++
+link:locating-controller-in-data-center.html["Localisation du contrôleur dans un data Center"]
+
+
+
+.Description de la tâche
+Vous pouvez déterminer si vous avez un contrôleur défectueux de deux manières :
+
+* Il vous est alors dirigé vers le remplacement du contrôleur dans SANtricity System Manager.
+* La LED d'avertissement orange située sur le contrôleur est allumée, ce qui indique que le contrôleur est en panne.
++
+
+IMPORTANT: Si les deux contrôleurs du tiroir disposent de leurs LED d'avertissement, contactez le support technique pour obtenir de l'aide.
+
+
+
+Le tiroir contrôleur de stockage contenant deux contrôleurs de stockage, vous pouvez remplacer l'un des contrôleurs tandis que votre appliance est sous tension et effectuer des opérations de lecture/écriture, tant que les conditions suivantes sont réunies :
+
+* Le second contrôleur du tiroir est à l'état optimal.
+* Le champ « OK à supprimer » de la zone Détails du gourou de la restauration dans SANtricity System Manager affiche Oui, indiquant qu'il est sûr de supprimer ce composant.
+
+
+
+IMPORTANT: Si le second canister du contrôleur dans le tiroir ne dispose pas d'un état optimal ou si l'gourou de la restauration indique qu'il n'est pas OK pour retirer le boîtier du contrôleur, contactez le support technique.
+
+Lorsque vous remplacez un contrôleur, vous devez retirer la batterie du contrôleur d'origine et l'installer dans le contrôleur de remplacement.
+
+
+NOTE: Les contrôleurs de stockage du dispositif n'incluent pas de cartes d'interface hôte (HIC).
+
+.Étapes
+. Déballez le nouveau contrôleur et placez-le sur une surface plane et sans électricité statique.
++
+Conservez les matériaux d'emballage à utiliser lors de l'expédition du contrôleur défectueux.
+
+. Localisez les étiquettes d'adresse MAC et de référence des FRU à l'arrière du contrôleur de remplacement.
++
+Cette figure représente le contrôleur E2800. La procédure de remplacement du contrôleur EF570 est identique.
+
++
+image::../media/e2800_labels_on_controller.gif[Étiquettes MAC et FRU sur le contrôleur E2800]
+
++
+|===
+| Étiquette | Étiquette | Description 
+
+
+ a| 
+1
+ a| 
+Adresse MAC
+ a| 
+L'adresse MAC du port de gestion 1 (« P1 »). Si vous avez utilisé DHCP pour obtenir l'adresse IP du contrôleur d'origine, vous devez disposer de cette adresse pour vous connecter au nouveau contrôleur.
+
+
+
+ a| 
+2
+ a| 
+Référence de l'unité remplaçable sur site
+ a| 
+Numéro de référence de l'unité remplaçable sur site. Ce numéro doit correspondre au numéro de référence de remplacement du contrôleur actuellement installé.
+
+|===
+. Préparez-vous à retirer le contrôleur.
++
+Ces étapes sont réalisées à l'aide de SANtricity System Manager. Si nécessaire pour obtenir plus d'informations, reportez-vous aux instructions relatives à la remise en place du contrôleur de stockage E-Series.
+
++
+.. Vérifiez que le numéro de référence de la référence de remplacement du contrôleur défectueux est identique à celui de la référence de l'unité remplaçable sur site du contrôleur de remplacement.
++
+Lorsqu'un contrôleur présente une défaillance et doit être remplacé, la référence du remplacement est affichée dans la zone Détails du Recovery Guru. Si vous avez besoin de trouver ce numéro manuellement, vous pouvez consulter l'onglet *base* du contrôleur.
+
++
+
+IMPORTANT: *Perte possible d'accès aux données --* si les deux numéros de pièce ne sont pas les mêmes, ne pas essayer cette procédure.
+
+.. Sauvegardez la base de données de configuration.
++
+Si un problème survient lorsque vous supprimez un contrôleur, vous pouvez utiliser le fichier enregistré pour restaurer votre configuration.
+
+.. Collecte des données d'assistance pour l'appareil.
++
+
+NOTE: La collecte des données de support avant et après le remplacement d'un composant vous permet d'envoyer un ensemble complet de journaux au support technique si le remplacement ne résout pas le problème.
+
+.. Mettre le contrôleur que vous prévoyez de remplacer hors ligne.
+
+
+. Retirer le contrôleur de l'appliance :
++
+.. Placez un bracelet antistatique ou prenez d'autres précautions antistatiques.
+.. Etiqueter les câbles puis débrancher les câbles et les SFP.
++
+
+IMPORTANT: Pour éviter de dégrader les performances, ne pas tordre, plier, pincer ou marcher sur les câbles.
+
+.. Libérez le contrôleur de l'appareil en appuyant sur le loquet de la poignée de came jusqu'à ce qu'il se relâche, puis ouvrez la poignée de came vers la droite.
+.. A l'aide de deux mains et de la poignée de came, faites glisser le contrôleur hors de l'appareil.
++
+
+IMPORTANT: Toujours utiliser deux mains pour soutenir le poids du contrôleur.
+
+.. Placez le contrôleur sur une surface plane et sans électricité statique, le capot amovible orienté vers le haut.
+.. Retirez le capot en appuyant sur le bouton et en le faisant glisser hors du capot.
+
+
+. Retirer la batterie du contrôleur défectueux et l'installer dans le contrôleur de remplacement :
++
+.. Vérifiez que le voyant vert à l'intérieur du contrôleur (entre la batterie et les modules DIMM) est éteint.
++
+Si ce voyant vert est allumé, le contrôleur utilise toujours l'alimentation de la batterie. Vous devez attendre que ce voyant s'éteigne avant de retirer des composants.
+
++
+image::../media/e2800_internal_cache_active_led.gif[LED verte sur la baie E2800]
+
++
+|===
+| Élément | Description 
+
+
+ a| 
+image::../media/icon_legend_01.gif[Numéro 1]
+ a| 
+LED active du cache interne
+
+
+
+ a| 
+image::../media/icon_legend_02.gif[Numéro 2]
+ a| 
+Batterie
+
+|===
+.. Repérez le loquet de dégagement bleu de la batterie.
+.. Déverrouillez la batterie en appuyant sur le loquet de déverrouillage vers le bas et en l'éloignant du contrôleur.
++
+image::../media/e2800_remove_battery.gif[Loquet de la batterie]
+
++
+|===
+| Élément | Description 
+
+
+ a| 
+image::../media/icon_legend_01.gif[Numéro 1]
+ a| 
+Loquet de déblocage de la batterie
+
+
+
+ a| 
+image::../media/icon_legend_02.gif[Numéro 2]
+ a| 
+Batterie
+
+|===
+.. Soulevez la batterie et faites-la glisser hors du contrôleur.
+.. Retirer le capot du contrôleur de remplacement.
+.. Orientez le contrôleur de remplacement de manière à ce que le logement de la batterie soit orienté vers vous.
+.. Insérez la batterie dans le contrôleur en l'inclinant légèrement vers le bas.
++
+Vous devez insérer la bride métallique située à l'avant de la batterie dans le logement situé en bas du contrôleur et faire glisser le haut de la batterie sous la petite goupille d'alignement située sur le côté gauche du contrôleur.
+
+.. Déplacez le loquet de la batterie vers le haut pour fixer la batterie.
++
+Lorsque le loquet s'enclenche, le bas des crochets de verrouillage se trouve dans une fente métallique du châssis.
+
+.. Retournez le contrôleur pour vérifier que la batterie est correctement installée.
++
+
+IMPORTANT: *Dommages matériels possibles* -- la bride métallique à l'avant de la batterie doit être complètement insérée dans le logement du contrôleur (comme indiqué sur la première figure). Si la batterie n'est pas installée correctement (comme illustré sur la deuxième figure), la bride métallique peut entrer en contact avec la carte contrôleur, ce qui peut endommager la carte.
+
++
+*** *Correct -- la bride métallique de la batterie est complètement insérée dans le logement du contrôleur:*
++
+image::../media/e2800_battery_flange_ok.gif[Bride de batterie conforme]
+
+*** *Incorrect -- la bride métallique de la batterie n'est pas insérée dans le logement du contrôleur :*
++
+image::../media/e2800_battery_flange_not_ok.gif[Bride de batterie incorrecte]
+
+
+
+.. Replacer le capot du contrôleur.
+
+
+. Installez le contrôleur de remplacement sur l'appliance.
++
+.. Retournez le contrôleur pour que le capot amovible soit orienté vers le bas.
+.. Avec la poignée de came en position ouverte, faites glisser le contrôleur complètement dans l'appareil.
+.. Déplacez la poignée de came vers la gauche pour verrouiller le contrôleur en place.
+.. Remplacer les câbles et les SFP.
+.. Si le contrôleur d'origine utilise DHCP pour l'adresse IP, localisez l'adresse MAC sur l'étiquette située à l'arrière du contrôleur de remplacement. Demandez à votre administrateur réseau d'associer le DNS/réseau et l'adresse IP du contrôleur que vous avez supprimé à l'adresse MAC du contrôleur de remplacement.
++
+
+NOTE: Si le contrôleur d'origine n'a pas utilisé DHCP pour l'adresse IP, le nouveau contrôleur adopte l'adresse IP du contrôleur que vous avez retiré.
+
+
+
+. Mettre le contrôleur en ligne à l'aide de SANtricity System Manager :
++
+.. Sélectionnez *matériel*.
+.. Si le graphique montre les lecteurs, sélectionnez *Afficher le verso du tiroir*.
+.. Sélectionnez le contrôleur que vous souhaitez placer en ligne.
+.. Sélectionnez *placer en ligne* dans le menu contextuel et confirmez que vous souhaitez effectuer l'opération.
+.. Vérifiez que l'affichage à sept segments indique l'état de `99`.
+
+
+. Confirmer que le nouveau contrôleur est optimal et collecter les données de support.
+
+
+.Informations associées
+http://mysupport.netapp.com/info/web/ECMP1658252.html["Site de documentation sur les systèmes NetApp E-Series"^]

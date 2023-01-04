@@ -1,0 +1,152 @@
+---
+permalink: upgrade/estimating-time-to-complete-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, time estimate, duration, cassandra upgrade 
+summary: Lorsque vous envisagez une mise à niveau vers StorageGRID 11.5, vous devez tenir compte du moment auquel la mise à niveau doit avoir lieu, en fonction de la durée de la mise à niveau. Vous devez également savoir quelles opérations vous pouvez et ne pouvez pas effectuer au cours de chaque étape de la mise à niveau. 
+---
+= Estimation du temps nécessaire pour effectuer une mise à niveau
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous envisagez une mise à niveau vers StorageGRID 11.5, vous devez tenir compte du moment auquel la mise à niveau doit avoir lieu, en fonction de la durée de la mise à niveau. Vous devez également savoir quelles opérations vous pouvez et ne pouvez pas effectuer au cours de chaque étape de la mise à niveau.
+
+.Description de la tâche
+Le temps nécessaire à une mise à niveau d'StorageGRID dépend de divers facteurs, tels que la charge client et les performances matérielles.
+
+Le tableau résume les principales tâches de mise à niveau et indique le temps approximatif requis pour chaque tâche. Les étapes qui suivent le tableau fournissent des instructions que vous pouvez utiliser pour estimer le temps de mise à niveau de votre système.
+
+
+IMPORTANT: Pendant la mise à niveau de StorageGRID 11.4 vers 11.5, les tables de base de données Cassandra sur les nœuds de stockage seront mises à niveau. La tâche *Upgrade Database* se produit en arrière-plan, mais elle peut nécessiter un délai très long. Pendant la mise à niveau de la base de données, vous pouvez utiliser de nouvelles fonctionnalités en toute sécurité, appliquer des correctifs et effectuer des opérations de restauration de nœuds. Cependant, vous n'êtes peut-être pas en mesure d'effectuer d'autres procédures de maintenance.
+
+
+NOTE: Si une extension est urgente, effectuer l'extension avant de passer à la version 11.5.
+
+[cols="1a,1a,1a,a"]
+|===
+| Tâche de mise à niveau | Description | Temps approximatif requis | Au cours de cette tâche 
+
+
+ a| 
+Démarrer le service de mise à niveau
+ a| 
+Des contrôles préalables de mise à niveau sont exécutés, le fichier logiciel est distribué et le service de mise à niveau est démarré.
+ a| 
+3 minutes par nœud de la grille, sauf si des erreurs de validation sont signalées
+ a| 
+Si nécessaire, vous pouvez exécuter les contrôles préalables à la mise à niveau manuellement avant la fenêtre de maintenance de la mise à niveau planifiée.
+
+
+
+ a| 
+Mise à niveau des nœuds Grid (nœud d'administration principal)
+ a| 
+Le nœud d'administration principal est arrêté, mis à niveau et redémarré.
+ a| 
+Jusqu'à 30 minutes
+ a| 
+Vous ne pouvez pas accéder au nœud d'administration principal. Des erreurs de connexion sont signalées, que vous pouvez ignorer.
+
+
+
+ a| 
+Mise à niveau des nœuds grid (tous les autres nœuds)
+ a| 
+Le logiciel de tous les autres nœuds de la grille est mis à niveau, dans l'ordre dans lequel vous approuvez les nœuds. Chaque nœud de votre système est mis hors service un par un pendant plusieurs minutes.
+ a| 
+De 15 à 45 minutes par nœud, avec des nœuds de stockage d'appliance requérant le plus de temps
+
+*Remarque :* pour les nœuds de l'appliance, le programme d'installation de l'appliance StorageGRID est automatiquement mis à jour à la dernière version.
+ a| 
+* Ne modifiez pas la configuration de la grille.
+* Ne modifiez pas la configuration du niveau d'audit.
+* Ne mettez pas à jour la configuration ILM.
+* N'exécutez pas une autre procédure de maintenance, telle que le correctif, le déclassement ou l'extension.
++
+*Remarque :* si vous devez effectuer une procédure de récupération, contactez le support technique.
+
+
+
+
+
+ a| 
+Activer les fonctions
+ a| 
+Les nouvelles fonctionnalités de la nouvelle version sont activées.
+ a| 
+Moins de 5 minutes
+ a| 
+* Ne modifiez pas la configuration de la grille.
+* Ne modifiez pas la configuration du niveau d'audit.
+* Ne mettez pas à jour la configuration ILM.
+* Ne pas effectuer une autre procédure d'entretien.
+
+
+
+
+ a| 
+Mettre à niveau la base de données
+ a| 
+Les tables de base de données Cassandra, qui existent sur tous les nœuds de stockage, sont mises à niveau.
+ a| 
+Heures ou jours, en fonction du volume de métadonnées dans votre système
+ a| 
+Pendant la tâche *Upgrade Database*, la grille mise à niveau fonctionne normalement ; cependant, la mise à niveau est toujours en cours. Au cours de cette tâche, vous pouvez :
+
+* Utilisez les nouvelles fonctionnalités de la nouvelle version de StorageGRID.
+* Modifier la configuration du niveau d'audit.
+* Mettre à jour la configuration ILM.
+* Appliquez un correctif.
+* Restaurer un nœud.
+
+
+*Remarque :* vous ne pouvez pas effectuer une procédure de mise hors service ou d'extension tant que les *étapes de mise à niveau finale* ne sont pas terminées.
+
+
+
+ a| 
+Dernières étapes de mise à niveau
+ a| 
+Les fichiers temporaires sont supprimés et la mise à niveau vers la nouvelle version se termine.
+ a| 
+5 minutes
+ a| 
+Lorsque la tâche *étapes de mise à niveau finale* se termine, vous pouvez effectuer toutes les procédures de maintenance.
+
+|===
+.Étapes
+. Estimer le temps nécessaire pour mettre à niveau tous les nœuds de la grille (prendre en compte toutes les tâches de mise à niveau sauf *Upgrade Database*).
++
+.. Multipliez le nombre de nœuds de votre système StorageGRID par 30 minutes/nœud (moyenne).
+.. Ajoutez 1 heure à cette heure pour prendre en compte le temps requis pour télécharger le `.upgrade` file, exécutez les validations de pré-vérification et effectuez les étapes de mise à niveau finale.
+
+
+. Si vous avez des nœuds Linux, ajoutez 15 minutes pour chaque nœud afin de tenir compte du temps nécessaire au téléchargement et à l'installation du package RPM ou DEB.
+. Estimer le temps nécessaire pour mettre à niveau la base de données.
++
+.. Dans Grid Manager, sélectionnez *noeuds*.
+.. Sélectionnez la première entrée dans l'arborescence (grille entière) et sélectionnez l'onglet *Storage*.
+.. Placez le curseur sur le graphique *stockage utilisé - métadonnées de l'objet* et localisez la valeur *utilisée*, qui indique le nombre d'octets de métadonnées de l'objet sur votre grille.
+.. Divisez la valeur *Used* par 1.5 To/jour pour déterminer le nombre de jours nécessaires à la mise à niveau de la base de données.
+
+
+. Calculer le temps total estimé pour la mise à niveau en ajoutant les résultats des étapes 1, 2 et 3.
+
+
+
+
+== Exemple : estimer le temps nécessaire pour passer de StorageGRID 11.4 à 11.5
+
+Supposons que votre système dispose de 14 nœuds de grille, dont 8 sont des nœuds Linux. Supposons également que la valeur *Used* pour les métadonnées d'objet est de 6 To.
+
+. Multipliez 14 par 30 minutes/nœud et ajoutez 1 heure. La durée estimée de mise à niveau de tous les nœuds est de 8 heures.
+. Plusieurs 8 à 15 minutes/nœud pour tenir compte du temps d'installation du package RPM ou DEB sur les nœuds Linux. La durée estimée de cette étape est de 2 heures.
+. Diviser 6 par 1.5 To/jour. Le nombre de jours estimé pour la tâche *Upgrade Database* est de 4 jours.
++
+
+NOTE: Pendant que la tâche *Upgrade Database* est en cours d'exécution, vous pouvez utiliser en toute sécurité de nouvelles fonctionnalités, appliquer des correctifs et effectuer des opérations de récupération de nœud.
+
+. Ajoutez les valeurs ensemble. Vous devez prévoir 5 jours pour terminer la mise à niveau de votre système vers StorageGRID 11.5.0.
+

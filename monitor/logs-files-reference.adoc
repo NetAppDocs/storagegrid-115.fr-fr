@@ -1,0 +1,34 @@
+---
+permalink: monitor/logs-files-reference.html 
+sidebar: sidebar 
+keywords: log, logs, log files 
+summary: 'Les sections suivantes répertorient les journaux utilisés pour capturer les événements, les messages de diagnostic et les conditions d"erreur. Il se peut que vous soyez invité à collecter les fichiers journaux et à les transférer au support technique pour faciliter le dépannage.' 
+---
+= Référence des fichiers journaux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les sections suivantes répertorient les journaux utilisés pour capturer les événements, les messages de diagnostic et les conditions d'erreur. Il se peut que vous soyez invité à collecter les fichiers journaux et à les transférer au support technique pour faciliter le dépannage.
+
+* link:storagegrid-software-logs.html["Journaux du logiciel StorageGRID"]
+* link:deployment-and-maintenance-logs.html["Journaux de déploiement et de maintenance"]
+* link:logs-for-third-party-software.html["Journaux de logiciels tiers"]
+* link:about-bycast-log.html["Sur le bycast.log"]
+
+
+
+IMPORTANT: Les tableaux de cette section sont fournis à titre de référence uniquement. Les journaux sont destinés au dépannage avancé par le support technique. Les techniques avancées qui impliquent la reconstruction de l'historique des problèmes à l'aide des journaux d'audit et des fichiers journaux d'application sont hors de portée de ce guide.
+
+Pour accéder à ces journaux, vous pouvez collecter des fichiers journaux et des données système (*support* > *Outils* > *journaux*). Si le nœud d'administration principal n'est pas disponible ou ne peut pas atteindre un nœud spécifique, vous pouvez accéder aux journaux de chaque nœud de la grille comme suit :
+
+. Saisissez la commande suivante : `ssh admin@grid_node_IP`
+. Entrez le mot de passe indiqué dans le `Passwords.txt` fichier.
+. Entrez la commande suivante pour passer à la racine : `su -`
+. Entrez le mot de passe indiqué dans le `Passwords.txt` fichier.
+
+
+.Informations associées
+link:collecting-log-files-and-system-data.html["Collecte des fichiers journaux et des données système"]

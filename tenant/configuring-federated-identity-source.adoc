@@ -1,0 +1,107 @@
+---
+permalink: tenant/configuring-federated-identity-source.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, federated identity source, configuring federated identity source, configure federated identity source, active directory, openldap, open ldap, oracle directory server, directory server 
+summary: 'Vous pouvez configurer la fédération des identités si vous souhaitez que les groupes de locataires et les utilisateurs soient gérés dans un autre système, tel qu"Active Directory, OpenLDAP ou Oracle Directory Server.' 
+---
+= Configuration d'un référentiel d'identité fédéré
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez configurer la fédération des identités si vous souhaitez que les groupes de locataires et les utilisateurs soient gérés dans un autre système, tel qu'Active Directory, OpenLDAP ou Oracle Directory Server.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté au Gestionnaire de locataires à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+* Vous devez utiliser Active Directory, OpenLDAP ou Oracle Directory Server comme fournisseur d'identité. Si vous souhaitez utiliser un service LDAP v3 non répertorié, contactez le support technique.
+* Si vous prévoyez d'utiliser TLS (transport Layer Security) pour les communications avec le serveur LDAP, le fournisseur d'identité doit utiliser TLS 1.2 ou 1.3.
+
+
+.Description de la tâche
+La configuration d'un service de fédération des identités pour votre locataire dépend de la configuration de votre compte locataire. Votre locataire peut partager le service de fédération des identités configuré pour Grid Manager. Si ce message s'affiche lorsque vous accédez à la page Fédération des identités, vous ne pouvez pas configurer un référentiel d'identité fédéré distinct pour ce locataire.
+
+image::../media/tenant_shares_identity_federation.png[Le locataire partage la fédération des identités]
+
+.Étapes
+. Sélectionnez *ACCESS MANAGEMENT* > *identity federation*.
+. Sélectionnez *Activer la fédération d'identités*.
+. Dans la section Type de service LDAP, sélectionnez *Active Directory*, *OpenLDAP* ou *Other*.
++
+Si vous sélectionnez *OpenLDAP*, configurez le serveur OpenLDAP. Reportez-vous aux instructions de configuration d'un serveur OpenLDAP.
+
++
+Sélectionnez *autre* pour configurer les valeurs d'un serveur LDAP qui utilise Oracle Directory Server.
+
+. Si vous avez sélectionné *autre*, renseignez les champs de la section attributs LDAP.
++
+** *Nom unique utilisateur* : nom de l'attribut qui contient l'identifiant unique d'un utilisateur LDAP. Cet attribut est équivalent à `sAMAccountName` Pour Active Directory et `uid` Pour OpenLDAP. Si vous configurez Oracle Directory Server, entrez `uid`.
+** *UUID d'utilisateur* : nom de l'attribut qui contient l'identifiant unique permanent d'un utilisateur LDAP. Cet attribut est équivalent à `objectGUID` Pour Active Directory et `entryUUID` Pour OpenLDAP. Si vous configurez Oracle Directory Server, entrez `nsuniqueid`. La valeur de chaque utilisateur pour l'attribut spécifié doit être un nombre hexadécimal à 32 chiffres au format 16 octets ou chaîne, où les tirets sont ignorés.
+** *Nom unique de groupe* : nom de l'attribut qui contient l'identifiant unique d'un groupe LDAP. Cet attribut est équivalent à `sAMAccountName` Pour Active Directory et `cn` Pour OpenLDAP. Si vous configurez Oracle Directory Server, entrez `cn`.
+** *UUID de groupe* : nom de l'attribut qui contient l'identificateur unique permanent d'un groupe LDAP. Cet attribut est équivalent à `objectGUID` Pour Active Directory et `entryUUID` Pour OpenLDAP. Si vous configurez Oracle Directory Server, entrez `nsuniqueid`. La valeur de chaque groupe pour l'attribut spécifié doit être un nombre hexadécimal à 32 chiffres au format 16 octets ou chaîne, où les tirets sont ignorés.
+
+
+. Dans la section configurer le serveur LDAP, entrez les informations de serveur LDAP et de connexion réseau requises.
++
+** *Nom d'hôte* : le nom d'hôte du serveur ou l'adresse IP du serveur LDAP.
+** *Port* : port utilisé pour se connecter au serveur LDAP. Le port par défaut de STARTTLS est 389 et le port par défaut de LDAPS est 636. Cependant, vous pouvez utiliser n'importe quel port tant que votre pare-feu est configuré correctement.
+** *Nom d'utilisateur* : chemin complet du nom distinctif (DN) de l'utilisateur qui se connectera au serveur LDAP. Pour Active Directory, vous pouvez également spécifier le nom de connexion bas niveau ou le nom principal d'utilisateur.
++
+L'utilisateur spécifié doit être autorisé à répertorier les groupes et les utilisateurs et à accéder aux attributs suivants :
+
++
+*** `sAMAccountName` ou `uid`
+*** `objectGUID`, `entryUUID`, ou `nsuniqueid`
+*** `cn`
+*** `memberOf` ou `isMemberOf`
+
+
+** *Mot de passe* : mot de passe associé au nom d'utilisateur.
+** *DN de base de groupe* : chemin complet du nom distinctif (DN) pour une sous-arborescence LDAP que vous voulez rechercher des groupes. Dans l'exemple Active Directory (ci-dessous), tous les groupes dont le nom unique est relatif au DN de base (DC=storagegrid,DC=exemple,DC=com) peuvent être utilisés comme groupes fédérés.
++
+Les valeurs *Nom unique de groupe* doivent être uniques dans le *DN de base de groupe* auquel elles appartiennent.
+
+** *DN de base d'utilisateur* : le chemin complet du nom distinctif (DN) d'une sous-arborescence LDAP que vous voulez rechercher des utilisateurs.
++
+Les valeurs *Nom unique utilisateur* doivent être uniques dans le *DN de base utilisateur* auquel elles appartiennent.
+
+
+
+. Dans la section *transport Layer Security (TLS)*, sélectionnez un paramètre de sécurité.
++
+** *Utilisez STARTTLS (recommandé)* : utilisez STARTTLS pour sécuriser les communications avec le serveur LDAP. Il s'agit de l'option recommandée.
+** *Utilisez LDAPS* : l'option LDAPS (LDAP sur SSL) utilise TLS pour établir une connexion au serveur LDAP. Cette option est prise en charge pour des raisons de compatibilité.
+** *N'utilisez pas TLS* : le trafic réseau entre le système StorageGRID et le serveur LDAP ne sera pas sécurisé.
++
+Cette option n'est pas prise en charge si votre serveur Active Directory applique la signature LDAP. Vous devez utiliser STARTTLS ou LDAPS.
+
+
+
+. Si vous avez sélectionné STARTTLS ou LDAPS, choisissez le certificat utilisé pour sécuriser la connexion.
++
+** *Utilisez le certificat CA du système d'exploitation* : utilisez le certificat CA par défaut installé sur le système d'exploitation pour sécuriser les connexions.
+** *Utilisez un certificat d'autorité de certification personnalisé* : utilisez un certificat de sécurité personnalisé.
++
+Si vous sélectionnez ce paramètre, copiez et collez le certificat de sécurité personnalisé dans la zone de texte certificat de l'autorité de certification.
+
+
+
+. Sélectionnez *Tester la connexion* pour valider vos paramètres de connexion pour le serveur LDAP.
++
+Un message de confirmation s'affiche dans le coin supérieur droit de la page si la connexion est valide.
+
+. Si la connexion est valide, sélectionnez *Enregistrer*.
++
+La capture d'écran suivante montre des exemples de valeurs de configuration pour un serveur LDAP qui utilise Active Directory.
+
++
+image::../media/ldap_config_active_directory.png[Page de fédération des identités présentant le serveur LDAP qui utilise Active Directory]
+
+
+
+.Informations associées
+link:tenant-management-permissions.html["Autorisations de gestion des locataires"]
+
+link:guidelines-for-configuring-openldap-server.html["Instructions de configuration d'un serveur OpenLDAP"]

@@ -1,0 +1,25 @@
+---
+permalink: admin/managing-load-balancing.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez utiliser les fonctions d"équilibrage de charge StorageGRID pour gérer les workloads d"ingestion et de récupération à partir de clients S3 et Swift. L"équilibrage de la charge optimise la vitesse et la capacité de connexion en distribuant les charges de travail et les connexions entre plusieurs nœuds de stockage.' 
+---
+= Gestion de l'équilibrage des charges
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser les fonctions d'équilibrage de charge StorageGRID pour gérer les workloads d'ingestion et de récupération à partir de clients S3 et Swift. L'équilibrage de la charge optimise la vitesse et la capacité de connexion en distribuant les charges de travail et les connexions entre plusieurs nœuds de stockage.
+
+Vous pouvez réaliser l'équilibrage de la charge dans votre système StorageGRID de plusieurs manières :
+
+* Utilisez le service Load Balancer, qui est installé sur les nœuds d'administration et les nœuds de passerelle. Le service Load Balancer assure l'équilibrage de la charge de couche 7 et effectue la résiliation TLS des requêtes client, inspecte les requêtes et établit de nouvelles connexions sécurisées vers les nœuds de stockage. Il s'agit du mécanisme d'équilibrage de charge recommandé.
+* Utilisez le service Connection Load Balancer (CLB), qui est installé uniquement sur les nœuds de passerelle. Le service CLB assure l'équilibrage de charge de couche 4 et prend en charge les coûts de liaison.
++
+
+NOTE: Le service CLB est obsolète.
+
+* Intégrez un équilibreur de charge tiers. Pour plus d'informations, contactez votre ingénieur commercial NetApp.
+

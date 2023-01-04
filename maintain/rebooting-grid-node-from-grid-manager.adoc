@@ -1,0 +1,48 @@
+---
+permalink: maintain/rebooting-grid-node-from-grid-manager.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, reboot node, grid manager 
+summary: 'Le redémarrage d"un nœud de grille à partir de Grid Manager émet le `reboot` commande sur le nœud cible.' 
+---
+= Redémarrage d'un nœud de grille à partir de Grid Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le redémarrage d'un nœud de grille à partir de Grid Manager émet le `reboot` commande sur le nœud cible.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer de l'autorisation Maintenance ou accès racine.
+* Vous devez disposer de la phrase secrète pour le provisionnement.
+
+
+.Étapes
+. Sélectionnez *noeuds*.
+. Sélectionnez le nœud de grille que vous souhaitez redémarrer.
+. Sélectionnez l'onglet *tâches*.
++
+image::../media/nodes_tasks_reboot.gif[Bouton nœuds > tâches > redémarrer]
+
+. Cliquez sur *redémarrer*.
++
+Une boîte de dialogue de confirmation s'affiche.
+
++
+image::../media/reboot_node_confirmation.gif[Boîte de dialogue de confirmation pour le nœud de la grille de redémarrage]
+
++
+
+NOTE: Si vous redémarrez le nœud d'administration principal, la boîte de dialogue de confirmation vous rappelle que la connexion de votre navigateur au Grid Manager sera interrompue temporairement lorsque les services sont arrêtés.
+
+. Entrez la phrase de passe de provisionnement, puis cliquez sur *OK*.
+. Attendez que le nœud redémarre.
++
+La fermeture des services peut prendre un certain temps.
+
++
+Lorsque le nœud est en cours de redémarrage, l'icône grise (arrêt administratif) s'affiche sur le côté gauche de la page nœuds. Lorsque tous les services ont redémarré, l'icône revient à sa couleur d'origine.
+
+

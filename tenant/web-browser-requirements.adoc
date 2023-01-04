@@ -1,0 +1,58 @@
+---
+permalink: tenant/web-browser-requirements.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant manager, web browser 
+summary: Vous devez utiliser un navigateur Web pris en charge. 
+---
+= Navigateurs Web pris en charge
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez utiliser un navigateur Web pris en charge.
+
+|===
+| Navigateur Web | Version minimale prise en charge 
+
+
+ a| 
+Google Chrome
+ a| 
+87
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+87
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+84
+
+|===
+Vous devez régler la fenêtre du navigateur sur une largeur recommandée.
+
+|===
+| Largeur du navigateur | Pixels 
+
+
+ a| 
+Minimum
+ a| 
+1024
+
+
+
+ a| 
+Optimale
+ a| 
+1280
+
+|===

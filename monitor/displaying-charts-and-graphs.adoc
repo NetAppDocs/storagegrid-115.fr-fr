@@ -1,0 +1,64 @@
+---
+permalink: monitor/displaying-charts-and-graphs.html 
+sidebar: sidebar 
+keywords: charts, display graphs 
+summary: La page nœuds contient les graphiques et les graphiques auxquels vous devez accéder régulièrement pour surveiller les attributs tels que la capacité de stockage et le débit. Dans certains cas, en particulier lorsque vous travaillez avec le support technique, vous pouvez utiliser la page support \> Outils \> topologie Grid pour accéder à des graphiques supplémentaires. 
+---
+= Affichage des graphiques et des graphiques
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La page nœuds contient les graphiques et les graphiques auxquels vous devez accéder régulièrement pour surveiller les attributs tels que la capacité de stockage et le débit. Dans certains cas, en particulier lorsque vous travaillez avec le support technique, vous pouvez utiliser la page *support* > *Outils* > *topologie de grille* pour accéder à des graphiques supplémentaires.
+
+.Ce dont vous avez besoin
+Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+
+.Étapes
+. Sélectionnez *noeuds*. Ensuite, sélectionnez un nœud, un site ou la grille entière.
+. Sélectionnez l'onglet pour lequel vous souhaitez afficher les informations.
++
+Certains onglets comprennent un ou plusieurs graphiques Grafana, qui sont utilisés pour tracer les valeurs des metrics Prometheus dans le temps. Par exemple, l'onglet *Nodes* > *Hardware* d'un nœud inclut deux diagrammes Grafana.
+
++
+image::../media/nodes_page_hardware_tab_graphs.png[Graphiques de l'onglet matériel de la page nœuds]
+
+. Vous pouvez également passer le curseur sur la carte pour afficher des valeurs plus détaillées pour un point donné dans le temps.
++
+image::../media/nodes_page_memory_usage_details.png[Nœuds page Détails de l'utilisation de la mémoire]
+
+. Si nécessaire, vous pouvez souvent afficher un graphique pour un attribut ou une mesure spécifique. Dans le tableau de la page nœuds, cliquez sur l'icône du graphique image:../media/icon_chart_new.gif["Icône de graphique"] ou image:../media/icon_chart_new_for_11_5.png["Icône de graphique - Nouveau pour 11.5"] à droite du nom de l'attribut.
++
+
+NOTE: Les graphiques ne sont pas disponibles pour tous les indicateurs et attributs.
+
++
+*Exemple 1* : dans l'onglet objets d'un noeud de stockage, vous pouvez cliquer sur l'icône du graphique image:../media/icon_chart_new.gif["Icône de graphique"] pour afficher la latence moyenne d'une requête de métadonnées au fil du temps.
+
++
+image::../media/icon_nodes_average_latency_chart.png[Icône graphique latence moyenne des nœuds]
+
++
+image::../media/charts_average_query_latency.png[Diagrammes latence moyenne des requêtes]
+
++
+*Exemple 2* : dans l'onglet objets d'un noeud de stockage, vous pouvez cliquer sur l'icône du graphique image:../media/icon_chart_new_for_11_5.png["Icône de graphique - Nouveau pour 11.5"] Pour afficher le graphique Grafana du nombre d'objets perdus détectés au fil du temps.
+
++
+image::../media/object_count_table.png[Tableau nombre d'objets]
+
++
+image::../media/charts_lost_object_detected.png[Objets perdus graphiques détectés]
+
+. Pour afficher les graphiques des attributs qui ne sont pas affichés sur la page noeud, sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_grid node_* > *_component ou service_* > *Présentation* > *main*.
++
+image::../media/nms_chart.gif[capture d'écran décrite par le texte environnant]
+
+. Cliquez sur l'icône du graphique image:../media/icon_chart_new.gif["Icône de graphique"] à côté de l'attribut.
++
+L'affichage passe automatiquement à la page *Rapports* > *graphiques*. Le graphique affiche les données de l'attribut au cours du dernier jour.
+
+

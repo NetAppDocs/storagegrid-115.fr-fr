@@ -1,0 +1,78 @@
+---
+permalink: vmware/automating-grid-node-deployment-in-vmware-vsphere.html 
+sidebar: sidebar 
+keywords:  
+summary: Vous pouvez automatiser le déploiement des nœuds grid StorageGRID dans VMware vSphere. 
+---
+= Automatisation du déploiement de nœuds grid dans VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez automatiser le déploiement des nœuds grid StorageGRID dans VMware vSphere.
+
+.Ce dont vous avez besoin
+* Vous avez accès à un système Linux/Unix avec Bash 3.2 ou version ultérieure.
+* VMware OVF Tool 4.1 est installé et correctement configuré.
+* Vous connaissez le nom d'utilisateur et le mot de passe requis pour accéder à VMware vSphere à l'aide de l'outil OVF.
+* Vous connaissez l'URL d'infrastructure virtuelle (VI) pour l'emplacement dans vSphere où vous souhaitez déployer les machines virtuelles StorageGRID. Cette URL est généralement une vApp ou un pool de ressources. Par exemple : `vi://vcenter.example.com/vi/sgws`
++
+
+NOTE: Vous pouvez utiliser VMware `ovftool` utilitaire pour déterminer cette valeur (voir `ovftool` documentation pour plus de détails).
+
++
+
+NOTE: Si vous déployez une vApp, les machines virtuelles ne démarrent pas automatiquement la première fois et vous devez les mettre sous tension manuellement.
+
+* Vous avez collecté toutes les informations requises pour le fichier de configuration. Voir link:collecting-information-about-your-deployment-environment.html["Collecte d'informations sur votre environnement de déploiement"] pour plus d'informations.
+* Vous avez accès aux fichiers suivants à partir de l'archive d'installation de VMware pour StorageGRID :
+
+
+[cols="1a,1a"]
+|===
+| Nom du fichier | Description 
+
+
+| NetApp-SG-version-SHA.vmdk  a| 
+Fichier de disque de machine virtuelle utilisé comme modèle pour créer des machines virtuelles de nœud de grille.
+
+*Remarque :* ce fichier doit se trouver dans le même dossier que le `.ovf` et `.mf` fichiers.
+
+
+
+| vsphere-primary-admin.ovf vsphere-primary-admin.mf  a| 
+Fichier modèle du format Open Virtualization (`.ovf`) et fichier manifeste (`.mf`) Pour le déploiement du nœud d'administration principal.
+
+
+
+| vsphere-non-primary-admin.ovf vsphere-non-primary-admin.mf  a| 
+Le fichier de modèle (`.ovf`) et fichier manifeste (`.mf`) Pour le déploiement de nœuds d'administration non primaires.
+
+
+
+| vsphere-archive.ovf vsphere-archive.mf  a| 
+Le fichier de modèle (`.ovf`) et fichier manifeste (`.mf`) Pour le déploiement des nœuds d'archivage.
+
+
+
+| vsphere-gateway.ovf vsphere-gateway.mf  a| 
+Le fichier de modèle (`.ovf`) et fichier manifeste (`.mf`) Pour le déploiement des nœuds de passerelle.
+
+
+
+| vsphere-storage.ovf vsphere-storage.mf  a| 
+Le fichier de modèle (`.ovf`) et fichier manifeste (`.mf`) Pour le déploiement de nœuds de stockage basés sur des machines virtuelles.
+
+
+
+| deploy-vsphere-ovftool.sh  a| 
+Le script de shell Bash utilisé pour automatiser le déploiement des nœuds de grille virtuels.
+
+
+
+| deploy-vsphere-ovftool-sample.ini  a| 
+Exemple de fichier de configuration à utiliser avec le `deploy-vsphere-ovftool.sh` script.
+
+|===

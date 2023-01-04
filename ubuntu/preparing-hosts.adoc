@@ -1,0 +1,17 @@
+---
+permalink: ubuntu/preparing-hosts.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Pour préparer vos hôtes physiques ou virtuels pour StorageGRID, vous devez effectuer les étapes suivantes. Notez que vous pouvez automatiser une grande partie ou la totalité de ces étapes à l"aide de frameworks de configuration de serveurs standard tels que Ansible, Puppet ou Chef.' 
+---
+= Préparation des hôtes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour préparer vos hôtes physiques ou virtuels pour StorageGRID, vous devez effectuer les étapes suivantes. Notez que vous pouvez automatiser une grande partie ou la totalité de ces étapes à l'aide de frameworks de configuration de serveurs standard tels que Ansible, Puppet ou Chef.
+
+.Informations associées
+link:automating-installation-and-configuration-of-storagegrid-host-service.html["Automatisation de l'installation et de la configuration du service hôte StorageGRID"]

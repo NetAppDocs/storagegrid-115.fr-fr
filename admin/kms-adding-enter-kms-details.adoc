@@ -1,0 +1,86 @@
+---
+permalink: admin/kms-adding-enter-kms-details.html 
+sidebar: sidebar 
+keywords:  
+summary: 'À l"étape 1 \(entrer les détails KMS\) de l"assistant Ajout d"un serveur de gestion de clés, vous fournissez des détails sur le cluster KMS ou KMS.' 
+---
+= Étape 1 : saisissez les détails du KMS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À l'étape 1 (entrer les détails KMS) de l'assistant Ajout d'un serveur de gestion des clés, vous fournissez des détails sur le cluster KMS ou KMS.
+
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres système* > *serveur de gestion des clés*.
++
+La page Key Management Server s'affiche avec l'onglet Configuration Details (Détails de la configuration) sélectionné.
+
++
+image::../media/kms_configuration_details_no_kms.png[Détails de configuration DES KMS pas de KMS]
+
+. Sélectionnez *Créer*.
++
+L'étape 1 (entrer les détails KMS) de l'assistant Ajout d'un serveur de gestion de clés s'affiche.
+
++
+image::../media/kms_step_1_enter_kms_details.png[KMS étape 1 Entrez Détails KMS]
+
+. Entrez les informations suivantes pour le KMS et le client StorageGRID que vous avez configuré dans ce KMS.
++
+[cols="1a,1a"]
+|===
+| Champ | Description 
+
+
+ a| 
+Nom d'affichage DES KMS
+ a| 
+Un nom descriptif pour vous aider à identifier ce KMS. Doit comporter entre 1 et 64 caractères.
+
+
+
+ a| 
+Nom de clé
+ a| 
+Alias de clé exact pour le client StorageGRID dans le KMS. Doit comporter entre 1 et 255 caractères.
+
+
+
+ a| 
+Gère les clés pour
+ a| 
+Le site StorageGRID qui sera associé à ce KMS. Si possible, vous devez configurer des serveurs de gestion de clés spécifiques au site avant de configurer un KMS par défaut qui s'applique à tous les sites non gérés par un autre KMS.
+
+** Sélectionnez un site si ce KMS gère les clés de chiffrement pour les nœuds d'appliance sur un site spécifique.
+** Sélectionnez *sites non gérés par un autre KMS (KMS par défaut)* pour configurer un KMS par défaut qui s'appliquera à tous les sites qui ne disposent pas d'un KMS dédié et à tous les sites que vous ajoutez dans les extensions suivantes.
++
+*Remarque :* Une erreur de validation se produit lorsque vous enregistrez la configuration KMS si vous sélectionnez un site qui a été précédemment crypté par le KMS par défaut, mais que vous n'avez pas fourni la version actuelle de la clé de cryptage d'origine au nouveau KMS.
+
+
+
+
+
+ a| 
+Port
+ a| 
+Le port utilisé par le serveur KMS pour les communications KMIP (Key Management Interoperability Protocol). La valeur par défaut est 5696, qui est le port standard KMIP.
+
+
+
+ a| 
+Nom d'hôte
+ a| 
+Le nom de domaine complet ou l'adresse IP du KMS.
+
+*Remarque :* le champ SAN du certificat de serveur doit inclure le FQDN ou l'adresse IP que vous saisissez ici. Dans le cas contraire, StorageGRID ne pourra pas se connecter au KMS ou à tous les serveurs d'un cluster KMS.
+
+|===
+. Si vous utilisez un cluster KMS, sélectionnez le signe plus image:../media/icon_plus_sign_black_on_white_old.png["Icône plus signe"] pour ajouter un nom d'hôte pour chaque serveur du cluster.
+. Sélectionnez *Suivant*.
++
+L'étape 2 (Télécharger un certificat de serveur) de l'assistant Ajout d'un serveur de gestion de clés s'affiche.
+
+

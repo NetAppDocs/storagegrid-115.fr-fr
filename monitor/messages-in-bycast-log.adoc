@@ -1,0 +1,84 @@
+---
+permalink: monitor/messages-in-bycast-log.html 
+sidebar: sidebar 
+keywords: bycast, bycast.log, bycast log, bycast message 
+summary: 'Messages dans `bycast.log` Sont écrits par l"ADE \(ADE Environnement distribué asynchrone\). ADE est l"environnement d"exécution utilisé par les services de chaque noeud de la grille.' 
+---
+= Messages en bycast.log
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Messages dans `bycast.log` Sont écrits par l'ADE (ADE). ADE est l'environnement d'exécution utilisé par les services de chaque nœud de la grille.
+
+Voici un exemple de message ADE :
+
+[listing]
+----
+May 15 14:07:11 um-sec-rg1-agn3 ADE: |12455685    0357819531
+SVMR EVHR 2019-05-05T27T17:10:29.784677| ERROR 0906 SVMR: Health
+check on volume 3 has failed with reason 'TOUT'
+----
+Les messages ADE contiennent les informations suivantes :
+
+|===
+| Segment de message | Valeur dans l'exemple 
+
+
+ a| 
+ID de nœud
+ a| 
+12455685
+
+
+
+ a| 
+ID processus ADE
+ a| 
+0357819531
+
+
+
+ a| 
+Nom du module
+ a| 
+SVMR
+
+
+
+ a| 
+Identifiant du message
+ a| 
+EVHR
+
+
+
+ a| 
+Heure système UTC
+ a| 
+2019-05-05T27T17:10:29.784677 (AAAA-MM-DDTHH:MM:SS.UUUUUUUU)
+
+
+
+ a| 
+Niveau de gravité
+ a| 
+ERREUR
+
+
+
+ a| 
+Numéro de suivi interne
+ a| 
+0906
+
+
+
+ a| 
+Messagerie
+ a| 
+SVMR : le bilan de santé du volume 3 a échoué avec la raison « tout »
+
+|===

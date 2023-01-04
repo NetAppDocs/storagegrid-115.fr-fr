@@ -1,0 +1,23 @@
+---
+permalink: sg6000/configuring-hardware.html 
+sidebar: sidebar 
+keywords: storagegrid, sg6000, storage node, storage appliance, hardware, configure, configuration, set up, setup, network, networking 
+summary: 'Après avoir mis l"appliance sous tension, vous devez configurer les connexions réseau qui seront utilisées par StorageGRID. Vous devez configurer SANtricity System Manager, qui est le logiciel que vous utiliserez pour surveiller les contrôleurs de stockage et autres matériels du tiroir contrôleur. Vous devez également vous assurer que vous pouvez accéder à l"interface BMC du contrôleur SG6000-CN.' 
+---
+= Configuration matérielle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir mis l'appliance sous tension, vous devez configurer les connexions réseau qui seront utilisées par StorageGRID. Vous devez configurer SANtricity System Manager, qui est le logiciel que vous utiliserez pour surveiller les contrôleurs de stockage et autres matériels du tiroir contrôleur. Vous devez également vous assurer que vous pouvez accéder à l'interface BMC du contrôleur SG6000-CN.
+
+.Étapes
+* link:configuring-storagegrid-connections.html["Configuration des connexions StorageGRID"]
+* link:accessing-and-configuring-santricity-system-manager.html["Accès et configuration de SANtricity System Manager"]
+* link:configuring-bmc-interface-sg6000.html["Configuration de l'interface BMC"]
+* link:optional-enabling-node-encryption.html["Facultatif : activation du chiffrement de nœud"]
+* link:optional-changing-raid-mode-sg6000-only.html["Facultatif : modification du mode RAID (SG6000 uniquement)"]
+* link:optional-remapping-network-ports-for-appliance-sg6000.html["Facultatif : remappage des ports réseau de l'appliance"]
+

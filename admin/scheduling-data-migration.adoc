@@ -1,0 +1,19 @@
+---
+permalink: admin/scheduling-data-migration.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Évitez la migration des données pendant les heures de fonctionnement essentielles. Limitez la migration des données aux soirées, week-ends et autres fois que l"utilisation du système est faible.' 
+---
+= Planification de la migration des données
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Évitez la migration des données pendant les heures de fonctionnement essentielles. Limitez la migration des données aux soirées, week-ends et autres fois que l'utilisation du système est faible.
+
+Si possible, ne pas planifier de migration des données pendant les périodes d'activité élevée. Toutefois, s'il n'est pas pratique d'éviter complètement la période d'activité élevée, il est sûr de procéder aussi longtemps que vous surveillez attentivement les attributs pertinents et que vous prenez des mesures s'ils dépassent les valeurs acceptables.
+
+.Informations associées
+link:monitoring-data-migration.html["Surveillance de la migration des données"]

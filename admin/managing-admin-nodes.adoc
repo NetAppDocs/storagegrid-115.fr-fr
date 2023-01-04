@@ -1,0 +1,23 @@
+---
+permalink: admin/managing-admin-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Chaque site d"un déploiement StorageGRID peut avoir un ou plusieurs nœuds d"administration.' 
+---
+= Gestion des nœuds d'administration
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Chaque site d'un déploiement StorageGRID peut avoir un ou plusieurs nœuds d'administration.
+
+* link:what-admin-node-is.html["Qu'est-ce qu'un nœud d'administration"]
+* link:using-multiple-admin-nodes.html["Utilisation de plusieurs nœuds d'administration"]
+* link:identifying-primary-admin-node.html["Identification du nœud d'administration principal"]
+* link:selecting-preferred-sender.html["Sélection d'un expéditeur préféré"]
+* link:viewing-notification-status-and-queues.html["Affichage de l'état des notifications et des files d'attente"]
+* link:how-admin-nodes-show-acknowledged-alarms.html["Affichage des alarmes acquittées par les nœuds d'administration (système hérité)"]
+* link:configuring-audit-client-access.html["Configuration de l'accès client d'audit"]
+

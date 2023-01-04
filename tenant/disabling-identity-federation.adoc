@@ -1,0 +1,36 @@
+---
+permalink: tenant/disabling-identity-federation.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, disable identity federation, disabling identity federation, federated identity source 
+summary: 'Si vous avez configuré un service de fédération des identités pour ce locataire, vous pouvez désactiver temporairement ou définitivement la fédération des identités pour les groupes de locataires et les utilisateurs. Lorsque la fédération des identités est désactivée, il n"y a aucune communication entre le système StorageGRID et le référentiel d"identité. Cependant, tous les paramètres que vous avez configurés sont conservés, ce qui vous permet de réactiver facilement la fédération d"identités à l"avenir.' 
+---
+= Désactivation de la fédération des identités
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous avez configuré un service de fédération des identités pour ce locataire, vous pouvez désactiver temporairement ou définitivement la fédération des identités pour les groupes de locataires et les utilisateurs. Lorsque la fédération des identités est désactivée, il n'y a aucune communication entre le système StorageGRID et le référentiel d'identité. Cependant, tous les paramètres que vous avez configurés sont conservés, ce qui vous permet de réactiver facilement la fédération d'identités à l'avenir.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté au Gestionnaire de locataires à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+.Description de la tâche
+Avant de désactiver la fédération des identités, vous devez prendre connaissance des points suivants :
+
+* Les utilisateurs fédérés ne pourront pas se connecter.
+* Les utilisateurs fédérés qui sont actuellement connectés conserveront l'accès au compte du locataire jusqu'à l'expiration de leur session, mais ils ne pourront pas se connecter après l'expiration de leur session.
+* La synchronisation entre le système StorageGRID et le référentiel d'identité ne se fera pas.
+
+
+.Étapes
+. Sélectionnez *ACCESS MANAGEMENT* > *identity federation*.
+. Décochez la case *Activer la fédération d'identités*.
+. Sélectionnez *Enregistrer*.
+
+
+.Informations associées
+link:tenant-management-permissions.html["Autorisations de gestion des locataires"]

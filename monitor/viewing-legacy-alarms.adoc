@@ -1,0 +1,111 @@
+---
+permalink: monitor/viewing-legacy-alarms.html 
+sidebar: sidebar 
+keywords: legacy alarms 
+summary: 'Les alarmes \(système hérité\) sont déclenchées lorsque les attributs système atteignent les valeurs de seuil d"alarme. Vous pouvez afficher les alarmes actives à partir du tableau de bord ou de la page alarmes en cours.' 
+---
+= Affichage des anciennes alarmes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les alarmes (système hérité) sont déclenchées lorsque les attributs système atteignent les valeurs de seuil d'alarme. Vous pouvez afficher les alarmes actives à partir du tableau de bord ou de la page alarmes en cours.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+
+
+.Description de la tâche
+Si une ou plusieurs des alarmes héritées sont actuellement actives, le panneau Santé du tableau de bord inclut un lien *Legacy Alarms*. Le nombre entre parenthèses indique le nombre d'alarmes actuellement actives.
+
+image::../media/dashboard_health_panel_legacy_alarms.png[Alarmes actuelles du tableau de bord]
+
+Le nombre d'alarmes * héritées* sur le tableau de bord est incrémenté chaque fois qu'une alarme héritée est déclenchée. Ce nombre est incrémenté même si vous avez désactivé les notifications par e-mail d'alarme. Vous pouvez généralement ignorer ce numéro (puisque les alertes offrent une meilleure vue du système) ou afficher les alarmes actives.
+
+
+NOTE: Bien que le système d'alarme existant continue d'être pris en charge, le système d'alerte offre des avantages significatifs et est plus facile à utiliser.
+
+.Étapes
+. Pour afficher les anciennes alarmes actuellement actives, effectuez l'une des opérations suivantes :
++
+** Dans le panneau Santé du tableau de bord, cliquez sur *Legacy alarmes*. Ce lien n'apparaît que si au moins une alarme est active.
+** Sélectionnez *support* > *alarmes (hérité)* > *alarmes actuelles*. La page alarmes en cours s'affiche.
+
+
+
+
+image::../media/current_alarms_page.png[Page alarmes en cours]
+
+L'icône d'alarme indique la gravité de chaque alarme, comme suit :
+
+|===
+| Icône | Couleur | Gravité de l'alarme | Signification 
+
+
+ a| 
+image:../media/icon_alarm_yellow_notice.gif["icône carrée jaune"]
+ a| 
+Jaune
+ a| 
+Avertissement
+ a| 
+Le nœud est connecté à la grille, mais il existe une condition inhabituelle qui n'affecte pas les opérations normales.
+
+
+
+ a| 
+image:../media/icon_alarm_light_orange_minor.gif["icône orange clair en forme de losange"]
+ a| 
+Orange clair
+ a| 
+Mineur
+ a| 
+Le nœud est connecté à la grille, mais il existe une condition anormale qui pourrait affecter son fonctionnement à l'avenir. Vous devez étudier pour éviter la remontée des problèmes.
+
+
+
+ a| 
+image:../media/icon_alarm_orange_major.gif["icône losange orange foncé"]
+ a| 
+Orange foncé
+ a| 
+Majeur
+ a| 
+Le nœud est connecté à la grille, mais il existe une condition anormale qui affecte actuellement le fonctionnement. Cela nécessite une attention particulière afin d'éviter la remontée des problèmes.
+
+
+
+ a| 
+image:../media/icon_alarm_red_critical.gif["icône x rouge"]
+ a| 
+Rouge
+ a| 
+Primordial
+ a| 
+Le nœud est connecté à la grille, mais il existe une condition anormale qui a arrêté des opérations normales. Vous devez résoudre le problème immédiatement.
+
+|===
+. Pour en savoir plus sur l'attribut à l'origine du déclenchement de l'alarme, cliquez avec le bouton droit de la souris sur le nom de l'attribut dans le tableau.
+. Pour afficher des détails supplémentaires sur une alarme, cliquez sur le nom du service dans le tableau.
++
+L'onglet alarmes du service sélectionné apparaît (*support* > *Outils* > *topologie de grille* > *_Grid Node_* > *_Service_* > *alarmes*).
+
++
+image::../media/alarms_acknowledging.png[Acquittement des alarmes]
+
+. Si vous souhaitez effacer le nombre d'alarmes en cours, vous pouvez, en option, procéder comme suit :
++
+** Accuser réception de l'alarme. Une alarme acquittée n'est plus incluse dans le nombre d'alarmes héritées à moins qu'elle ne soit déclenchée au niveau de gravité suivant ou qu'elle ne soit résolue et se déclenche à nouveau.
+** Désactivez une alarme par défaut particulière ou une alarme personnalisée globale pour l'ensemble du système afin d'éviter qu'elle ne se déclenche à nouveau.
+
+
+
+
+.Informations associées
+link:alarms-reference.html["Référence des alarmes (système hérité)"]
+
+link:managing-alarms.html["Confirmation des alarmes actuelles (système hérité)"]
+
+link:managing-alarms.html["Désactivation des alarmes (système hérité)"]

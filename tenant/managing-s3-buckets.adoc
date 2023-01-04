@@ -1,0 +1,14 @@
+---
+permalink: tenant/managing-s3-buckets.html 
+sidebar: sidebar 
+keywords: StorageGRID, tenant, tenant manager, s3 bucket 
+summary: 'Si vous utilisez un locataire S3 avec les autorisations appropriées, vous pouvez créer, afficher et supprimer des compartiments S3, mettre à jour les paramètres de niveau de cohérence, configurer le partage de ressources inter-origine \(CORS\), activer et désactiver les paramètres de mise à jour du dernier accès et gérer les services de la plateforme S3.' 
+---
+= Gestion des compartiments S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous utilisez un locataire S3 avec les autorisations appropriées, vous pouvez créer, afficher et supprimer des compartiments S3, mettre à jour les paramètres de niveau de cohérence, configurer le partage de ressources inter-origine (CORS), activer et désactiver les paramètres de mise à jour du dernier accès et gérer les services de la plateforme S3.

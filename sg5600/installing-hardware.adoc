@@ -1,0 +1,23 @@
+---
+permalink: sg5600/installing-hardware.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5600, storage node, storage appliance, hardware, install, installing 
+summary: 'L"installation du matériel comprend plusieurs tâches principales, notamment l"installation de composants matériels, le câblage de ces composants et la configuration de ports.' 
+---
+= Installation du matériel
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'installation du matériel comprend plusieurs tâches principales, notamment l'installation de composants matériels, le câblage de ces composants et la configuration de ports.
+
+.Étapes
+* link:registering-hardware.html["Enregistrement du matériel"]
+* link:installing-appliance-in-cabinet-or-rack-sg5600.html["Installation de l'appliance dans une armoire ou un rack (SG5600)"]
+* link:cabling-appliance-sg5600.html["Câblage de l'appliance (SG5600)"]
+* link:connecting-ac-power-cords-sg5600.html["Branchement des câbles d'alimentation CA (SG5600)"]
+* link:turning-power-on-sg5600.html["Mise sous tension (SG5600)"]
+* link:viewing-boot-up-status-and-reviewing-error-codes-on-sg5600-controllers.html["Affichage de l'état de démarrage et vérification des codes d'erreur sur les contrôleurs SG5600"]
+

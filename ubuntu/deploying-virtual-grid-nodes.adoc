@@ -1,0 +1,28 @@
+---
+permalink: ubuntu/deploying-virtual-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, deploying grid nodes, deploy grid nodes, ubuntu, debian 
+summary: 'Lorsque vous déployez des nœuds de grille dans un environnement Ubuntu ou Debian, vous créez des fichiers de configuration de nœud pour tous les nœuds, validez les fichiers et démarrez le service hôte StorageGRID, qui démarre les nœuds. Si vous avez besoin de déployer des nœuds de stockage d"appliance StorageGRID, reportez-vous aux instructions d"installation et de maintenance de l"appliance après le déploiement de tous les nœuds virtuels.' 
+---
+= Déploiement de nœuds grid virtuels
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous déployez des nœuds de grille dans un environnement Ubuntu ou Debian, vous créez des fichiers de configuration de nœud pour tous les nœuds, validez les fichiers et démarrez le service hôte StorageGRID, qui démarre les nœuds. Si vous avez besoin de déployer des nœuds de stockage d'appliance StorageGRID, reportez-vous aux instructions d'installation et de maintenance de l'appliance après le déploiement de tous les nœuds virtuels.
+
+* link:creating-node-configuration-files.html["Création de fichiers de configuration de nœud"]
+* link:validating-storagegrid-configuration.html["Validation de la configuration StorageGRID"]
+* link:starting-storagegrid-host-service.html["Démarrage du service hôte StorageGRID"]
+
+
+.Informations associées
+link:../sg100-1000/index.html["SG100 etamp ; appareils de services SG1000"]
+
+link:../sg5600/index.html["Appliances de stockage SG5600"]
+
+link:../sg5700/index.html["Appliances de stockage SG5700"]
+
+link:../sg6000/index.html["Dispositifs de stockage SG6000"]

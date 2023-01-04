@@ -1,0 +1,19 @@
+---
+permalink: ilm/configuring-erasure-coding-profiles.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Pour configurer les profils de codage d"effacement, il suffit d"associer un pool de stockage à un schéma de codage d"effacement, par exemple 6+3. Lorsque vous configurez les instructions de placement pour une règle ILM, vous pouvez ensuite sélectionner le profil de code d"effacement. Si un objet correspond à la règle, des données et des fragments de parité sont créés et distribués aux emplacements de stockage du pool de stockage conformément au schéma de code d"effacement.' 
+---
+= Configuration des profils de code d'effacement
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour configurer les profils de codage d'effacement, il suffit d'associer un pool de stockage à un schéma de codage d'effacement, par exemple 6+3. Lorsque vous configurez les instructions de placement pour une règle ILM, vous pouvez ensuite sélectionner le profil de code d'effacement. Si un objet correspond à la règle, des données et des fragments de parité sont créés et distribués aux emplacements de stockage du pool de stockage conformément au schéma de code d'effacement.
+
+* link:creating-erasure-coding-profile.html["Création d'un profil de code d'effacement"]
+* link:renaming-erasure-coding-profile.html["Renommer un profil de code d'effacement"]
+* link:deactivating-erasure-coding-profile.html["Désactivation d'un profil de code d'effacement"]
+

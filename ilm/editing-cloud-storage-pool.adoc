@@ -1,0 +1,55 @@
+---
+permalink: ilm/editing-cloud-storage-pool.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez modifier un pool de stockage cloud pour en changer le nom, le terminal de service ou d"autres détails. Toutefois, vous ne pouvez pas modifier le compartiment S3 ou le conteneur Azure pour un pool de stockage cloud.' 
+---
+= Modification d'un pool de stockage cloud
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez modifier un pool de stockage cloud pour en changer le nom, le terminal de service ou d'autres détails. Toutefois, vous ne pouvez pas modifier le compartiment S3 ou le conteneur Azure pour un pool de stockage cloud.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+* Vous devez avoir lu les instructions sur la configuration des pools de stockage cloud.
+
+
+.Étapes
+. Sélectionnez *ILM* > *pools de stockage*.
++
+La page Storage pools s'affiche. Le tableau Cloud Storage pools répertorie les pools de stockage cloud existants.
+
++
+image::../media/cloud_storage_pool_used_in_ilm_rule.png[Page Cloud Storage pools.]
+
+. Sélectionnez le bouton radio correspondant au pool de stockage cloud que vous souhaitez modifier.
+. Cliquez sur *Modifier*.
+. Si nécessaire, modifiez le nom d'affichage, le point de terminaison de service, les informations d'identification d'authentification ou la méthode de validation de certificat.
++
+
+IMPORTANT: Vous ne pouvez pas modifier le type de fournisseur, le compartiment S3 ou le conteneur Azure pour un pool de stockage cloud.
+
++
+Si vous avez déjà téléchargé un certificat de serveur ou de client, vous pouvez sélectionner *Afficher actuel* pour vérifier le certificat actuellement utilisé.
+
+. Cliquez sur *Enregistrer*.
++
+Lorsque vous enregistrez un pool de stockage cloud, StorageGRID valide la présence du compartiment ou du conteneur et du terminal de service, et qu'ils peuvent être atteints à l'aide des identifiants que vous avez spécifiés.
+
++
+Si la validation du pool de stockage cloud échoue, un message d'erreur s'affiche. Par exemple, une erreur peut être signalée en cas d'erreur de certificat.
+
++
+Consultez les instructions de résolution des problèmes liés aux pools de stockage cloud, résolvez le problème, puis essayez à nouveau d'enregistrer le pool de stockage cloud.
+
+
+
+.Informations associées
+link:considerations-for-cloud-storage-pools.html["Considérations relatives aux pools de stockage cloud"]
+
+link:troubleshooting-cloud-storage-pools.html["Résolution des problèmes avec les pools de stockage cloud"]

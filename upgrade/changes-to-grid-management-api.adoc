@@ -1,0 +1,72 @@
+---
+permalink: upgrade/changes-to-grid-management-api.html 
+sidebar: sidebar 
+keywords: grid management api, api, api version, swagger, rest api 
+summary: 'StorageGRID 11.5 utilise la version 3 de l"API de gestion du grid. La version 3 dégénère la version 2 ; cependant, les versions 1 et 2 sont toujours prises en charge.' 
+---
+= Modifications apportées à l'API de gestion du grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 11.5 utilise la version 3 de l'API de gestion du grid. La version 3 dégénère la version 2 ; cependant, les versions 1 et 2 sont toujours prises en charge.
+
+
+IMPORTANT: Vous pouvez continuer à utiliser les versions 1 et 2 de l'API de gestion avec StorageGRID 11.5. Toutefois, la prise en charge de ces versions de l'API sera supprimée dans une prochaine version de StorageGRID. Après la mise à niveau vers StorageGRID 11.5, les API v1 et v2 peuvent être désactivées à l'aide du système `PUT /grid/config/management` API.
+
+
+
+== Nouvelle section certificats-client
+
+La nouvelle section, `/grid/client-certificates`, Vous permet de configurer les certificats client afin de fournir un accès sécurisé et authentifié à la base de données StorageGRID Prometheus. Par exemple, vous pouvez surveiller StorageGRID en externe à l'aide de Grafana.
+
+
+
+== Transition des terminaux de conformité hérités vers la nouvelle section S3-lock
+
+Avec l'introduction du verrouillage d'objet StorageGRID S3, les API utilisées pour gérer les paramètres de conformité hérités de la grille ont été déplacées vers une nouvelle section de l'interface utilisateur swagger. La section *s3-Object-lock* comprend les deux `/grid/compliance-global` Les terminaux API, qui contrôlent désormais le paramètre global de verrouillage d'objet S3. Les URI de noeud final restent inchangés pour assurer la compatibilité avec les applications existantes.
+
+
+
+== SWIFT-admin-password comptes noeud final supprimé
+
+Le noeud final de l'API de comptabilité suivant, obsolète dans StorageGRID 10.4, a été supprimé :
+
+[listing]
+----
+https://<IP-Address>/api/v1/grid/accounts/<AccountID>/swift-admin-password
+----
+
+
+== Nouvelle section GRID-mots de passe
+
+La section *grid-mots de passe* permet d'effectuer des opérations pour la gestion des mots de passe de la grille. La section comprend deux `/grid/change-provisioning-passphrase` Terminaux API Les terminaux permettent aux utilisateurs de modifier la phrase secrète de provisionnement StorageGRID et de récupérer l'état de la modification de la phrase de passe.
+
+
+
+== Autorisation StorageAdmin ajoutée à l'API Groups
+
+Le `/grid/groups` L'API inclut désormais l'autorisation d'administrateur du stockage.
+
+
+
+== Nouveau paramètre de l'API d'utilisation du stockage
+
+Le `+GET /grid/accounts/{id}/usage+` L'API a désormais un `strictConsistency` paramètre. Pour appliquer une cohérence globale forte lors de la récupération des informations d'utilisation du stockage sur les nœuds de stockage, définissez ce paramètre sur `true`. Lorsque ce paramètre est défini sur `false` (Par défaut), StorageGRID tente de récupérer les informations relatives à l'utilisation dans le cadre d'une cohérence globale forte, mais redevient cohérente avec le site si une cohérence forte ne peut pas être atteinte.
+
+
+
+== Nouvelle API Node Health
+
+Une nouvelle `/grid/node-health` le noeud final a été ajouté. Cette API renvoie l'état actuel de chaque nœud en vérifiant l'état actif _Alerts_ sur les nœuds. Le `/grid/health/topology` L'API, qui recherche les _alarmes_ actives sur les nœuds, est obsolète.
+
+
+
+== Remplacez l'ID de règle d'alerte « ApplianceStorageShelvesPowerSupplyDegaded » par « ApplianceStorageShelvesPowerSupplyDegred »
+
+L'ID de la règle d'alerte « ApplianceStorageShelvesPowerSupplyDegaded » a été renommé « ApplianceStorageShelvesDegraded » afin de mieux refléter le comportement réel de l'alerte.
+
+.Informations associées
+link:../admin/index.html["Administrer StorageGRID"]

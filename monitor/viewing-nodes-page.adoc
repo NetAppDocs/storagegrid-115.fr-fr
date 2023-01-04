@@ -1,0 +1,55 @@
+---
+permalink: monitor/viewing-nodes-page.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Lorsque vous avez besoin d"informations plus détaillées sur votre système StorageGRID que celles fournies par le tableau de bord, vous pouvez utiliser la page nœuds pour afficher les mesures de la grille dans sa totalité, sur chaque site de la grille et sur chaque nœud d"un site.' 
+---
+= Affichage de la page nœuds
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous avez besoin d'informations plus détaillées sur votre système StorageGRID que celles fournies par le tableau de bord, vous pouvez utiliser la page nœuds pour afficher les mesures de la grille dans sa totalité, sur chaque site de la grille et sur chaque nœud d'un site.
+
+image::../media/nodes_menu.png[Menu noeuds]
+
+Dans la vue arborescente à gauche, vous pouvez voir tous les sites et tous les nœuds de votre système StorageGRID. L'icône de chaque nœud indique si le nœud est connecté ou s'il existe des alertes actives.
+
+
+
+== Icônes d'état de connexion
+
+Si un nœud est déconnecté de la grille, l'arborescence affiche une icône d'état de connexion bleue ou grise, et non l'icône des alertes sous-jacentes.
+
+* *Non connecté - Inconnu* image:../media/icon_alarm_blue_unknown.png["icône bleue du point d'interrogation"]: Le nœud n'est pas connecté à la grille pour une raison inconnue. Par exemple, la connexion réseau entre les nœuds a été perdue ou l'alimentation est coupée. L'alerte *Impossible de communiquer avec le noeud* peut également être déclenchée. D'autres alertes peuvent également être actives. Cette situation exige une attention immédiate.
++
+
+NOTE: Un nœud peut apparaître comme inconnu lors des opérations d'arrêt géré. Dans ces cas, vous pouvez ignorer l'état Inconnu.
+
+* *Non connecté - Arrêt administratif* image:../media/icon_alarm_gray_administratively_down.png["icône questionmark grise"]: Le nœud n'est pas connecté à la grille pour une raison attendue. Par exemple, le nœud ou les services du nœud ont été normalement arrêtés, le nœud est en cours de redémarrage ou le logiciel est mis à niveau. Une ou plusieurs alertes peuvent également être actives.
+
+
+
+
+== Icônes d'alerte
+
+Si un nœud est connecté à la grille, l'arborescence affiche l'une des icônes suivantes, selon qu'il existe des alertes actuelles pour le nœud.
+
+* *Critique* image:../media/icon_alert_red_critical.png["Icône alerte rouge critique"]: Il existe une condition anormale qui a arrêté les opérations normales d'un nœud ou service StorageGRID. Vous devez immédiatement résoudre le problème sous-jacent. Une interruption du service et une perte de données peuvent se produire si le problème n'est pas résolu.
+* *Majeur* image:../media/icon_alert_orange_major.png["Icône alerte Orange majeur"]: Il existe une condition anormale affectant les opérations en cours ou approchant le seuil d'une alerte critique. Vous devez examiner les alertes majeures et résoudre tous les problèmes sous-jacents pour vérifier que leur condition anormale n'arrête pas le fonctionnement normal d'un nœud ou d'un service StorageGRID.
+* *Mineur* image:../media/icon_alert_yellow_miinor.png["Icône alerte jaune mineure"]: Le système fonctionne normalement, mais il existe une condition anormale qui pourrait affecter la capacité du système à fonctionner s'il continue. Vous devez surveiller et résoudre les alertes mineures qui ne sont pas claires par elles-mêmes pour vous assurer qu'elles n'entraînent pas un problème plus grave.
+* *Normal* image:../media/icon_alert_green_checkmark.png["icône d'alerte verte coche"]: Aucune alerte n'est active et le nœud est connecté à la grille.
+
+
+
+
+== Affichage des détails d'un système, d'un site ou d'un nœud
+
+Pour afficher les informations disponibles, cliquez sur les liens appropriés à gauche, comme suit :
+
+* Sélectionnez le nom de la grille pour afficher un récapitulatif des agrégats des statistiques de l'ensemble du système StorageGRID. (La capture d'écran montre un système nommé StorageGRID Deployment.)
+* Sélectionnez un site de data Center spécifique pour afficher un résumé global des statistiques pour tous les nœuds de ce site.
+* Sélectionnez un nœud spécifique pour afficher des informations détaillées sur ce nœud.
+

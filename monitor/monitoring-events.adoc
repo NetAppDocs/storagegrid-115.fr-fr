@@ -1,0 +1,49 @@
+---
+permalink: monitor/monitoring-events.html 
+sidebar: sidebar 
+keywords: monitor, monitoring events, events, storageGRID events 
+summary: 'Vous pouvez surveiller les événements détectés par un nœud de grille, y compris les événements personnalisés que vous avez créés pour suivre les événements qui sont consignés sur le serveur syslog. Le message dernier événement affiché dans Grid Manager fournit plus d"informations sur l"événement le plus récent.' 
+---
+= Contrôle des événements
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez surveiller les événements détectés par un nœud de grille, y compris les événements personnalisés que vous avez créés pour suivre les événements qui sont consignés sur le serveur syslog. Le message dernier événement affiché dans Grid Manager fournit plus d'informations sur l'événement le plus récent.
+
+Les messages d'événement sont également répertoriés dans le `/var/local/log/bycast-err.log` fichier journal.
+
+L'alarme SMTT (Total Events) peut être déclenchée à plusieurs reprises par des problèmes tels que des problèmes de réseau, des pannes de courant ou des mises à niveau. Cette section contient des informations sur l'analyse des événements afin de mieux comprendre pourquoi ces alarmes se sont produites. Si un événement s'est produit à cause d'un problème connu, il est possible de réinitialiser les compteurs d'événements.
+
+
+
+== Vérification des événements à partir de la page nœuds
+
+La page nœuds répertorie les événements système pour chaque nœud de grid.
+
+. Sélectionnez *noeuds*.
+. Sélectionnez *_grid node_* > *Events*.
+. En haut de la page, déterminez si un événement est affiché pour *dernier événement*, qui décrit le dernier événement détecté par le nœud de la grille.
++
+L'événement est retransmis en compte à partir du nœud de la grille et inclut tous les messages du journal avec un niveau de gravité D'ERREUR ou CRITIQUE.
+
+. Consultez le tableau pour voir si le nombre d'événements ou d'erreurs n'est pas nul.
+. Après avoir résolu les problèmes, cliquez sur *Réinitialiser les nombres d'événements* pour remettre les nombres à zéro.
+
+
+
+
+== Vérification des événements à partir de la page topologie de la grille
+
+La page topologie de la grille répertorie également les événements système pour chaque nœud de la grille.
+
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_site_* > *_grid node_* > *SSM* > *Events* > *Overview* > *main*.
+
+
+.Informations associées
+link:resetting-event-counts.html["Réinitialisation du nombre d'événements"]
+
+link:../monitor/logs-files-reference.html["Référence des fichiers journaux"]

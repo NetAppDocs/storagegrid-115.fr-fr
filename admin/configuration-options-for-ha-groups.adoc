@@ -1,0 +1,66 @@
+---
+permalink: admin/configuration-options-for-ha-groups.html 
+sidebar: sidebar 
+keywords:  
+summary: Les schémas ci-dessous fournissent des exemples de différentes façons de configurer les groupes haute disponibilité. Chaque option présente des avantages et des inconvénients. 
+---
+= Options de configuration pour les groupes haute disponibilité
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les schémas ci-dessous fournissent des exemples de différentes façons de configurer les groupes haute disponibilité. Chaque option présente des avantages et des inconvénients.
+
+image::../media/high_availability_examples.png[Exemples DE HAUTE DISPONIBILITÉ]
+
+Lors de la création de plusieurs groupes HA redondants, comme illustré dans l'exemple HA actif-actif, le débit total évolue avec le nombre de nœuds et de groupes HA. Avec trois nœuds ou plus et trois groupes haute disponibilité ou plus, vous pouvez également continuer à utiliser n'importe quel VIP, même lors des procédures de maintenance nécessitant de mettre un nœud hors ligne.
+
+Le tableau récapitule les avantages de chaque configuration de haute disponibilité illustrée sur le schéma.
+
+[cols="1a,1a,1a"]
+|===
+| Configuration | Avantages | Inconvénients 
+
+
+ a| 
+Active-Backup HA
+ a| 
+* Gérées par StorageGRID sans dépendances externes
+* Basculement rapide
+
+ a| 
+* Un seul nœud d'un groupe haute disponibilité est actif. Au moins un nœud par groupe haute disponibilité sera inactif.
+
+
+
+
+ a| 
+DNS Round Robin
+ a| 
+* Un débit global supérieur.
+* Aucun hôte inactif.
+
+ a| 
+* Basculement lent, qui peut dépendre du comportement des clients.
+* Nécessite une configuration matérielle en dehors du StorageGRID.
+* Nécessite une vérification de l'état implémentée par le client.
+
+
+
+
+ a| 
+Actif-actif
+ a| 
+* Le trafic est réparti entre plusieurs groupes haute disponibilité.
+* Débit global élevé qui évolue en même temps que le nombre de groupes HA.
+* Basculement rapide
+
+ a| 
+* Configuration plus complexe.
+* Nécessite une configuration matérielle en dehors du StorageGRID.
+* Nécessite une vérification de l'état implémentée par le client.
+
+
+|===

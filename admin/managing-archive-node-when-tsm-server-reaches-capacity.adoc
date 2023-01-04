@@ -1,0 +1,34 @@
+---
+permalink: admin/managing-archive-node-when-tsm-server-reaches-capacity.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le serveur TSM n"a aucun moyen d"informer le nœud d"archivage lorsque la base de données TSM ou le stockage des supports d"archivage gérés par le serveur TSM atteint sa capacité maximale. Le nœud d"archivage continue à accepter les données d"objet pour le transfert vers le serveur TSM une fois que le serveur TSM a arrêté d"accepter le nouveau contenu. Ce contenu ne peut pas être écrit sur un support géré par le serveur TSM. Une alarme est déclenchée si cela se produit. Cette situation peut être évitée grâce à la surveillance proactive du serveur TSM.' 
+---
+= Gestion d'un nœud d'archivage lorsque le serveur TSM atteint sa capacité
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le serveur TSM n'a aucun moyen d'informer le nœud d'archivage lorsque la base de données TSM ou le stockage des supports d'archivage gérés par le serveur TSM atteint sa capacité maximale. Le nœud d'archivage continue à accepter les données d'objet pour le transfert vers le serveur TSM une fois que le serveur TSM a arrêté d'accepter le nouveau contenu. Ce contenu ne peut pas être écrit sur un support géré par le serveur TSM. Une alarme est déclenchée si cela se produit. Cette situation peut être évitée grâce à la surveillance proactive du serveur TSM.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+.Description de la tâche
+Pour empêcher le service ARC d'envoyer du contenu supplémentaire au serveur TSM, vous pouvez mettre le nœud d'archivage hors ligne en mettant hors ligne son composant *ARC* > *Store*. Cette procédure peut également être utile pour empêcher les alarmes lorsque le serveur TSM n'est pas disponible pour la maintenance.
+
+.Étapes
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_Archive Node_* > *ARC* > *Store*.
+. Sélectionnez *Configuration* > *main*.
++
+image::../media/tsm_offline.gif[Page de configuration d'un nœud d'archivage]
+
+. Définissez *Etat du magasin* sur `Offline`.
+. Sélectionnez *Archive Store Disabled au démarrage*.
+. Cliquez sur *appliquer les modifications*.
+

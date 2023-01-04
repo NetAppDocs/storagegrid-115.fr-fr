@@ -1,0 +1,36 @@
+---
+permalink: monitor/exporting-text-reports.html 
+sidebar: sidebar 
+keywords: reports, text, export text, report 
+summary: Les rapports texte exportés ouvrent un nouvel onglet de navigateur, qui vous permet de sélectionner et de copier les données. 
+---
+= Exportation de rapports texte
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les rapports texte exportés ouvrent un nouvel onglet de navigateur, qui vous permet de sélectionner et de copier les données.
+
+.Description de la tâche
+Les données copiées peuvent ensuite être enregistrées dans un nouveau document (par exemple, une feuille de calcul) et utilisées pour analyser les performances du système StorageGRID.
+
+.Étapes
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Créer un rapport texte.
+. Cliquez sur *Exporter*image:../media/icon_export.gif["icône exporter"].
++
+image::../media/export_text_report.gif[capture d'écran décrite par le texte environnant]
+
++
+La fenêtre Exporter un rapport texte s'ouvre et affiche le rapport.
+
++
+image::../media/export_text_report_data.gif[capture d'écran montrant un exemple de rapport texte]
+
+. Sélectionnez et copiez le contenu de la fenêtre Exporter un rapport texte.
++
+Ces données peuvent maintenant être collées dans un document tiers, tel qu'une feuille de calcul.
+
+

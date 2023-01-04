@@ -1,0 +1,34 @@
+---
+permalink: ilm/managing-objects-with-s3-object-lock.html 
+sidebar: sidebar 
+keywords:  
+summary: 'En tant qu"administrateur de la grille, vous pouvez activer la fonction de verrouillage des objets S3 pour votre système StorageGRID et mettre en œuvre une règle ILM conforme pour vous assurer que les objets des compartiments S3 spécifiques ne sont pas supprimés ou remplacés pour une durée spécifiée.' 
+---
+= Gestion des objets avec le verrouillage d'objet S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En tant qu'administrateur de la grille, vous pouvez activer la fonction de verrouillage des objets S3 pour votre système StorageGRID et mettre en œuvre une règle ILM conforme pour vous assurer que les objets des compartiments S3 spécifiques ne sont pas supprimés ou remplacés pour une durée spécifiée.
+
+
+
+== Qu'est-ce que le verrouillage objet S3 ?
+
+La fonctionnalité de verrouillage objet StorageGRID S3 est une solution de protection des objets équivalente au verrouillage objet S3 dans Amazon simple Storage Service (Amazon S3).
+
+Comme illustré dans la figure, lorsque le paramètre global de verrouillage d'objet S3 est activé pour un système StorageGRID, un compte de locataire S3 peut créer des compartiments avec ou sans verrouillage d'objet S3 activé. Si un compartiment est doté du verrouillage objet S3 activé, les applications client S3 peuvent éventuellement spécifier des paramètres de conservation pour toute version d'objet dans ce compartiment. Des paramètres de conservation doivent être spécifiés pour être protégés par le verrouillage d'objet S3.
+
+image::../media/s3_object_lock_architecture.png[Architecture de verrouillage d'objet S3]
+
+La fonctionnalité de verrouillage d'objet StorageGRID S3 fournit un mode de conservation unique équivalent au mode de conformité Amazon S3. Par défaut, une version d'objet protégé ne peut être écrasée ou supprimée par aucun utilisateur. La fonction de verrouillage d'objet StorageGRID S3 ne prend pas en charge un mode de gouvernance et n'autorise pas les utilisateurs disposant d'autorisations spéciales à contourner les paramètres de rétention ou à supprimer des objets protégés.
+
+Si un compartiment est doté de l'option de verrouillage des objets S3, l'application client S3 peut spécifier la ou les deux paramètres de conservation de niveau objet suivants lors de la création ou de la mise à jour d'un objet :
+
+* *Conserver-jusqu'à-date* : si la date-à-jour d'une version d'objet est à l'avenir, l'objet peut être récupéré, mais ne peut pas être modifié ou supprimé. Si nécessaire, la date de conservation d'un objet peut être augmentée, mais cette date ne peut pas être réduite.
+* *Mise en garde légale* : l'application d'une mise en garde légale à une version d'objet verrouille immédiatement cet objet. Par exemple, vous devrez peut-être mettre une obligation légale sur un objet lié à une enquête ou à un litige juridique. Une obligation légale n'a pas de date d'expiration, mais reste en place jusqu'à ce qu'elle soit explicitement supprimée. Les dispositions légales sont indépendantes de la date de conservation.
+
+
+Pour plus d'informations sur ces paramètres, consultez la section « utilisation du verrouillage d'objet S3 » dans link:../s3/s3-rest-api-supported-operations-and-limitations.html["Opérations et limites prises en charge par l'API REST S3"].

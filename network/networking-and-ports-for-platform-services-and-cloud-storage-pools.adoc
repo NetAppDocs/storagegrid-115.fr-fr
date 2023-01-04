@@ -1,0 +1,45 @@
+---
+permalink: network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Si vous prévoyez d"utiliser les services de plateforme StorageGRID ou les pools de stockage cloud, vous devez configurer la mise en réseau et les pare-feu des grilles pour vous assurer que les terminaux de destination peuvent être atteints. Les services de plateforme incluent des services externes fournissant l"intégration de la recherche, la notification d"événements et la réplication CloudMirror.' 
+---
+= Mise en réseau et ports pour les services de plateforme et les pools de stockage cloud
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous prévoyez d'utiliser les services de plateforme StorageGRID ou les pools de stockage cloud, vous devez configurer la mise en réseau et les pare-feu des grilles pour vous assurer que les terminaux de destination peuvent être atteints. Les services de plateforme incluent des services externes fournissant l'intégration de la recherche, la notification d'événements et la réplication CloudMirror.
+
+Les services de plateforme requièrent l'accès depuis des nœuds de stockage qui hébergent le service ADC StorageGRID vers les terminaux de service externes. Voici quelques exemples d'accès à ce service :
+
+* Sur les nœuds de stockage avec services ADC, configurez des réseaux d'administration uniques avec des entrées AESL qui roulent vers les terminaux cibles.
+* Utilisez la route par défaut fournie par un réseau client. Dans cet exemple, la fonction réseau client non fiable peut être utilisée pour restreindre les connexions entrantes.
+
+
+Les pools de stockage cloud nécessitent également l'accès des nœuds de stockage aux terminaux fournis par le service externe utilisé, comme Amazon S3 Glacier ou Microsoft Azure Blob Storage.
+
+Par défaut, les services de plateforme et les communications de pool de stockage cloud utilisent les ports suivants :
+
+* *80*: Pour les URI de point final qui commencent par `http`
+* *443*: Pour les URI de point final qui commencent par `https`
+
+
+Un port différent peut être spécifié lors de la création ou de la modification du noeud final.
+
+Si vous utilisez un serveur proxy non transparent, vous devez également configurer des paramètres proxy pour permettre l'envoi de messages vers des noeuds finaux externes, tels qu'un noeud final sur Internet. Reportez-vous à la section Administration de StorageGRID pour savoir comment configurer les paramètres proxy.
+
+Pour plus d'informations sur les réseaux clients non approuvés, reportez-vous aux instructions d'administration de StorageGRID. Pour plus d'informations sur les services de plateforme, consultez les instructions d'utilisation des comptes de tenant. Pour plus d'informations sur Cloud Storage pools, consultez les instructions de gestion des objets avec des informations sur la gestion du cycle de vie.
+
+.Informations associées
+link:network-port-reference.html["Référence du port réseau"]
+
+link:../primer/index.html["Primaire de grille"]
+
+link:../admin/index.html["Administrer StorageGRID"]
+
+link:../tenant/index.html["Utilisez un compte de locataire"]
+
+link:../ilm/index.html["Gestion des objets avec ILM"]

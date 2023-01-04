@@ -1,0 +1,82 @@
+---
+permalink: monitor/monitoring-storage-capacity-for-entire-grid.html 
+sidebar: sidebar 
+keywords: storage capacity, grid 
+summary: 'Vous devez surveiller la capacité de stockage globale de votre grid pour assurer qu"il reste un espace libre approprié pour les données d"objet et les métadonnées d"objet. Pour mieux comprendre les variations de capacité de stockage dans le temps, vous pouvez planifier l"ajout de nœuds de stockage ou de volumes avant de consommer la capacité de stockage utilisable de la grille.' 
+---
+= Surveillance de la capacité de stockage pour l'ensemble de la grille
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez surveiller la capacité de stockage globale de votre grid pour assurer qu'il reste un espace libre approprié pour les données d'objet et les métadonnées d'objet. Pour mieux comprendre les variations de capacité de stockage dans le temps, vous pouvez planifier l'ajout de nœuds de stockage ou de volumes avant de consommer la capacité de stockage utilisable de la grille.
+
+.Ce dont vous avez besoin
+Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+
+.Description de la tâche
+Le tableau de bord de Grid Manager permet d'évaluer rapidement la quantité de stockage disponible pour l'ensemble du grid et pour chaque data Center. La page nœuds fournit des valeurs plus détaillées pour les données d'objet et les métadonnées d'objet.
+
+.Étapes
+. Évaluez la quantité de stockage disponible pour l'ensemble du grid et pour chaque data Center.
++
+.. Sélectionnez *Tableau de bord*.
+.. Dans le panneau stockage disponible, notez le récapitulatif général de la capacité de stockage disponible et utilisée.
++
+
+NOTE: Le résumé n'inclut pas les supports d'archivage.
+
++
+image::../media/grid_manager_dashboard_cropped.png[Tableau de bord de Grid Manager]
+
+.. Placez votre curseur sur les sections capacité libre ou utilisée du graphique pour voir exactement la quantité d'espace libre ou utilisé.
++
+image::../media/storage_capacity_used.gif[Tableau de bord - Tableau de bord - capacité libre ou utilisée]
+
+.. Pour les grilles multisites, consultez le tableau de chaque data Center.
+.. Cliquez sur l'icône du graphique image:../media/icon_chart_new.gif["Icône de graphique"] pour le graphique global ou pour un centre de données individuel, afficher un graphique indiquant l'utilisation de la capacité dans le temps.
++
+Graphique montrant un pourcentage de capacité de stockage utilisée (%) par rapport L'heure s'affiche.
+
+
+
+. Déterminez la quantité de stockage utilisée et la quantité de stockage disponible pour les données d'objet et les métadonnées d'objet.
++
+.. Sélectionnez *noeuds*.
+.. Sélectionnez *_GRID_* > *stockage*.
++
+image::../media/nodes_deployment_storage_tab.png[Onglet stockage de déploiement des nœuds]
+
+.. Placez le curseur de la souris sur le champ stockage utilisé - données d'objet et diagrammes de métadonnées de l'objet utilisé pour connaître la quantité de stockage de métadonnées d'objet et du stockage de métadonnées disponible pour l'ensemble de la grille, ainsi que la quantité utilisée au fil du temps.
++
+
+NOTE: Les valeurs totales d'un site ou de la grille n'incluent pas les nœuds qui n'ont pas signalé de mesures pendant au moins cinq minutes, comme les nœuds hors ligne.
+
+
+
+. Comme indiqué par le support technique, consultez les informations supplémentaires sur la capacité de stockage de votre grid.
++
+.. Sélectionnez *support* > *Outils* > *topologie de grille*.
+.. Sélectionnez *_GRID_* > *Présentation* > *main*.
++
+image::../media/system_wide_storage_capacity.gif[Capacité de stockage au niveau du système - arborescence de topologie Grid]
+
+
+
+. Planifiez une extension permettant d'ajouter des nœuds de stockage ou des volumes de stockage avant l'utilisation de la capacité de stockage utilisable de la grille.
++
+Lors de la planification d'une extension, réfléchissez au temps nécessaire pour approvisionner et installer du stockage supplémentaire.
+
++
+
+NOTE: Si votre règle ILM utilise le code d'effacement, vous pouvez préférer une extension lorsque les nœuds de stockage existants sont remplis à environ 70 % pour réduire le nombre de nœuds à ajouter.
+
++
+Pour plus d'informations sur la planification d'une extension du stockage, consultez les instructions d'extension d'StorageGRID.
+
+
+
+.Informations associées
+link:../expand/index.html["Développez votre grille"]

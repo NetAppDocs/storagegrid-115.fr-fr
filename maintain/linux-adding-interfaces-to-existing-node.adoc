@@ -1,0 +1,60 @@
+---
+permalink: maintain/linux-adding-interfaces-to-existing-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, linux, adding interfaces, add interfaces, adding interface to node, add interface to node 
+summary: 'Si vous souhaitez ajouter une interface à un nœud Linux que vous n"avez pas installé au départ, vous devez suivre cette procédure.' 
+---
+= Linux : ajout d'interfaces à un nœud existant
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous souhaitez ajouter une interface à un nœud Linux que vous n'avez pas installé au départ, vous devez suivre cette procédure.
+
+Si vous n'avez pas configuré ADMIN_NETWORK_TARGET ni CLIENT_NETWORK_TARGET dans le fichier de configuration du nœud sur l'hôte Linux au cours de l'installation, utilisez cette procédure pour ajouter l'interface. Pour plus d'informations sur le fichier de configuration des nœuds, reportez-vous aux instructions d'installation de StorageGRID pour votre système d'exploitation Linux.
+
+link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Installez Ubuntu ou Debian"]
+
+Cette procédure est effectuée sur le serveur Linux hébergeant le nœud nécessitant la nouvelle affectation de réseau, et non à l'intérieur du nœud. Cette procédure ajoute uniquement l'interface au nœud. Une erreur de validation se produit si vous tentez de spécifier d'autres paramètres réseau.
+
+Pour fournir des informations d'adressage, vous devez utiliser l'outil Modifier IP. Pour plus d'informations sur la modification de la configuration réseau d'un nœud, reportez-vous à la section.
+
+link:changing-nodes-network-configuration.html["Modification de la configuration réseau d'un nœud"]
+
+.Étapes
+. Connectez-vous au serveur Linux hébergeant le nœud qui a besoin de la nouvelle affectation de réseau.
+. Modifiez le fichier de configuration de nœud à `/etc/storagegrid/nodes/_node-name_.conf`.
++
+
+IMPORTANT: Ne spécifiez pas d'autres paramètres réseau, sinon une erreur de validation se produit.
+
++
+.. Ajoutez la nouvelle cible réseau.
++
+[listing]
+----
+CLIENT_NETWORK_TARGET = bond0.3206
+----
+.. Facultatif : ajoutez une adresse MAC.
++
+[listing]
+----
+CLIENT_NETWORK_MAC = aa:57:61:07:ea:5c
+----
+
+
+. Lancer la commande node validate : `sudo storagegrid node validate _node-name_`
+. Résoudre toutes les erreurs de validation.
+. Lancer la commande node reload : `sudo storagegrid node reload _node-name_`
+
+
+.Informations associées
+link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Installez Ubuntu ou Debian"]
+
+link:changing-nodes-network-configuration.html["Modification de la configuration réseau d'un nœud"]

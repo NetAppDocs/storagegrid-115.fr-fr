@@ -1,0 +1,24 @@
+---
+permalink: admin/restoring-default-server-certificates-for-s3-swift-api-endpoints.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez revenir à l"utilisation des certificats de serveur par défaut pour les terminaux API REST S3 et Swift.' 
+---
+= Restauration des certificats de serveur par défaut pour les terminaux API REST S3 et Swift
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez revenir à l'utilisation des certificats de serveur par défaut pour les terminaux API REST S3 et Swift.
+
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres réseau* > *certificats serveur*.
+. Dans la section certificat de serveur de noeuds finaux du service API de stockage d'objets, cliquez sur *utiliser les certificats par défaut*.
+. Cliquez sur *OK* dans la boîte de dialogue de confirmation.
++
+Lorsque vous restaurez les certificats de serveur par défaut pour les noeuds finaux de l'API de stockage d'objets, les fichiers de certificat de serveur personnalisés que vous avez configurés sont supprimés et ne peuvent pas être récupérés du système. Les certificats de serveur par défaut sont utilisés pour toutes les nouvelles connexions client API suivantes.
+
+. Actualisez la page pour vous assurer que le navigateur Web est mis à jour.
+

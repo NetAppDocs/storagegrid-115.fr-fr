@@ -1,0 +1,14 @@
+---
+permalink: monitor/using-charts-and-reports.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez utiliser des graphiques et des rapports pour surveiller l"état du système StorageGRID et résoudre les problèmes. Les types de graphiques et de rapports disponibles dans Grid Manager incluent les diagrammes circulaires \(sur le tableau de bord uniquement\), les graphiques et les rapports texte.' 
+---
+= Utilisation de graphiques et de rapports
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser des graphiques et des rapports pour surveiller l'état du système StorageGRID et résoudre les problèmes. Les types de graphiques et de rapports disponibles dans Grid Manager incluent des graphiques circulaires (sur le tableau de bord uniquement), des graphiques et des rapports texte.

@@ -1,0 +1,20 @@
+---
+permalink: expand/planning-expansion.html 
+sidebar: sidebar 
+keywords: expand, expansion, planning 
+summary: 'Vous pouvez développer StorageGRID pour augmenter la capacité de stockage, ajouter de la capacité de métadonnées, ajouter de la redondance ou de nouvelles fonctionnalités, ou encore ajouter un site. Le nombre, le type et l"emplacement des nœuds que vous devez ajouter dépendent de la raison de l"extension.' 
+---
+= Planification d'une extension StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez développer StorageGRID pour augmenter la capacité de stockage, ajouter de la capacité de métadonnées, ajouter de la redondance ou de nouvelles fonctionnalités, ou encore ajouter un site. Le nombre, le type et l'emplacement des nœuds que vous devez ajouter dépendent de la raison de l'extension.
+
+* link:adding-storage-capacity.html["L'ajout de capacité de stockage"]
+* link:adding-metadata-capacity.html["L'ajout de capacité de métadonnées"]
+* link:adding-grid-nodes-to-add-capabilities.html["Ajout de nœuds grid pour ajouter des fonctionnalités à votre système"]
+* link:adding-new-site.html["Ajout d'un site"]
+

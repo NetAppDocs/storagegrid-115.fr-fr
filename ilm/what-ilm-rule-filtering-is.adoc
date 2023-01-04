@@ -1,0 +1,37 @@
+---
+permalink: ilm/what-ilm-rule-filtering-is.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Lorsque vous créez une règle ILM, vous spécifiez des filtres pour identifier les objets auxquels la règle s"applique.' 
+---
+= Définition du filtrage des règles ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous créez une règle ILM, vous spécifiez des filtres pour identifier les objets auxquels la règle s'applique.
+
+Dans le cas le plus simple, une règle ne peut pas utiliser de filtres. Toute règle qui n'utilise pas de filtre s'applique à tous les objets. Elle doit donc être la dernière règle (par défaut) d'une politique ILM. La règle par défaut fournit des instructions de stockage pour les objets qui ne correspondent pas aux filtres d'une autre règle.
+
+Les filtres de base vous permettent d'appliquer différentes règles à de grands groupes d'objets distincts. Les filtres de base de la page Define Basics de l'assistant Create ILM Rule vous permettent d'appliquer une règle à des comptes de locataire spécifiques, des compartiments S3 spécifiques, des conteneurs Swift, ou les deux.
+
+image::../media/ilm_create_ilm_rule_wizard_1.png[Assistant ILM : étape 1 sur 3]
+
+Ces filtres de base vous permettent d'appliquer facilement différentes règles à un grand nombre d'objets. Par exemple, les données financières de votre entreprise peuvent être stockées pour répondre à la réglementation, tandis que les données du service marketing doivent être stockées pour faciliter les opérations quotidiennes. Après avoir créé des comptes de tenant distincts pour chaque service ou après avoir séparé les données des différents services dans des compartiments S3 distincts, vous pouvez facilement créer une règle qui s'applique à tous les enregistrements financiers et une deuxième règle qui s'applique à toutes les données de marketing.
+
+La page *Advanced Filtering* de l'assistant Create ILM Rule vous donne un contrôle granulaire. Vous pouvez créer des filtres pour sélectionner des objets en fonction des propriétés d'objet suivantes :
+
+* Temps d'ingestion
+* Heure du dernier accès
+* Tout ou partie du nom de l'objet (clé)
+* Région de compartiment S3 (contrainte d'emplacement)
+* Taille de l'objet
+* Métadonnées d'utilisateur
+* Balises d'objet S3
+
+
+Vous pouvez filtrer les objets selon des critères très spécifiques. Par exemple, les objets stockés par le service d'imagerie de l'hôpital peuvent être utilisés fréquemment s'ils ont moins de 30 jours et rarement par la suite, tandis que les objets contenant les informations relatives aux visites des patients peuvent devoir être copiés dans le service de facturation du siège social du réseau de santé. Vous pouvez créer des filtres qui identifient chaque type d'objet en fonction du nom, de la taille, des balises d'objet S3 ou de tout autre critère pertinent. Il crée ensuite des règles distinctes pour stocker chaque ensemble d'objets de façon appropriée.
+
+Vous pouvez également combiner des filtres de base et avancés selon vos besoins dans une seule règle. Par exemple, le service marketing pourrait souhaiter stocker des fichiers d'images volumineux différemment des dossiers de fournisseurs, tandis que le service des ressources humaines pourrait avoir besoin de stocker les dossiers du personnel dans une zone géographique spécifique et des informations sur les politiques de manière centralisée. Dans ce cas, vous pouvez créer des règles qui filtrent par compte locataire pour isoler les enregistrements de chaque service, tout en utilisant des filtres avancés dans chaque règle pour identifier le type spécifique d'objets auquel la règle s'applique.

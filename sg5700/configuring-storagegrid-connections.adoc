@@ -1,0 +1,23 @@
+---
+permalink: sg5700/configuring-storagegrid-connections.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, storagegrid connections, connections, configure, setup, set up 
+summary: 'Avant de déployer une appliance StorageGRID en tant que nœud de stockage dans un grid StorageGRID, vous devez configurer les connexions entre l"appliance et les réseaux que vous souhaitez utiliser. Vous pouvez configurer le réseau en accédant au programme d"installation de l"appliance StorageGRID, inclus dans le contrôleur E5700SG \(le contrôleur de calcul de l"appliance\).' 
+---
+= Configuration des connexions StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de déployer une appliance StorageGRID en tant que nœud de stockage dans un grid StorageGRID, vous devez configurer les connexions entre l'appliance et les réseaux que vous souhaitez utiliser. Vous pouvez configurer le réseau en accédant au programme d'installation de l'appliance StorageGRID, inclus dans le contrôleur E5700SG (le contrôleur de calcul de l'appliance).
+
+.Étapes
+* link:accessing-storagegrid-appliance-installer-sg5700.html["Accès au programme d'installation de l'appliance StorageGRID"]
+* link:verifying-and-upgrading-storagegrid-appliance-installer-version.html["Vérification et mise à niveau de la version du programme d'installation de l'appliance StorageGRID"]
+* link:configuring-network-links-sg5700.html["Configuration des liaisons réseau (SG5700)"]
+* link:setting-ip-configuration-sg5700.html["Définition de la configuration IP"]
+* link:verifying-network-connections.html["Vérification des connexions réseau"]
+* link:verifying-port-level-network-connections.html["Vérification des connexions réseau au niveau des ports"]
+

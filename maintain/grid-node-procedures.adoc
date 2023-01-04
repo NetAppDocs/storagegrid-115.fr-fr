@@ -1,0 +1,43 @@
+---
+permalink: maintain/grid-node-procedures.html 
+sidebar: sidebar 
+keywords: storagegrid, grid node procedure 
+summary: 'Vous devrez peut-être effectuer des procédures sur un nœud de grid spécifique. Bien que vous puissiez effectuer quelques-unes de ces procédures à partir de Grid Manager, la plupart de ces procédures nécessitent d"accéder à Server Manager à partir de la ligne de commande du nœud.' 
+---
+= Procédures des nœuds de la grille
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devrez peut-être effectuer des procédures sur un nœud de grid spécifique. Bien que vous puissiez effectuer quelques-unes de ces procédures à partir de Grid Manager, la plupart des procédures nécessitent d'accéder à Server Manager à partir de la ligne de commande du nœud.
+
+Server Manager s'exécute sur chaque nœud de la grille pour superviser le démarrage et l'arrêt des services et pour s'assurer que les services rejoignent et quittent aisément le système StorageGRID. Server Manager surveille également les services sur chaque nœud de la grille et tente automatiquement de redémarrer les services qui signalent les pannes.
+
+
+IMPORTANT: Vous ne devez accéder à Server Manager que si le support technique vous a demandé de le faire.
+
+
+NOTE: Vous devez fermer la session de shell de commande en cours et vous déconnecter une fois que vous avez terminé avec Server Manager. Entrez : `exit`
+
+.Choix
+* link:viewing-server-manager-status-and-version.html["Affichage de l'état et de la version de Server Manager"]
+* link:viewing-current-status-of-all-services.html["Affichage de l'état actuel de tous les services"]
+* link:starting-server-manager-and-all-services.html["Démarrage de Server Manager et de tous les services"]
+* link:restarting-server-manager-and-all-services.html["Redémarrage de Server Manager et de tous les services"]
+* link:stopping-server-manager-and-all-services.html["Arrêt de Server Manager et de tous les services"]
+* link:viewing-current-status-of-service.html["Affichage de l'état actuel d'un service"]
+* link:stopping-service.html["Arrêt d'un service"]
+* link:placing-appliance-into-maintenance-mode.html["Mise en mode maintenance de l'appareil"]
+* link:forcing-service-to-terminate.html["Forcer l'arrêt d'un service"]
+* link:starting-or-restarting-service.html["Démarrage ou redémarrage d'un service"]
+* link:removing-port-remaps.html["Suppression des mappages de port"]
+* link:removing-port-remaps-on-bare-metal-hosts.html["Suppression de mappages de port sur les hôtes bare Metal"]
+* link:rebooting-grid-node.html["Redémarrage d'un nœud de grille"]
+* link:shutting-down-grid-node.html["Arrêt d'un nœud grid"]
+* link:powering-down-host.html["Mise hors tension d'un hôte"]
+* link:powering-off-and-on-all-nodes-in-grid.html["Mise hors tension et sur tous les nœuds de la grille"]
+* link:using-donotstart-file.html["Utilisation d'un fichier DoNotStart"]
+* link:troubleshooting-server-manager.html["Dépannage de Server Manager"]
+

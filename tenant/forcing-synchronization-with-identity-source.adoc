@@ -1,0 +1,38 @@
+---
+permalink: tenant/forcing-synchronization-with-identity-source.html 
+sidebar: sidebar 
+keywords: storagegrid, tenant, identity source, synchronize identity source 
+summary: 'Le système StorageGRID synchronise régulièrement les groupes fédérés et les utilisateurs à partir du référentiel d"identité. Vous pouvez forcer la synchronisation à démarrer si vous souhaitez activer ou restreindre les autorisations utilisateur le plus rapidement possible.' 
+---
+= Forcer la synchronisation avec le référentiel d'identité
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le système StorageGRID synchronise régulièrement les groupes fédérés et les utilisateurs à partir du référentiel d'identité. Vous pouvez forcer la synchronisation à démarrer si vous souhaitez activer ou restreindre les autorisations utilisateur le plus rapidement possible.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté au Gestionnaire de locataires à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+* Le référentiel d'identité enregistré doit être activé.
+
+
+.Étapes
+. Sélectionnez *ACCESS MANAGEMENT* > *identity federation*.
++
+La page fédération des identités s'affiche. Le bouton *Sync Server* se trouve en haut à droite de la page.
+
++
+
+NOTE: Si le référentiel d'identité enregistré n'est pas activé, le bouton *Sync Server* n'est pas actif.
+
+. Sélectionnez *serveur de synchronisation*.
++
+Un message de confirmation s'affiche pour indiquer que la synchronisation a démarré correctement.
+
+
+
+.Informations associées
+link:tenant-management-permissions.html["Autorisations de gestion des locataires"]

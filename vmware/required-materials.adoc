@@ -1,0 +1,73 @@
+---
+permalink: vmware/required-materials.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Avant d"installer StorageGRID, vous devez rassembler et préparer les ressources nécessaires.' 
+---
+= Matériel requis
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'installer StorageGRID, vous devez rassembler et préparer les ressources nécessaires.
+
+[cols="1a,2a"]
+|===
+| Élément | Remarques 
+
+
+ a| 
+Licence NetApp StorageGRID
+ a| 
+Vous devez disposer d'une licence NetApp valide et signée numériquement.
+
+*Remarque* : l'archive d'installation de StorageGRID inclut une licence gratuite qui ne fournit aucun droit de support pour le produit.
+
+
+
+ a| 
+Archive de l'installation de StorageGRID pour VMware
+ a| 
+Vous devez télécharger l'archive d'installation de StorageGRID et extraire les fichiers.
+
+
+
+ a| 
+Le logiciel et la documentation VMware
+ a| 
+Au cours de l'installation, vous déployez des noeuds de grille virtuelle sur des machines virtuelles dans VMware vSphere Web client.pour connaître les versions prises en charge, consultez la matrice d'interopérabilité.
+
+
+
+ a| 
+L'ordinateur portable de service
+ a| 
+Le système StorageGRID est installé par le biais d'un service après-vente. L'ordinateur portable de service doit posséder :
+
+* Port réseau
+* Client SSH (par exemple, PuTTY)
+* Navigateur Web pris en charge
+
+
+
+
+ a| 
+Documentation StorageGRID
+ a| 
+* Notes de version
+* Instructions d'administration de StorageGRID
+
+
+|===
+.Informations associées
+https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^]
+
+link:downloading-and-extracting-storagegrid-installation-files.html["Téléchargement et extraction des fichiers d'installation de StorageGRID"]
+
+link:web-browser-requirements.html["Navigateurs Web pris en charge"]
+
+link:../admin/index.html["Administrer StorageGRID"]
+
+link:../release-notes/index.html["Notes de mise à jour"]

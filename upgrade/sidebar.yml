@@ -1,0 +1,56 @@
+---
+section: upgrade
+title: Mise à niveau du logiciel
+url: "/upgrade/index.html"
+entries:
+- title: À propos de StorageGRID 11.5
+  url: "/upgrade/about-this-release.html"
+  entries:
+  - title: Nouveautés d'StorageGRID 11.5
+    url: "/upgrade/whats-new.html"
+  - title: Fonctions supprimées ou obsolètes
+    url: "/upgrade/removed-or-deprecated-features.html"
+  - title: Modifications apportées à l'API de gestion du grid
+    url: "/upgrade/changes-to-grid-management-api.html"
+  - title: Modifications apportées à l'API de gestion des locataires
+    url: "/upgrade/changes-to-tenant-management-api.html"
+- title: Planification et préparation de la mise à niveau
+  url: "/upgrade/upgrade-planning-and-preparation.html"
+  entries:
+  - title: Estimation du temps nécessaire pour effectuer une mise à niveau
+    url: "/upgrade/estimating-time-to-complete-upgrade.html"
+  - title: Quel est l'impact de votre système pendant la mise à niveau
+    url: "/upgrade/how-your-system-is-affected-during-upgrade.html"
+  - title: Impact d'une mise à niveau sur les groupes et les comptes d'utilisateurs
+    url: "/upgrade/impact-of-upgrade-on-groups-and-user-accounts.html"
+  - title: Vérification de la version installée de StorageGRID
+    url: "/upgrade/verifying-installed-version-of-storagegrid.html"
+  - title: Obtention des ressources nécessaires pour une mise à niveau logicielle
+    url: "/upgrade/obtaining-required-materials-for-software-upgrade.html"
+    entries:
+    - title: Navigateurs Web pris en charge
+      url: "/upgrade/web-browser-requirements.html"
+  - title: Téléchargement des fichiers de mise à niveau StorageGRID
+    url: "/upgrade/downloading-storagegrid-upgrade-files.html"
+  - title: Téléchargement du progiciel de restauration
+    url: "/upgrade/downloading-recovery-package.html"
+  - title: Vérification de l'état du système avant la mise à niveau du logiciel
+    url: "/upgrade/checking-systems-condition-before-upgrading-software.html"
+- title: Exécution de la mise à niveau
+  url: "/upgrade/performing-upgrade.html"
+  entries:
+  - title: 'Linux : installation du package RPM ou DEB sur tous les hôtes'
+    url: "/upgrade/linux-installing-rpm-or-deb-package-on-all-hosts.html"
+  - title: Démarrage de la mise à niveau
+    url: "/upgrade/starting-upgrade.html"
+  - title: Mise à niveau des nœuds du grid et fin de la mise à niveau
+    url: "/upgrade/upgrading-grid-nodes-and-completing-upgrade.html"
+  - title: Augmentation du paramètre Metadata Reserved Space
+    url: "/upgrade/increasing-metadata-reserved-space-setting.html"
+- title: Résolution des problèmes de mise à niveau
+  url: "/upgrade/troubleshooting-upgrade-issues.html"
+  entries:
+  - title: Résolution des problèmes liés à l'interface utilisateur
+    url: "/upgrade/troubleshooting-user-interface-issues.html"
+  - title: Messages d'erreur "contrôle de disponibilité des images Docker"
+    url: "/upgrade/docker-image-availability-check-error-messages.html"

@@ -1,0 +1,18 @@
+---
+permalink: admin/managing-storage-options.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez afficher et configurer les options de stockage à l"aide du menu Configuration du Gestionnaire de grille. Les options de stockage incluent les paramètres de segmentation des objets et les valeurs actuelles pour les filigranes de stockage. Vous pouvez également afficher les ports S3 et Swift utilisés par le service CLB obsolète sur les nœuds de passerelle et par le service LDR sur les nœuds de stockage.' 
+---
+= Gestion des options de stockage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez afficher et configurer les options de stockage à l'aide du menu Configuration du Gestionnaire de grille. Les options de stockage incluent les paramètres de segmentation des objets et les valeurs actuelles pour les filigranes de stockage. Vous pouvez également afficher les ports S3 et Swift utilisés par le service CLB obsolète sur les nœuds de passerelle et par le service LDR sur les nœuds de stockage.
+
+Pour plus d'informations sur les affectations de ports, reportez-vous à la section link:summary-ip-addresses-and-ports-for-client-connections.html["Résumé : adresses IP et ports pour les connexions client"].
+
+image::../media/storage_options.gif[Options de stockage]

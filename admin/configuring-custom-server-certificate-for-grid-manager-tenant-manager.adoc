@@ -1,0 +1,61 @@
+---
+permalink: admin/configuring-custom-server-certificate-for-grid-manager-tenant-manager.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez remplacer le certificat de serveur StorageGRID par défaut par un seul certificat de serveur personnalisé qui permet aux utilisateurs d"accéder au Gestionnaire de grille et au Gestionnaire de locataires sans rencontrer d"avertissements de sécurité.' 
+---
+= Configuration d'un certificat de serveur personnalisé pour le Grid Manager et le tenant Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez remplacer le certificat de serveur StorageGRID par défaut par un seul certificat de serveur personnalisé qui permet aux utilisateurs d'accéder au Gestionnaire de grille et au Gestionnaire de locataires sans rencontrer d'avertissements de sécurité.
+
+.Description de la tâche
+Par défaut, chaque nœud d'administration est doté d'un certificat signé par l'autorité de certification de la grille. Ces certificats signés par l'autorité de certification peuvent être remplacés par un seul certificat de serveur personnalisé commun et une clé privée correspondante.
+
+Comme un seul certificat de serveur personnalisé est utilisé pour tous les nœuds d'administration, vous devez spécifier le certificat en tant que certificat générique ou multidomaine si les clients doivent vérifier le nom d'hôte lors de la connexion à Grid Manager et au Gestionnaire de locataires. Définissez le certificat personnalisé de sorte qu'il corresponde à tous les nœuds d'administration de la grille.
+
+Vous devez terminer la configuration sur le serveur et, selon l'autorité de certification racine (AC) que vous utilisez, les utilisateurs devront peut-être aussi installer le certificat d'autorité de certification racine dans le navigateur Web qu'ils utiliseront pour accéder au gestionnaire de grille et au gestionnaire de tenant.
+
+
+NOTE: Pour garantir que les opérations ne sont pas interrompues par un certificat de serveur défaillant, l'alerte *expiration du certificat de serveur pour l'interface de gestion* et l'alarme expiration du certificat de l'interface de gestion héritée (MCEP) sont toutes deux déclenchées lorsque ce certificat de serveur est sur le point d'expirer. Si nécessaire, vous pouvez afficher le nombre de jours jusqu'à l'expiration du certificat de service en cours en sélectionnant *support* > *Outils* > *topologie de grille*. Sélectionnez ensuite *_primary Admin Node_* > *CMN* > *Resources*.
+
+[NOTE]
+====
+Si vous accédez à Grid Manager ou au Gestionnaire de locataires à l'aide d'un nom de domaine au lieu d'une adresse IP, le navigateur affiche une erreur de certificat sans option de contournement si l'un des cas suivants se produit :
+
+* Votre certificat de serveur de l'interface de gestion personnalisée expire.
+* Vous restaurez un certificat de serveur d'interface de gestion personnalisée vers le certificat de serveur par défaut.
+
+
+====
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres réseau* > *certificats serveur*.
+. Dans la section certificat du serveur de l'interface de gestion, cliquez sur *installer le certificat personnalisé*.
+. Téléchargez les fichiers de certificat de serveur requis :
++
+** *Certificat de serveur* : fichier de certificat de serveur personnalisé (`.crt`).
+** *Clé privée de certificat de serveur* : fichier de clé privée de certificat de serveur personnalisé (`.key`).
++
+
+NOTE: Les clés privées EC doivent être de 224 bits ou plus. Les clés privées RSA doivent être de 2048 bits ou plus.
+
+** *Paquet CA* : un fichier unique contenant les certificats de chaque autorité de certification intermédiaire (AC). Le fichier doit contenir chacun des fichiers de certificat d'autorité de certification codés au PEM, concaténés dans l'ordre de la chaîne de certificats.
+
+
+. Cliquez sur *Enregistrer*.
++
+Les certificats de serveur personnalisés sont utilisés pour toutes les nouvelles connexions client suivantes.
+
++
+Sélectionnez un onglet pour afficher des informations détaillées sur le certificat de serveur StorageGRID par défaut ou sur un certificat signé par l'autorité de certification qui a été téléchargé.
+
++
+
+NOTE: Après avoir téléchargé un nouveau certificat, autorisez jusqu'à un jour l'effacement des alertes d'expiration de certificat (ou des alarmes héritées) associées.
+
+. Actualisez la page pour vous assurer que le navigateur Web est mis à jour.
+

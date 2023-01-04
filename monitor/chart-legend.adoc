@@ -1,0 +1,60 @@
+---
+permalink: monitor/chart-legend.html 
+sidebar: sidebar 
+keywords: chart, legend 
+summary: Les lignes et les couleurs utilisées pour dessiner des graphiques ont une signification spécifique. 
+---
+= Légende du graphique
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les lignes et les couleurs utilisées pour dessiner des graphiques ont une signification spécifique.
+
+|===
+| Échantillon | Signification 
+
+
+ a| 
+image:../media/dark_green_chart_line.gif["capture d'écran affichant une ligne verte foncée"]
+ a| 
+Les valeurs des attributs signalés sont tracées à l'aide de lignes vert foncé.
+
+
+
+ a| 
+image:../media/light_green_chart_line.gif["capture d'écran montrant l'ombrage qui indique l'égrenage des données"]
+ a| 
+Un ombrage vert clair autour des lignes vert foncé indique que les valeurs réelles de cette plage de temps varient et ont été « binning » pour un tracé plus rapide. La ligne foncée représente la moyenne pondérée. La plage en vert clair indique les valeurs maximum et minimum dans le bac. L'ombrage marron clair est utilisé pour les graphiques de zone pour indiquer les données volumétriques.
+
+
+
+ a| 
+image:../media/no_data_plotted_chart.gif["capture d'écran affichant des zones vierges sur la ligne de tracé"]
+ a| 
+Les zones vierges (aucune donnée tracée) indiquent que les valeurs d'attribut ne sont pas disponibles. L'arrière-plan peut être bleu, gris ou un mélange de gris et de bleu, selon l'état du service signalant l'attribut.
+
+
+
+ a| 
+image:../media/light_blue_chart_shading.gif["capture d'écran montrant un ombrage bleu clair indiquant des valeurs indéterminées"]
+ a| 
+L'ombrage bleu clair indique que certaines ou toutes les valeurs d'attribut à ce moment étaient indéterminées ; l'attribut n'a pas signalé de valeurs parce que le service était dans un état inconnu.
+
+
+
+ a| 
+image:../media/gray_chart_shading.gif["capture d'écran montrant l'ombrage gris en raison de valeurs inconnues"]
+ a| 
+L'ombrage gris indique que certaines ou toutes les valeurs d'attribut à ce moment n'étaient pas connues car le service signalant les attributs était administrativement en panne.
+
+
+
+ a| 
+image:../media/gray_blue_chart_shading.gif["capture d'écran montrant un mélange de valeurs indéterminées et inconnues"]
+ a| 
+Un mélange d'ombrage gris et bleu indique que certaines des valeurs d'attribut au moment étaient indéterminées (parce que le service était dans un état inconnu), tandis que d'autres n'étaient pas connus car le service signalant les attributs était administrativement en panne.
+
+|===

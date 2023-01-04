@@ -1,0 +1,105 @@
+---
+permalink: upgrade/obtaining-required-materials-for-software-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, requirements, rhel, red hat, linux, centOS, ubuntu, debian 
+summary: Avant de commencer la mise à niveau du logiciel, vous devez obtenir tous les supports nécessaires pour que la mise à niveau soit effectuée avec succès. 
+---
+= Obtention des ressources nécessaires pour une mise à niveau logicielle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de commencer la mise à niveau du logiciel, vous devez obtenir tous les supports nécessaires pour que la mise à niveau soit effectuée avec succès.
+
+[cols="1a,3a"]
+|===
+| Élément | Remarques 
+
+
+ a| 
+Fichiers de mise à niveau StorageGRID
+ a| 
+Vous devez télécharger les fichiers requis sur votre ordinateur portable de service :
+
+* *Toutes les plates-formes*: `.upgrade` fichier
+* *Tout nœud sur Red Hat Enterprise Linux ou CentOS* : `.upgrade` Fichier et fichier RPM (`.zip` ou `.tgz`)
+* *N'importe quel nœud sur Ubuntu ou Debian* : `.upgrade` Fichier et fichier DEB (`.zip` ou `.tgz`)
+
+
+
+
+ a| 
+L'ordinateur portable de service
+ a| 
+L'ordinateur portable de service doit posséder :
+
+* Port réseau
+* Client SSH (par exemple, PuTTY)
+
+
+
+
+ a| 
+Navigateur Web pris en charge
+ a| 
+Vous devez confirmer que le navigateur Web de l'ordinateur portable de service est pris en charge pour une utilisation avec StorageGRID 11.5.
+
+link:web-browser-requirements.html["Navigateurs Web pris en charge"]
+
+*Remarque :* la prise en charge du navigateur a changé pour StorageGRID 11.5. Vérifiez que vous utilisez une version prise en charge.
+
+
+
+ a| 
+Package de restauration (`.zip`) fichier
+ a| 
+Avant de procéder à la mise à niveau, vous devez télécharger le fichier le plus récent du progiciel de récupération en cas de problème lors de la mise à niveau.
+
+Après avoir mis à niveau le nœud d'administration principal, vous devez télécharger une nouvelle copie du fichier du progiciel de restauration et l'enregistrer dans un emplacement sûr. Le fichier du progiciel de récupération mis à jour vous permet de restaurer le système en cas de défaillance.
+
+link:downloading-recovery-package.html["Téléchargement du progiciel de restauration"]
+
+
+
+ a| 
+`Passwords.txt` fichier
+ a| 
+Ce fichier est inclus dans LEDIT package, qui fait partie du progiciel de restauration `.zip` fichier. Vous devez obtenir la dernière version du progiciel de restauration.
+
+
+
+ a| 
+Phrase secrète pour le provisionnement
+ a| 
+La phrase de passe est créée et documentée lors de l'installation initiale du système StorageGRID. La phrase de passe de provisionnement n'est pas répertoriée dans le `Passwords.txt` fichier.
+
+
+
+ a| 
+Documentation associée
+ a| 
+* Notes de version pour StorageGRID 11.5. Lisez-les attentivement avant de commencer la mise à niveau.
+* Instructions d'administration de StorageGRID
+* Si vous mettez à niveau un déploiement Linux, les instructions d'installation de StorageGRID pour votre plate-forme Linux.
+* Autre documentation StorageGRID, si nécessaire.
+
+
+|===
+.Informations associées
+link:web-browser-requirements.html["Navigateurs Web pris en charge"]
+
+link:../admin/index.html["Administrer StorageGRID"]
+
+link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Installez Ubuntu ou Debian"]
+
+link:../vmware/index.html["Installez VMware"]
+
+link:downloading-storagegrid-upgrade-files.html["Téléchargement des fichiers de mise à niveau StorageGRID"]
+
+link:downloading-recovery-package.html["Téléchargement du progiciel de restauration"]
+
+link:../release-notes/index.html["Notes de mise à jour"]

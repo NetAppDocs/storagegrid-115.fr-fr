@@ -1,0 +1,40 @@
+---
+permalink: ubuntu/example-2-lacp-bond-carrying-vlans.html 
+sidebar: sidebar 
+keywords:  
+summary: 'L"exemple 2 suppose que vous êtes familier avec les interfaces réseau de liaison et avec la création d"interfaces VLAN sur la distribution Linux que vous utilisez.' 
+---
+= Exemple 2 : liaison LACP avec les VLAN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'exemple 2 suppose que vous êtes familier avec les interfaces réseau de liaison et avec la création d'interfaces VLAN sur la distribution Linux que vous utilisez.
+
+.Description de la tâche
+L'exemple 2 décrit un schéma générique, flexible et basé sur VLAN qui facilite le partage de toute la bande passante réseau disponible sur tous les nœuds d'un même hôte. Cet exemple s'applique tout particulièrement aux hôtes bare Metal.
+
+Pour comprendre cet exemple, supposons que vous ayez trois sous-réseaux distincts pour les réseaux Grid, Admin et client dans chaque centre de données. Les sous-réseaux se trouvent sur des VLAN distincts (1001, 1002 et 1003) et sont présentés à l'hôte sur un port de jonction lié à LACP (bond0). Vous devez configurer trois interfaces VLAN sur la liaison : bond0.1001, bond0.1002 et bond0.1003.
+
+Si vous avez besoin de VLAN et de sous-réseaux distincts pour les réseaux de nœuds sur le même hôte, vous pouvez ajouter des interfaces VLAN sur la liaison et les mapper sur l'hôte (voir bond0,1004 dans l'illustration).
+
+image::../media/rhel_install_vlan_diag_2.gif[Cette image est expliquée par le texte qui l'entoure.]
+
+.Étapes
+. Agréger toutes les interfaces réseau physiques qui seront utilisées pour la connectivité réseau StorageGRID en une seule liaison LACP.
++
+Utilisez le même nom pour le lien sur chaque hôte, par exemple bond0.
+
+. Créez des interfaces VLAN qui utilisent cette liaison comme périphérique physique associé,`" using the standard VLAN interface naming convention `physdev-name.VLAN ID`.
++
+Notez que les étapes 1 et 2 nécessitent une configuration appropriée sur les commutateurs de périphérie qui terminent les autres extrémités des liaisons réseau. Les ports de switch de périphérie doivent également être agrégés dans un canal de port LACP, configuré en tant que jonction et autorisé à passer tous les VLAN requis.
+
++
+Des exemples de fichiers de configuration d'interface pour ce schéma de configuration réseau par hôte sont fournis.
+
+
+
+.Informations associées
+link:example-etc-network-interfaces.html["Exemple /etc/network/interfaces"]

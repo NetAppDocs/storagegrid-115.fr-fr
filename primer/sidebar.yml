@@ -1,0 +1,72 @@
+---
+section: primer
+title: Primaire de grille
+url: "/primer/index.html"
+entries:
+- title: À propos de StorageGRID
+  url: "/primer/about-storagegrid.html"
+  entries:
+  - title: Clouds hybrides avec StorageGRID
+    url: "/primer/hybrid-clouds-with-storagegrid.html"
+- title: Architecture StorageGRID et topologie réseau
+  url: "/primer/storagegrid-architecture-and-network-topology.html"
+- title: La gestion des données par StorageGRID
+  url: "/primer/how-storagegrid-manages-data.html"
+  entries:
+  - title: Qu'est-ce qu'un objet
+    url: "/primer/what-object-is.html"
+  - title: Mode de protection des données objet
+    url: "/primer/how-object-data-is-protected.html"
+  - title: La vie d'un objet
+    url: "/primer/life-of-object.html"
+    entries:
+    - title: Ingestion des données
+      url: "/primer/ingest-data-flow.html"
+    - title: Gestion des copies
+      url: "/primer/copy-management.html"
+    - title: Récupérer le flux de données
+      url: "/primer/retrieve-data-flow.html"
+    - title: Supprimer le flux de données
+      url: "/primer/delete-data-flow.html"
+- title: Exploration du Grid Manager
+  url: "/primer/exploring-grid-manager.html"
+- title: Exploration du gestionnaire de locataires
+  url: "/primer/exploring-tenant-manager.html"
+- title: Utilisation de StorageGRID
+  url: "/primer/using-storagegrid.html"
+  entries:
+  - title: Contrôle de l'accès StorageGRID
+    url: "/primer/controlling-storagegrid-access.html"
+  - title: Gestion des locataires et des connexions client
+    url: "/primer/managing-tenants-and-client-connections.html"
+  - title: Configuration des paramètres réseau
+    url: "/primer/configuring-network-settings.html"
+  - title: Configuration des paramètres système
+    url: "/primer/configuring-system-settings.html"
+  - title: Utilisation de la gestion du cycle de vie des informations
+    url: "/primer/using-information-lifecycle-management.html"
+  - title: Surveillance des opérations StorageGRID
+    url: "/primer/monitoring-storagegrid-operations.html"
+    entries:
+    - title: Affichage de la page nœuds
+      url: "/primer/viewing-nodes-page.html"
+      entries:
+      - title: Onglets de la page nœuds
+        url: "/primer/tabs-for-nodes-page.html"
+      - title: Metrics Prometheus
+        url: "/primer/prometheus-metrics.html"
+      - title: Attributs des StorageGRID
+        url: "/primer/storagegrid-attributes.html"
+    - title: Surveillance et gestion des alertes
+      url: "/primer/monitoring-and-managing-alerts.html"
+    - title: Utilisation de la surveillance SNMP
+      url: "/primer/using-snmp-monitoring.html"
+    - title: Vérification des messages d'audit
+      url: "/primer/reviewing-audit-messages.html"
+  - title: Exécution des procédures de maintenance
+    url: "/primer/performing-maintenance-procedures.html"
+    entries:
+    - title: Téléchargement du progiciel de restauration
+      url: "/primer/downloading-recovery-package.html"
+  - title: Utilisation des options de prise en charge de StorageGRID
+    url: "/primer/using-storagegrid-support-options.html"

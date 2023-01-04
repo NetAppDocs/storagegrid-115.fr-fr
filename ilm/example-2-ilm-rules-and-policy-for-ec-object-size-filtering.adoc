@@ -1,0 +1,116 @@
+---
+permalink: ilm/example-2-ilm-rules-and-policy-for-ec-object-size-filtering.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= Exemple 2 : règles et règle ILM pour le filtrage de la taille des objets EC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Des exemples de règles et de règles ci-dessous vous permettent de définir une règle ILM qui s'applique par taille d'objet afin de répondre aux exigences EC recommandées.
+
+
+CAUTION: Les règles et règles ILM suivantes ne sont que des exemples. Les règles ILM sont nombreuses. Avant d'activer une nouvelle stratégie, simulez la stratégie proposée pour confirmer qu'elle fonctionnera comme destinée à protéger le contenu contre la perte.
+
+
+
+== Règle ILM 1, par exemple 2 : utilise le code d'effacement pour tous les objets de plus de 200 Ko
+
+Cet exemple de règle ILM code d'effacement pour tous les objets supérieurs à 200 Ko (0.20 Mo).
+
+[cols="1a,2a"]
+|===
+| Définition de règle | Exemple de valeur 
+
+
+ a| 
+Nom de la règle
+ a| 
+Objets EC uniquement > 200 Ko
+
+
+
+ a| 
+Heure de référence
+ a| 
+Temps d'ingestion
+
+
+
+ a| 
+Filtrage avancé pour la taille de l'objet
+ a| 
+Taille de l'objet (Mo) supérieure à 0.20
+
+
+
+ a| 
+Placement de contenu
+ a| 
+Créez une copie avec code d'effacement 2+1 sur trois sites
+
+|===
+image:../media/policy_2_rule_1_ec_objects_adv_filtering.gif["Règle ILM 1, par exemple 2 : utilise le code d'effacement pour tous les objets de plus de 200 Ko"]
+
+Les instructions de placement indiquent qu'une copie avec code d'effacement 2+1 doit être créée à l'aide des trois sites.
+
+image::../media/policy_2_rule_1_ec_objects_placements.png[Règle ILM 1, par exemple 2 : utilise le code d'effacement pour tous les objets de plus de 200 Ko]
+
+
+
+== Règle ILM 2, par exemple 2 : deux copies répliquées
+
+Cet exemple de règle ILM crée deux copies répliquées, sans filtrer par taille d'objet. Cette règle est la deuxième règle de la politique. La règle ILM 1, par exemple 2, filtre tous les objets supérieurs à 200 Ko, la règle ILM 2, par exemple 2, s'applique uniquement aux objets de 200 Ko ou moins.
+
+[cols="1a,2a"]
+|===
+| Définition de règle | Exemple de valeur 
+
+
+ a| 
+Nom de la règle
+ a| 
+Deux copies répliquées
+
+
+
+ a| 
+Heure de référence
+ a| 
+Temps d'ingestion
+
+
+
+ a| 
+Filtrage avancé pour la taille de l'objet
+ a| 
+Aucune
+
+
+
+ a| 
+Placement de contenu
+ a| 
+Créez deux copies répliquées et enregistrez-les dans deux data centers : DC1 et DC2
+
+|===
+image:../media/ilm_rule_2_example_2_two_replicated_copies.png["Exemple de règle ILM 2, par exemple 2 - deux copies répliquées"]
+
+
+
+== Règle ILM par exemple 2 : utilisez l'effacement pour des objets de plus de 200 Ko
+
+Dans cet exemple de règle, les objets supérieurs à 200 Ko sont soumis au code d'effacement. Deux copies répliquées sont créées pour tous les autres objets.
+
+Cet exemple de politique ILM inclut les règles ILM suivantes :
+
+* Code d'effacement de tous les objets supérieurs à 200 Ko.
+* Si un objet ne correspond pas à la première règle ILM, utilisez la règle ILM par défaut pour créer deux copies répliquées de cet objet. Étant donné que les objets de plus de 200 Ko ont été filtrés par la règle 1, la règle 2 ne s'applique qu'aux objets de 200 Ko ou moins.
++
+image::../media/policy_2_configured_policy.png[Règle ILM par exemple 2 : utilisez l'effacement pour des objets de plus de 200 Ko]
+
+

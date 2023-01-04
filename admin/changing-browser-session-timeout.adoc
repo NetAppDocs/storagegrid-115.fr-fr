@@ -1,0 +1,55 @@
+---
+permalink: admin/changing-browser-session-timeout.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez contrôler si les utilisateurs de Grid Manager et de tenant Manager sont déconnectés s"ils sont inactifs pendant plus d"un certain temps.' 
+---
+= Modification du délai d'expiration de la session du navigateur
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez contrôler si les utilisateurs de Grid Manager et de tenant Manager sont déconnectés s'ils sont inactifs pendant plus d'un certain temps.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+.Description de la tâche
+Le délai d'inactivité de l'interface graphique est défini par défaut sur 900 secondes (15 minutes). Si la session de navigateur d'un utilisateur n'est pas active pendant cette période, la session est expirée.
+
+Si nécessaire, vous pouvez augmenter ou diminuer le délai d'inactivité en définissant l'option d'affichage délai d'inactivité de l'interface graphique.
+
+Si l'authentification unique (SSO) est activée et que la session du navigateur d'un utilisateur est expirée, le système se comporte comme si l'utilisateur a cliqué sur *Déconnexion* manuellement. L'utilisateur doit saisir à nouveau ses identifiants SSO pour accéder à StorageGRID.
+
+[NOTE]
+====
+Le délai d'expiration de session utilisateur peut également être contrôlé par les éléments suivants :
+
+* Un minuteur StorageGRID séparé non configurable, inclus pour la sécurité du système. Par défaut, le jeton d'authentification de chaque utilisateur expire 16 heures après la connexion de l'utilisateur. Lorsqu'une authentification de l'utilisateur expire, cet utilisateur est automatiquement déconnecté, même si la valeur du délai d'inactivité de l'interface graphique n'a pas été atteinte. Pour renouveler le jeton, l'utilisateur doit se reconnecter.
+* Paramètres de délai pour le fournisseur d'identité, en supposant que SSO est activé pour StorageGRID.
+
+
+====
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres système* > *Options d'affichage*.
+. Pour *délai d'inactivité de l'interface graphique utilisateur*, entrez un délai d'expiration de 60 secondes ou plus.
++
+Définissez ce champ sur 0 si vous ne souhaitez pas utiliser cette fonctionnalité. Les utilisateurs sont déconnectés 16 heures après leur connexion, quand leurs jetons d'authentification expirent.
+
++
+image::../media/configuration_display_options.gif[Afficher la page Options]
+
+. Cliquez sur *appliquer les modifications*.
++
+Le nouveau paramètre n'affecte pas les utilisateurs actuellement connectés. Les utilisateurs doivent se reconnecter ou actualiser leur navigateur pour que le nouveau paramètre de délai d'expiration prenne effet.
+
+
+
+.Informations associées
+link:how-sso-works.html["Fonctionnement de l'authentification unique"]
+
+link:../tenant/index.html["Utilisez un compte de locataire"]

@@ -1,0 +1,24 @@
+---
+permalink: primer/using-storagegrid.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Une fois que vous avez installé les nœuds grid et les réseaux StorageGRID, vous pouvez commencer à configurer et à utiliser StorageGRID. Parmi les tâches que vous allez effectuer, citons le contrôle de l"accès des utilisateurs aux fonctions d"administration du système, la configuration des comptes de locataires, la gestion des connexions client, la configuration des options, la gestion des emplacements des objets avec ILM, le contrôle de l"état et des activités quotidiennes de votre système StorageGRID et la réalisation d"opérations de maintenance courantes et non routinières.' 
+---
+= Utilisation de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois que vous avez installé les nœuds grid et les réseaux StorageGRID, vous pouvez commencer à configurer et à utiliser StorageGRID. Parmi les tâches que vous allez effectuer, citons le contrôle de l'accès des utilisateurs aux fonctions d'administration du système, la configuration des comptes de locataires, la gestion des connexions client, la configuration des options, la gestion des emplacements des objets avec ILM, le contrôle de l'état et des activités quotidiennes de votre système StorageGRID et la réalisation d'opérations de maintenance courantes et non routinières.
+
+* link:controlling-storagegrid-access.html["Contrôle de l'accès StorageGRID"]
+* link:managing-tenants-and-client-connections.html["Gestion des locataires et des connexions client"]
+* link:configuring-network-settings.html["Configuration des paramètres réseau"]
+* link:configuring-system-settings.html["Configuration des paramètres système"]
+* link:using-information-lifecycle-management.html["Utilisation de la gestion du cycle de vie des informations"]
+* link:monitoring-storagegrid-operations.html["Surveillance des opérations StorageGRID"]
+* link:performing-maintenance-procedures.html["Exécution des procédures de maintenance"]
+* link:using-storagegrid-support-options.html["Utilisation des options de prise en charge de StorageGRID"]
+

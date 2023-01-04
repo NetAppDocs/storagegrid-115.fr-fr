@@ -1,0 +1,29 @@
+---
+permalink: maintain/site-decommissioning.html 
+sidebar: sidebar 
+keywords:  
+summary: Il se peut que vous deviez supprimer un site de data Center du système StorageGRID. Pour supprimer un site, vous devez le mettre hors service. 
+---
+= Désaffectation du site
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Il se peut que vous deviez supprimer un site de data Center du système StorageGRID. Pour supprimer un site, vous devez le mettre hors service.
+
+L'organigramme présente les étapes générales de la mise hors service d'un site.
+
+image::../media/overview_decommission_site.png[Présentation : mise hors service du site]
+
+.Étapes
+* link:considerations-for-removing-site.html["Considérations relatives à la suppression d'un site"]
+* link:gathering-required-materials-site-decom.html["Collecte des matériaux nécessaires"]
+* link:step-1-select-site.html["Étape 1 : sélectionnez site"]
+* link:step-2-view-details.html["Étape 2 : Détails de la vue"]
+* link:step-3-revise-ilm-policy.html["Étape 3 : réviser la politique ILM"]
+* link:step-4-remove-ilm-references.html["Étape 4 : supprimer les références ILM"]
+* link:step-5-resolve-node-conflicts.html["Étape 5 : résoudre les conflits de nœuds (et démarrer la mise hors service)"]
+* link:step-6-monitor-decommission.html["Étape 6 : surveiller la mise hors service"]
+

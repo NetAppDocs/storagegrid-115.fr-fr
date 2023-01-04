@@ -1,0 +1,20 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Obtenez des informations spécifiques à la version sur les nouvelles fonctionnalités, les problèmes connus et les problèmes résolus. 
+---
+= Notes de mise à jour
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtention d'informations spécifiques à la version sur les nouvelles fonctionnalités, les fonctions supprimées et obsolètes, les problèmes résolus et les problèmes connus.
+
+Les notes de version sont disponibles hors du site du document. Vous serez invité à vous connecter à l'aide de vos identifiants du site de support NetApp.
+
+* https://library.netapp.com/ecmdocs/ECMLP2873529/html/frameset.html["HTML"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2873529["PDF"^]
+

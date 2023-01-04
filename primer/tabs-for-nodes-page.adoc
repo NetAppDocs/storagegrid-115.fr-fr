@@ -1,0 +1,128 @@
+---
+permalink: primer/tabs-for-nodes-page.html 
+sidebar: sidebar 
+keywords: nodes page, hardware tab, network tab, storage tab, events tab, objects tab, ilm tab, load balancer tab, platform services tab, santricity system manager tab 
+summary: 'Les onglets en haut de la page nœuds sont basés sur ce que vous sélectionnez dans l"arborescence à gauche.' 
+---
+= Onglets de la page nœuds
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les onglets en haut de la page nœuds sont basés sur ce que vous sélectionnez dans l'arborescence à gauche.
+
+[cols="1a,2a,1a"]
+|===
+| Nom de l'onglet | Description | Inclus pour 
+
+
+ a| 
+Présentation
+ a| 
+* Fournit des informations de base sur chaque nœud.
+* Affiche toutes les alarmes en cours et non acquittées affectant le nœud.
+
+ a| 
+Tous les nœuds
+
+
+
+ a| 
+Sous-jacent
+ a| 
+* Affiche l'utilisation du processeur et de la mémoire pour chaque nœud
+* Pour les nœuds d'appliance, fournit des informations supplémentaires sur le matériel.
+
+ a| 
+Tous les nœuds
+
+
+
+ a| 
+Le réseau
+ a| 
+Affiche un graphique indiquant le trafic réseau reçu et envoyé via les interfaces réseau.
+ a| 
+Tous les nœuds, chaque site et la grille entière
+
+
+
+ a| 
+Stockage
+ a| 
+* Le fournit des détails sur les unités de disque et les volumes de chaque nœud.
+* Pour les nœuds de stockage, chaque site et la grille complète, inclut des graphiques présentant le stockage des données d'objet et le stockage des métadonnées utilisé au fil du temps.
+
+ a| 
+Tous les nœuds, chaque site et la grille entière
+
+
+
+ a| 
+Événements
+ a| 
+Affiche le compte-rebours de tout événement d'erreur système ou de panne, y compris les erreurs telles que les erreurs réseau.
+ a| 
+Tous les nœuds
+
+
+
+ a| 
+Objets
+ a| 
+* Fournit des informations sur les taux d'ingestion et de récupération S3 et Swift.
+* Pour les nœuds de stockage, fournit le nombre d'objets et des informations sur les requêtes du magasin de métadonnées et la vérification en arrière-plan.
+
+ a| 
+Nœuds de stockage, chaque site et la grille entière
+
+
+
+ a| 
+ILM
+ a| 
+La section fournit des informations sur les opérations de gestion du cycle de vie de l'information (ILM).
+
+* Pour les nœuds de stockage, fournit des informations détaillées sur l'évaluation ILM et la vérification en arrière-plan des objets avec code d'effacement.
+* La grille complète de chaque site est illustrée sous la forme d'un graphique de la file d'attente ILM au fil du temps.
+* Pour l'intégralité de la grille, fournit une estimation du temps nécessaire à l'analyse ILM complète de tous les objets.
+
+ a| 
+Nœuds de stockage, chaque site et la grille entière
+
+
+
+ a| 
+Équilibreur de charge
+ a| 
+Inclut les graphiques de performance et de diagnostic associés au service Load Balancer.
+
+* Pour chaque site, fournit un résumé global des statistiques pour tous les nœuds de ce site.
+* Pour l'ensemble de la grille, fournit un résumé global des statistiques pour tous les sites.
+
+ a| 
+Nœuds d'administration et nœuds de passerelle, chaque site et l'ensemble de la grille
+
+
+
+ a| 
+Services de plateforme
+ a| 
+Fournit des informations sur les opérations de service de la plateforme S3 sur un site.
+ a| 
+Chaque site
+
+
+
+ a| 
+SANtricity System Manager
+ a| 
+Permet d'accéder à SANtricity System Manager. Depuis SANtricity System Manager, vous pouvez examiner les informations de diagnostic matériel et d'environnement du contrôleur de stockage, ainsi que les problèmes liés aux disques.
+ a| 
+Nœuds d'appliance de stockage
+
+*Remarque :* l'onglet Gestionnaire système SANtricity ne s'affiche pas si le micrologiciel du contrôleur de l'appliance de stockage est inférieur à 8.70.
+
+|===

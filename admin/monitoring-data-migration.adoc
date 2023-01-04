@@ -1,0 +1,53 @@
+---
+permalink: admin/monitoring-data-migration.html 
+sidebar: sidebar 
+keywords:  
+summary: La migration des données doit être contrôlée et ajustée selon les besoins, pour garantir le placement des données conformément à la politique ILM dans les délais impartis. 
+---
+= Surveillance de la migration des données
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La migration des données doit être contrôlée et ajustée selon les besoins, pour garantir le placement des données conformément à la politique ILM dans les délais impartis.
+
+Ce tableau répertorie les attributs que vous devez contrôler lors de la migration des données, ainsi que les problèmes qu'ils représentent.
+
+Si vous utilisez des stratégies de classification du trafic avec des limites de taux pour accélérer l'entrée, vous pouvez surveiller le taux observé en conjonction avec les statistiques décrites dans le tableau suivant et réduire les limites si nécessaire.
+
+[cols="1a,2a"]
+|===
+| Superviser | Description 
+
+
+ a| 
+Nombre d'objets en attente de l'évaluation ILM
+ a| 
+. Sélectionnez *support* > *Outils* > *topologie de grille*.
+. Sélectionnez *_déploiement_* > *Présentation* > *main*.
+. Dans la section ILM Activity, surveillez le nombre d'objets affichés pour les attributs suivants :
++
+** *Attente - tous (XQUZ)*: Le nombre total d'objets en attente d'évaluation ILM.
+** *Attente - client (XCQZ)* : nombre total d'objets en attente d'évaluation ILM des opérations client (par exemple, transfert).
+
+
+. Si le nombre d'objets affichés pour l'un de ces attributs dépasse 100,000, réduisez la vitesse d'entrée des objets afin de réduire la charge sur le système StorageGRID.
+
+
+
+
+ a| 
+Capacité de stockage des systèmes d'archivage ciblés
+ a| 
+Si la règle ILM enregistre une copie des données migrées vers un système de stockage d'archives ciblé (bande ou cloud), surveillez la capacité du système de stockage d'archivage ciblé pour s'assurer que la capacité disponible est suffisante.
+
+
+
+ a| 
+*Archive Node* > *ARC* > *Store*
+ a| 
+Si une alarme pour l'attribut *Store Failures (ARVF)* est déclenchée, le système de stockage d'archives ciblé a peut-être atteint sa capacité. Vérifiez le système de stockage d'archives ciblé et résolvez tout problème ayant déclenché une alarme.
+
+|===

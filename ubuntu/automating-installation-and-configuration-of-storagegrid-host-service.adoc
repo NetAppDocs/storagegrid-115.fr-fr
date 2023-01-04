@@ -1,0 +1,35 @@
+---
+permalink: ubuntu/automating-installation-and-configuration-of-storagegrid-host-service.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Vous pouvez automatiser l"installation du service hôte StorageGRID à l"aide des frameworks d"orchestration standard tels qu"Ansible, Puppet, Chef, Fabric ou SaltStack.' 
+---
+= Automatisation de l'installation et de la configuration du service hôte StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez automatiser l'installation du service hôte StorageGRID à l'aide des frameworks d'orchestration standard tels qu'Ansible, Puppet, Chef, Fabric ou SaltStack.
+
+Le service hôte StorageGRID est fourni dans un DEO et est piloté par des fichiers de configuration prêts à l'avance (ou par programmation) pour permettre une installation automatisée. Si vous utilisez déjà une infrastructure d'orchestration standard pour installer et configurer Ubuntu ou Debian, l'ajout de StorageGRID à vos playbooks ou à vos recettes doit être simple.
+
+Vous pouvez automatiser ces tâches :
+
+. Installation de Linux
+. Configuration de Linux
+. Configuration des interfaces réseau de l'hôte pour répondre aux exigences StorageGRID
+. Configuration du stockage de l'hôte pour répondre aux exigences StorageGRID
+. Installation de Docker
+. Installation du service hôte StorageGRID
+. Création de fichiers de configuration de nœud StorageGRID dans `/etc/storagegrid/nodes`
+. Validation des fichiers de configuration de nœuds StorageGRID
+. Démarrage du service hôte StorageGRID
+
+
+
+
+== Exemple de rôle et de PlayBook Ansible
+
+Exemple de rôle et de manuel de vente Ansible sont fournis avec l'archive d'installation dans le dossier /extras. Le PlayBook Ansible présente la façon dont `storagegrid` Le rôle prépare les hôtes et installe StorageGRID sur les serveurs cibles. Vous pouvez personnaliser le rôle ou le PlayBook selon vos besoins.

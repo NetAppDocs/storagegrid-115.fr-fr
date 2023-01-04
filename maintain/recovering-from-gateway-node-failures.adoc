@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-gateway-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, gateway node failure 
+summary:  
+---
+= Restauration en cas de défaillance du nœud de passerelle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez effectuer une séquence de tâches afin de pouvoir effectuer une restauration suite à une défaillance du noeud de passerelle.
+
+image::../media/overview_api_gateway_node_recovery.png[Organigramme général de la restauration du nœud passerelle]
+
+.Informations associées
+link:../sg100-1000/index.html["SG100 etamp ; appareils de services SG1000"]
+
+.Étapes
+* link:replacing-gateway-node.html["Remplacement d'un nœud de passerelle"]
+* link:selecting-start-recovery-to-configure-gateway-node.html["Sélectionnez Démarrer la récupération pour configurer un noeud de passerelle"]
+

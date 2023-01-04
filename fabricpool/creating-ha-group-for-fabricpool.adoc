@@ -1,0 +1,40 @@
+---
+permalink: fabricpool/creating-ha-group-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, preferred master, backup interface 
+summary: 'Lorsque vous configurez StorageGRID pour une utilisation avec FabricPool, vous pouvez éventuellement créer un ou plusieurs groupes haute disponibilité \(HA\). Un groupe haute disponibilité comprend une ou plusieurs interfaces réseau sur des nœuds d"administration ou de passerelle, ou les deux.' 
+---
+= Création d'un groupe haute disponibilité pour FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous configurez StorageGRID pour une utilisation avec FabricPool, vous pouvez éventuellement créer un ou plusieurs groupes haute disponibilité (HA). Un groupe haute disponibilité comprend une ou plusieurs interfaces réseau sur des nœuds d'administration ou de passerelle, ou les deux.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer de l'autorisation accès racine.
+
+
+.Description de la tâche
+Chaque groupe haute disponibilité utilise des adresses IP virtuelles (VIP) pour fournir un accès haute disponibilité aux services partagés sur les nœuds associés.
+
+Pour plus d'informations sur cette tâche. voir link:../admin/managing-high-availability-groups.html["Gestion des groupes haute disponibilité"].
+
+.Étapes
+. Sélectionnez *Configuration* > *Paramètres réseau* > *groupes haute disponibilité*.
+. Sélectionnez une ou plusieurs interfaces réseau. Les interfaces réseau doivent appartenir au même sous-réseau sur le réseau Grid (eth0) ou sur le réseau client (eth2).
+. Attribuez un nœud à utiliser comme maître préféré.
++
+Le maître préféré est l'interface active, sauf en cas de défaillance qui entraîne la réaffectation des adresses VIP à une interface de sauvegarde.
+
+. Saisissez jusqu'à dix adresses IPv4 pour le groupe haute disponibilité.
++
+Les adresses doivent se trouver dans le sous-réseau IPv4 partagé par toutes les interfaces membres.
+
++
+image::../media/create_ha_group_for_fabricpool.png[Créer le groupe HA pour FabricPool]
+
+

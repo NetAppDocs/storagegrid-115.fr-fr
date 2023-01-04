@@ -1,0 +1,68 @@
+---
+permalink: rhel/considerations-and-recommendations-for-mac-address-cloning.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Le clonage d"adresses MAC fait en sorte que le conteneur Docker utilise l"adresse MAC de l"hôte et que l"hôte utilise l"adresse MAC d"une adresse que vous spécifiez ou d"une adresse générée de manière aléatoire. Vous devez utiliser le clonage d"adresses MAC pour éviter l"utilisation de configurations réseau en mode promiscuous.' 
+---
+= Considérations et recommandations relatives au clonage d'adresses MAC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le clonage d'adresses MAC fait en sorte que le conteneur Docker utilise l'adresse MAC de l'hôte et que l'hôte utilise l'adresse MAC d'une adresse que vous spécifiez ou d'une adresse générée de manière aléatoire. Vous devez utiliser le clonage d'adresses MAC pour éviter l'utilisation de configurations réseau en mode promiscuous.
+
+
+
+== Activation du clonage MAC
+
+Dans certains environnements, la sécurité peut être améliorée grâce au clonage d'adresses MAC car il vous permet d'utiliser une carte réseau virtuelle dédiée pour le réseau d'administration, le réseau Grid et le réseau client. Avoir le conteneur Docker utiliser l'adresse MAC de la carte réseau dédiée sur l'hôte vous permet d'éviter d'utiliser des configurations réseau en mode promiscuous.
+
+
+IMPORTANT: Le clonage d'adresses MAC est conçu pour être utilisé avec des installations de serveurs virtuels et peut ne pas fonctionner correctement avec toutes les configurations d'appliances physiques.
+
+
+NOTE: Si un nœud ne démarre pas en raison d'une interface ciblée de clonage MAC occupée, il peut être nécessaire de définir le lien sur « down » avant de démarrer le nœud. En outre, il est possible que l'environnement virtuel puisse empêcher le clonage MAC sur une interface réseau pendant que la liaison est active. Si un nœud ne parvient pas à définir l'adresse MAC et démarre en raison d'une interface en cours d'activité, il est possible que le problème soit résolu en définissant le lien sur « arrêté » avant de démarrer le nœud.
+
+Le clonage d'adresses MAC est désactivé par défaut et doit être défini par des clés de configuration de nœud. Vous devez l'activer lors de l'installation de StorageGRID.
+
+Il existe une clé pour chaque réseau :
+
+* `ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC`
+* `GRID_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC`
+* `CLIENT_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC`
+
+
+Si la clé est définie sur « true », le conteneur Docker utilise l'adresse MAC de la carte réseau de l'hôte. En outre, l'hôte utilisera ensuite l'adresse MAC du réseau de conteneurs spécifié. Par défaut, l'adresse de conteneur est une adresse générée de manière aléatoire, mais si vous en avez défini une à l'aide de l' `_NETWORK_MAC` clé de configuration de nœud, cette adresse est utilisée à la place. L'hôte et le conteneur auront toujours des adresses MAC différentes.
+
+
+IMPORTANT: L'activation du clonage MAC sur un hôte virtuel sans activer également le mode promiscuous sur l'hyperviseur peut entraîner la mise en réseau des hôtes Linux à l'aide de l'interface de l'hôte à cesser de fonctionner.
+
+
+
+== Cas d'utilisation du clonage MAC
+
+Il existe deux cas d'utilisation à prendre en compte pour le clonage MAC :
+
+* Le clonage MAC n'est pas activé : lorsque l' `_CLONE_MAC` Clé dans le fichier de configuration du nœud n'est pas définie ou définie sur « false », l'hôte utilise le MAC de la carte réseau hôte et le conteneur aura un MAC généré par StorageGRID, à moins qu'un MAC ne soit spécifié dans le `_NETWORK_MAC` clé. Si une adresse est définie dans le `_NETWORK_MAC` clé, l'adresse du conteneur sera spécifiée dans le `_NETWORK_MAC` clé. Cette configuration de clés nécessite l'utilisation du mode promiscuous.
+* Clonage MAC activé : lorsque le `_CLONE_MAC` La clé du fichier de configuration du nœud est définie sur « true », le conteneur utilise le MAC de la carte réseau de l'hôte et l'hôte utilise un MAC généré par StorageGRID, à moins qu'un MAC ne soit spécifié dans le `_NETWORK_MAC` clé. Si une adresse est définie dans le `_NETWORK_MAC` clé, l'hôte utilise l'adresse spécifiée au lieu d'une adresse générée. Dans cette configuration de clés, vous ne devez pas utiliser le mode promiscuous.
+
+
+
+NOTE: Si vous ne souhaitez pas utiliser le clonage d'adresses MAC et que toutes les interfaces puissent recevoir et transmettre des données pour des adresses MAC autres que celles attribuées par l'hyperviseur, Assurez-vous que les propriétés de sécurité aux niveaux de commutateur virtuel et de groupe de ports sont définies sur *Accept* pour le mode promiscuous, les changements d'adresse MAC et les transmissions forgées. Les valeurs définies sur le commutateur virtuel peuvent être remplacées par les valeurs au niveau du groupe de ports, de sorte que les paramètres soient les mêmes aux deux endroits.
+
+Pour activer le clonage MAC, reportez-vous à la section link:creating-node-configuration-files.html["instructions pour la création de fichiers de configuration de nœud"].
+
+
+
+== Exemple de clonage MAC
+
+Exemple de clonage MAC activé avec un hôte dont l'adresse MAC est 11:22:33:44:55:66 pour le groupe d'interface 256 et les clés suivantes dans le fichier de configuration de nœud :
+
+* `ADMIN_NETWORK_TARGET = ens256`
+* `ADMIN_NETWORK_MAC = b2:9c:02:c2:27:10`
+* `ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC = true`
+
+
+*Résultat*: L'hôte MAC pour en256 est b2:9c:02:c2:27:10 et l'Admin réseau MAC est 11:22:33:44:55:66

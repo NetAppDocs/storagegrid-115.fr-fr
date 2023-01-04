@@ -1,0 +1,159 @@
+---
+permalink: sg5700/storagegrid-appliance-overview.html 
+sidebar: sidebar 
+keywords: storagegrid, sg5700, storage node, storage appliance, overview, models, features 
+summary: 'L"appliance SG5700 StorageGRID est une plateforme de calcul et de stockage intégrée qui fonctionne comme un nœud de stockage dans un grid StorageGRID. L"appliance peut être utilisée dans un environnement de grid hybride qui combine des nœuds de stockage d"appliance et des nœuds de stockage virtuels \(basés sur logiciel\).' 
+---
+= Présentation de l'appliance StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'appliance SG5700 StorageGRID est une plateforme de calcul et de stockage intégrée qui fonctionne comme un nœud de stockage dans un grid StorageGRID. L'appliance peut être utilisée dans un environnement de grid hybride qui combine des nœuds de stockage d'appliance et des nœuds de stockage virtuels (basés sur logiciel).
+
+L'appliance StorageGRID SG5700 présente plusieurs fonctionnalités :
+
+* Intègre les éléments de calcul et de stockage d'un nœud de stockage StorageGRID.
+* Inclut le programme d'installation de l'appliance StorageGRID pour simplifier le déploiement et la configuration des nœuds de stockage.
+* Inclut E-Series SANtricity System Manager pour la gestion et le contrôle du matériel.
+* Prend en charge jusqu'à quatre connexions 10 GbE ou 25 GbE au réseau Grid et au réseau client StorageGRID.
+* Prise en charge des disques FDE (Full Disk Encryption) ou FIPS (Federal information Processing Standard). Lorsque ces disques sont utilisés avec la fonction de sécurité des disques dans SANtricity System Manager, l'accès non autorisé aux données n'est pas autorisé.
+
+
+L'appliance SG5700 est disponible en deux modèles : le SG5712 et le SG5760. Les deux modèles comprennent les composants suivants :
+
+|===
+| Composant | SG5712 | SG5760 
+
+
+ a| 
+Contrôleur de calcul
+ a| 
+Contrôleur E5700SG
+ a| 
+Contrôleur E5700SG
+
+
+
+ a| 
+Contrôleur de stockage
+ a| 
+Contrôleur E-Series E2800
+ a| 
+Contrôleur E-Series E2800
+
+
+
+ a| 
+Châssis
+ a| 
+Boîtier E-Series DE212C, boîtier de deux unités de rack (2U)
+ a| 
+Boîtier E-Series DE460C, boîtier 4U
+
+
+
+ a| 
+Disques
+ a| 
+12 disques NL-SAS (3.5 pouces)
+ a| 
+60 disques NL-SAS (3.5 pouces)
+
+
+
+ a| 
+Alimentations et ventilateurs redondants
+ a| 
+Deux blocs d'alimentation
+ a| 
+Deux blocs d'alimentation et deux blocs d'alimentation
+
+|===
+La capacité de stockage brute maximale disponible dans l'appliance StorageGRID est fixe, en fonction du nombre de disques de chaque armoire. Vous ne pouvez pas étendre le stockage disponible en ajoutant un tiroir comportant des disques supplémentaires.
+
+
+
+== Modèle SG5712
+
+Cette figure illustre l'avant et l'arrière du modèle SG5712, un boîtier 2U qui peut accueillir 12 disques.
+
+image::../media/sg5712_front_and_back_views.gif[À l'avant et à l'arrière de l'appareil SG5712]
+
+Le SG5712 comprend deux contrôleurs et deux blocs d'alimentation.
+
+image::../media/sg5712_with_callouts.gif[Contrôleurs et blocs d'alimentation de l'appliance SG5712]
+
+[cols="1a,5a"]
+|===
+|  | Description 
+
+
+ a| 
+1
+ a| 
+Contrôleur E2800 (contrôleur de stockage)
+
+
+
+ a| 
+2
+ a| 
+Contrôleur E5700SG (contrôleur de calcul)
+
+
+
+ a| 
+3
+ a| 
+Blocs d'alimentation
+
+|===
+
+
+== Modèle SG5760
+
+Cette figure illustre l'avant et l'arrière du modèle SG5760, un boîtier 4U qui peut accueillir 60 disques dans des tiroirs de 5 disques.
+
+image::../media/sg5760_front_and_back_views.gif[Avant et arrière de l'appliance SG5760]
+
+Le SG5760 inclut deux contrôleurs, deux blocs de ventilation et deux blocs d'alimentation.
+
+image::../media/sg5760_with_callouts.gif[Contrôleurs,fan canisters,and power canisters in SG5760 appliance]
+
+[cols="1a,5a"]
+|===
+|  | Description 
+
+
+ a| 
+1
+ a| 
+Contrôleur E2800 (contrôleur de stockage)
+
+
+
+ a| 
+2
+ a| 
+Contrôleur E5700SG (contrôleur de calcul)
+
+
+
+ a| 
+3
+ a| 
+Cartouche de ventilateur (1 sur 2)
+
+
+
+ a| 
+4
+ a| 
+Boîtier de puissance (1 sur 2)
+
+|===
+.Informations associées
+http://mysupport.netapp.com/info/web/ECMP1658252.html["Site de documentation sur les systèmes NetApp E-Series"^]

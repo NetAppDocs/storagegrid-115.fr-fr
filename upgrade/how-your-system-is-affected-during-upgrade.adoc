@@ -1,0 +1,77 @@
+---
+permalink: upgrade/how-your-system-is-affected-during-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, firmware, appliance, alert 
+summary: Vous devez comprendre en quoi votre système StorageGRID sera affecté lors de la mise à niveau. 
+---
+= Quel est l'impact de votre système pendant la mise à niveau
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez comprendre en quoi votre système StorageGRID sera affecté lors de la mise à niveau.
+
+
+
+== Les mises à niveau de StorageGRID ne générant pas de perturbation
+
+Le système StorageGRID peut ingérer et récupérer les données depuis les applications client tout au long du processus de mise à niveau. Les nœuds de grid sont mis hors service un par un lors de la mise à niveau. Il n'y a donc pas de temps lorsque tous les nœuds de grid sont indisponibles.
+
+Pour assurer une disponibilité continue, vérifiez que les objets sont stockés de manière redondante avec les règles ILM appropriées. Vous devez également vous assurer que tous les clients S3 ou Swift externes sont configurés pour envoyer des demandes à l'un des éléments suivants :
+
+* Terminal StorageGRID configuré comme groupe haute disponibilité
+* Équilibreur de charge tiers haute disponibilité
+* Plusieurs nœuds de passerelle pour chaque client
+* Plusieurs nœuds de stockage pour chaque client
+
+
+
+
+== Le micrologiciel de l'appliance est mis à niveau
+
+Lors de la mise à niveau vers StorageGRID 11.5 :
+
+* Tous les nœuds d'appliance StorageGRID sont automatiquement mis à niveau vers la version 3.5 du firmware du programme d'installation de l'appliance StorageGRID.
+* Les appliances SG6060 et SGF6024 sont automatiquement mises à niveau vers la version 3B03.EX du firmware du BIOS et la version BMC 3.90.07 du micrologiciel.
+* Les appareils SG100 et SG1000 sont automatiquement mis à niveau vers la version 3B08.EC du micrologiciel du BIOS et la version 4.64.07 du microprogramme du BMC.
+
+
+
+
+== Il est possible que des alertes soient déclenchées
+
+Des alertes peuvent être déclenchées lorsque les services démarrent et s'arrêtent, et lorsque le système StorageGRID fonctionne comme un environnement de version mixte (certains nœuds de grid exécutant une version antérieure, alors que d'autres ont été mis à niveau vers une version plus récente). Par exemple, l'alerte *Impossible de communiquer avec le nœud* lorsque les services sont arrêtés, ou l'alerte *Cassandra communication error* s'affiche lorsque certains nœuds ont été mis à niveau vers StorageGRID 11.5 mais que d'autres nœuds exécutent toujours StorageGRID 11.4.
+
+En général, ces alertes s'efface une fois la mise à niveau terminée.
+
+Une fois la mise à niveau terminée, vous pouvez consulter les alertes relatives à la mise à niveau en sélectionnant *alertes récemment résolues* dans le tableau de bord de Grid Manager.
+
+
+NOTE: Lors de la mise à niveau vers StorageGRID 11.5, l'alerte *placement ILM inaccessible* peut être déclenchée lorsque les nœuds de stockage sont arrêtés. Cette alerte peut persister 1 jour après la fin de la mise à niveau.
+
+
+
+== De nombreuses notifications SNMP sont générées
+
+Notez que de nombreuses notifications SNMP peuvent être générées lorsque les nœuds de la grille sont arrêtés et redémarrés lors de la mise à niveau. Pour éviter des notifications excessives, décochez la case *Activer les notifications d'agent SNMP* (*Configuration* > *surveillance* > *agent SNMP*) pour désactiver les notifications SNMP avant de démarrer la mise à niveau. Ensuite, réactivez les notifications une fois la mise à niveau terminée.
+
+
+
+== Les modifications de configuration sont restreintes
+
+Jusqu'à la fin de la tâche *Activer la nouvelle fonction* :
+
+* Ne modifiez pas la configuration de la grille.
+* Ne modifiez pas la configuration du niveau d'audit.
+* N'activez ni ne désactivez aucune nouvelle fonction.
+* Ne mettez pas à jour la configuration ILM. Sinon, vous risquez d'avoir un comportement ILM incohérent et inattendu.
+* N'appliquez pas de correctif ou ne restaurez pas un nœud de grille.
+
+
+Jusqu'à la fin de la tâche *étapes de mise à niveau finale* :
+
+* Ne pas effectuer de procédure d'expansion.
+* Ne pas effectuer de procédure de mise hors service.
+

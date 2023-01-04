@@ -1,0 +1,31 @@
+---
+permalink: monitor/viewing-hardware-tab.html 
+sidebar: sidebar 
+keywords: hardware tab 
+summary: 'L"onglet matériel affiche l"utilisation du CPU et de la mémoire pour chaque nœud, ainsi que des informations supplémentaires sur le matériel des appliances.' 
+---
+= Affichage de l'onglet matériel
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+L'onglet matériel affiche l'utilisation du CPU et de la mémoire pour chaque nœud, ainsi que des informations supplémentaires sur le matériel des appliances.
+
+L'onglet matériel s'affiche pour tous les nœuds.
+
+image::../media/nodes_page_hardware_tab_graphs.png[Onglet matériel de la page nœuds]
+
+Pour afficher un intervalle de temps différent, sélectionnez l'une des commandes au-dessus du graphique ou du graphique. Vous pouvez afficher les informations disponibles pour les intervalles de 1 heure, 1 jour, 1 semaine ou 1 mois. Vous pouvez également définir un intervalle personnalisé, qui vous permet de spécifier des plages de date et d'heure.
+
+Pour obtenir des détails sur l'utilisation du CPU et de la mémoire, passez le curseur sur chaque graphique.
+
+image::../media/nodes_page_memory_usage_details.png[Page noeuds > matériel > Détails de l'utilisation de la mémoire]
+
+Si le nœud est un nœud d'appliance, cet onglet inclut également une section contenant des informations supplémentaires sur le matériel de l'appliance.
+
+.Informations associées
+link:viewing-information-about-appliance-storage-nodes.html["Affichage des informations sur les nœuds de stockage de l'appliance"]
+
+link:viewing-information-about-appliance-admin-nodes-and-gateway-nodes.html["Affichage des informations sur les nœuds d'administration de l'appliance et les nœuds de passerelle"]

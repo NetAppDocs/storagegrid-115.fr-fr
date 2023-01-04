@@ -1,0 +1,25 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords:  
+summary: Découvrez comment appliquer un correctif, récupérer un nœud de grille défaillant, désaffecter les nœuds et les sites de la grille et récupérer les objets en cas de défaillance du système. 
+---
+= Gérer la restauration
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Découvrez comment appliquer un correctif, récupérer un nœud de grille défaillant, désaffecter les nœuds et les sites de la grille et récupérer les objets en cas de défaillance du système.
+
+* link:introduction-to-storagegrid-recovery-and-maintenance.html["Introduction à la restauration et à la maintenance StorageGRID"]
+* link:storagegrid-hotfix-procedure.html["Procédure de correctif StorageGRID"]
+* link:grid-node-recovery-procedures.html["Procédures de restauration des nœuds de la grille"]
+* link:how-site-recovery-is-performed-by-technical-support.html["Comment la reprise sur site est effectuée par le support technique"]
+* link:decommission-procedure.html["Procédure de mise hors service"]
+* link:network-maintenance-procedures.html["Procédures de maintenance du réseau"]
+* link:host-level-and-middleware-procedures.html["Procédures au niveau de l'hôte et du middleware"]
+* link:grid-node-procedures.html["Procédures des nœuds de la grille"]
+* link:appliance-node-cloning.html["Clonage de nœuds d'appliance"]
+

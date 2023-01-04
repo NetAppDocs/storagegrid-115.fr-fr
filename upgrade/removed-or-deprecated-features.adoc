@@ -1,0 +1,227 @@
+---
+permalink: upgrade/removed-or-deprecated-features.html 
+sidebar: sidebar 
+keywords: features, removed, deprecated, weak consistency, compliance 
+summary: Certaines fonctionnalités ont été supprimées ou obsolètes dans StorageGRID 11.5. Vous devez vérifier ces éléments pour savoir si vous devez mettre à jour les applications client ou modifier votre configuration avant de procéder à la mise à niveau. 
+---
+= Fonctions supprimées ou obsolètes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Certaines fonctionnalités ont été supprimées ou obsolètes dans StorageGRID 11.5. Vous devez vérifier ces éléments pour savoir si vous devez mettre à jour les applications client ou modifier votre configuration avant de procéder à la mise à niveau.
+
+
+
+== Contrôle de cohérence faible supprimé
+
+Le contrôle de cohérence faible a été supprimé pour StorageGRID 11.5. Après la mise à niveau, les comportements suivants s'appliquent :
+
+* Les demandes de définition de la cohérence faible d'un compartiment S3 ou d'un conteneur Swift bénéficieront des résultats, mais le niveau de cohérence sera réellement défini sur disponible.
+* Les godets et conteneurs existants qui utilisent une faible cohérence seront mis à jour silencieusement pour utiliser la cohérence disponible.
+* Les demandes qui disposent d'un en-tête de contrôle de cohérence faible utiliseront la cohérence disponible, le cas échéant.
+
+
+Le contrôle de cohérence disponible se comporte de la même manière que le niveau de cohérence « en cas de nouvelle écriture », mais fournit uniquement une cohérence éventuelle pour les opérations DE TÊTE. Le contrôle de cohérence disponible offre une meilleure disponibilité pour les opérations HEAD que « en cas d'indisponibilité des nœuds de stockage ».
+
+
+
+== Alarme pour la santé de la grille obsolète
+
+Le `/grid/health/topology` L'API, qui recherche les _alarmes_ actives sur les nœuds, est obsolète. À sa place, un nouveau `/grid/node-health` le noeud final a été ajouté. Cette API renvoie l'état actuel de chaque nœud en vérifiant l'état actif _Alerts_ sur les nœuds.
+
+
+
+== Fonction de conformité obsolète
+
+La fonction de verrouillage d'objet S3 dans StorageGRID 11.5 remplace la fonction de conformité disponible dans les versions précédentes de StorageGRID. La nouvelle fonctionnalité de verrouillage d'objet S3 respecte les exigences Amazon S3. Elle déconseille donc la fonctionnalité propriétaire de conformité StorageGRID, appelée désormais « conformité héritée ».
+
+Si vous avez précédemment activé le paramètre de conformité globale, le nouveau paramètre global de verrouillage d'objet S3 est automatiquement activé lorsque vous effectuez une mise à niveau vers StorageGRID 11.5. Les utilisateurs locataires ne pourront plus créer de compartiments avec la conformité activée dans StorageGRID. Toutefois, selon les besoins, les utilisateurs locataires peuvent continuer à utiliser et à gérer les compartiments conformes existants.
+
+Dans le Gestionnaire de locataires, une icône de bouclier image:../media/icon_shield.png["Icône de bouclier"] Indique un compartiment conforme existant. Les compartiments conformes existants peuvent également comporter un badge de conservation image:../media/hold_badge.png["Conserver la badge"] pour indiquer que le godet est sous une retenue légale.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Ko : comment gérer les compartiments conformes aux anciennes dans StorageGRID 11.5"^]
+
+link:../ilm/index.html["Gestion des objets avec ILM"]
+
+
+
+== Alerte "partie en plusieurs parties trop petite" supprimée
+
+L'alerte *partie en plusieurs parties S3 trop petite* a été supprimée. Précédemment, cette alerte a été déclenchée lorsqu'un client S3 a tenté de procéder à un téléchargement partitionné avec des pièces qui ne respectent pas les limites de taille Amazon S3. Après la mise à niveau vers StorageGRID 11.5, toutes les demandes de téléchargement partitionné qui ne respectent pas les limites de taille suivantes échouent :
+
+* Chaque partie d'un téléchargement partitionné doit être comprise entre 5 Mio (5,242,880 octets) et 5 Gio (5,368,709,120 octets).
+* La dernière partie peut être inférieure à 5 Mio (5,242,880 octets).
+* En général, la taille des pièces doit être la plus grande possible. Par exemple, utilisez une taille de pièce de 5 Gio pour un objet de 100 Gio. Comme chaque pièce est considérée comme un objet unique, l'utilisation de grandes tailles de pièce réduit la surcharge des métadonnées StorageGRID.
+* Pour les objets de moins de 5 Gio, envisagez l'utilisation de téléchargement non partitionné.
+
+
+
+
+== Alertes « lien appliance vers le réseau Grid » supprimées
+
+Les alertes suivantes ont été supprimées. Si le réseau Grid est en panne, les mesures qui déclencherait ces alertes ne sont pas accessibles :
+
+* Liaison de l'appliance de services sur le réseau Grid
+* Lien du dispositif de stockage sur le réseau Grid
+
+
+
+
+== Prise en charge du nom de domaine complet supprimé de la configuration SNMP
+
+Lors de la configuration d'un serveur SNMP dans le contrôleur de gestion de la carte mère (BMC) pour le SG6000, SG100 ou SG1000, vous devez maintenant spécifier une adresse IP au lieu d'un nom de domaine complet. Si un nom de domaine complet a été configuré au préalable, remplacez-le par une adresse IP avant de procéder à la mise à niveau vers StorageGRID 11.5.
+
+
+
+== Attributs existants supprimés
+
+Les attributs hérités suivants ont été supprimés. Le cas échéant, des informations équivalentes sont fournies par des metrics de Prometheus :
+
+[cols="1a,2a"]
+|===
+| Attribut hérité | Metric équivalent de Prometheus 
+
+
+ a| 
+BREC
+ a| 
+octets_réseau_service_storagegrid_reçus_netapp
+
+
+
+ a| 
+BTRA
+ a| 
+octets_réseau_service_storagegrid_transmis_netapp
+
+
+
+ a| 
+CQST
+ a| 
+storagegrid_metadata_requêtes_moyenne_latence_millisecondes
+
+
+
+ a| 
+HAS
+ a| 
+storagegrid_http_sessions_entrant_tenté
+
+
+
+ a| 
+HCS
+ a| 
+storagegrid_http_sessions_entrant_actuellement_établi
+
+
+
+ a| 
+HEI
+ a| 
+storagegrid_http_sessions_incoming_failed
+
+
+
+ a| 
+HISC
+ a| 
+storagegrid_http_sessions_entrant_réussi
+
+
+
+ a| 
+LHAC
+ a| 
+_aucun_
+
+
+
+ a| 
+NREC
+ a| 
+_aucun_
+
+
+
+ a| 
+NTSO (décalage de la source de temps choisie)
+ a| 
+storagegrid_ntp_choisi_source_temps_offset_millisecondes
+
+
+
+ a| 
+NTRA
+ a| 
+_aucun_
+
+
+
+ a| 
+SLOD
+ a| 
+charge_service_storagegrid
+
+
+
+ a| 
+SMEM
+ a| 
+octets_usage_mémoire_service_storagegrid
+
+
+
+ a| 
+SUTM
+ a| 
+storagegrid_service_cpu_secondes
+
+
+
+ a| 
+SVUT
+ a| 
+temps_disponibilité_service_storagegrid_secondes
+
+
+
+ a| 
+TRBS (nombre total de bits par seconde reçus)
+ a| 
+_aucun_
+
+
+
+ a| 
+TRXB
+ a| 
+storagegrid_réseau_reçu_octets
+
+
+
+ a| 
+TTBS (nombre total de bits transmis par seconde)
+ a| 
+_aucun_
+
+
+
+ a| 
+TTXB
+ a| 
+octets_réseau_transmis_storagegrid
+
+|===
+Les modifications connexes suivantes ont également été apportées :
+
+* Le `network_received_bytes` et `network_transmitted_bytes` Les mesures Prometheus ont été modifiées de jauges en compteurs, car les valeurs de ces metrics n'augmentent que. Si vous utilisez actuellement ces metrics dans des requêtes Prometheus, vous devez commencer par le `increase()` fonction dans la requête.
+* Le tableau Ressources réseau a été supprimé de l'onglet Ressources des services StorageGRID. (Sélectionnez *support* > *Outils* > *topologie de grille*. Sélectionnez ensuite *_node_* > *_service_* > *Ressources*.)
+* La page sessions HTTP a été supprimée pour les nœuds de stockage. Auparavant, vous pouvez accéder à cette page en sélectionnant *support* > *Outils* > *topologie de grille*, puis en sélectionnant *_Storage Node_* > *LDR* > *HTTP*.
+* L'alarme HCS (sessions entrantes actuellement établies) a été supprimée.
+* L'alarme NTSO (décalage de la source de temps choisi) a été supprimée.
+

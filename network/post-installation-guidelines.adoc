@@ -1,0 +1,43 @@
+---
+permalink: network/post-installation-guidelines.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Une fois le déploiement et la configuration des nœuds de la grille effectués, suivez ces instructions pour l"adressage DHCP et les modifications de configuration réseau.' 
+---
+= Instructions de post-installation
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois le déploiement et la configuration des nœuds de la grille effectués, suivez ces instructions pour l'adressage DHCP et les modifications de configuration réseau.
+
+* Si DHCP était utilisé pour attribuer des adresses IP, configurez une réservation DHCP pour chaque adresse IP sur les réseaux utilisés.
++
+Vous ne pouvez configurer DHCP que pendant la phase de déploiement. Vous ne pouvez pas configurer DHCP pendant la configuration.
+
++
+
+IMPORTANT: Les nœuds redémarrent lors de la modification de leurs adresses IP, ce qui peut entraîner des pannes si une modification d'adresse DHCP affecte plusieurs nœuds simultanément.
+
+* Vous devez utiliser les procédures Modifier IP pour modifier les adresses IP, les masques de sous-réseau et les passerelles par défaut pour un noeud de grille. Reportez-vous aux informations sur la configuration des adresses IP dans les instructions de récupération et de maintenance.
+* Si vous modifiez la configuration réseau, y compris le routage et les modifications de passerelle, la connectivité client au nœud d'administration principal et à d'autres nœuds de la grille risque d'être perdue. En fonction des modifications de mise en réseau appliquées, vous devrez peut-être rétablir ces connexions.
+
+
+.Informations associées
+link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
+
+link:../ubuntu/index.html["Installez Ubuntu ou Debian"]
+
+link:../vmware/index.html["Installez VMware"]
+
+link:../sg100-1000/index.html["SG100 etamp ; appareils de services SG1000"]
+
+link:../sg6000/index.html["Dispositifs de stockage SG6000"]
+
+link:../sg5700/index.html["Appliances de stockage SG5700"]
+
+link:../sg5600/index.html["Appliances de stockage SG5600"]
+
+link:../maintain/index.html["Maintenance et récupération"]

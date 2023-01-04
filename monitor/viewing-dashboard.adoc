@@ -1,0 +1,119 @@
+---
+permalink: monitor/viewing-dashboard.html 
+sidebar: sidebar 
+keywords:  
+summary: 'Lorsque vous vous connectez à Grid Manager pour la première fois, vous pouvez utiliser le tableau de bord pour surveiller en un coup d"œil les activités du système. Le tableau de bord inclut des informations sur l"état du système, les mesures d"utilisation, les tendances et les graphiques opérationnels.' 
+---
+= Affichage du tableau de bord
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous vous connectez à Grid Manager pour la première fois, vous pouvez utiliser le tableau de bord pour surveiller en un coup d'œil les activités du système. Le tableau de bord inclut des informations sur l'état du système, les mesures d'utilisation, les tendances et les graphiques opérationnels.
+
+image::../media/grid_manager_dashboard.png[Tableau de bord de Grid Manager]
+
+
+
+== Panneau Santé
+
+|===
+| Description | Afficher les détails supplémentaires | En savoir plus >> 
+
+
+ a| 
+Récapitule l'état de santé du système. Une coche verte indique qu'il n'y a pas d'alerte en cours et que tous les nœuds de la grille sont connectés. Toute autre icône indique qu'au moins un nœud est en cours d'alerte ou déconnecté.
+ a| 
+Un ou plusieurs des liens suivants peuvent s'afficher :
+
+* *Détails de la grille* : apparaît si des nœuds sont déconnectés (état de connexion inconnu ou administratif). Cliquez sur le lien ou cliquez sur l'icône bleue ou grise pour déterminer le ou les nœuds concernés.
+* *Alertes actuelles* : s'affiche si des alertes sont actuellement actives. Cliquez sur le lien ou cliquez sur *critique*, *majeur* ou *mineur* pour voir les détails sur la page *alertes* > *courant*.
+* *Alertes récemment résolues*: Apparaît si les alertes déclenchées la semaine dernière sont maintenant résolues. Cliquez sur le lien pour voir les détails sur la page *alertes* > *résolu*.
+* *Alarmes héritées* : s'affiche si des alarmes (système hérité) sont actuellement actives. Cliquez sur le lien pour afficher les détails sur la page *support* > *alarmes (hérité)* > *alarmes actuelles*.
+* *Licence* : s'affiche en cas de problème avec la licence logicielle de ce système StorageGRID. Cliquez sur le lien pour afficher les détails sur la page *Maintenance* > *système* > *Licence*.
+
+ a| 
+* link:monitoring-node-connection-states.html["Contrôle de l'état de connexion du nœud"]
+* link:viewing-current-alerts.html["Affichage des alertes en cours"]
+* link:viewing-resolved-alerts.html["Affichage des alertes résolues"]
+* link:viewing-legacy-alarms.html["Affichage des anciennes alarmes"]
+* link:../admin/index.html["Administrer StorageGRID"]
+
+
+|===
+
+
+== Panneau stockage disponible
+
+|===
+| Description | Afficher les détails supplémentaires | En savoir plus >> 
+
+
+ a| 
+Affiche la capacité de stockage disponible et utilisée dans toute la grille, sans compter les supports d'archivage.
+
+Le graphique global présente les totaux à l'échelle de la grille. S'il s'agit d'une grille multisite, des graphiques supplémentaires apparaissent pour chaque site de centre de données.
+
+Vous pouvez utiliser ces informations pour comparer le stockage utilisé avec le stockage disponible. Si vous disposez d'une grille multisite, vous pouvez déterminer quel site consomme plus de stockage.
+ a| 
+* Pour afficher la capacité, placez le curseur sur les sections capacité disponible et capacité utilisée du graphique.
+* Pour afficher les tendances de capacité sur une plage de dates, cliquez sur l'icône du graphique image:../media/icon_chart_new.gif["Icône de graphique"] pour la grille globale ou pour un site de data center.
+* Pour afficher les détails, sélectionnez *nœuds*. Ensuite, affichez l'onglet stockage de la grille entière, d'un site entier ou d'un nœud de stockage unique.
+
+ a| 
+* link:viewing-storage-tab.html["Affichage de l'onglet stockage"]
+* link:monitoring-storage-capacity.html["Contrôle de la capacité de stockage"]
+
+
+|===
+
+
+== Panneau gestion du cycle de vie des informations (ILM)
+
+|===
+| Description | Afficher les détails supplémentaires | En savoir plus >> 
+
+
+ a| 
+Affiche les opérations ILM actuelles et les files d'attente ILM de votre système. Vous pouvez utiliser ces informations pour surveiller la charge de travail de votre système.
+
+* *Attente - client* : nombre total d'objets en attente d'évaluation ILM à partir des opérations client (par exemple, ingestion).
+* *Attente - taux d'évaluation* : taux actuel auquel les objets sont évalués par rapport à la politique ILM de la grille.
+* *Période d'acquisition - estimé* : temps estimé pour effectuer une analyse ILM complète de tous les objets. *Note:* Une analyse complète ne garantit pas que ILM a été appliquée à tous les objets.
+
+ a| 
+* Pour afficher les détails, sélectionnez *nœuds*. Affichez ensuite l'onglet ILM de la grille complète, un site entier ou un nœud de stockage unique.
+* Pour afficher les règles ILM existantes, sélectionnez *ILM* > *règles*.
+* Pour afficher les règles ILM existantes, sélectionnez *ILM* > *Policies*.
+
+ a| 
+* link:viewing-ilm-tab.html["Affichage de l'onglet ILM"]
+* link:../admin/index.html["Administrer StorageGRID"].
+
+
+|===
+
+
+== Panneau Protocol Operations
+
+|===
+| Description | Afficher les détails supplémentaires | En savoir plus >> 
+
+
+ a| 
+Affiche le nombre d'opérations spécifiques au protocole (S3 et Swift) effectuées par votre système.
+
+Vous pouvez utiliser ces informations pour surveiller les charges de travail et l'efficacité de votre système. La moyenne des débits de protocole est calculée au cours des deux dernières minutes.
+ a| 
+* Pour afficher les détails, sélectionnez *nœuds*. Ensuite, affichez l'onglet objets de la grille entière, d'un site entier ou d'un nœud de stockage unique.
+* Pour afficher les tendances sur une plage de dates, cliquez sur l'icône graphique image:../media/icon_chart_new.gif["Icône de graphique"] À droite du débit du protocole S3 ou Swift.
+
+ a| 
+* link:viewing-objects-tab.html["Affichage de l'onglet objets"]
+* link:../s3/index.html["Utilisation de S3"]
+* link:../swift/index.html["Utiliser Swift"]
+
+
+|===

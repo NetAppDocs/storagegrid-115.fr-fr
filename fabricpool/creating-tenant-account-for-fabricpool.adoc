@@ -1,0 +1,43 @@
+---
+permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, tenant, SSO 
+summary: Vous devez créer un compte de tenant dans le Grid Manager pour utilisation FabricPool. 
+---
+= Création d'un compte de locataire pour FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez créer un compte de tenant dans le Grid Manager pour utilisation FabricPool.
+
+.Ce dont vous avez besoin
+* Vous devez être connecté à Grid Manager à l'aide d'un navigateur pris en charge.
+* Vous devez disposer d'autorisations d'accès spécifiques.
+
+
+.Description de la tâche
+Les comptes de locataire permettent aux applications client de stocker et de récupérer des objets sur StorageGRID. Chaque compte locataire possède son propre ID de compte, groupes et utilisateurs autorisés, compartiments et objets.
+
+Vous pouvez utiliser le même compte de locataire pour plusieurs clusters ONTAP. Vous pouvez également créer un compte de locataire dédié pour chaque cluster ONTAP, selon les besoins.
+
+[NOTE]
+====
+Ces instructions supposent que vous avez configuré l'authentification unique (SSO) pour Grid Manager. Si vous n'utilisez pas SSO, utilisez les instructions de link:../admin/creating-tenant-account-if-storagegrid-is-not-using-sso.html["Création d'un compte de locataire si StorageGRID n'utilise pas SSO"].
+
+====
+.Étapes
+. Sélectionnez *locataires*.
+. Sélectionnez *Créer*.
+. Entrez un nom d'affichage pour le compte de tenant FabricPool.
+. Sélectionnez *S3*.
+. Laissez la case à cocher *Autoriser les services de plate-forme* sélectionnée pour activer l'utilisation des services de plate-forme.
++
+Si les services de plateforme sont activés, un locataire peut utiliser des fonctionnalités, telles que la réplication CloudMirror, qui accèdent aux services externes.
+
+. Laissez le champ *quota de stockage* vide.
+. Dans le champ *Root Access Group*, sélectionnez un groupe fédéré existant dans le gestionnaire de grille pour obtenir l'autorisation d'accès racine initiale pour le locataire.
+. Sélectionnez *Enregistrer*.
+

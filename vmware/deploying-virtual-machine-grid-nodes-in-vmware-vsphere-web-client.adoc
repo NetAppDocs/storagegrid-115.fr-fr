@@ -1,0 +1,28 @@
+---
+permalink: vmware/deploying-virtual-machine-grid-nodes-in-vmware-vsphere-web-client.html 
+sidebar: sidebar 
+keywords: storagegrid, deploying grid nodes, deploy grid nodes, vsphere, vsphere web client 
+summary: 'Vous utilisez le client Web VMware vSphere pour déployer chaque nœud de grid en tant que machine virtuelle. Pendant le déploiement, chaque nœud de grille est créé et connecté à un ou plusieurs réseaux. Si vous avez besoin de déployer des nœuds de stockage d"appliance StorageGRID, reportez-vous aux instructions d"installation et de maintenance de l"appliance après le déploiement de tous les nœuds grid de machine virtuelle.' 
+---
+= Déploiement de nœuds grid de machine virtuelle dans le client Web VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous utilisez le client Web VMware vSphere pour déployer chaque nœud de grid en tant que machine virtuelle. Pendant le déploiement, chaque nœud de grille est créé et connecté à un ou plusieurs réseaux. Si vous avez besoin de déployer des nœuds de stockage d'appliance StorageGRID, reportez-vous aux instructions d'installation et de maintenance de l'appliance après le déploiement de tous les nœuds grid de machine virtuelle.
+
+* link:collecting-information-about-your-deployment-environment.html["Collecte d'informations sur votre environnement de déploiement"]
+* link:how-grid-nodes-discover-primary-admin-node.html["Mode de détection des nœuds du grid sur le nœud d'administration principal"]
+* link:deploying-storagegrid-node-as-virtual-machine.html["Déploiement d'un nœud StorageGRID en tant que machine virtuelle"]
+
+
+.Informations associées
+link:../sg100-1000/index.html["SG100 etamp ; appareils de services SG1000"]
+
+link:../sg5600/index.html["Appliances de stockage SG5600"]
+
+link:../sg5700/index.html["Appliances de stockage SG5700"]
+
+link:../sg6000/index.html["Dispositifs de stockage SG6000"]
