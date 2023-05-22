@@ -38,7 +38,7 @@ NOTE: Cette procédure met automatiquement à niveau la NVSRAM vers la version l
 Veillez à choisir la version de SANtricity OS adaptée aux contrôleurs de stockage de votre appliance. SG6060 utilise le contrôleur E2800 et le SGF6024 utilise le contrôleur EF570.
 
 +
-https://mysupport.netapp.com/site/products/all/details/eseries-santricityos/downloads-tab["Téléchargements NetApp pour SANtricity OS"^]
+https://["Téléchargements NetApp pour SANtricity OS"^]
 
 . Connectez-vous au Grid Manager à l'aide d'un navigateur pris en charge.
 . Sélectionnez *Maintenance*. Ensuite, dans la section système du menu, sélectionnez *mise à jour du logiciel*.
@@ -177,6 +177,6 @@ NOTE: Pour les nœuds avec un état de nécessite une intervention, utilisez le 
 
 
 .Informations associées
-https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^]
+https://["Matrice d'interopérabilité NetApp"^]
 
 link:upgrading-santricity-os-on-storage-controllers-using-maintenance-mode-sg6000.html["Mise à niveau de SANtricity OS sur les contrôleurs de stockage via le mode de maintenance"]

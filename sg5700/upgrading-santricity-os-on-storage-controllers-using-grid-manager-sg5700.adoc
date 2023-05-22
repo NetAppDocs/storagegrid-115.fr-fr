@@ -38,7 +38,7 @@ NOTE: Cette procédure met automatiquement à niveau la NVSRAM vers la version l
 Veillez à choisir la version de SANtricity OS pour les contrôleurs de stockage E2800.
 
 +
-https://mysupport.netapp.com/site/products/all/details/eseries-santricityos/downloads-tab["Téléchargements NetApp pour SANtricity OS"^]
+https://["Téléchargements NetApp pour SANtricity OS"^]
 
 . Connectez-vous au Grid Manager à l'aide d'un navigateur pris en charge.
 . Sélectionnez *Maintenance*. Ensuite, dans la section système du menu, sélectionnez *mise à jour du logiciel*.

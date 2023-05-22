@@ -25,7 +25,7 @@ Le service Load Balancer de chaque nœud fonctionne indépendamment lors du tran
 
 Bien que le service StorageGRID Load Balancer soit le mécanisme d'équilibrage de la charge recommandé, vous pouvez à la place intégrer un équilibreur de charge tiers. Pour plus d'informations, contactez votre ingénieur commercial NetApp ou consultez le rapport technique suivant :
 
-https://www.netapp.com/pdf.html?item=/media/17068-tr4626pdf.pdf["Options d'équilibrage de la charge StorageGRID"^]
+https://["Options d'équilibrage de la charge StorageGRID"^]
 
 
 NOTE: Le service distinct Connection Load Balancer (CLB) sur les nœuds de passerelle est obsolète et n'est plus recommandé pour une utilisation avec FabricPool.

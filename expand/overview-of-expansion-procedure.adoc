@@ -25,7 +25,7 @@ image::../media/expansion_workflow.png[organigramme montrant un aperçu du proce
 
 *Informations connexes*
 
-https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^]
+https://["Matrice d'interopérabilité NetApp"^]
 
 link:planning-expansion.html["Planification d'une extension StorageGRID"]
 

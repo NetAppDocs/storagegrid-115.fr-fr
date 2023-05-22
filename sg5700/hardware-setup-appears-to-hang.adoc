@@ -57,4 +57,4 @@ link:status-indicators-on-e5700sg-controller.html["Voyants d'état sur le contr�
 
 link:he-error-error-synchronizing-with-santricity-os-software.html["Erreur : erreur de synchronisation avec le logiciel SANtricity OS"]
 
-http://mysupport.netapp.com/info/web/ECMP1658252.html["Site de documentation sur les systèmes NetApp E-Series"^]
+http://["Site de documentation sur les systèmes NetApp E-Series"^]

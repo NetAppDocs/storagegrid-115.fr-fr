@@ -21,8 +21,8 @@ NOTE: Les noms de champs exacts répertoriés et le processus que vous utilisez 
 
 Pour plus d'informations, reportez-vous aux sections suivantes :
 
-* https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["Tr-4598 : meilleures pratiques FabricPool pour ONTAP 9.8"^]
-* https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"^]
+* https://["Tr-4598 : meilleures pratiques FabricPool pour ONTAP 9.8"^]
+* https://["Centre de documentation ONTAP 9"^]
 
 
 [cols="1a,2a"]

@@ -28,7 +28,7 @@ Le second chiffre des deux versions doit correspondre. Par exemple, si votre sys
 
 . Si l'appliance dispose d'une version antérieure du programme d'installation de l'appliance StorageGRID, rendez-vous sur la page de téléchargements NetApp pour StorageGRID.
 +
-https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Téléchargement NetApp : StorageGRID"^]
+https://["Téléchargement NetApp : StorageGRID"^]
 
 +
 Connectez-vous avec le nom d'utilisateur et le mot de passe de votre compte NetApp.

@@ -81,7 +81,7 @@ link:../rhel/index.html["Installez Red Hat Enterprise Linux ou CentOS"]
 
 link:../ubuntu/index.html["Installez Ubuntu ou Debian"]
 
-https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^]
+https://["Matrice d'interopérabilité NetApp"^]
 
 
 
@@ -146,7 +146,7 @@ Vous devez effectuer des opérations d'extension à l'aide de la version de Stor
 .Étapes
 . Accédez à la page de téléchargements NetApp pour StorageGRID.
 +
-https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Téléchargement NetApp : StorageGRID"^]
+https://["Téléchargement NetApp : StorageGRID"^]
 
 . Sélectionnez la version de StorageGRID en cours d'exécution sur la grille.
 . Connectez-vous avec le nom d'utilisateur et le mot de passe de votre compte NetApp.
@@ -435,6 +435,6 @@ N'utilisez pas la traduction d'adresse réseau (NAT) sur le réseau de grille en
 
 *Informations connexes*
 
-https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^]
+https://["Matrice d'interopérabilité NetApp"^]
 
 link:updating-subnets-for-grid-network.html["Mise à jour des sous-réseaux pour le réseau Grid"]

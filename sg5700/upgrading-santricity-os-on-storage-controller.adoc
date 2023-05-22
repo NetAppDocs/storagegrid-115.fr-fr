@@ -24,8 +24,8 @@ link:upgrading-santricity-os-on-e2800-controller-using-maintenance-mode.html["Mi
 
 
 .Informations associées
-https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^]
+https://["Matrice d'interopérabilité NetApp"^]
 
-https://mysupport.netapp.com/site/products/all/details/eseries-santricityos/downloads-tab["Téléchargements NetApp pour SANtricity OS"^]
+https://["Téléchargements NetApp pour SANtricity OS"^]
 
 link:../monitor/index.html["Moniteur et amp ; dépannage"]
