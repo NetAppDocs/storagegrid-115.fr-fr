@@ -32,10 +32,10 @@ image::../media/seven_segment_display_codes_for_e2800.gif[Codes d'affichage sept
 
 
 .Informations associées
-https://["Guide de surveillance des systèmes E5700 et E2800"^]
+https://library.netapp.com/ecmdocs/ECMLP2588751/html/frameset.html["Guide de surveillance des systèmes E5700 et E2800"^]
 
 link:troubleshooting-hardware-installation.html["Dépannage de l'installation du matériel"]
 
-https://["Support NetApp"^]
+https://mysupport.netapp.com/site/global/dashboard["Support NetApp"^]
 
 link:powering-on-sg6000-cn-controller-and-verifying-operation.html["Mise sous tension du contrôleur SG6000-CN et vérification du fonctionnement"]

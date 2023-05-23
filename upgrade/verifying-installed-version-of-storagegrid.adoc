@@ -39,7 +39,7 @@ Un chemin de mise à niveau possible est indiqué dans l'exemple.
 
 . Une fois que vous êtes sur StorageGRID 11.4, rendez-vous sur la page des téléchargements NetApp pour StorageGRID et vérifiez si des correctifs sont disponibles pour votre version StorageGRID 11.4._x_.
 +
-https://["Téléchargement NetApp : StorageGRID"^]
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Téléchargement NetApp : StorageGRID"^]
 
 . Vérifiez que le dernier correctif est appliqué à votre version de StorageGRID 11.4._x_.
 . Si nécessaire, téléchargez et appliquez le dernier correctif StorageGRID 11.4._x.y_ pour votre version StorageGRID 11.4._x_.

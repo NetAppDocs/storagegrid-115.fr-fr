@@ -171,7 +171,7 @@ De plus, assurez-vous que les champs mentionnés dans l'aide pour le nom d'utili
 Reportez-vous aux informations sur la maintenance de l'adhésion au groupe inverse dans le Guide de l'administrateur pour OpenLDAP.
 
 .Informations associées
-http://["Documentation OpenLDAP : version 2.4 - Guide de l'administrateur"^]
+http://www.openldap.org/doc/admin24/index.html["Documentation OpenLDAP : version 2.4 - Guide de l'administrateur"^]
 
 
 

@@ -51,7 +51,7 @@ Le nom de nœud est attribué à ce nœud d'appliance dans le système StorageGR
 +
 .. Téléchargez l'archive d'installation à partir de la page des téléchargements de NetApp pour StorageGRID.
 +
-https://["Téléchargement NetApp : StorageGRID"^]
+https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Téléchargement NetApp : StorageGRID"^]
 
 .. Extrayez l'archive.
 .. Dans le programme d'installation de l'appliance StorageGRID, sélectionnez *Avancé* > *Télécharger le logiciel StorageGRID*.

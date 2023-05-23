@@ -15,7 +15,7 @@ Le système StorageGRID prend en charge un maximum de 1,000 compartiments pour c
 
 Les restrictions de noms de compartiment sont respectées dans les restrictions de région standard AWS, mais vous devez les restreindre davantage aux conventions de nommage DNS afin de prendre en charge les demandes de type hébergement virtuel S3.
 
-https://["Documentation Amazon Web Services (AWS) : restrictions et limites des compartiments"]
+https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html["Documentation Amazon Web Services (AWS) : restrictions et limites des compartiments"]
 
 link:configuring-tenant-accounts-and-connections.html["Noms de domaine de terminaux pour la requête S3"]
 
@@ -342,7 +342,7 @@ Cette implémentation utilise le `versioning` sous-ressource pour définir l'ét
 
 |===
 .Informations associées
-http://["Documentation Amazon Web Services (AWS) : réplication entre régions"]
+http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html["Documentation Amazon Web Services (AWS) : réplication entre régions"]
 
 link:consistency-controls.html["Contrôles de cohérence"]
 
@@ -366,7 +366,7 @@ Vous pouvez créer une configuration de cycle de vie S3 afin de contrôler la su
 
 L'exemple simple de cette section illustre la façon dont une configuration du cycle de vie S3 peut contrôler la suppression de certains objets (expirés) dans des compartiments S3 spécifiques. L'exemple de cette section est fourni à titre d'illustration uniquement. Pour plus d'informations sur la création de configurations de cycle de vie S3, reportez-vous à la section relative à la gestion du cycle de vie des objets dans le _Amazon simple Storage Service Developer Guide_. Notez que StorageGRID prend uniquement en charge les actions d'expiration, mais pas les actions de transition.
 
-https://["Amazon simple Storage Service Developer Guide : gestion du cycle de vie des objets"]
+https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Amazon simple Storage Service Developer Guide : gestion du cycle de vie des objets"]
 
 
 

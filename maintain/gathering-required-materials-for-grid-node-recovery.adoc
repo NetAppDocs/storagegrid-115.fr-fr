@@ -60,7 +60,7 @@ Documentation actuelle pour votre plate-forme
  a| 
 Pour connaître les versions les plus récentes prises en charge de votre plateforme, consultez la matrice d'interopérabilité.
 
-https://["Matrice d'interopérabilité NetApp"]
+https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"]
 
 Rendez-vous sur le site Web du fournisseur de la plate-forme pour obtenir de la documentation.
 

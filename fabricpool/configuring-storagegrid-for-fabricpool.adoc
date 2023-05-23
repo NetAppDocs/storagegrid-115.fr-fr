@@ -31,8 +31,8 @@ Avant d'utiliser ces instructions :
 
 
 .Informations associées
-* https://["Tr-4598 : meilleures pratiques FabricPool pour ONTAP 9.8"^]
-* https://["Centre de documentation ONTAP 9"^]
+* https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["Tr-4598 : meilleures pratiques FabricPool pour ONTAP 9.8"^]
+* https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"^]
 
 
 

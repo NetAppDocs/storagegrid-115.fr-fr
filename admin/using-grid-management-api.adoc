@@ -29,4 +29,4 @@ L'API de gestion du grid fournit les ressources de premier niveau suivantes :
 .Informations associées
 link:../tenant/index.html["Utilisez un compte de locataire"]
 
-https://["Prometheus : notions de base sur les requêtes"^]
+https://prometheus.io/docs/querying/basics/["Prometheus : notions de base sur les requêtes"^]

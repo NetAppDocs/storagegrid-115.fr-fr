@@ -33,7 +33,7 @@ Un administrateur de grid doit activer le paramètre global de verrouillage d'ob
 ====
 Si vous avez activé le paramètre de conformité globale à l'aide d'une version précédente de StorageGRID, le nouveau paramètre de verrouillage d'objet S3 est automatiquement activé lorsque vous effectuez la mise à niveau vers StorageGRID version 11.5. Vous pouvez continuer à utiliser StorageGRID pour gérer les paramètres des compartiments conformes existants. Toutefois, vous ne pouvez plus créer de compartiments conformes.
 
-https://["Base de connaissances NetApp : comment gérer des compartiments conformes aux ancienne génération dans StorageGRID 11.5"^]
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de connaissances NetApp : comment gérer des compartiments conformes aux ancienne génération dans StorageGRID 11.5"^]
 
 ====
 .Étapes

@@ -123,4 +123,4 @@ link:s3-rest-api-supported-operations-and-limitations.html["Télécharger la pi�
 
 link:s3-rest-api-supported-operations-and-limitations.html["Télécharger la pièce - Copier"]
 
-https://["Guide pour les développeurs Amazon S3 : protection des données à l'aide du chiffrement côté serveur avec clés de chiffrement fournies par le client (SSE-C)"]
+https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html["Guide pour les développeurs Amazon S3 : protection des données à l'aide du chiffrement côté serveur avec clés de chiffrement fournies par le client (SSE-C)"]

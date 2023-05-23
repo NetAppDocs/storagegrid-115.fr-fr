@@ -15,6 +15,6 @@ Obtention d'informations spécifiques à la version sur les nouvelles fonctionna
 
 Les notes de version sont disponibles hors du site du document. Vous serez invité à vous connecter à l'aide de vos identifiants du site de support NetApp.
 
-* https://["HTML"^]
-* https://["PDF"^]
+* https://library.netapp.com/ecmdocs/ECMLP2873529/html/frameset.html["HTML"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2873529["PDF"^]
 

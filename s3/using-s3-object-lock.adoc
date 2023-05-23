@@ -112,4 +112,4 @@ link:s3-rest-api-supported-operations-and-limitations.html["Lancer le téléchar
 
 link:object-versioning.html["Gestion des versions d'objet"]
 
-https://["Guide de l'utilisateur Amazon simple Storage Service : utilisation du verrouillage d'objets S3"]
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html["Guide de l'utilisateur Amazon simple Storage Service : utilisation du verrouillage d'objets S3"]

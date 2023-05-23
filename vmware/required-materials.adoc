@@ -62,7 +62,7 @@ Documentation StorageGRID
 
 |===
 .Informations associées
-https://["Matrice d'interopérabilité NetApp"^]
+https://mysupport.netapp.com/matrix["Matrice d'interopérabilité NetApp"^]
 
 link:downloading-and-extracting-storagegrid-installation-files.html["Téléchargement et extraction des fichiers d'installation de StorageGRID"]
 

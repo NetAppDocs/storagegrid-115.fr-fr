@@ -42,7 +42,7 @@ Si vous avez précédemment activé le paramètre de conformité globale, le nou
 
 Dans le Gestionnaire de locataires, une icône de bouclier image:../media/icon_shield.png["Icône de bouclier"] Indique un compartiment conforme existant. Les compartiments conformes existants peuvent également comporter un badge de conservation image:../media/hold_badge.png["Conserver la badge"] pour indiquer que le godet est sous une retenue légale.
 
-https://["Ko : comment gérer les compartiments conformes aux anciennes dans StorageGRID 11.5"^]
+https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Ko : comment gérer les compartiments conformes aux anciennes dans StorageGRID 11.5"^]
 
 link:../ilm/index.html["Gestion des objets avec ILM"]
 

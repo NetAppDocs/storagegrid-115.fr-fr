@@ -44,4 +44,4 @@ NOTE: Pour plus de facilité, vous pouvez utiliser le lien SANtricity System Man
 
 Pour obtenir des informations détaillées sur les performances et l'utilisation de la capacité au niveau des baies de stockage, passez le curseur de la souris sur chaque graphique.
 
-Pour plus de détails sur l'affichage des informations accessibles depuis l'onglet SANtricity System Manager, reportez-vous aux informations du http://["Centre de documentation des systèmes NetApp E-Series"]
+Pour plus de détails sur l'affichage des informations accessibles depuis l'onglet SANtricity System Manager, reportez-vous aux informations du http://mysupport.netapp.com/info/web/ECMP1658252.html["Centre de documentation des systèmes NetApp E-Series"]

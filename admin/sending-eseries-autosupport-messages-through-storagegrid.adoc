@@ -34,7 +34,7 @@ link:configuring-admin-proxy-settings.html["Configuration des paramètres du pro
 ====
 Cette procédure permet uniquement de configurer un serveur proxy StorageGRID pour les messages AutoSupport E-Series. Pour en savoir plus sur la configuration des baies E-Series AutoSupport, consultez le centre de documentation E-Series.
 
-http://["Centre de documentation des systèmes NetApp E-Series"^]
+http://mysupport.netapp.com/info/web/ECMP1658252.html["Centre de documentation des systèmes NetApp E-Series"^]
 
 ====
 .Étapes
