@@ -20,7 +20,7 @@ Vous pouvez accéder à l'interface BMC sur le dispositif de services à l'aide 
 *Port de gestion BMC SG100*
 
 +
-image::../media/sg100_bmc_management_port.png[sg100 bmc port de gestion]
+image::../media/sg100_bmc_management_port.png[Port de gestion SG100]
 
 +
 *Port de gestion BMC SG1000*

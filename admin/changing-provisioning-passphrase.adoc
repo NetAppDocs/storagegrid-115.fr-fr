@@ -38,7 +38,7 @@ CAUTION: Stocker la nouvelle phrase secrète pour le provisionnement dans un emp
 Le système affiche une bannière verte de réussite lorsque la modification de la phrase de passe de provisionnement est terminée. Le changement devrait prendre moins d'une minute.
 
 +
-image::../media/change_provisioning_passphrase_success.png[la modification de la phrase secrète du provisionnement a réussi]
+image::../media/change_provisioning_passphrase_success.png[Modification de la phrase de passe de provisionnement - message de réussite]
 
 . Sélectionnez le lien *Recovery Package page* dans la bannière de réussite.
 . Téléchargez le nouveau package de récupération depuis Grid Manager. Sélectionnez *Maintenance* > *Recovery Package* et saisissez la nouvelle phrase de passe d'approvisionnement.

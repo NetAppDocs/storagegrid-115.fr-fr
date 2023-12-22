@@ -18,7 +18,7 @@ NOTE: Les messages AutoSupport déclenchés par des événements sont supprimés
 
 Lorsque le message AutoSupport ne parvient pas à envoyer, ""FAILED"" s'affiche dans l'onglet *Résultats* de la page *AutoSupport*.
 
-image::../media/autosupport_results_tab.png[onglet AutoSupport résultats]
+image::../media/autosupport_results_tab.png[Onglet Résultats AutoSupport]
 
 
 

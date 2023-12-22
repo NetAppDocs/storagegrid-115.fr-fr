@@ -15,7 +15,7 @@ Pour les deux ports de gestion 1 GbE de l'appliance de services, vous pouvez cho
 
 *Ports de gestion réseau SG100*
 
-image::../media/sg100_bonded_management_ports.png[ports de gestion liés sg100]
+image::../media/sg100_bonded_management_ports.png[Ports de gestion liés SG100]
 
 *Ports de gestion réseau SG1000*
 

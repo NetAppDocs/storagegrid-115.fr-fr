@@ -23,7 +23,7 @@ image::../media/kms_step_2_upload_server_certificate.png[KMS étape 2 Téléchar
 Les métadonnées du certificat de serveur s'affichent.
 
 +
-image::../media/kms_step_2_server_certificate_metadata.png[métadonnées de certificat de serveur de l'étape 2 kms]
+image::../media/kms_step_2_server_certificate_metadata.png[Métadonnées du certificat de serveur]
 
 +
 

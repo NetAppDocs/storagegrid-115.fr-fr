@@ -55,7 +55,7 @@ Un examen des informations de requête peut être nécessaire afin de contrôler
 
 Vous pouvez également afficher le nombre total de requêtes ayant échoué en raison d'échecs de cohérence. Les échecs de niveau de cohérence résultent d'un nombre insuffisant de magasins de métadonnées disponibles au moment où une requête est effectuée par le biais du service DDS spécifique.
 
-Vous pouvez utiliser la page Diagnostics pour obtenir des informations supplémentaires sur l'état actuel de votre grille. Voir link:../monitor/running-diagnostics.html.html["Exécution des diagnostics"].
+Vous pouvez utiliser la page Diagnostics pour obtenir des informations supplémentaires sur l'état actuel de votre grille. Voir link:../monitor/running-diagnostics.html["Exécution des diagnostics"].
 
 
 
@@ -92,7 +92,7 @@ Vous pouvez examiner les informations de requête afin de contrôler l'état du 
 
 Vous pouvez également afficher le nombre total de requêtes ayant échoué en raison d'échecs de cohérence. Les défaillances de niveau de cohérence résultent d'un nombre insuffisant de magasins de métadonnées disponibles au moment où une requête est exécutée via le service LDR spécifique.
 
-Vous pouvez utiliser la page Diagnostics pour obtenir des informations supplémentaires sur l'état actuel de votre grille. Voir link:../monitor/running-diagnostics.html.html["Exécution des diagnostics"].
+Vous pouvez utiliser la page Diagnostics pour obtenir des informations supplémentaires sur l'état actuel de votre grille. Voir link:../monitor/running-diagnostics.html["Exécution des diagnostics"].
 
 
 

@@ -38,7 +38,7 @@ Vous pouvez activer la fonctionnalité AutoSupport et les options AutoSupport in
 
 image::../media/autosupport_disabled_message.png[Message désactivé AutoSupport]
 
-Vous pouvez sélectionner le symbole « x » image:../media/autosupport_close_message.png[""] pour fermer le message. Le message ne s'affichera plus tant que le cache de votre navigateur n'aura pas été effacé, même si AutoSupport reste désactivé.
+Vous pouvez sélectionner le symbole « x » image:../media/autosupport_close_message.png["symbole x."] pour fermer le message. Le message ne s'affichera plus tant que le cache de votre navigateur n'aura pas été effacé, même si AutoSupport reste désactivé.
 
 
 
